@@ -147,13 +147,14 @@ export function ExerciseArt({ slug, still, paused, frameIndex, activity, data, n
         preserveAspectRatio="xMidYMid meet"
         aria-hidden
       >
-        {art.frames.map((d, i) => (
+        {/* Poses crossfade briefly instead of cutting; stills render only the chosen pose. */}
+        {art.frames.map((d, i) => (still || reduced) && i !== selected ? null : (
           <path
             key={i}
             d={d}
-            style={{
-              display: i === selected ? undefined : 'none',
-            }}
+            className="pose-frame"
+            data-active={i === selected ? '' : undefined}
+            style={{ opacity: i === selected ? 1 : 0 }}
           />
         ))}
       </svg>
