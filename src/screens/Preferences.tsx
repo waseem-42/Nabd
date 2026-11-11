@@ -1,8 +1,7 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CalendarDays, Download, ExternalLink, TriangleAlert, Upload } from 'lucide-react'
-import { routes } from '@/app/routes'
-import { BackupError, downloadBackup, exportBackup, importBackup, readBackupFile, upsertBodyWeight, useActiveProgram, useBodyWeights, useDoneSessions } from '@/db'
+import { Download, ExternalLink, TriangleAlert, Upload } from 'lucide-react'
+import { BackupError, downloadBackup, exportBackup, importBackup, readBackupFile, upsertBodyWeight, useBodyWeights, useDoneSessions } from '@/db'
 import { fmtDate, isoDay } from '@/i18n/format'
 import { BodyProfileForm } from './parts/BodyProfileForm'
 import { useLang, useT } from '@/i18n'
@@ -33,12 +32,12 @@ function writeLastBackup(): number {
   return now
 }
 
-export default function Settings() {
+/** Settings, behind the gear icon in the header. */
+export default function Preferences() {
   const t = useT()
   const navigate = useNavigate()
   const toast = useToast()
   const settings = useSettings()
-  const program = useActiveProgram()
   const fileInput = useRef<HTMLInputElement>(null)
   const [pending, setPending] = useState<unknown>(null)
   const lang = useLang()
@@ -85,16 +84,10 @@ export default function Settings() {
   }
 
   return (
-    <Screen title={t('common.tab.settings')}>
-      <Section title={t('programs.title')}>
-        <Card padded={false} className="py-1">
-          <ListRow
-            leading={<CalendarDays className="size-5 text-muted" />}
-            title={t('programs.title')}
-            subtitle={program ? program.program.name : t('today.noProgram')}
-            chevron
-            onClick={() => navigate(routes.programs)}
-          />
+    <Screen title={t('app.settings')} onBack={() => navigate(-1)}>
+      <Section title={t('settings.homeGear')}>
+        <Card>
+          <HomeGearPicker />
         </Card>
       </Section>
 
@@ -129,7 +122,6 @@ export default function Settings() {
 
       <Section title={t('body.title')}>
         <Card className="flex flex-col gap-4">
-          <p className="text-sm text-muted">{t('body.intro')}</p>
           <BodyProfileForm weightKg={weightKg} onWeight={setDraftKg} />
           {weightKg === null && <p className="text-sm text-faint">{t('body.noWeight')}</p>}
           <Button
@@ -168,7 +160,6 @@ export default function Settings() {
               max={600}
               unit={t('common.sec')}
             />
-            <p className="mt-2 text-sm text-faint">{t('settings.restHint')}</p>
           </div>
           <label className="flex items-center justify-between gap-4">
             <span className="text-base text-text">{t('settings.sound')}</span>
@@ -179,7 +170,6 @@ export default function Settings() {
               <span className="text-base text-text">{t('body.autoWarmup')}</span>
               <Toggle checked={settings.autoWarmup} onChange={(autoWarmup) => settings.set({ autoWarmup })} label={t('body.autoWarmup')} />
             </label>
-            <p className="mt-2 text-sm text-faint">{t('body.autoWarmupHint')}</p>
           </div>
           <label className="flex items-center justify-between gap-4">
             <span className="text-base text-text">{t('settings.haptics')}</span>
@@ -190,14 +180,7 @@ export default function Settings() {
               <span className="text-base text-text">{t('settings.keepAwake')}</span>
               <Toggle checked={settings.keepAwake} onChange={(keepAwake) => settings.set({ keepAwake })} label={t('settings.keepAwake')} />
             </label>
-            <p className="mt-2 text-sm text-faint">{t('settings.keepAwakeHint')}</p>
           </div>
-        </Card>
-      </Section>
-
-      <Section title={t('settings.homeGear')}>
-        <Card>
-          <HomeGearPicker />
         </Card>
       </Section>
 

@@ -223,6 +223,9 @@ export interface Settings {
   homeEquipment: Equipment[]
   homeAccessories: Accessory[]
   activeProgramId: string | null
+  /** The program followed at each place; the app shows the one for `place`. */
+  homeProgramId: string | null
+  gymProgramId: string | null
   sound: boolean
   onboarded: boolean
   /** Training background: scales suggested starting weights and the warm-up length. */
@@ -245,6 +248,8 @@ export const DEFAULT_SETTINGS: Settings = {
   homeEquipment: ['bodyweight'],
   homeAccessories: [],
   activeProgramId: null,
+  homeProgramId: null,
+  gymProgramId: null,
   sound: true,
   onboarded: false,
   level: 'beginner',

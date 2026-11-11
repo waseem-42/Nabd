@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { Activity, ChartNoAxesColumn, Dumbbell, SlidersHorizontal } from 'lucide-react'
+import { Activity, ChartNoAxesColumn, Dumbbell } from 'lucide-react'
 import type { ComponentType } from 'react'
 import { TABS } from '@/app/routes'
 import type { TabKey } from '@/app/routes'
@@ -10,7 +10,6 @@ const ICONS: Record<TabKey, ComponentType<{ className?: string; strokeWidth?: nu
   today: Activity,
   library: Dumbbell,
   progress: ChartNoAxesColumn,
-  settings: SlidersHorizontal,
 }
 
 /** Fixed bottom navigation: the coral capsule marks the current section. */
