@@ -1,0 +1,51 @@
+import type { Dict } from '../index'
+
+/** Strings for the programs area (programs, program detail, routine editor). Keys are prefixed 'programs.'. */
+export default {
+  'programs.title': { ar: 'البرامج', en: 'Programs' },
+  'programs.mine': { ar: 'برامجي', en: 'My programs' },
+  'programs.ready': { ar: 'برامج جاهزة', en: 'Ready-made programs' },
+  'programs.active': { ar: 'برنامجك الحالي', en: 'Current program' },
+  'programs.makeActive': { ar: 'اجعله برنامجي الحالي', en: 'Make it my current program' },
+  'programs.days': { ar: '{n} أيام', en: '{n} days' },
+  'programs.perWeek': { ar: '{n} أيام بالأسبوع', en: '{n} days a week' },
+  'programs.fits': { ar: 'يناسب معداتك', en: 'Fits your gear' },
+  'programs.needsGear': { ar: 'يحتاج معدات', en: 'Needs gear' },
+  'programs.missingGear': {
+    ar: '{n} تمارين تحتاج معدات مو عندك — نقترح لك بدائل وقت التمرين.',
+    en: "{n} exercises need gear you don't have — you'll get swaps during the workout.",
+  },
+  'programs.start': { ar: 'ابدأ هذا البرنامج', en: 'Start this program' },
+  'programs.started': { ar: 'صار برنامجك الحالي', en: 'Now your current program' },
+  'programs.create': { ar: 'سوّ برنامجك', en: 'Build your own program' },
+  'programs.name': { ar: 'اسم البرنامج', en: 'Program name' },
+  'programs.rename': { ar: 'تغيير الاسم', en: 'Rename' },
+  'programs.delete': { ar: 'حذف البرنامج', en: 'Delete program' },
+  'programs.deleteTitle': { ar: 'تحذف البرنامج؟', en: 'Delete this program?' },
+  'programs.deleteBody': {
+    ar: 'أيامه بتنحذف معه. تمارينك السابقة تبقى في السجل.',
+    en: 'Its days are deleted with it. Your past workouts stay in your history.',
+  },
+  'programs.notFound': { ar: 'ما لقينا البرنامج', en: 'Program not found' },
+  'programs.rotation': { ar: 'أيام التمرين بالترتيب', en: 'Training days, in order' },
+  'programs.rotationHint': {
+    ar: 'كل مرة تتمرّن نجيب لك اليوم اللي بعده — بدون جدول أيام ثابت.',
+    en: 'Each workout picks up the next day in the list — no fixed weekdays.',
+  },
+  'programs.addDay': { ar: 'إضافة يوم', en: 'Add a day' },
+  'programs.newDay': { ar: 'يوم جديد', en: 'New day' },
+  'programs.editDay': { ar: 'تعديل اليوم', en: 'Edit day' },
+  'programs.dayNotFound': { ar: 'ما لقينا هذا اليوم', en: 'Day not found' },
+  'programs.dayName': { ar: 'اسم اليوم', en: 'Day name' },
+  'programs.dayNamePlaceholder': { ar: 'مثلاً: صدر وترايسبس', en: 'e.g. Chest & triceps' },
+  'programs.exercises': { ar: 'التمارين', en: 'Exercises' },
+  'programs.noExercises': { ar: 'أضف تمارين لهذا اليوم', en: 'Add exercises to this day' },
+  'programs.sets': { ar: 'المجموعات', en: 'Sets' },
+  'programs.itemNotFit': { ar: 'ما يناسب المكان', en: "Doesn't fit this place" },
+  'programs.deleteDay': { ar: 'حذف اليوم', en: 'Delete day' },
+  'programs.deleteDayTitle': { ar: 'تحذف هذا اليوم؟', en: 'Delete this day?' },
+  'programs.deleteDayBody': {
+    ar: 'بينشال من البرنامج. تمارينك السابقة تبقى في السجل.',
+    en: 'It is removed from the program. Your past workouts stay in your history.',
+  },
+} satisfies Dict

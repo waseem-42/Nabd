@@ -1,0 +1,10 @@
+{
+  "project":"nabd-motion-styles-v1",
+  "note":"إضافة أربعة اتجاهات جديدة 04–07 في مجلد رسوم مستقل، مع الاحتفاظ بالمقاطع 01–03 وتعديلات المستخدم.",
+  "ops":[
+    {"op":"add_clip","clip":{"id":"nabd-athlete-v2","trackId":"motion","graphic":"graphics/squat-v2","graphicData":{"style":"athlete","lang":"ar"},"label":"04 · شخصية رياضية","start":18,"in":0,"out":6}},
+    {"op":"add_clip","clip":{"id":"nabd-contour-v2","trackId":"motion","graphic":"graphics/squat-v2","graphicData":{"style":"contour","lang":"ar"},"label":"05 · خطوط واضحة","start":24,"in":0,"out":6}},
+    {"op":"add_clip","clip":{"id":"nabd-segments-v2","trackId":"motion","graphic":"graphics/squat-v2","graphicData":{"style":"segments","lang":"ar"},"label":"06 · أجزاء ملوّنة","start":30,"in":0,"out":6}},
+    {"op":"add_clip","clip":{"id":"nabd-comparison-v2","trackId":"motion","graphic":"graphics/squat-v2","graphicData":{"style":"comparison","lang":"ar"},"label":"07 · قبل وأثناء","start":36,"in":0,"out":6}}
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "project": "nabd-rig-batch-01",
+  "ops": [
+    {
+      "op": "set_settings",
+      "patch": {
+        "aspect": "1:1",
+        "resolution": 1080,
+        "fps": 24,
+        "motionBlur": 0,
+        "theme": {
+          "accent": "#ff785c",
+          "accent2": "#a6bfb8",
+          "panel": "#171b16",
+          "text": "#f5f2e9",
+          "font": "IBM Plex Sans Arabic",
+          "direction": "rtl"
+        }
+      }
+    },
+    {
+      "op": "add_track",
+      "track": {
+        "id": "motion",
+        "kind": "overlay",
+        "name": "الدفعة الأولى · حركة مستمرة"
+      }
+    },
+    {
+      "op": "add_clip",
+      "clip": {
+        "id": "rig-squat-01",
+        "trackId": "motion",
+        "graphic": "graphics/rigs",
+        "graphicData": {
+          "exercise": "6YUfHPL",
+          "lang": "ar"
+        },
+        "label": "01 · سكوات بوزن الجسم",
+        "start": 0,
+        "in": 0,
+        "out": 6
+      }
+    },
+    {
+      "op": "add_clip",
+      "clip": {
+        "id": "rig-pushup-01",
+        "trackId": "motion",
+        "graphic": "graphics/rigs",
+        "graphicData": {
+          "exercise": "I4hDWkc",
+          "lang": "ar"
+        },
+        "label": "02 · الضغط",
+        "start": 6,
+        "in": 0,
+        "out": 6
+      }
+    },
+    {
+      "op": "add_clip",
+      "clip": {
+        "id": "rig-split-01",
+        "trackId": "motion",
+        "graphic": "graphics/rigs",
+        "graphicData": {
+          "exercise": "9E25EOx",
+          "lang": "ar"
+        },
+        "label": "03 · سبليت سكوات",
+        "start": 12,
+        "in": 0,
+        "out": 6
+      }
+    },
+    {
+      "op": "add_clip",
+      "clip": {
+        "id": "rig-bridge-01",
+        "trackId": "motion",
+        "graphic": "graphics/rigs",
+        "graphicData": {
+          "exercise": "glute-bridge",
+          "lang": "ar"
+        },
+        "label": "04 · جسر الأرداف",
+        "start": 18,
+        "in": 0,
+        "out": 6
+      }
+    },
+    {
+      "op": "add_clip",
+      "clip": {
+        "id": "rig-calf-01",
+        "trackId": "motion",
+        "graphic": "graphics/rigs",
+        "graphicData": {
+          "exercise": "bJYHBIN",
+          "lang": "ar"
+        },
+        "label": "05 · رفع السمانة",
+        "start": 24,
+        "in": 0,
+        "out": 6
+      }
+    },
+    {
+      "op": "add_clip",
+      "clip": {
+        "id": "rig-curl-01",
+        "trackId": "motion",
+        "graphic": "graphics/rigs",
+        "graphicData": {
+          "exercise": "NbVPDMW",
+          "lang": "ar"
+        },
+        "label": "06 · كيرل دمبل",
+        "start": 30,
+        "in": 0,
+        "out": 6
+      }
+    },
+    {
+      "op": "add_clip",
+      "clip": {
+        "id": "rig-pulldown-01",
+        "trackId": "motion",
+        "graphic": "graphics/rigs",
+        "graphicData": {
+          "exercise": "RVwzP10",
+          "lang": "ar"
+        },
+        "label": "07 · السحب العلوي",
+        "start": 36,
+        "in": 0,
+        "out": 6
+      }
+    },
+    {
+      "op": "add_clip",
+      "clip": {
+        "id": "rig-row-01",
+        "trackId": "motion",
+        "graphic": "graphics/rigs",
+        "graphicData": {
+          "exercise": "fUBheHs",
+          "lang": "ar"
+        },
+        "label": "08 · تجديف الكيبل",
+        "start": 42,
+        "in": 0,
+        "out": 6
+      }
+    },
+    {
+      "op": "add_clip",
+      "clip": {
+        "id": "rig-shoulder-01",
+        "trackId": "motion",
+        "graphic": "graphics/rigs",
+        "graphicData": {
+          "exercise": "3d7wHyd",
+          "lang": "ar"
+        },
+        "label": "09 · ضغط كتف بالدمبل",
+        "start": 48,
+        "in": 0,
+        "out": 6
+      }
+    },
+    {
+      "op": "add_clip",
+      "clip": {
+        "id": "rig-bench-01",
+        "trackId": "motion",
+        "graphic": "graphics/rigs",
+        "graphicData": {
+          "exercise": "SpYC0Kp",
+          "lang": "ar"
+        },
+        "label": "10 · بنش بالدمبل",
+        "start": 54,
+        "in": 0,
+        "out": 6
+      }
+    }
+  ],
+  "note": "الدفعة الأولى: عشرة هياكل مفاصل مستقلة مرتبطة بمعرّفات التمارين الدقيقة، بمصدر رسم واحد للتطبيق وقصّة."
+}

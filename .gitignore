@@ -1,0 +1,35 @@
+node_modules
+dist
+dev-dist
+.cache
+*.local
+.DS_Store
+studio/edit-data/logs/
+studio/edit-data/projects/*/cache/
+studio/edit-data/projects/*/renders/
+
+# Secrets / environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build / tool caches
+coverage
+.vite
+*.tsbuildinfo
+.eslintcache
+
+# Editors / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+Thumbs.db
+
+# Claude Code personal settings (shared settings stay tracked)
+.claude/settings.local.json

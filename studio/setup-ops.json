@@ -1,0 +1,11 @@
+{
+  "project": "nabd-motion-styles-v1",
+  "note": "ثلاث عينات سكوات بهوية نبض للمقارنة قبل الاعتماد. المصدر مشترك مع معاينة التطبيق، ولم تتغير بقية رسوم المكتبة.",
+  "ops": [
+    {"op":"set_settings","patch":{"aspect":"1:1","resolution":1080,"fps":24,"motionBlur":0,"theme":{"accent":"#ff785c","accent2":"#a6bfb8","panel":"#171b16","text":"#f5f2e9","font":"IBM Plex Sans Arabic","direction":"rtl"}}},
+    {"op":"add_track","track":{"id":"motion","kind":"overlay","name":"عينات نبض"}},
+    {"op":"add_clip","clip":{"id":"nabd-sculpted-v1","trackId":"motion","graphic":"graphics/squat","graphicData":{"style":"sculpted","lang":"ar"},"label":"01 · مجسّم مبسّط","start":0,"in":0,"out":6}},
+    {"op":"add_clip","clip":{"id":"nabd-technical-v1","trackId":"motion","graphic":"graphics/squat","graphicData":{"style":"technical","lang":"ar"},"label":"02 · رسم تقني","start":6,"in":0,"out":6}},
+    {"op":"add_clip","clip":{"id":"nabd-duotone-v1","trackId":"motion","graphic":"graphics/squat","graphicData":{"style":"duotone","lang":"ar"},"label":"03 · رسم بلونين","start":12,"in":0,"out":6}}
+  ]
+}

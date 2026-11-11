@@ -1,0 +1,138 @@
+import type { Exercise, L10n, Lang } from '@/types'
+
+// Exact catalogue IDs only. Do not borrow technique cues for a similarly named variant.
+// Primary references and the scope of each cue are documented in docs/EXERCISE-SAFETY.md.
+export const EXERCISE_SAFETY: Record<string, L10n[]> = {
+  '6YUfHPL': [
+    { ar: 'خل الكعبين على الأرض والركبتين باتجاه أصابع القدم، بدون انهيار للداخل.', en: 'Keep heels grounded and knees tracking with the toes, without collapsing inward.' },
+    { ar: 'انزل بتحكم؛ قلل العمق إذا ارتفع الكعب أو بدأت تفقد ثبات الظهر.', en: 'Lower with control; reduce depth if heels lift or you lose a stable back position.' },
+  ],
+  I4hDWkc: [
+    { ar: 'ثبت البطن وخل الرأس والجذع على خط واحد؛ تجنب هبوط أسفل الظهر.', en: 'Brace your trunk and align head and torso; avoid letting the lower back sag.' },
+    { ar: 'ارفع الجسم وانزله كوحدة واحدة بدون رفع الحوض لحاله.', en: 'Raise and lower the body as one unit rather than lifting the hips alone.' },
+  ],
+  '9E25EOx': [
+    { ar: 'ثبت وقفة متوازنة وخل الركبة الأمامية باتجاه القدم، بدون انهيار للداخل.', en: 'Use a balanced stance and keep the front knee tracking with the foot, without collapsing inward.' },
+    { ar: 'انزل بتحكم مع ثبات الجذع؛ قلل المدى إذا فقدت التوازن.', en: 'Lower with a steady trunk; shorten the range if you lose balance.' },
+  ],
+  'glute-bridge': [
+    { ar: 'ارفع الحوض بعصر عضلات المؤخرة، بدون زيادة تقوّس أسفل الظهر.', en: 'Lift the hips by engaging the glutes, without over-arching the lower back.' },
+    { ar: 'ثبت القدمين وانزل الحوض بهدوء؛ تجنب الدفع المفاجئ.', en: 'Keep feet planted and lower the hips smoothly; avoid thrusting abruptly.' },
+  ],
+  bJYHBIN: [
+    { ar: 'استخدم الجدار للتوازن وخل القدمين باتجاه الأمام.', en: 'Use the wall for balance and keep feet pointing forward.' },
+    { ar: 'ارفع الكعبين وانزل بتحكم؛ تجنب الارتداد أو لف القدمين.', en: 'Raise and lower heels with control; avoid bouncing or twisting the feet.' },
+  ],
+  NbVPDMW: [
+    { ar: 'ثبت الذراعين العلويين بجانب الجسم والرسغين بوضع مريح ومحايد.', en: 'Keep upper arms by your sides and wrists in a comfortable neutral position.' },
+    { ar: 'ارفع بالذراع بدون تأرجح الجذع أو تقويس الظهر للمساعدة.', en: 'Curl without swinging the torso or arching the back to help lift.' },
+  ],
+  RVwzP10: [
+    { ar: 'اسحب البار أمامك باتجاه أعلى الصدر، وليس خلف الرقبة.', en: 'Bring the bar down in front toward the upper chest, rather than behind the neck.' },
+    { ar: 'ثبت الجذع؛ تجنب الاندفاع للخلف أو شد الوزن بهزة.', en: 'Keep the trunk steady; avoid leaning farther back or jerking the load.' },
+  ],
+  fUBheHs: [
+    { ar: 'ثبت الجذع والرسغين؛ تجنب تقويس أسفل الظهر لشد الوزن.', en: 'Keep trunk and wrists steady; avoid arching the lower back to pull the load.' },
+    { ar: 'اسحب وارجع بتحكم، بدون تأرجح الجسم للأمام والخلف.', en: 'Pull and return with control rather than rocking the body back and forth.' },
+  ],
+  '3d7wHyd': [
+    { ar: 'ثبت الظهر على مسند المقعد وتجنب زيادة تقوّس أسفل الظهر.', en: 'Keep your back supported by the seat and avoid over-arching the lower back.' },
+    { ar: 'ارفع وانزل الدمبل بتحكم، وقلل الحمل إذا فقدت ثبات الجذع.', en: 'Press and lower the dumbbells with control; reduce the load if the trunk loses stability.' },
+  ],
+  SpYC0Kp: [
+    { ar: 'ثبت الرأس والكتفين والمؤخرة على المقعد والقدمين على الأرض.', en: 'Keep head, shoulders and hips supported on the bench, with feet grounded.' },
+    { ar: 'ثبت الرسغين وانزل الدمبل بتحكم؛ استخدم حملًا تقدر ترفعه وتضعه بأمان.', en: 'Keep wrists steady and lower with control; choose a load you can safely position and put down.' },
+  ],
+  // Batch two.
+  qXTaZnJ: [
+    { ar: 'خذ البار من حامل بارتفاع الكتف تقريبًا وثبّته على أعلى الظهر، مو على الرقبة. استخدم مساند الأمان.', en: 'Take the bar from a rack set near shoulder height and rest it on the upper back, not the neck. Set the safety arms.' },
+    { ar: 'خل الصدر مرفوع والركبتين باتجاه أصابع القدم؛ انزل للعمق اللي تتحكم فيه، ما يلزم توصل للموازي.', en: 'Keep the chest up and knees tracking the toes; squat only as deep as you control — parallel is not required.' },
+  ],
+  wQ2c4XD: [
+    { ar: 'انحنِ من الوركين وظهرك محايد، والبار قريب من رجليك طول الحركة.', en: 'Hinge from the hips with a neutral back, keeping the bar close to your legs throughout.' },
+    { ar: 'انزل لين تحس بشد خلف الفخذ، ووقف قبل ما يتقوّس ظهرك.', en: 'Lower until you feel tension in the back of the thighs, and stop before the back rounds.' },
+  ],
+  DsgkuIt: [
+    { ar: 'ثني خفيف في المرفقين والكتفين لتحت وللخلف؛ ارفع لمستوى الكتف تقريبًا، مو أعلى.', en: 'Keep a slight elbow bend with shoulders down and back; raise to about shoulder height, not higher.' },
+    { ar: 'وزن خفيف ونزول بطيء — بدون تأرجح الجسم.', en: 'Use a light load and lower slowly — no swinging the body.' },
+  ],
+  T2mxWqc: [
+    { ar: 'ابدأ من تعلّق ثابت مع شد الكتفين؛ تجنب التأرجح أو الرفس للمساعدة.', en: 'Start from a steady hang with shoulders engaged; avoid swinging or kicking to help.' },
+    { ar: 'انزل للآخر بتحكم. إذا ما تقدر تكمل التكرار، استخدم حبل مطاطي أو جهاز مساعدة.', en: 'Lower all the way with control. If you can’t finish a rep, use a band or an assisted machine.' },
+  ],
+  '3ZflifB': [
+    { ar: 'خل المرفقين لاصقة بجنبك؛ الساعد بس اللي يتحرك.', en: 'Keep the elbows at your sides; only the forearms move.' },
+    { ar: 'ارجع بهدوء لمستوى الصدر تقريبًا، ولا تخلي الوزن يسحب يدينك فجأة.', en: 'Return slowly to about chest height; don’t let the stack yank your hands up.' },
+  ],
+}
+
+const GENERAL: Record<Exercise['kind'], L10n[]> = {
+  strength: [
+    { ar: 'ابدأ بحمل تقدر تتحكم فيه. خفف الوزن أو العدات إذا فقدت جودة الحركة.', en: 'Start with a manageable load. Reduce weight or reps if technique breaks down.' },
+    { ar: 'تحرك بدون اندفاع وتنفس بانتظام؛ تجنب حبس النفس.', en: 'Move without jerking and breathe steadily; avoid holding your breath.' },
+  ],
+  calisthenics: [
+    { ar: 'اختر نسخة تقدر تؤديها بتحكم، وقلل العدات إذا فقدت ثبات الحركة.', en: 'Choose a version you can control and reduce reps if movement becomes unstable.' },
+    { ar: 'تحرك بهدوء وتنفس بانتظام بدل حبس النفس.', en: 'Move smoothly and breathe steadily instead of holding your breath.' },
+  ],
+  cardio: [
+    { ar: 'ابدأ بجهد خفيف وارفعه تدريجيًا حسب قدرتك.', en: 'Start at an easy effort and build gradually within your ability.' },
+    { ar: 'جهز مساحة ومعدات مناسبة للنشاط، وانتبه للسوائل والحرارة.', en: 'Use space and equipment suited to the activity; account for hydration and heat.' },
+  ],
+  stretch: [
+    { ar: 'ابدأ بلطف؛ لا تجبر المفصل على مدى مؤلم.', en: 'Start gently; do not force a joint into a painful range.' },
+    { ar: 'حافظ على حركة هادئة وتنفس منتظم.', en: 'Keep movement gentle and breathing steady.' },
+  ],
+  sport: [
+    { ar: 'تعلم تقنية النشاط واستخدم معدات الحماية المناسبة له.', en: 'Learn the activity’s technique and use appropriate protective equipment.' },
+    { ar: 'ابدأ بالتدرج حسب قدرتك. الرمز المعروض ليس شرحًا كاملًا لتقنية الرياضة.', en: 'Build gradually within your ability. The symbol shown is not a complete technique guide for the sport.' },
+  ],
+}
+
+export function safetyFor(exercise: Exercise): { specific: boolean; cues: L10n[] } {
+  const exact = exercise.custom ? undefined : EXERCISE_SAFETY[exercise.id]
+  return { specific: !!exact, cues: exact ? [...exact, GENERAL[exercise.kind][0]!] : GENERAL[exercise.kind] }
+}
+
+// Narrow corrections to the bundled how-to copy. Keep generated catalogue files intact.
+const STEP_CORRECTIONS: Record<string, Record<number, L10n>> = {
+  NbVPDMW: {
+    2: { ar: 'اثنِ المرفقين لمدى مريح مع ثبات الذراعين العلويين والرسغين؛ لا ترفع المرفق للوصول بالدمبل إلى الكتف.', en: 'Curl within a comfortable range with upper arms and wrists steady; do not lift the elbows to force the dumbbells to shoulder height.' },
+  },
+  '3d7wHyd': {
+    2: { ar: 'ادفع الدمبل للأعلى بتحكم مع ثبات الجذع؛ تجنب قفل المرفقين بقوة.', en: 'Press the dumbbells upward with a steady trunk; avoid forcefully locking the elbows.' },
+  },
+  '6YUfHPL': {
+    3: { ar: 'انزل لمدى تقدر تتحكم فيه مع ثبات الكعبين والظهر؛ لا تجبر نفسك على عمق الرسم.', en: 'Lower only as far as you can control with heels grounded and back stable; do not force the illustrated depth.' },
+  },
+  '9E25EOx': {
+    1: { ar: 'خذ وقفة متوازنة بقدم أمامك والثانية خلفك، وثبت مكان القدمين خلال الحركة.', en: 'Take a balanced split stance with one foot forward and the other behind; keep both feet in place during the movement.' },
+    3: { ar: 'انزل بتحكم لمدى تقدر تثبت فيه الجذع والتوازن، بدون إجبار الفخذ على وضع أفقي.', en: 'Lower within a range that preserves trunk control and balance, without forcing the front thigh to horizontal.' },
+  },
+  'glute-bridge': {
+    4: { ar: 'انزل الحوض بهدوء مع ثبات الجذع، بدون تقويس زائد لأسفل الظهر.', en: 'Lower the hips smoothly with trunk control, avoiding excessive lower-back arching.' },
+  },
+  SpYC0Kp: {
+    2: { ar: 'انزل الدمبل بتحكم بجانب الصدر، لمدى مريح تقدر تتحكم فيه مع ثبات الرسغين والكتفين.', en: 'Lower the dumbbells beside the chest within a comfortable, controlled range, keeping wrists and shoulders stable.' },
+  },
+}
+
+const ADDITIONAL_STEPS: Record<string, L10n[]> = {
+  RVwzP10: [{ ar: 'ارجع البار للأعلى بهدوء مع فرد الذراعين بتحكم وثبات الجذع؛ لا تترك الوزن يسحبك فجأة.', en: 'Return the bar upward slowly, extending the arms with control and keeping the trunk steady; do not let the load pull you abruptly.' }],
+}
+
+export function exerciseStepsFor(exercise: Exercise, lang: Lang): string[] {
+  const translated = exercise.steps[lang].length > 0
+  const steps = translated ? exercise.steps[lang] : exercise.steps.en
+  const corrections = exercise.custom ? undefined : STEP_CORRECTIONS[exercise.id]
+  const copyLang = translated ? lang : 'en'
+  const additions = exercise.custom || !steps.length ? [] : ADDITIONAL_STEPS[exercise.id] ?? []
+  return [...steps.map((step, i) => corrections?.[i]?.[copyLang] ?? step), ...additions.map(step => step[copyLang])]
+}
+
+export const SAFETY_SOURCES = {
+  technique: 'https://www.mayoclinic.org/healthy-lifestyle/fitness/in-depth/weight-training/art-20045842',
+  symptoms: 'https://www.nhs.uk/symptoms/chest-pain/',
+  activity: 'https://www.niddk.nih.gov/health-information/weight-management/tips-get-active/tips-keep-moving',
+  stretch: 'https://www.heart.org/en/healthy-living/exercise-and-physical-activity/fitness-basics/flexibility-exercise-stretching',
+}

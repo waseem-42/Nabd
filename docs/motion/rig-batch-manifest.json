@@ -1,0 +1,366 @@
+{
+  "duration": 6,
+  "style": "technical",
+  "rigs": [
+    {
+      "id": "squat",
+      "exerciseId": "6YUfHPL",
+      "title": {
+        "ar": "سكوات بوزن الجسم",
+        "en": "Bodyweight squat"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "returning": {
+        "ar": "صعود",
+        "en": "Rise"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+      ]
+    },
+    {
+      "id": "pushup",
+      "exerciseId": "I4hDWkc",
+      "title": {
+        "ar": "الضغط",
+        "en": "Push-up"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "returning": {
+        "ar": "دفع",
+        "en": "Press"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/41/push-up/"
+      ]
+    },
+    {
+      "id": "split",
+      "exerciseId": "9E25EOx",
+      "title": {
+        "ar": "سبليت سكوات",
+        "en": "Split squat"
+      },
+      "yaw": 18,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "returning": {
+        "ar": "صعود",
+        "en": "Rise"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+      ]
+    },
+    {
+      "id": "bridge",
+      "exerciseId": "glute-bridge",
+      "title": {
+        "ar": "جسر الأرداف",
+        "en": "Glute bridge"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "رفع الحوض",
+        "en": "Lift hips"
+      },
+      "returning": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/49/glute-bridge/"
+      ]
+    },
+    {
+      "id": "calf",
+      "exerciseId": "bJYHBIN",
+      "title": {
+        "ar": "رفع السمانة",
+        "en": "Standing calf raise"
+      },
+      "yaw": 18,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "رفع الكعب",
+        "en": "Raise heels"
+      },
+      "returning": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/73/standing-calf-raises-wall/"
+      ]
+    },
+    {
+      "id": "curl",
+      "exerciseId": "NbVPDMW",
+      "title": {
+        "ar": "كيرل دمبل",
+        "en": "Dumbbell biceps curl"
+      },
+      "yaw": 32,
+      "view": {
+        "ar": "أمامي مائل",
+        "en": "Three-quarter"
+      },
+      "action": {
+        "ar": "ثني المرفق",
+        "en": "Curl"
+      },
+      "returning": {
+        "ar": "فرد المرفق",
+        "en": "Extend"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/44/seated-biceps-curl/"
+      ]
+    },
+    {
+      "id": "pulldown",
+      "exerciseId": "RVwzP10",
+      "title": {
+        "ar": "السحب العلوي",
+        "en": "Cable pulldown"
+      },
+      "yaw": 75,
+      "view": {
+        "ar": "أمامي",
+        "en": "Front"
+      },
+      "action": {
+        "ar": "سحب",
+        "en": "Pull"
+      },
+      "returning": {
+        "ar": "عودة",
+        "en": "Return"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/"
+      ]
+    },
+    {
+      "id": "row",
+      "exerciseId": "fUBheHs",
+      "title": {
+        "ar": "تجديف الكيبل",
+        "en": "Cable seated row"
+      },
+      "yaw": 22,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "سحب",
+        "en": "Pull"
+      },
+      "returning": {
+        "ar": "عودة",
+        "en": "Return"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/168/seated-row/"
+      ]
+    },
+    {
+      "id": "shoulder",
+      "exerciseId": "3d7wHyd",
+      "title": {
+        "ar": "ضغط كتف بالدمبل",
+        "en": "Seated dumbbell press"
+      },
+      "yaw": 85,
+      "view": {
+        "ar": "أمامي",
+        "en": "Front"
+      },
+      "action": {
+        "ar": "دفع",
+        "en": "Press"
+      },
+      "returning": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/186/seated-shoulder-press/"
+      ]
+    },
+    {
+      "id": "bench",
+      "exerciseId": "SpYC0Kp",
+      "title": {
+        "ar": "بنش بالدمبل",
+        "en": "Dumbbell bench press"
+      },
+      "yaw": 38,
+      "view": {
+        "ar": "أمامي مائل",
+        "en": "Three-quarter"
+      },
+      "action": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "returning": {
+        "ar": "دفع",
+        "en": "Press"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/19/chest-press/"
+      ]
+    },
+    {
+      "id": "backsquat",
+      "exerciseId": "qXTaZnJ",
+      "title": {
+        "ar": "سكوات بالبار",
+        "en": "Barbell back squat"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "returning": {
+        "ar": "صعود",
+        "en": "Rise"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/11/back-squat/"
+      ]
+    },
+    {
+      "id": "rdl",
+      "exerciseId": "wQ2c4XD",
+      "title": {
+        "ar": "ديدلفت روماني",
+        "en": "Romanian deadlift"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "انحناء من الورك",
+        "en": "Hinge"
+      },
+      "returning": {
+        "ar": "وقوف",
+        "en": "Stand"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/317/romanian-deadlift/"
+      ]
+    },
+    {
+      "id": "lateral",
+      "exerciseId": "DsgkuIt",
+      "title": {
+        "ar": "رفع جانبي",
+        "en": "Dumbbell lateral raise"
+      },
+      "yaw": 85,
+      "view": {
+        "ar": "أمامي",
+        "en": "Front"
+      },
+      "action": {
+        "ar": "رفع",
+        "en": "Raise"
+      },
+      "returning": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/26/lateral-raise/"
+      ]
+    },
+    {
+      "id": "chinup",
+      "exerciseId": "T2mxWqc",
+      "title": {
+        "ar": "عقلة بقبضة معكوسة",
+        "en": "Chin-up"
+      },
+      "yaw": 70,
+      "view": {
+        "ar": "أمامي",
+        "en": "Front"
+      },
+      "action": {
+        "ar": "سحب",
+        "en": "Pull"
+      },
+      "returning": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/190/chin-ups/"
+      ]
+    },
+    {
+      "id": "pushdown",
+      "exerciseId": "3ZflifB",
+      "title": {
+        "ar": "بوش داون بالكيبل",
+        "en": "Cable pushdown"
+      },
+      "yaw": 20,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "دفع للأسفل",
+        "en": "Press down"
+      },
+      "returning": {
+        "ar": "عودة",
+        "en": "Return"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/333/tricep-pressdown/"
+      ]
+    }
+  ]
+}

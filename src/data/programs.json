@@ -1,0 +1,1584 @@
+[
+  {
+    "id": "fullbody",
+    "name": {
+      "en": "Full Body",
+      "ar": "الجسم كامل"
+    },
+    "description": {
+      "en": "Three full-body barbell days a week: squat, bench, row, press and hinge.",
+      "ar": "ثلاثة أيام في الأسبوع لتمارين الجسم كامل بالبار: سكوات وبنش وسحب وكتف وتحميلة أرضية."
+    },
+    "place": "gym",
+    "level": "beginner",
+    "daysPerWeek": 3,
+    "days": [
+      {
+        "name": {
+          "en": "Full Body",
+          "ar": "الجسم كامل"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "EIeI8Vf",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "eZyBC3j",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "Kyd9Rz5",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "wQ2c4XD",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "plank-hold",
+            "sets": 3,
+            "sec": 30
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Full Body",
+          "ar": "الجسم كامل"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "EIeI8Vf",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "eZyBC3j",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "Kyd9Rz5",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "wQ2c4XD",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "plank-hold",
+            "sets": 3,
+            "sec": 30
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Full Body",
+          "ar": "الجسم كامل"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "EIeI8Vf",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "eZyBC3j",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "Kyd9Rz5",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "wQ2c4XD",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "plank-hold",
+            "sets": 3,
+            "sec": 30
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ppl",
+    "name": {
+      "en": "Push Pull Legs",
+      "ar": "دفع / سحب / أرجل"
+    },
+    "description": {
+      "en": "Classic push, pull and legs split with the main compound lifts.",
+      "ar": "تقسيم كلاسيكي دفع وسحب وأرجل مع أهم التمارين المركّبة."
+    },
+    "place": "gym",
+    "level": "intermediate",
+    "daysPerWeek": 3,
+    "days": [
+      {
+        "name": {
+          "en": "Push",
+          "ar": "دفع"
+        },
+        "items": [
+          {
+            "exerciseId": "EIeI8Vf",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "ns0SIbU",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "Kyd9Rz5",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "DsgkuIt",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "3ZflifB",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Pull",
+          "ar": "سحب"
+        },
+        "items": [
+          {
+            "exerciseId": "lBDjFxJ",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "eZyBC3j",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "RVwzP10",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "face-pull",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "25GPyDY",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Legs",
+          "ar": "أرجل"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "wQ2c4XD",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "7zdxRTl",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "C5jncD2",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "8ozhUIZ",
+            "sets": 4,
+            "reps": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "arnold",
+    "name": {
+      "en": "Arnold Split",
+      "ar": "تقسيم أرنولد"
+    },
+    "description": {
+      "en": "Six-day split in the style of Arnold: chest and back, shoulders and arms, legs, twice a week.",
+      "ar": "تقسيم ستة أيام على طريقة أرنولد: صدر وظهر، كتف وذراع، أرجل، مرتين في الأسبوع."
+    },
+    "place": "gym",
+    "level": "advanced",
+    "daysPerWeek": 6,
+    "days": [
+      {
+        "name": {
+          "en": "Chest & Back",
+          "ar": "صدر وظهر"
+        },
+        "items": [
+          {
+            "exerciseId": "EIeI8Vf",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "ns0SIbU",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "0CXGHya",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "lBDjFxJ",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "eZyBC3j",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "fUBheHs",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Shoulders & Arms",
+          "ar": "كتف وذراع"
+        },
+        "items": [
+          {
+            "exerciseId": "Kyd9Rz5",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "DsgkuIt",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "face-pull",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "25GPyDY",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "slDvUAU",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "iZop9xO",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "3ZflifB",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Legs",
+          "ar": "أرجل"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "wQ2c4XD",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "7zdxRTl",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "leg-extension",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "C5jncD2",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "8ozhUIZ",
+            "sets": 4,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Chest & Back",
+          "ar": "صدر وظهر"
+        },
+        "items": [
+          {
+            "exerciseId": "EIeI8Vf",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "ns0SIbU",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "0CXGHya",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "lBDjFxJ",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "eZyBC3j",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "fUBheHs",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Shoulders & Arms",
+          "ar": "كتف وذراع"
+        },
+        "items": [
+          {
+            "exerciseId": "Kyd9Rz5",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "DsgkuIt",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "face-pull",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "25GPyDY",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "slDvUAU",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "iZop9xO",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "3ZflifB",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Legs",
+          "ar": "أرجل"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "wQ2c4XD",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "7zdxRTl",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "leg-extension",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "C5jncD2",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "8ozhUIZ",
+            "sets": 4,
+            "reps": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "upperlower",
+    "name": {
+      "en": "Upper Lower",
+      "ar": "علوي / سفلي"
+    },
+    "description": {
+      "en": "Four days alternating upper-body and lower-body sessions.",
+      "ar": "أربعة أيام تتناوب فيها تمارين الجزء العلوي والجزء السفلي من الجسم."
+    },
+    "place": "gym",
+    "level": "intermediate",
+    "daysPerWeek": 4,
+    "days": [
+      {
+        "name": {
+          "en": "Upper",
+          "ar": "علوي"
+        },
+        "items": [
+          {
+            "exerciseId": "EIeI8Vf",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "eZyBC3j",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "Kyd9Rz5",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "RVwzP10",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "25GPyDY",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "3ZflifB",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Lower",
+          "ar": "سفلي"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "wQ2c4XD",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "7zdxRTl",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "C5jncD2",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "8ozhUIZ",
+            "sets": 4,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Upper",
+          "ar": "علوي"
+        },
+        "items": [
+          {
+            "exerciseId": "ns0SIbU",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "lBDjFxJ",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "A6wtbuL",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "fUBheHs",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "slDvUAU",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "X6C6i5Y",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Lower",
+          "ar": "سفلي"
+        },
+        "items": [
+          {
+            "exerciseId": "ila4NZS",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "zG0zs85",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "leg-extension",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "C5jncD2",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "8ozhUIZ",
+            "sets": 4,
+            "reps": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "abcd",
+    "name": {
+      "en": "ABCD Split",
+      "ar": "تقسيم أ ب ج د"
+    },
+    "description": {
+      "en": "Four-day split: chest and triceps, back and biceps, legs, shoulders and abs.",
+      "ar": "تقسيم أربعة أيام: صدر وترايسبس، ظهر وبايسبس، أرجل، كتف وبطن."
+    },
+    "place": "gym",
+    "level": "intermediate",
+    "daysPerWeek": 4,
+    "days": [
+      {
+        "name": {
+          "en": "A · Chest & Triceps",
+          "ar": "أ · صدر وترايسبس"
+        },
+        "items": [
+          {
+            "exerciseId": "EIeI8Vf",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "ns0SIbU",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "0CXGHya",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "3ZflifB",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "iZop9xO",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "B · Back & Biceps",
+          "ar": "ب · ظهر وبايسبس"
+        },
+        "items": [
+          {
+            "exerciseId": "lBDjFxJ",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "eZyBC3j",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "RVwzP10",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "25GPyDY",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "slDvUAU",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "C · Legs",
+          "ar": "ج · أرجل"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "wQ2c4XD",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "7zdxRTl",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "C5jncD2",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "8ozhUIZ",
+            "sets": 4,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "D · Shoulders & Abs",
+          "ar": "د · كتف وبطن"
+        },
+        "items": [
+          {
+            "exerciseId": "Kyd9Rz5",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "DsgkuIt",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "face-pull",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "QOA0FD0",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "plank-hold",
+            "sets": 3,
+            "sec": 30
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "abcde",
+    "name": {
+      "en": "ABCDE Split",
+      "ar": "تقسيم أ ب ج د هـ"
+    },
+    "description": {
+      "en": "Five-day bodybuilding split: one muscle group per day.",
+      "ar": "تقسيم خمسة أيام لبناء العضلات: عضلة رئيسية واحدة في كل يوم."
+    },
+    "place": "gym",
+    "level": "intermediate",
+    "daysPerWeek": 5,
+    "days": [
+      {
+        "name": {
+          "en": "A · Chest",
+          "ar": "أ · صدر"
+        },
+        "items": [
+          {
+            "exerciseId": "EIeI8Vf",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "ns0SIbU",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "0CXGHya",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "X6C6i5Y",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "B · Back",
+          "ar": "ب · ظهر"
+        },
+        "items": [
+          {
+            "exerciseId": "ila4NZS",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "lBDjFxJ",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "eZyBC3j",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "fUBheHs",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "C · Legs",
+          "ar": "ج · أرجل"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "7zdxRTl",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "leg-extension",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "C5jncD2",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "8ozhUIZ",
+            "sets": 4,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "D · Shoulders",
+          "ar": "د · أكتاف"
+        },
+        "items": [
+          {
+            "exerciseId": "Kyd9Rz5",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "A6wtbuL",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "DsgkuIt",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "face-pull",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "E · Arms",
+          "ar": "هـ · ذراعين"
+        },
+        "items": [
+          {
+            "exerciseId": "25GPyDY",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "iZop9xO",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "slDvUAU",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "3ZflifB",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stronglifts",
+    "name": {
+      "en": "StrongLifts 5×5",
+      "ar": "ستونغ ليفتس 5×5"
+    },
+    "description": {
+      "en": "Two alternating barbell workouts built on five sets of five.",
+      "ar": "تمرينان بالبار يتناوبان، مبنيان على خمس مجموعات من خمس عدّات."
+    },
+    "place": "gym",
+    "level": "beginner",
+    "daysPerWeek": 2,
+    "days": [
+      {
+        "name": {
+          "en": "Workout A",
+          "ar": "تمرين أ"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 5,
+            "reps": 5
+          },
+          {
+            "exerciseId": "EIeI8Vf",
+            "sets": 5,
+            "reps": 5
+          },
+          {
+            "exerciseId": "eZyBC3j",
+            "sets": 5,
+            "reps": 5
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Workout B",
+          "ar": "تمرين ب"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 5,
+            "reps": 5
+          },
+          {
+            "exerciseId": "Kyd9Rz5",
+            "sets": 5,
+            "reps": 5
+          },
+          {
+            "exerciseId": "ila4NZS",
+            "sets": 1,
+            "reps": 5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "startingstrength",
+    "name": {
+      "en": "Starting Strength",
+      "ar": "ستارتنغ سترنغث"
+    },
+    "description": {
+      "en": "Beginner barbell strength program: squat every session, alternating press, bench, deadlift and row.",
+      "ar": "برنامج قوة للمبتدئين بالبار: سكوات في كل حصة مع تبديل الكتف والبنش والرفعة الميتة والسحب."
+    },
+    "place": "gym",
+    "level": "beginner",
+    "daysPerWeek": 2,
+    "days": [
+      {
+        "name": {
+          "en": "Workout A",
+          "ar": "تمرين أ"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 3,
+            "reps": 5
+          },
+          {
+            "exerciseId": "EIeI8Vf",
+            "sets": 3,
+            "reps": 5
+          },
+          {
+            "exerciseId": "ila4NZS",
+            "sets": 1,
+            "reps": 5
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Workout B",
+          "ar": "تمرين ب"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 3,
+            "reps": 5
+          },
+          {
+            "exerciseId": "Kyd9Rz5",
+            "sets": 3,
+            "reps": 5
+          },
+          {
+            "exerciseId": "eZyBC3j",
+            "sets": 3,
+            "reps": 5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rr",
+    "name": {
+      "en": "Recommended Routine",
+      "ar": "الروتين الموصى به"
+    },
+    "description": {
+      "en": "Bodyweight routine three days a week: push, pull, legs and core, progressing step by step.",
+      "ar": "روتين بوزن الجسم ثلاثة أيام في الأسبوع: دفع وسحب وأرجل وجذع، مع تدرّج خطوة بخطوة."
+    },
+    "place": "gym",
+    "level": "beginner",
+    "daysPerWeek": 3,
+    "days": [
+      {
+        "name": {
+          "en": "Recommended Routine",
+          "ar": "الروتين الموصى به"
+        },
+        "items": [
+          {
+            "exerciseId": "negative-pull-up",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "6YUfHPL",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "negative-dip",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "bodyweight-romanian-deadlift",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "incline-row",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "incline-push-up",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "plank-hold",
+            "sets": 3,
+            "sec": 30
+          },
+          {
+            "exerciseId": "banded-pallof-press",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "reverse-hyperextension",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Recommended Routine",
+          "ar": "الروتين الموصى به"
+        },
+        "items": [
+          {
+            "exerciseId": "negative-pull-up",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "6YUfHPL",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "negative-dip",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "bodyweight-romanian-deadlift",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "incline-row",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "incline-push-up",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "plank-hold",
+            "sets": 3,
+            "sec": 30
+          },
+          {
+            "exerciseId": "banded-pallof-press",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "reverse-hyperextension",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Recommended Routine",
+          "ar": "الروتين الموصى به"
+        },
+        "items": [
+          {
+            "exerciseId": "negative-pull-up",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "6YUfHPL",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "negative-dip",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "bodyweight-romanian-deadlift",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "incline-row",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "incline-push-up",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "plank-hold",
+            "sets": 3,
+            "sec": 30
+          },
+          {
+            "exerciseId": "banded-pallof-press",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "reverse-hyperextension",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "home",
+    "name": {
+      "en": "No Kit",
+      "ar": "بدون معدات"
+    },
+    "description": {
+      "en": "Two simple bodyweight days with a pull-up bar: no weights needed.",
+      "ar": "يومان بسيطان بوزن الجسم مع بار عقلة: بدون أوزان."
+    },
+    "place": "home",
+    "level": "beginner",
+    "daysPerWeek": 2,
+    "days": [
+      {
+        "name": {
+          "en": "Home A",
+          "ar": "البيت أ"
+        },
+        "items": [
+          {
+            "exerciseId": "I4hDWkc",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "lBDjFxJ",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "6YUfHPL",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "plank-hold",
+            "sets": 3,
+            "sec": 30
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Home B",
+          "ar": "البيت ب"
+        },
+        "items": [
+          {
+            "exerciseId": "X6C6i5Y",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "T2mxWqc",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "9E25EOx",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "QOA0FD0",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "home-starter",
+    "name": {
+      "en": "Home Starter (No Equipment)",
+      "ar": "بداية البيت (بدون معدات)"
+    },
+    "description": {
+      "en": "Three beginner full-body days at home with no equipment at all: push, pull, legs and core.",
+      "ar": "ثلاثة أيام للمبتدئين في البيت بدون أي معدات: دفع وسحب وأرجل وبطن."
+    },
+    "place": "home",
+    "level": "beginner",
+    "daysPerWeek": 3,
+    "days": [
+      {
+        "name": {
+          "en": "Day 1",
+          "ar": "اليوم الأول"
+        },
+        "items": [
+          {
+            "exerciseId": "6YUfHPL",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "I4hDWkc",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "glute-bridge",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "superman",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "plank-hold",
+            "sets": 3,
+            "sec": 30
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Day 2",
+          "ar": "اليوم الثاني"
+        },
+        "items": [
+          {
+            "exerciseId": "9E25EOx",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "knee-push-up",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "bird-dog",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "dead-bug",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "wall-sit",
+            "sets": 2,
+            "sec": 30
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Day 3",
+          "ar": "اليوم الثالث"
+        },
+        "items": [
+          {
+            "exerciseId": "6YUfHPL",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "wide-push-up",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "single-leg-glute-bridge",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "superman-hold",
+            "sets": 2,
+            "sec": 30
+          },
+          {
+            "exerciseId": "side-plank-hold",
+            "sets": 2,
+            "sec": 30
+          },
+          {
+            "exerciseId": "bicycle-crunch",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "home-dumbbell",
+    "name": {
+      "en": "Home Dumbbells",
+      "ar": "دمبل في البيت"
+    },
+    "description": {
+      "en": "Three full-body days at home. Needs a pair of dumbbells (no bench or bar).",
+      "ar": "ثلاثة أيام للجسم كامل في البيت. تحتاج زوجاً من الدمبل (بدون بنش ولا بار)."
+    },
+    "place": "home",
+    "level": "beginner",
+    "daysPerWeek": 3,
+    "days": [
+      {
+        "name": {
+          "en": "Day 1",
+          "ar": "اليوم الأول"
+        },
+        "items": [
+          {
+            "exerciseId": "yn8yg1r",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "A6wtbuL",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "BJ0Hz5L",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "nUwVh7b",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "plank-hold",
+            "sets": 3,
+            "sec": 30
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Day 2",
+          "ar": "اليوم الثاني"
+        },
+        "items": [
+          {
+            "exerciseId": "reverse-lunge",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "I4hDWkc",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "one-arm-dumbbell-row",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "DsgkuIt",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "1kB3Wmk",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "dead-bug",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "Day 3",
+          "ar": "اليوم الثالث"
+        },
+        "items": [
+          {
+            "exerciseId": "dumbbell-squat",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "I4hDWkc",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "BJ0Hz5L",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "slDvUAU",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "PdmaD0N",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "bicycle-crunch",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      }
+    ]
+  }
+]

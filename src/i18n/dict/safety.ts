@@ -1,0 +1,25 @@
+import type { Dict } from '..'
+
+export default {
+  'safety.title': { ar: 'انتبه للأداء', en: 'Watch your form' },
+  'safety.general': { ar: 'إرشادات عامة لهذا النشاط', en: 'General activity guidance' },
+  'safety.limit': { ar: 'الرسم يشرح الحركة، لكنه ما يراقب أداءك ولا يحدد الوزن أو المدى المناسب لك. اطلب من مدرب مؤهل مراجعة أدائك إذا كنت غير متأكد.', en: 'The illustration explains movement; it cannot assess your form or choose your load or range. Ask a qualified trainer to check your technique if unsure.' },
+  'safety.stopCue': { ar: 'إذا ظهر ألم أثناء الحركة، وقف التمرين. لا تضغط على نفسك لإكمال العدات.', en: 'Stop the exercise if movement causes pain. Do not push through to finish the reps.' },
+  'safety.sources': { ar: 'المراجع وحدود الإرشادات', en: 'Sources and limitations' },
+  'safety.before': { ar: 'قبل ما تبدأ', en: 'Before you start' },
+  'safety.intro': { ar: 'تجهيز سريع لكل جلسة. قبل رفع الأوزان، ابدأ بإحماء خفيف ٥–١٠ دقائق — تلقاه جاهز أول الجلسة.', en: 'A quick check for each session. Before lifting, warm up with 5–10 minutes of light activity — you’ll find one ready at the top of the session.' },
+  'safety.warm': { ar: 'سويت إحماء أو بسوي الإحماء المقترح قبل أول مجموعة.', en: "I've warmed up, or I'll do the suggested warm-up before the first set." },
+  'safety.setup': { ar: 'المكان والمعدات ثابتة، وببدأ بجهد أقدر أتحكم فيه.', en: 'My space and equipment are stable, and I will start at an effort I can control.' },
+  'safety.symptoms': { ar: 'ما عندي الآن ألم أو دوخة أو ضيق نفس غير معتاد.', en: 'I have no current pain, dizziness or unusual breathlessness.' },
+  'safety.condition': { ar: 'عندك إصابة، حالة صحية، أو تعليمات طبية؟ خذ توجيه مختص يناسب حالتك قبل النشاط. هذا التحقق تذكير، وليس تصريحًا طبيًا.', en: 'Have an injury, health condition or medical restrictions? Get advice suited to your situation before activity. This checklist is a reminder, not medical clearance.' },
+  'safety.start': { ar: 'ابدأ الجلسة', en: 'Begin session' },
+  'safety.notReady': { ar: 'مو جاهز الآن', en: 'Not ready now' },
+  'safety.help': { ar: 'ألم أو دوخة؟ وقف هنا', en: 'Pain or dizziness? Stop here' },
+  'safety.stopTitle': { ar: 'وقف الحركة أولًا', en: 'Stop moving first' },
+  'safety.stopBody': { ar: 'ضع المعدات بأمان واطلب مساعدة شخص قريب إذا احتجت. لا تكمل التمرين مع الألم أو الدوخة. اطلب تقييمًا من مختص قبل الرجوع إذا الأعراض مستمرة أو رجعت.', en: 'Put equipment down safely and ask someone nearby for help if needed. Do not continue through pain or dizziness. Seek professional assessment before returning if symptoms persist or recur.' },
+  'safety.urgent': { ar: 'ألم أو ضغط بالصدر لا يزول، أو معه ضيق نفس أو دوخة أو تعرّق؟ اتصل بالطوارئ المحلية فورًا. ضيق النفس الشديد أو الإغماء يحتاج مساعدة عاجلة أيضًا.', en: 'Chest pain or pressure that persists, or comes with breathlessness, dizziness or sweating? Call local emergency services immediately. Severe breathlessness or fainting also needs urgent help.' },
+  'safety.saved': { ar: 'أوقفنا مؤقت الراحة. بيانات الجلسة المسجلة باقية؛ إغلاق النافذة ما يشغّل المؤقت من جديد.', en: 'The rest timer has stopped. Your logged session is kept; closing this panel will not restart the timer.' },
+  'safety.finish': { ar: 'إنهاء وحفظ المنجز', en: 'End and save completed sets' },
+  'safety.finishNote': { ar: 'يُحفظ ما سجلته كمكتمل فقط، وتُترك العدات غير المنجزة.', en: 'Only sets you marked complete will be saved; unfinished sets are left out.' },
+  'safety.close': { ar: 'إغلاق الإرشادات', en: 'Close guidance' },
+} satisfies Dict

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nabd · Motion study</title><link rel="stylesheet" href="./style.css"><style>body{font-family:var(--font);color:var(--text);background:var(--panel)}</style></head>
+<body>
+  <svg id="stage" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-label="دراسة حركة السكوات من الجانب">
+    <defs>
+      <radialGradient id="ambient"><stop stop-color="#343b30"/><stop offset="1" stop-color="#171b16"/></radialGradient>
+      <linearGradient id="skin" x1="0" x2="1"><stop stop-color="#a5b09a"/><stop offset=".48" stop-color="#e8eadb"/><stop offset="1" stop-color="#bec7b1"/></linearGradient>
+      <linearGradient id="coral" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff967e"/><stop offset="1" stop-color="#df634c"/></linearGradient>
+      <linearGradient id="floor"><stop stop-color="#515b47" stop-opacity="0"/><stop offset=".5" stop-color="#515b47"/><stop offset="1" stop-color="#515b47" stop-opacity="0"/></linearGradient>
+    </defs>
+    <rect id="backdrop" width="900" height="900" fill="url(#ambient)"/>
+    <circle class="orbit" cx="460" cy="460" r="290"/><circle class="orbit" cx="460" cy="460" r="230"/>
+    <path class="crosshair" d="M445 460h30m-15-15v30"/>
+    <text x="52" y="64" text-anchor="start" direction="ltr" class="eyebrow" data-edit="signature">NABD / MOTION STUDY 01</text>
+    <g id="ghost" aria-hidden="true"></g>
+    <ellipse id="shadow" cx="510" cy="779" rx="150" ry="17"/>
+    <path d="M175 790H755" stroke="url(#floor)" stroke-width="2"/>
+    <g id="figure" data-edit="athlete"></g>
+    <g id="guides" aria-hidden="true"></g>
+    <g class="phase-label" data-edit="phase"><circle cx="450" cy="843" r="4"/><text id="phase" x="450" y="875" text-anchor="middle">النزول</text></g>
+    <text id="style-name" x="848" y="64" text-anchor="start" class="eyebrow" data-edit="style-name">01 / مجسّم مبسّط</text>
+  </svg>
+  <script src="./motion.js"></script>
+</body>
+</html>

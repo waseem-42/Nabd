@@ -1,0 +1,250 @@
+@import '@fontsource/ibm-plex-sans-arabic/400.css';
+@import '@fontsource/ibm-plex-sans-arabic/500.css';
+@import '@fontsource/ibm-plex-sans-arabic/600.css';
+@import '@fontsource/ibm-plex-sans-arabic/700.css';
+@import 'tailwindcss';
+
+/*
+ * Nabd: training at your pace. Warm charcoal, chalk, and one coral signature.
+ * Dark only. Use the Tailwind names they generate (bg-bg, bg-surface,
+ * text-muted, border-line, text-accent, bg-home …) — never hard-code hex values in components.
+ * Direction: always use logical utilities (ps-/pe-/ms-/me-/start-/end-/text-start) so the same
+ * markup works in Arabic (RTL) and English (LTR).
+ */
+@theme {
+  --font-sans: 'IBM Plex Sans Arabic', system-ui, 'Segoe UI', sans-serif;
+
+  --color-bg: #111310;
+  --color-surface: #1b1e19;
+  --color-surface-2: #252922;
+  --color-line: #34392f;
+  --color-text: #f5f2e9;
+  --color-muted: #b3b7aa;
+  --color-faint: #919888;
+
+  /* The pulse: primary actions, the active set, the brand. */
+  --color-accent: #ff785c;
+  --color-accent-ink: #241610;
+  --color-accent-soft: #ff785c12;
+  --color-technical-fill: #e5eedce6;
+  --color-technical-line: #e5eedc;
+
+  --color-ok: #a4cf9a;
+  --color-ok-soft: #a4cf9a18;
+  --color-warn: #e6c58b;
+  --color-danger: #ff9287;
+
+  /* Place identity: home is warm, gym is cool. */
+  --color-home: #d6bb8c;
+  --color-home-soft: #d6bb8c12;
+  --color-gym: #a6bfb8;
+  --color-gym-soft: #a6bfb812;
+
+  --radius-card: 1.375rem;
+  --radius-control: 0.875rem;
+
+  --color-surface-3: #30362c;
+  --color-line-strong: #4a5342;
+  --color-danger-soft: #ff928718;
+  --color-warn-soft: #e6c58b18;
+  /* Text colour that sits ON a solid place / accent / ok fill. */
+  --color-home-ink: #2b2418;
+  --color-gym-ink: #182823;
+  --color-ok-ink: #182a15;
+  --color-scrim: #080b08d9;
+
+  --radius-sheet: 1.75rem;
+  --radius-pill: 999px;
+
+  --shadow-lift: 0 8px 24px -12px #00000080;
+  --shadow-glow: 0 4px 16px -8px #ff785c55;
+
+  /* Big legible numbers: weights, reps, timers. Use with font-bold + tabular-nums. */
+  --text-display: 2.75rem;
+  --text-display--line-height: 1.15;
+  --text-title: 1.875rem;
+  --text-title--line-height: 1.25;
+  --text-num: 3.25rem;
+  --text-num--line-height: 1;
+  --text-num-xl: 4.75rem;
+  --text-num-xl--line-height: 1;
+
+  --ease-out-back: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  --animate-sheet-in: sheet-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-fade-in: fade-in 0.2s ease-out;
+  --animate-pop-in: pop-in 0.22s cubic-bezier(0.34, 1.4, 0.64, 1);
+  --animate-toast-in: toast-in 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+
+  @keyframes sheet-in {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes pop-in {
+    from { opacity: 0; transform: scale(0.94); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes toast-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Arabic sets optically smaller than Latin at the same size: nudge it up and give it air. */
+  html:lang(ar) {
+    font-size: 106.25%;
+    line-height: 1.65;
+  }
+
+  html {
+    font-synthesis: none;
+  }
+
+  /* Never track Arabic: it breaks the joins. */
+  :lang(ar) {
+    letter-spacing: 0;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    overscroll-behavior-y: none;
+    background-image: radial-gradient(
+      60% 32rem at 50% -14rem,
+      color-mix(in oklab, var(--color-accent) 6%, transparent),
+      transparent
+    );
+    background-repeat: no-repeat;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* Numbers that must not jump while they change (timers, weights). */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  button {
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .technical-art::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(var(--color-technical-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-technical-line) 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.025;
+    pointer-events: none;
+  }
+
+  .technical-art::after {
+    content: '';
+    position: absolute;
+    inset: 8%;
+    border-inline-start: 1px solid color-mix(in srgb, var(--color-accent) 18%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-accent) 18%, transparent);
+    pointer-events: none;
+  }
+  .motion-range {
+    height: 1.25rem;
+    accent-color: var(--color-accent);
+    cursor: pointer;
+    touch-action: pan-y;
+  }
+
+  .motion-invitation {
+    background-image: radial-gradient(ellipse at 0 0, var(--color-accent-soft), transparent 70%);
+  }
+  .app-shell {
+    background: var(--color-bg);
+    box-shadow: 0 0 0 1px var(--color-line), 0 0 100px #00000030;
+  }
+
+  .brand-card {
+    box-shadow: inset 0 1px 0 #f5f2e904;
+  }
+
+  .hero-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-surface-2), var(--color-surface));
+    border-color: var(--color-line-strong);
+  }
+
+  .hero-card::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset-inline-end: -2.5rem;
+    top: -2rem;
+    width: 13rem;
+    height: 13rem;
+    background: url('/brand/symbol.svg') center / contain no-repeat;
+    opacity: 0.045;
+    transform: rotate(-12deg);
+    pointer-events: none;
+  }
+
+  .brand-manifesto {
+    border-inline-start: 2px solid var(--color-accent);
+    padding-inline-start: 1rem;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Safe-area helpers for fixed bars. */
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+@utility pt-safe {
+  padding-top: env(safe-area-inset-top);
+}

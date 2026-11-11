@@ -1,0 +1,30 @@
+{
+  "description": "نبض — عشرة تمارين بهياكل مفاصل مستمرة مستقلة.",
+  "duration": 6,
+  "data": {
+    "exercise": "6YUfHPL",
+    "lang": "ar"
+  },
+  "labels": {
+    "exercise": "معرّف التمرين",
+    "lang": "اللغة"
+  },
+  "scenes": [
+    {
+      "name": "البداية",
+      "start": 0
+    },
+    {
+      "name": "الحركة",
+      "start": 0.45
+    },
+    {
+      "name": "وقفة",
+      "start": 2.55
+    },
+    {
+      "name": "العودة",
+      "start": 3.05
+    }
+  ]
+}

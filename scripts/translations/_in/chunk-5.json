@@ -1,0 +1,1171 @@
+[
+ {
+  "id": "kneeling-hip-flexor-stretch",
+  "name": "Kneeling Hip Flexor Stretch",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "time",
+  "steps": [
+   "Kneel on one knee with the other foot flat in front of you.",
+   "Tuck your hips under so your lower back flattens.",
+   "Push your hips forward until you feel the front of the back thigh stretch.",
+   "Keep your chest tall and your shoulders relaxed.",
+   "Hold, then swap sides."
+  ]
+ },
+ {
+  "id": "butterfly-stretch",
+  "name": "Butterfly Stretch",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "time",
+  "steps": [
+   "Sit on the floor and bring the soles of your feet together.",
+   "Pull your heels in towards your body.",
+   "Hold your feet with both hands and sit up tall.",
+   "Let your knees fall out towards the floor.",
+   "Lean forward gently and hold the stretch."
+  ]
+ },
+ {
+  "id": "stair-climber",
+  "name": "Stair Climber",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "glutes",
+  "mode": "cardio",
+  "steps": [
+   "Step onto the stair machine and start it at a slow speed.",
+   "Stand upright and rest your hands lightly on the rails.",
+   "Take full steps instead of short, bouncy ones.",
+   "Push through your heel on every step to use the glutes.",
+   "Drop the speed before you step off."
+  ]
+ },
+ {
+  "id": "IeDEXTe",
+  "name": "Leg Press Calf Raise",
+  "arName": "رفع السمانة بسكوات جالس على جهاز ليج برس",
+  "equipment": "machine",
+  "primary": "calves",
+  "mode": "reps",
+  "steps": [
+   "Adjust the seat of the leg press machine so that your knees are slightly bent when your feet are on the footplate.",
+   "Sit on the machine with your back against the backrest and your feet flat on the footplate, shoulder-width apart.",
+   "Place your toes and the balls of your feet on the footplate, keeping your heels off the edge.",
+   "Release the safety handles and push the footplate away from you by extending your knees.",
+   "Once your knees are fully extended, slowly lower your heels by flexing your calves."
+  ]
+ },
+ {
+  "id": "LmaFNZS",
+  "name": "Weighted Donkey Calf Raise",
+  "arName": "رفع السمانة حمار بوزن إضافي",
+  "equipment": "weighted",
+  "primary": "calves",
+  "mode": "reps",
+  "steps": [
+   "Stand on a raised platform with your toes on the edge and your heels hanging off.",
+   "Hold onto a stable object for support.",
+   "Raise your heels as high as possible by extending your ankles.",
+   "Pause for a moment at the top, then slowly lower your heels back down to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "ykUOVze",
+  "name": "Lever Standing Calf Raise",
+  "arName": "رفع السمانة واقفاً على الجهاز",
+  "equipment": "machine",
+  "primary": "calves",
+  "mode": "reps",
+  "steps": [
+   "Adjust the machine to your height and stand with your feet shoulder-width apart.",
+   "Place your shoulders under the pads and hold onto the handles for stability.",
+   "Raise your heels as high as possible by extending your ankles.",
+   "Pause for a moment at the top, then slowly lower your heels back down to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "bJYHBIN",
+  "name": "Bodyweight Standing Calf Raise",
+  "arName": "رفع السمانة واقفاً بوزن الجسم",
+  "equipment": "bodyweight",
+  "primary": "calves",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart, toes pointing forward.",
+   "Place your hands on a wall or stable surface for balance.",
+   "Slowly raise your heels off the ground, lifting your body weight onto the balls of your feet.",
+   "Pause for a moment at the top, then slowly lower your heels back down to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "6HiHHe0",
+  "name": "Barbell Standing Rocking Leg Calf Raise",
+  "arName": "رفع السمانة المتأرجح بالبار واقفاً",
+  "equipment": "barbell",
+  "primary": "calves",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart and hold a barbell across your upper back.",
+   "Raise your heels off the ground as high as possible, balancing on the balls of your feet.",
+   "Slowly lower your heels back down to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "iPm26QU",
+  "name": "Step-down",
+  "arName": "نزول من الصندوق مع تثبيت بساق واحدة",
+  "equipment": "bodyweight",
+  "primary": "calves",
+  "mode": "reps",
+  "steps": [
+   "Stand on a low box or step on one leg.",
+   "Let the other leg hang just off the edge.",
+   "Bend your standing knee slowly to lower the free heel towards the floor.",
+   "Tap the floor lightly without shifting your weight onto it.",
+   "Straighten your standing leg to rise back up and switch legs after the set."
+  ]
+ },
+ {
+  "id": "VW88JNd",
+  "name": "Dumbbell Seated One Leg Calf Raise",
+  "arName": "رفع السمانة جالساً بساق واحدة بالدمبل - قبضة هامر",
+  "equipment": "dumbbell",
+  "primary": "calves",
+  "mode": "reps",
+  "steps": [
+   "Sit on a bench with the ball of one foot on a low step and your heel hanging off.",
+   "Rest a dumbbell on top of that knee and hold it in place.",
+   "Push through the ball of your foot to raise your heel as high as you can.",
+   "Pause at the top and squeeze your calf.",
+   "Lower your heel slowly below the step and switch legs after the set."
+  ]
+ },
+ {
+  "id": "ywaNfuh",
+  "name": "Smith Calf Raise",
+  "arName": "رفع السمانة المعكوس على جهاز سميث",
+  "equipment": "machine",
+  "primary": "calves",
+  "mode": "reps",
+  "steps": [
+   "Set the Smith bar at shoulder height and step under it.",
+   "Rest the bar across your upper back and stand with the balls of your feet on a low step.",
+   "Unlock the bar and let your heels hang off the edge.",
+   "Rise up onto your toes as high as you can.",
+   "Lower your heels slowly below the step."
+  ]
+ },
+ {
+  "id": "u5ESqzH",
+  "name": "Donkey Calf Raise",
+  "arName": "رفع السمانة دونكي",
+  "equipment": "bodyweight",
+  "primary": "calves",
+  "mode": "reps",
+  "steps": [
+   "Stand with your toes on an elevated surface, such as a step or block.",
+   "Place your hands on a stable support, such as a wall or railing, for balance.",
+   "Raise your heels as high as possible, lifting your body weight onto the balls of your feet.",
+   "Pause for a moment at the top, then slowly lower your heels back down to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "1kB3Wmk",
+  "name": "Dumbbell Single Leg Calf Raise",
+  "arName": "رفع السمانة بالدمبل على ساق واحدة",
+  "equipment": "dumbbell",
+  "primary": "calves",
+  "mode": "reps",
+  "steps": [
+   "Stand on the edge of a step or platform with your heels hanging off and your toes on the step.",
+   "Hold a dumbbell in one hand and place your other hand on a wall or railing for support.",
+   "Raise your heel as high as possible, lifting your body up onto your toes.",
+   "Pause for a moment at the top, then slowly lower your heel back down below the step.",
+   "Repeat for the desired number of repetitions, then switch to the other leg."
+  ]
+ },
+ {
+  "id": "0jp9Rlz",
+  "name": "One Leg Floor Calf Raise",
+  "arName": "رفع السمانة من الأرض بساق واحدة",
+  "equipment": "bodyweight",
+  "primary": "calves",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet hip-width apart and place your hands on a wall or sturdy object for balance.",
+   "Lift one foot off the ground and balance on the other foot.",
+   "Slowly raise your heel off the ground, lifting your body up onto the ball of your foot.",
+   "Pause for a moment at the top, then slowly lower your heel back down to the starting position.",
+   "Repeat for the desired number of repetitions, then switch legs and repeat."
+  ]
+ },
+ {
+  "id": "wall-calf-stretch",
+  "name": "Wall Calf Stretch",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "calves",
+  "mode": "time",
+  "steps": [
+   "Stand facing a wall and put both hands on it.",
+   "Step one foot back and keep that leg straight.",
+   "Press the back heel into the floor.",
+   "Lean towards the wall until you feel the calf stretch.",
+   "Hold, then swap legs."
+  ]
+ },
+ {
+  "id": "jump-rope",
+  "name": "Jump Rope",
+  "arName": "نط الحبل",
+  "equipment": "other",
+  "primary": "calves",
+  "mode": "time",
+  "steps": [
+   "Hold a handle in each hand with the rope behind your heels.",
+   "Keep your elbows close to your ribs and your chest up.",
+   "Turn the rope with your wrists, not your whole arms.",
+   "Hop just high enough to clear the rope, landing on the balls of your feet.",
+   "Keep a steady rhythm and stay light on your feet."
+  ]
+ },
+ {
+  "id": "band-calf-raise",
+  "name": "Band Calf Raise",
+  "arName": "",
+  "equipment": "band",
+  "primary": "calves",
+  "mode": "reps",
+  "steps": [
+   "Stand with the balls of your feet on the middle of a band.",
+   "Hold the ends of the band up at your shoulders.",
+   "Rise up onto your toes as high as you can.",
+   "Pause at the top and squeeze your calves.",
+   "Lower your heels slowly back to the floor."
+  ]
+ },
+ {
+  "id": "LsZkfU6",
+  "name": "Barbell Reverse Wrist Curl",
+  "arName": "ريفرس رست كيرل بالبار",
+  "equipment": "barbell",
+  "primary": "forearm",
+  "mode": "reps",
+  "steps": [
+   "Sit on a bench with your feet flat on the ground and hold a barbell with an overhand grip, palms facing down.",
+   "Rest your forearms on your thighs, allowing your wrists to hang off the edge.",
+   "Slowly curl your wrists upward, bringing the barbell towards your body.",
+   "Pause for a moment at the top, then slowly lower the barbell back down to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "82LxxkW",
+  "name": "Barbell Wrist Curl",
+  "arName": "رست كيرل بالبار",
+  "equipment": "barbell",
+  "primary": "forearm",
+  "mode": "reps",
+  "steps": [
+   "Sit on a bench with your feet flat on the ground and your forearms resting on your thighs, holding a barbell with an underhand grip.",
+   "Allow the barbell to roll down to your fingertips, keeping your wrists straight.",
+   "Slowly curl the barbell up towards your forearms by flexing your wrists.",
+   "Pause for a moment at the top, then slowly lower the barbell back down to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "Eg98Ft9",
+  "name": "Cable Shrug",
+  "arName": "شراغز بالكابل",
+  "equipment": "cable",
+  "primary": "trapezius",
+  "mode": "reps",
+  "steps": [
+   "Stand facing the cable machine with your feet shoulder-width apart.",
+   "Grasp the cable handles with an overhand grip and let your arms hang down in front of you.",
+   "Keeping your arms straight, shrug your shoulders up towards your ears.",
+   "Hold the contraction for a moment, then slowly lower your shoulders back down to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "7xeukSt",
+  "name": "Scapula Dips",
+  "arName": "غطس لوح الكتف",
+  "equipment": "bodyweight",
+  "primary": "trapezius",
+  "mode": "reps",
+  "steps": [
+   "Start by standing with your feet shoulder-width apart and your arms extended in front of you.",
+   "Bend your knees slightly and hinge forward at the hips, keeping your back straight.",
+   "Lower your body by bending your elbows and retracting your shoulder blades, as if you are trying to squeeze a pencil between them.",
+   "Pause for a moment at the bottom, then push through your hands to extend your elbows and return to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "uTBt1HV",
+  "name": "Scapular Pull-up",
+  "arName": "عقلة لوحي الكتف",
+  "equipment": "bodyweight",
+  "primary": "trapezius",
+  "mode": "reps",
+  "steps": [
+   "Start by hanging from a pull-up bar with your palms facing away from you and your arms fully extended.",
+   "Retract your shoulder blades by pulling them down and back.",
+   "Engage your back muscles and pull your body up towards the bar, focusing on squeezing your shoulder blades together.",
+   "Pause for a moment at the top of the movement, then slowly lower your body back down to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "OUQ0ZyW",
+  "name": "Smith Shrug",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "trapezius",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart and your knees slightly bent.",
+   "Grasp the barbell with an overhand grip, hands slightly wider than shoulder-width apart.",
+   "Keep your arms straight and your shoulders relaxed.",
+   "Lift your shoulders up towards your ears, squeezing your traps at the top.",
+   "Hold for a moment, then slowly lower your shoulders back down to the starting position."
+  ]
+ },
+ {
+  "id": "FkBIE6a",
+  "name": "Dumbbell Lying Leg Curl",
+  "arName": "تمرين الفخذ الخلفي من الاستلقاء بالدمبل",
+  "equipment": "dumbbell",
+  "primary": "hamstrings",
+  "mode": "reps",
+  "steps": [
+   "Lie face down on a flat bench with your knees just off the end.",
+   "Have a partner place a dumbbell between your feet and squeeze it tight.",
+   "Curl your heels towards your glutes, lifting the dumbbell.",
+   "Keep your hips pressed into the bench at the top.",
+   "Lower the dumbbell slowly until your legs are almost straight."
+  ]
+ },
+ {
+  "id": "LNE3wfo",
+  "name": "Towel Hamstring Stretch",
+  "arName": "انزلاق بساق واحدة على المنصة",
+  "equipment": "bodyweight",
+  "primary": "hamstrings",
+  "mode": "reps",
+  "steps": [
+   "Lie on your back and loop a towel around the sole of one foot.",
+   "Hold an end of the towel in each hand.",
+   "Straighten that leg and pull it up towards the ceiling.",
+   "Stop when you feel a stretch along the back of the thigh and hold.",
+   "Lower the leg slowly and switch sides."
+  ]
+ },
+ {
+  "id": "C5jncD2",
+  "name": "Lying Leg Curl",
+  "arName": "ليج كيرل على ساق واحدة واقفاً",
+  "equipment": "machine",
+  "primary": "hamstrings",
+  "mode": "reps",
+  "steps": [
+   "Lie face down on the leg curl machine with the pad just above your heels.",
+   "Line your knees up with the machine's pivot and hold the handles.",
+   "Curl your heels towards your glutes as far as you can.",
+   "Squeeze your hamstrings at the top without lifting your hips.",
+   "Lower the pad slowly until your legs are almost straight."
+  ]
+ },
+ {
+  "id": "seated-leg-curl",
+  "name": "Seated Leg Curl",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "hamstrings",
+  "mode": "reps",
+  "steps": [
+   "Sit in the machine with the pad resting on your lower shins.",
+   "Lock the thigh pad down so your legs cannot lift.",
+   "Hold the handles and keep your back against the seat.",
+   "Curl your heels down and back as far as they go.",
+   "Let your legs straighten slowly against the resistance."
+  ]
+ },
+ {
+  "id": "kettlebell-romanian-deadlift",
+  "name": "Kettlebell Romanian Deadlift",
+  "arName": "",
+  "equipment": "kettlebell",
+  "primary": "hamstrings",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet hip-width apart holding a kettlebell in both hands.",
+   "Keep a small bend in your knees and your back flat.",
+   "Push your hips back and let the kettlebell slide down your legs.",
+   "Stop when you feel a stretch in your hamstrings.",
+   "Drive your hips forward to stand back up."
+  ]
+ },
+ {
+  "id": "single-leg-romanian-deadlift",
+  "name": "Single-Leg Romanian Deadlift",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "hamstrings",
+  "mode": "reps",
+  "steps": [
+   "Stand on one leg with a dumbbell in the opposite hand.",
+   "Keep a soft bend in the standing knee.",
+   "Hinge forward and let the free leg rise behind you.",
+   "Lower until your torso and back leg are almost level with the floor.",
+   "Squeeze the glute to come back upright without touching down."
+  ]
+ },
+ {
+  "id": "landmine-romanian-deadlift",
+  "name": "Landmine Romanian Deadlift",
+  "arName": "",
+  "equipment": "barbell",
+  "primary": "hamstrings",
+  "mode": "reps",
+  "steps": [
+   "Wedge one end of a barbell into a landmine holder and load the other end.",
+   "Stand facing the bar and hold the loaded end with both hands.",
+   "Keep your back flat and your knees slightly bent.",
+   "Push your hips back and let the bar travel down your thighs.",
+   "Drive your hips forward to stand up and squeeze your glutes."
+  ]
+ },
+ {
+  "id": "lying-hamstring-walkout",
+  "name": "Lying Hamstring Walkout",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "hamstrings",
+  "mode": "reps",
+  "steps": [
+   "Lie on your back with your knees bent and lift your hips into a bridge.",
+   "Keep your hips up for the whole exercise.",
+   "Walk your heels out step by step until your legs are almost straight.",
+   "Walk them back in the same way.",
+   "Stop if your hips start to drop towards the floor."
+  ]
+ },
+ {
+  "id": "stability-ball-hamstring-curl",
+  "name": "Stability Ball Hamstring Curl",
+  "arName": "",
+  "equipment": "other",
+  "primary": "hamstrings",
+  "mode": "reps",
+  "steps": [
+   "Lie on your back with your heels on top of a stability ball.",
+   "Lift your hips so your body forms a straight line.",
+   "Pull the ball towards your glutes by bending your knees.",
+   "Keep your hips high while the ball rolls in.",
+   "Push the ball back out slowly until your legs are straight."
+  ]
+ },
+ {
+  "id": "hamstring-stretch",
+  "name": "Hamstring Stretch",
+  "arName": "تمدد الفخذ الخلفي",
+  "equipment": "bodyweight",
+  "primary": "hamstrings",
+  "mode": "time",
+  "steps": [
+   "Sit on the floor with one leg straight and the other tucked in.",
+   "Keep your back long instead of rounding it.",
+   "Hinge forward over the straight leg.",
+   "Reach towards your foot until you feel the hamstring pull.",
+   "Hold the stretch, then change legs."
+  ]
+ },
+ {
+  "id": "seated-forward-fold-stretch",
+  "name": "Seated Forward Fold",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "hamstrings",
+  "mode": "reps",
+  "steps": [
+   "Sit on the floor with both legs straight in front of you.",
+   "Sit up tall on your sit bones.",
+   "Hinge from your hips and reach towards your feet.",
+   "Let your head and neck relax as you fold.",
+   "Hold and breathe into the stretch."
+  ]
+ },
+ {
+  "id": "kettlebell-swing",
+  "name": "Kettlebell Swing",
+  "arName": "أرجحة الكيتل بيل",
+  "equipment": "kettlebell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet a little wider than your hips, kettlebell on the floor in front of you.",
+   "Hinge at the hips, grab the handle with both hands and hike it back between your legs.",
+   "Snap your hips forward hard so the bell swings up to chest height on its own.",
+   "Keep your arms relaxed and your back flat the whole way.",
+   "Let the bell fall back between your legs and load the next rep."
+  ]
+ },
+ {
+  "id": "kettlebell-goblet-squat",
+  "name": "Kettlebell Goblet Squat",
+  "arName": "جوبلت سكوات بالكيتل بيل",
+  "equipment": "kettlebell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Hold the kettlebell by the horns against your chest, elbows tucked in.",
+   "Set your feet shoulder-width apart with your toes turned out slightly.",
+   "Sit down between your heels, keeping your chest tall and the bell close.",
+   "Go as deep as your hips allow without your lower back rounding.",
+   "Drive through the floor to stand back up."
+  ]
+ },
+ {
+  "id": "kettlebell-front-squat",
+  "name": "Kettlebell Front Squat",
+  "arName": "سكوات أمامي بالكيتل بيل",
+  "equipment": "kettlebell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Clean one kettlebell to the rack position, resting on your forearm and chest.",
+   "Keep the wrist straight and the elbow pointing down.",
+   "Squat down with your torso upright and the bell locked in place.",
+   "Push back up without letting the bell drift forward.",
+   "Do all your reps on one side, then swap."
+  ]
+ },
+ {
+  "id": "kettlebell-sumo-deadlift",
+  "name": "Kettlebell Sumo Deadlift",
+  "arName": "",
+  "equipment": "kettlebell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand over the kettlebell with a wide stance and your toes turned out.",
+   "Hinge down and grab the handle with both hands, arms straight.",
+   "Brace your core, then stand up by squeezing your glutes.",
+   "Keep the bell travelling in a straight line close to your body.",
+   "Lower it back to the floor under control."
+  ]
+ },
+ {
+  "id": "kettlebell-single-leg-deadlift",
+  "name": "Kettlebell Single-Leg Deadlift",
+  "arName": "",
+  "equipment": "kettlebell",
+  "primary": "hamstrings",
+  "mode": "reps",
+  "steps": [
+   "Hold a kettlebell in one hand and stand on the opposite leg.",
+   "Hinge forward, letting the free leg extend straight behind you.",
+   "Keep your hips level and your back flat as the bell lowers.",
+   "Stop when you feel the hamstring of the standing leg load up.",
+   "Squeeze the glute to come back upright."
+  ]
+ },
+ {
+  "id": "kettlebell-reverse-lunge",
+  "name": "Kettlebell Reverse Lunge",
+  "arName": "",
+  "equipment": "kettlebell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Hold the kettlebell against your chest in the goblet position.",
+   "Step one foot back and lower until the back knee nearly touches the floor.",
+   "Keep your front shin vertical and your torso upright.",
+   "Push through the front foot to return to standing.",
+   "Alternate legs or finish one side first."
+  ]
+ },
+ {
+  "id": "kettlebell-single-arm-row",
+  "name": "Kettlebell Single-Arm Row",
+  "arName": "",
+  "equipment": "kettlebell",
+  "primary": "back",
+  "mode": "reps",
+  "steps": [
+   "Hinge forward with one hand braced on a bench or your thigh.",
+   "Let the kettlebell hang at full stretch from the other hand.",
+   "Pull the bell to your hip, leading with the elbow.",
+   "Squeeze the shoulder blade at the top without twisting your torso.",
+   "Lower it slowly and repeat, then swap sides."
+  ]
+ },
+ {
+  "id": "kettlebell-overhead-press",
+  "name": "Kettlebell Overhead Press",
+  "arName": "",
+  "equipment": "kettlebell",
+  "primary": "shoulders",
+  "mode": "reps",
+  "steps": [
+   "Start with the kettlebell racked at shoulder height, wrist straight.",
+   "Brace your core and squeeze your glutes so your ribs stay down.",
+   "Press the bell straight overhead until your elbow locks out.",
+   "Finish with the bell sitting behind your wrist, not in front.",
+   "Lower it back to the rack position under control."
+  ]
+ },
+ {
+  "id": "kettlebell-push-press",
+  "name": "Kettlebell Push Press",
+  "arName": "",
+  "equipment": "kettlebell",
+  "primary": "shoulders",
+  "mode": "reps",
+  "steps": [
+   "Rack the kettlebell at shoulder height with your feet under your hips.",
+   "Dip slightly at the knees, keeping your torso vertical.",
+   "Drive up with your legs and let that push the bell overhead.",
+   "Lock the elbow out at the top with the bell over your shoulder.",
+   "Bring it back to the rack and reset before the next rep."
+  ]
+ },
+ {
+  "id": "kettlebell-high-pull",
+  "name": "Kettlebell High Pull",
+  "arName": "",
+  "equipment": "kettlebell",
+  "primary": "trapezius",
+  "mode": "reps",
+  "steps": [
+   "Set up as if for a swing, kettlebell between your feet.",
+   "Hinge and hike the bell back, then snap your hips forward.",
+   "As the bell rises, pull your elbow high and back.",
+   "The bell should end up in front of your shoulder, not overhead.",
+   "Guide it back down into the next hinge."
+  ]
+ },
+ {
+  "id": "kettlebell-shrug",
+  "name": "Kettlebell Shrug",
+  "arName": "",
+  "equipment": "kettlebell",
+  "primary": "trapezius",
+  "mode": "reps",
+  "steps": [
+   "Stand tall holding a kettlebell in each hand at your sides.",
+   "Keep your arms straight and your chin tucked.",
+   "Lift your shoulders straight up towards your ears.",
+   "Pause at the top without rolling the shoulders.",
+   "Lower them slowly all the way down."
+  ]
+ },
+ {
+  "id": "kettlebell-farmer-carry",
+  "name": "Kettlebell Farmer Carry",
+  "arName": "مشي المزارع",
+  "equipment": "kettlebell",
+  "primary": "forearm",
+  "mode": "time",
+  "steps": [
+   "Pick up a heavy kettlebell in each hand and stand tall.",
+   "Pull your shoulders back and brace your core.",
+   "Walk in a straight line with short, controlled steps.",
+   "Do not let your torso lean or the bells swing.",
+   "Set them down when your grip starts to give out."
+  ]
+ },
+ {
+  "id": "kettlebell-overhead-tricep-extension",
+  "name": "Kettlebell Overhead Triceps Extension",
+  "arName": "",
+  "equipment": "kettlebell",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Hold one kettlebell by the horns with both hands overhead.",
+   "Keep your elbows pointing forward and close to your head.",
+   "Bend at the elbows to lower the bell behind your head.",
+   "Stop when you feel the stretch in your triceps.",
+   "Straighten your arms to press it back up."
+  ]
+ },
+ {
+  "id": "kettlebell-russian-twist",
+  "name": "Kettlebell Russian Twist",
+  "arName": "",
+  "equipment": "kettlebell",
+  "primary": "obliques",
+  "mode": "reps",
+  "steps": [
+   "Sit on the floor with your knees bent and heels lightly down.",
+   "Hold the kettlebell by the horns in front of your chest.",
+   "Lean back slightly and lift your chest.",
+   "Rotate your torso to take the bell beside one hip, then the other.",
+   "Move from the ribs, not just the arms."
+  ]
+ },
+ {
+  "id": "kettlebell-side-bend",
+  "name": "Kettlebell Side Bend",
+  "arName": "",
+  "equipment": "kettlebell",
+  "primary": "obliques",
+  "mode": "reps",
+  "steps": [
+   "Stand tall with a kettlebell hanging in one hand.",
+   "Put your free hand behind your head and keep your hips square.",
+   "Bend sideways towards the loaded side, letting the bell slide down your leg.",
+   "Come back up by pulling with the opposite side of your waist.",
+   "Finish the set, then swap hands."
+  ]
+ },
+ {
+  "id": "rNG1dip",
+  "name": "Ring Dip",
+  "arName": "",
+  "equipment": "rings",
+  "primary": "chest",
+  "mode": "reps",
+  "steps": [
+   "Set the rings at hip height and grip them with your palms facing in.",
+   "Jump into support with your arms locked and the rings turned out.",
+   "Lower your chest between the rings, keeping your elbows close to your body.",
+   "Push back up to lockout and turn the rings out again at the top.",
+   "Keep your shoulders down and your body still through every rep."
+  ]
+ },
+ {
+  "id": "rNG2pus",
+  "name": "Ring Push-Up",
+  "arName": "",
+  "equipment": "rings",
+  "primary": "chest",
+  "mode": "reps",
+  "steps": [
+   "Hang the rings a few centimetres off the floor and take a plank on them.",
+   "Squeeze your glutes and abs so your body holds one straight line.",
+   "Lower your chest to ring height, letting the rings drift out slightly.",
+   "Press back up and pull the rings back under your shoulders.",
+   "The higher the rings, the easier it gets, so set them to suit you."
+  ]
+ },
+ {
+  "id": "rNG3fly",
+  "name": "Ring Chest Fly",
+  "arName": "",
+  "equipment": "rings",
+  "primary": "chest",
+  "mode": "reps",
+  "steps": [
+   "Set the rings at chest height and lean forward with arms out in front.",
+   "Keep a soft bend in your elbows and your body in one line.",
+   "Open your arms out to the sides, letting your chest stretch under control.",
+   "Pull the rings back together by squeezing your chest, not by bending your arms.",
+   "Walk your feet back to make it harder, forward to make it easier."
+  ]
+ },
+ {
+  "id": "rNG4tri",
+  "name": "Ring Triceps Extension",
+  "arName": "",
+  "equipment": "rings",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Set the rings at waist height and lean forward with straight arms.",
+   "Keep your body in one line from head to heels.",
+   "Bend only at the elbows, letting your hands travel over your head.",
+   "Stop when your forearms reach the rings, then press back to straight arms.",
+   "Keep your elbows pointing forward the whole way."
+  ]
+ },
+ {
+  "id": "cable-lying-triceps-extension",
+  "name": "Cable Lying Triceps Extension",
+  "arName": "",
+  "equipment": "cable",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Place a flat bench with one end facing a low pulley.",
+   "Attach a short straight bar and lie on the bench with your head towards the stack.",
+   "Hold the bar with a narrow overhand grip and your arms straight up.",
+   "Bend your elbows to lower the bar behind your head.",
+   "Straighten your arms again without moving your elbows."
+  ]
+ },
+ {
+  "id": "single-arm-cable-pushdown",
+  "name": "Single-Arm Cable Pushdown",
+  "arName": "",
+  "equipment": "cable",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Set a pulley at the top and attach a single handle.",
+   "Face the stack and hold the handle with an underhand grip.",
+   "Keep your elbow pinned to your side and your knees soft.",
+   "Push the handle down until your arm is straight.",
+   "Let it rise slowly and switch arms after the set."
+  ]
+ },
+ {
+  "id": "barbell-incline-triceps-extension",
+  "name": "Barbell Incline Triceps Extension",
+  "arName": "تمدد الترايسبس المائل على جهاز السميث",
+  "equipment": "barbell",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Lie back on an incline bench holding a barbell with a close grip.",
+   "Press the bar up until it sits above your head with straight arms.",
+   "Keep your upper arms still and pointing up.",
+   "Bend your elbows to lower the bar behind your head.",
+   "Extend your arms to bring the bar back up."
+  ]
+ },
+ {
+  "id": "dumbbell-lying-triceps-extension",
+  "name": "Dumbbell Lying Triceps Extension",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Lie on a flat bench with a dumbbell in each hand.",
+   "Raise the dumbbells straight over your shoulders.",
+   "Keep your upper arms still for the whole set.",
+   "Bend your elbows to lower the dumbbells beside your head.",
+   "Straighten your arms to bring the dumbbells back up."
+  ]
+ },
+ {
+  "id": "reverse-grip-triceps-pushdown",
+  "name": "Reverse-Grip Triceps Pushdown",
+  "arName": "",
+  "equipment": "cable",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Attach a straight bar to a high pulley and face the stack.",
+   "Hold the bar with your palms facing up.",
+   "Pin your elbows to your sides.",
+   "Push the bar down towards your thighs until your arms are straight.",
+   "Let the bar rise slowly without moving your elbows."
+  ]
+ },
+ {
+  "id": "barbell-seated-overhead-triceps-extension",
+  "name": "Barbell Seated Overhead Triceps Extension",
+  "arName": "",
+  "equipment": "barbell",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Sit on a bench with back support and your feet flat on the floor.",
+   "Hold a barbell or EZ bar with a close grip.",
+   "Press the bar overhead until your arms are straight.",
+   "Lower the bar behind your head by bending only your elbows.",
+   "Extend your arms to bring the bar back overhead."
+  ]
+ },
+ {
+  "id": "tate-press",
+  "name": "Dumbbell Tate Press",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Lie on a flat bench with a dumbbell in each hand.",
+   "Hold the dumbbells over your chest with your palms facing your feet.",
+   "Bend your elbows out to the sides to lower the dumbbells to your chest.",
+   "Keep your upper arms still as the dumbbells touch.",
+   "Straighten your arms to press the dumbbells back up."
+  ]
+ },
+ {
+  "id": "v-bar-pushdown",
+  "name": "V-Bar Triceps Pushdown",
+  "arName": "",
+  "equipment": "cable",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Attach a V-bar to a high pulley and face the stack.",
+   "Hold the bar with your palms facing down.",
+   "Keep your back straight and your elbows at your sides.",
+   "Push the bar down until your arms are straight.",
+   "Let the bar rise slowly to chest height."
+  ]
+ },
+ {
+  "id": "rNG5pul",
+  "name": "Ring Pull-Up",
+  "arName": "",
+  "equipment": "rings",
+  "primary": "back",
+  "mode": "reps",
+  "steps": [
+   "Hang from the rings with your arms straight and palms facing forward.",
+   "Set your shoulders down and away from your ears.",
+   "Pull your chest towards the rings, turning your palms in as you rise.",
+   "Finish with the rings by your chest and your elbows tight to your sides.",
+   "Lower under control until your arms are straight again."
+  ]
+ },
+ {
+  "id": "rNG6chi",
+  "name": "Ring Chin-Up",
+  "arName": "",
+  "equipment": "rings",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Hang from the rings with your palms turned towards you.",
+   "Keep your ribs down and your legs still.",
+   "Pull yourself up by driving your elbows down to your sides.",
+   "Get your chin over the rings without swinging.",
+   "Lower slowly all the way to straight arms."
+  ]
+ },
+ {
+  "id": "rNG7row",
+  "name": "Ring Inverted Row",
+  "arName": "",
+  "equipment": "rings",
+  "primary": "back",
+  "mode": "reps",
+  "steps": [
+   "Set the rings at hip height and hang underneath with straight arms.",
+   "Walk your feet out until your body is one straight line.",
+   "Pull the rings to your ribs, squeezing your shoulder blades together.",
+   "Touch the rings to your sides, pause, and lower under control.",
+   "The flatter your body, the harder the row."
+  ]
+ },
+ {
+  "id": "rNG8fac",
+  "name": "Ring Face Pull",
+  "arName": "",
+  "equipment": "rings",
+  "primary": "shoulders",
+  "mode": "reps",
+  "steps": [
+   "Hold the rings at head height and lean back with straight arms.",
+   "Keep your body in one line from shoulders to heels.",
+   "Pull the rings apart and towards your forehead, elbows high.",
+   "Squeeze your rear shoulders for a second at the end.",
+   "Lower slowly and keep your neck relaxed."
+  ]
+ },
+ {
+  "id": "rNG9cur",
+  "name": "Ring Biceps Curl",
+  "arName": "",
+  "equipment": "rings",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Hold the rings with palms up and lean back with straight arms.",
+   "Lock your body in one line and keep your elbows high and still.",
+   "Curl yourself up by bending only at the elbows.",
+   "Bring your hands beside your head, then lower under control.",
+   "Step your feet forward to make it harder."
+  ]
+ },
+ {
+  "id": "cable-preacher-curl",
+  "name": "Cable Preacher Curl",
+  "arName": "",
+  "equipment": "cable",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Place a preacher bench in front of a low pulley with a short bar.",
+   "Rest your upper arms on the pad and hold the bar with your palms up.",
+   "Start with your arms fully straight.",
+   "Curl the bar up towards your head.",
+   "Lower it slowly until your arms are straight again."
+  ]
+ },
+ {
+  "id": "cross-body-hammer-curl",
+  "name": "Cross-Body Hammer Curl",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Stand tall with a dumbbell in each hand, palms facing your body.",
+   "Keep your elbows close to your sides.",
+   "Curl one dumbbell up and across towards the opposite shoulder.",
+   "Keep your palm facing in without twisting the wrist.",
+   "Lower it slowly and repeat with the other arm."
+  ]
+ },
+ {
+  "id": "seated-dumbbell-curl",
+  "name": "Seated Dumbbell Curl",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Sit on the end of a bench with your feet flat and your back straight.",
+   "Hold a dumbbell in each hand with your arms hanging at your sides.",
+   "Curl the dumbbells up, turning your palms to face up.",
+   "Squeeze your biceps at the top.",
+   "Lower the dumbbells slowly back to your sides."
+  ]
+ },
+ {
+  "id": "single-arm-cable-curl",
+  "name": "Single-Arm Cable Curl",
+  "arName": "",
+  "equipment": "cable",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Attach a single handle to a low pulley and stand side-on to the stack.",
+   "Hold the handle with your palm facing up and your arm straight.",
+   "Keep your elbow still at your side.",
+   "Curl the handle up towards your chest.",
+   "Lower it slowly and switch arms after the set."
+  ]
+ },
+ {
+  "id": "dumbbell-preacher-curl",
+  "name": "Dumbbell Preacher Curl",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Set the preacher bench so your armpits rest on top of the pad.",
+   "Hold a dumbbell in each hand with your palms facing up.",
+   "Rest your upper arms on the pad with your arms straight.",
+   "Curl the dumbbells up towards your shoulders.",
+   "Lower them slowly until your arms are straight again."
+  ]
+ },
+ {
+  "id": "wide-grip-barbell-curl",
+  "name": "Wide-Grip Barbell Curl",
+  "arName": "",
+  "equipment": "barbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart and your knees soft.",
+   "Hold the barbell with your palms up and your hands wider than your shoulders.",
+   "Let the bar rest against your thighs with your arms straight.",
+   "Curl the bar up towards your chest without swinging.",
+   "Lower the bar slowly back to your thighs."
+  ]
+ },
+ {
+  "id": "zottman-curl",
+  "name": "Zottman Curl",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Stand tall with a dumbbell in each hand at your sides.",
+   "Curl the dumbbells up with your palms facing up.",
+   "At the top, turn your wrists so your palms face down.",
+   "Lower the dumbbells slowly with your palms still facing down.",
+   "Turn your palms back up at the bottom before the next rep."
+  ]
+ },
+ {
+  "id": "machine-biceps-curl",
+  "name": "Machine Biceps Curl",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Adjust the seat so your elbows line up with the machine's pivot.",
+   "Rest the backs of your arms on the pad and grab the handles.",
+   "Keep your upper arms pressed into the pad.",
+   "Curl the handles up until your arms are fully bent.",
+   "Lower them slowly until your arms are straight."
+  ]
+ },
+ {
+  "id": "dumbbell-reverse-curl",
+  "name": "Dumbbell Reverse Curl",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Stand with a dumbbell in each hand and your palms facing down.",
+   "Keep your elbows tucked at your sides.",
+   "Curl the dumbbells up towards your shoulders with your palms still down.",
+   "Pause at the top without letting your elbows drift forward.",
+   "Lower the dumbbells slowly to your thighs."
+  ]
+ },
+ {
+  "id": "band-biceps-curl",
+  "name": "Band Biceps Curl",
+  "arName": "",
+  "equipment": "band",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Stand on the middle of a band and hold one end in each hand.",
+   "Keep your feet shoulder-width apart and your palms facing forward.",
+   "Curl one hand up towards your shoulder while the other stays down.",
+   "Lower it and curl the other hand in turn.",
+   "Keep your elbows still and speed up once the motion feels easy."
+  ]
+ },
+ {
+  "id": "rNGaham",
+  "name": "Ring Hamstring Curl",
+  "arName": "",
+  "equipment": "rings",
+  "primary": "hamstrings",
+  "mode": "reps",
+  "steps": [
+   "Lie on your back with your heels in the rings, set just off the floor.",
+   "Lift your hips so your body makes one line from shoulders to heels.",
+   "Pull your heels towards your backside by bending your knees.",
+   "Keep your hips high the whole way, then straighten your legs slowly.",
+   "Drop your hips to the floor to rest between sets."
+  ]
+ },
+ {
+  "id": "rNGbrol",
+  "name": "Ring Ab Rollout",
+  "arName": "",
+  "equipment": "rings",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Hold the rings at hip height with straight arms and lean in.",
+   "Brace your abs and squeeze your glutes so your back stays flat.",
+   "Let your arms travel out overhead as your body lowers forward.",
+   "Go only as far as you can hold without your hips sagging.",
+   "Pull the rings back down to your hips to return."
+  ]
+ }
+]

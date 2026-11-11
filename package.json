@@ -1,0 +1,47 @@
+{
+  "name": "nabd",
+  "version": "0.1.0",
+  "private": true,
+  "description": "نبض — تطبيق شخصي لمتابعة التمارين في البيت والنادي",
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "catalog": "node scripts/build-catalog.mjs",
+    "art": "node scripts/build-art.mjs",
+    "icons": "node scripts/build-icons.mjs",
+    "art:audit": "node scripts/audit-technical-art.mjs",
+    "motion:build": "node scripts/build-motion-rigs.mjs"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-sans-arabic": "^5.3.0",
+    "dexie": "^4.4.7",
+    "dexie-react-hooks": "^4.4.0",
+    "lucide-react": "^1.71.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5",
+    "zustand": "^5.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "fake-indexeddb": "^6.2.8",
+    "happy-dom": "^21.0.4",
+    "sharp": "^0.35.5",
+    "svg-path-bounds": "^1.0.2",
+    "svgpath": "^2.6.0",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.7",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.1.0"
+  }
+}

@@ -1,0 +1,1170 @@
+[
+ {
+  "id": "WLvTAv5",
+  "name": "Barbell Prone Incline Curl",
+  "arName": "كيرل مائل للأعلى بالبار من الانبطاح",
+  "equipment": "barbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Set up an incline bench at a 45-degree angle.",
+   "Lie face down on the bench with your chest and stomach resting against it.",
+   "Hold a barbell with an underhand grip, shoulder-width apart.",
+   "Extend your arms fully, allowing the barbell to hang down towards the floor.",
+   "Keeping your upper arms stationary, exhale and curl the weights while contracting your biceps."
+  ]
+ },
+ {
+  "id": "Zwiw7XR",
+  "name": "Dumbbell Alternating Bicep Curl with Leg Raised on Exercise Ball",
+  "arName": "بايسبس كيرل بالتناوب بالدمبل مع رفع الساق على كرة التمرين",
+  "equipment": "dumbbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart and hold a dumbbell in each hand, palms facing forward.",
+   "Place an exercise ball behind you and position one foot on top of it, keeping your balance.",
+   "With your arms fully extended and elbows close to your sides, curl one dumbbell towards your shoulder while keeping your upper arm stationary.",
+   "Lower the dumbbell back down to the starting position and repeat with the other arm.",
+   "Continue alternating arms for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "HPlPoQA",
+  "name": "Cable Hammer Curl (With Rope)",
+  "arName": "هامر كيرل بالكابل (بالحبل)",
+  "equipment": "cable",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Stand upright with your feet shoulder-width apart and a slight bend in your knees.",
+   "Hold the cable rope attachment with an underhand grip, palms facing each other, and your arms fully extended.",
+   "Keeping your upper arms stationary, exhale and curl the weights while contracting your biceps.",
+   "Continue to raise the cable rope attachment until your biceps are fully contracted and the rope is at shoulder level.",
+   "Hold the contracted position for a brief pause as you squeeze your biceps."
+  ]
+ },
+ {
+  "id": "xNrS20v",
+  "name": "Barbell Reverse Curl",
+  "arName": "كيرل معكوس بالبار",
+  "equipment": "barbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Stand up straight with your feet shoulder-width apart and hold a barbell with an overhand grip, palms facing down.",
+   "Keep your upper arms stationary and exhale as you curl the barbell upward, contracting your biceps.",
+   "Continue to raise the barbell until your biceps are fully contracted and the barbell is at shoulder level.",
+   "Hold the contracted position for a brief pause as you squeeze your biceps.",
+   "Inhale as you slowly lower the barbell back to the starting position, keeping your upper arms stationary."
+  ]
+ },
+ {
+  "id": "J74XlNf",
+  "name": "Dumbbell Alternating Seated Bicep Curl on Exercise Ball",
+  "arName": "بايسبس كيرل جالساً بالتناوب بالدمبل على كرة التمرين",
+  "equipment": "dumbbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Sit on an exercise ball with your feet flat on the ground and your back straight.",
+   "Hold a dumbbell in each hand with your palms facing forward and your arms fully extended.",
+   "Keeping your upper arms stationary, exhale and curl one dumbbell while rotating your forearm until your palm is facing your shoulder.",
+   "Inhale and slowly lower the dumbbell back to the starting position.",
+   "Repeat the curl with the other arm."
+  ]
+ },
+ {
+  "id": "otqIxU4",
+  "name": "Cable Lying Bicep Curl",
+  "arName": "بايسبس كيرل من الاستلقاء بالكابل",
+  "equipment": "cable",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Attach a straight bar to a low pulley cable machine.",
+   "Lie face up on a flat bench with your feet flat on the ground.",
+   "Grasp the bar with an underhand grip, hands shoulder-width apart.",
+   "Extend your arms fully, keeping your elbows close to your sides.",
+   "Keeping your upper arms stationary, exhale and curl the bar up towards your shoulders."
+  ]
+ },
+ {
+  "id": "61GrD55",
+  "name": "Cable Lying Close-grip Curl",
+  "arName": "كيرل بقبضة ضيقة بالكابل من الاستلقاء",
+  "equipment": "cable",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Attach a straight bar to a low pulley cable machine.",
+   "Lie face up on a flat bench with your feet flat on the ground.",
+   "Grasp the bar with an underhand grip, hands shoulder-width apart.",
+   "Extend your arms fully, keeping your elbows close to your sides.",
+   "Keeping your upper arms stationary, curl the bar towards your chest by contracting your biceps."
+  ]
+ },
+ {
+  "id": "1V1gj1u",
+  "name": "Barbell Seated Close-grip Concentration Curl",
+  "arName": "كونسنتريشن كيرل بالبار بقبضة ضيقة جالساً",
+  "equipment": "barbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Sit on a bench with your feet flat on the floor and hold a barbell with an underhand grip, hands shoulder-width apart.",
+   "Rest your upper arms against your inner thighs, just above your knees, and let the barbell hang down in front of you.",
+   "Keeping your upper arms stationary, exhale and curl the barbell up towards your shoulders, contracting your biceps.",
+   "Hold the contracted position for a brief pause, then inhale and slowly lower the barbell back down to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "2NImIAG",
+  "name": "Dumbbell Bicep Curl on Exercise Ball with Leg Raised",
+  "arName": "بايسبس كيرل بالدمبل على كرة التمرين مع رفع الساق",
+  "equipment": "dumbbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Sit on an exercise ball with your feet flat on the ground and your back straight.",
+   "Hold a dumbbell in each hand with your palms facing forward and your arms fully extended.",
+   "Slowly curl the dumbbells towards your shoulders, keeping your elbows close to your sides.",
+   "Pause for a moment at the top of the movement, then slowly lower the dumbbells back to the starting position.",
+   "While performing the bicep curl, raise one leg off the ground and hold it in the air for the duration of the exercise."
+  ]
+ },
+ {
+  "id": "4dUn2iv",
+  "name": "Barbell Standing Close Grip Curl",
+  "arName": "كيرل بقبضة ضيقة بالبار واقفاً",
+  "equipment": "barbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Stand up straight with your feet shoulder-width apart and hold a barbell with an underhand grip, hands close together.",
+   "Keep your elbows close to your torso and your upper arms stationary throughout the movement.",
+   "Exhale as you curl the weights while contracting your biceps. Continue to raise the bar until your biceps are fully contracted and the bar is at shoulder level.",
+   "Hold the contracted position for a brief pause as you squeeze your biceps.",
+   "Inhale as you slowly begin to bring the barbell back to the starting position."
+  ]
+ },
+ {
+  "id": "incline-dumbbell-curl",
+  "name": "Incline Dumbbell Curl",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Set a bench to about 60 degrees and sit back against it.",
+   "Let both arms hang straight down with a dumbbell in each hand.",
+   "Curl the dumbbells up without letting your elbows drift forward.",
+   "Squeeze your biceps at the top of the curl.",
+   "Lower the weights slowly until your arms are fully straight."
+  ]
+ },
+ {
+  "id": "J6Dx1Mu",
+  "name": "Barbell Close-grip Bench Press",
+  "arName": "بنش برس بالبار بقبضة ضيقة",
+  "equipment": "barbell",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Lie flat on a bench with your feet flat on the ground and your back pressed against the bench.",
+   "Grasp the barbell with a close grip, slightly narrower than shoulder-width apart.",
+   "Unrack the barbell and lower it slowly towards your chest, keeping your elbows close to your body.",
+   "Pause for a moment when the barbell touches your chest.",
+   "Push the barbell back up to the starting position, fully extending your arms."
+  ]
+ },
+ {
+  "id": "7jGOBF3",
+  "name": "Dumbbell Close Grip Press",
+  "arName": "ضغط بقبضة ضيقة بالدمبل",
+  "equipment": "dumbbell",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Sit on a flat bench with a dumbbell in each hand, resting on your thighs.",
+   "Using your thighs to help raise the dumbbells, lift the dumbbells one at a time so that you can hold them in front of you at shoulder width.",
+   "Once at shoulder width, rotate your wrists forward so that the palms of your hands are facing away from you. This will be your starting position.",
+   "As you breathe in, slowly lower the dumbbells to your side until they are about level with your chest.",
+   "As you exhale, use your triceps to lift the dumbbells back to the starting position. Make sure to use only your triceps and do not use your forearms or biceps to help lift the dumbbells."
+  ]
+ },
+ {
+  "id": "RrLske5",
+  "name": "Bench Dip (Knees Bent)",
+  "arName": "غطس على المقعد (ركبتان مثنيتان)",
+  "equipment": "bodyweight",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Sit on the edge of a bench or chair with your hands gripping the edge next to your hips.",
+   "Slide your butt off the bench and straighten your legs in front of you, keeping your heels on the ground.",
+   "Bend your elbows and lower your body towards the ground, keeping your back close to the bench.",
+   "Pause for a moment at the bottom, then push yourself back up to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "MU9HnE7",
+  "name": "Weighted Bench Dip",
+  "arName": "غطس على المقعد بوزن إضافي",
+  "equipment": "weighted",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Sit on a bench with your hands gripping the edge, fingers pointing forward.",
+   "Slide your butt off the bench, supporting your weight with your hands.",
+   "Lower your body by bending your elbows until your upper arms are parallel to the floor.",
+   "Push yourself back up to the starting position by straightening your arms.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "LMGXZn8",
+  "name": "Barbell Decline Close Grip to Skull Press",
+  "arName": "ضغط البار نحو الجمجمة مائل للأسفل بقبضة ضيقة",
+  "equipment": "barbell",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Lie on a decline bench with your head lower than your feet and hold a barbell with a close grip.",
+   "Lower the barbell towards your forehead by bending your elbows, keeping your upper arms stationary.",
+   "Pause for a moment, then extend your arms to press the barbell back up to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "Db7eEgw",
+  "name": "Cable Concentration Extension (On Knee)",
+  "arName": "تمدد تركيز بالكابل (على الركبة)",
+  "equipment": "cable",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Sit on a bench or chair with your knees bent and feet flat on the ground.",
+   "Hold the cable handle with your right hand and place your elbow on the inside of your right knee.",
+   "Extend your arm fully, keeping your elbow stationary and close to your knee.",
+   "Pause for a moment at the top, then slowly lower your arm back to the starting position.",
+   "Repeat for the desired number of repetitions, then switch sides."
+  ]
+ },
+ {
+  "id": "Ser9eQp",
+  "name": "Machine Triceps Extension",
+  "arName": "تمدد الترايسبس على الجهاز",
+  "equipment": "machine",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Adjust the seat so your elbows line up with the machine's pivot.",
+   "Rest your upper arms on the pad and grab the handles.",
+   "Keep your upper arms pressed into the pad.",
+   "Push the handles down until your arms are straight.",
+   "Let the handles come back up slowly until your elbows are fully bent."
+  ]
+ },
+ {
+  "id": "WcHl7ru",
+  "name": "Smith Close-grip Bench Press",
+  "arName": "بنش برس بقبضة ضيقة على جهاز سميث",
+  "equipment": "machine",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Adjust the seat height and position yourself on the bench with your feet flat on the ground.",
+   "Grasp the barbell with a close grip, slightly narrower than shoulder-width apart.",
+   "Lower the barbell towards your chest, keeping your elbows close to your body.",
+   "Pause for a moment at the bottom, then push the barbell back up to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "bZq4bwK",
+  "name": "Weighted Tricep Dips",
+  "arName": "غطس الترايسبس مع وزن",
+  "equipment": "weighted",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Sit on the edge of a bench or chair with your hands gripping the edge next to your hips.",
+   "Slide your butt off the front of the bench with your legs extended in front of you.",
+   "Keep your back close to the bench and your elbows slightly bent.",
+   "Lower your body by bending your elbows until your upper arms are parallel to the floor.",
+   "Push yourself back up to the starting position by straightening your arms."
+  ]
+ },
+ {
+  "id": "OTgkHwR",
+  "name": "Dumbbell Decline Triceps Extension",
+  "arName": "تمدد الترايسبس مائل للأسفل بالدمبل",
+  "equipment": "dumbbell",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Lie on a decline bench with your head lower than your feet and hold a dumbbell in each hand, palms facing each other.",
+   "Extend your arms fully, keeping your elbows close to your head.",
+   "Lower the dumbbells slowly behind your head, bending your elbows.",
+   "Pause for a moment, then raise the dumbbells back to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "Hx1WC8I",
+  "name": "Cable Incline Triceps Extension",
+  "arName": "تمدد الترايسبس مائل بالكابل",
+  "equipment": "cable",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Adjust the cable machine to a low pulley position.",
+   "Attach a straight bar to the cable.",
+   "Stand facing away from the machine with your feet shoulder-width apart.",
+   "Grasp the bar with an overhand grip and extend your arms straight overhead.",
+   "Lean forward slightly, keeping your back straight and core engaged."
+  ]
+ },
+ {
+  "id": "ZsiqXYa",
+  "name": "JM Press",
+  "arName": "بنش برس جيه إم بالبار",
+  "equipment": "barbell",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Lie on a flat bench and hold the bar with a grip just narrower than your shoulders.",
+   "Press the bar up over your chest with your arms straight.",
+   "Bend your elbows and let the bar travel down towards your chin, keeping your elbows pointing forward.",
+   "Stop a few centimetres above your throat.",
+   "Press the bar back up by straightening your arms."
+  ]
+ },
+ {
+  "id": "HEJ6DIX",
+  "name": "Dumbbell Triceps Kickback",
+  "arName": "كيك باك بالكابل",
+  "equipment": "dumbbell",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Put one knee and the same-side hand on a bench with your back flat.",
+   "Hold a dumbbell in the other hand with your upper arm tucked against your side.",
+   "Start with your elbow bent to 90 degrees.",
+   "Straighten your arm behind you until it is fully extended.",
+   "Bend the elbow slowly back to 90 degrees and switch arms after the set."
+  ]
+ },
+ {
+  "id": "x6KpKpq",
+  "name": "Close-grip Push-up",
+  "arName": "ضغط بقبضة ضيقة",
+  "equipment": "bodyweight",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Start in a high plank position with your hands placed close together, directly under your shoulders.",
+   "Engage your core and lower your body towards the ground, keeping your elbows close to your sides.",
+   "Push through your palms to extend your arms and return to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "yg8Totb",
+  "name": "Barbell Lying Back of the Head Tricep Extension",
+  "arName": "تمدد الترايسبس خلف الرأس من الاستلقاء بالبار",
+  "equipment": "barbell",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Lie flat on a bench with your feet flat on the ground and your head at the end of the bench.",
+   "Hold a barbell with an overhand grip, hands shoulder-width apart, and extend your arms straight up over your chest.",
+   "Keeping your upper arms stationary, slowly lower the barbell behind your head by bending your elbows.",
+   "Pause for a moment, then extend your arms back up to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "rope-tricep-pushdown",
+  "name": "Rope Tricep Pushdown",
+  "arName": "",
+  "equipment": "cable",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Attach a rope to a high pulley and take an end in each hand.",
+   "Stand tall with your elbows pinned to your sides.",
+   "Push the rope down until your arms are straight.",
+   "Spread the ends of the rope apart at the bottom and squeeze your triceps.",
+   "Let the rope rise back to chest height without moving your elbows."
+  ]
+ },
+ {
+  "id": "single-dumbbell-skullcrusher",
+  "name": "Single Dumbbell Skullcrusher",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Lie back on a bench holding one dumbbell with both hands.",
+   "Press the dumbbell up until your arms are straight over your chest.",
+   "Keep your upper arms still and bend only at the elbows.",
+   "Lower the dumbbell behind your head until you feel the triceps stretch.",
+   "Extend your arms back to the top without flaring your elbows."
+  ]
+ },
+ {
+  "id": "single-arm-dumbbell-tricep-extension",
+  "name": "Single Arm Dumbbell Tricep Extension",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Hold a dumbbell in one hand and press it straight overhead.",
+   "Keep your upper arm next to your ear and your elbow pointing up.",
+   "Lower the dumbbell behind your head by bending the elbow.",
+   "Go down until your forearm touches your biceps.",
+   "Extend your arm back overhead and squeeze the triceps."
+  ]
+ },
+ {
+  "id": "chair-dip",
+  "name": "Chair Dip",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Sit on the edge of a sturdy chair and grip the front with both hands.",
+   "Slide your hips off the seat with your legs out in front.",
+   "Bend your elbows to lower your hips towards the floor.",
+   "Stop when your upper arms are level with the seat.",
+   "Push back up until your arms are straight."
+  ]
+ },
+ {
+  "id": "crab-walk",
+  "name": "Crab Walk",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "triceps",
+  "mode": "reps",
+  "steps": [
+   "Sit on the floor with your hands behind you and your knees bent.",
+   "Lift your hips so only your hands and feet touch the ground.",
+   "Walk forward by moving an opposite hand and foot together.",
+   "Keep your hips up the whole time.",
+   "Walk back the other way to finish the set."
+  ]
+ },
+ {
+  "id": "mnzcrIB",
+  "name": "Dumbbell Bench Squat",
+  "arName": "سكوات على المقعد بالدمبل",
+  "equipment": "dumbbell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Place a dumbbell on the ground in front of a bench.",
+   "Stand facing away from the bench with your feet shoulder-width apart.",
+   "Bend at the knees and hips to lower yourself down towards the bench, keeping your chest up and back straight.",
+   "Once your glutes touch the bench, push through your heels to stand back up to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "1bQkKZK",
+  "name": "Smith Good Morning",
+  "arName": "جود مورنينج بركبة مثنية على جهاز سميث",
+  "equipment": "machine",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Start by standing with your feet shoulder-width apart, toes pointing forward.",
+   "Place the barbell across your upper back, resting it on your traps.",
+   "Bend your knees slightly and hinge forward at the hips, keeping your back straight.",
+   "Lower your torso until it is parallel to the ground, feeling a stretch in your hamstrings.",
+   "Engage your glutes and hamstrings to raise your torso back up to the starting position."
+  ]
+ },
+ {
+  "id": "GWoKnIm",
+  "name": "Weighted Cossack Squats",
+  "arName": "",
+  "equipment": "weighted",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet wider than shoulder-width apart and toes pointing slightly outward.",
+   "Hold a weight in front of your chest with both hands.",
+   "Shift your weight to one side and lower your body by bending the knee of the side you shifted towards, while keeping the other leg straight.",
+   "Go as low as you can while maintaining balance and keeping your chest up.",
+   "Push through the heel of the bent leg to return to the starting position."
+  ]
+ },
+ {
+  "id": "Kpajagk",
+  "name": "Cable Standing Hip Extension",
+  "arName": "تمديد الورك بالكابل واقفاً",
+  "equipment": "cable",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Attach a cable to a low pulley and stand facing away from the machine.",
+   "Place the cable around your ankle and stand with your feet shoulder-width apart.",
+   "Keep your core engaged and your back straight throughout the exercise.",
+   "Slowly extend your leg straight back, squeezing your glutes at the top of the movement.",
+   "Pause for a moment, then return to the starting position."
+  ]
+ },
+ {
+  "id": "UfePqpx",
+  "name": "Smith Romanian Deadlift",
+  "arName": "ديدلفت على الجهاز",
+  "equipment": "machine",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Set the Smith bar at mid-thigh height and grip it just outside your legs.",
+   "Unlock the bar and stand tall with a soft bend in your knees.",
+   "Push your hips back and slide the bar down your thighs with a flat back.",
+   "Stop when you feel a stretch in your hamstrings.",
+   "Drive your hips forward to stand back up."
+  ]
+ },
+ {
+  "id": "BbfB8Gb",
+  "name": "Basic Toe Touch",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart and your arms by your sides.",
+   "Bend forward at the waist, keeping your back straight and your knees slightly bent.",
+   "Reach down towards your toes with your hands, keeping your legs as straight as possible.",
+   "Pause for a moment at the bottom, then slowly return to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "ecl28tP",
+  "name": "Dumbbell Contralateral Forward Lunge",
+  "arName": "اندفاع أمامي بالدمبل بالتبادل المتقابل",
+  "equipment": "dumbbell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart, holding a dumbbell in each hand.",
+   "Take a step forward with your right foot, keeping your back straight and core engaged.",
+   "Lower your body by bending both knees until your right thigh is parallel to the ground.",
+   "Push through your right heel to return to the starting position.",
+   "Repeat with your left leg."
+  ]
+ },
+ {
+  "id": "u27Kcdz",
+  "name": "Bench Hip Extension",
+  "arName": "تمديد الورك على المقعد",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Sit on a bench with your back against the bench and your feet flat on the ground.",
+   "Place your hands on the bench for support.",
+   "Engage your glutes and hamstrings, then lift your hips off the bench until your body forms a straight line from your knees to your shoulders.",
+   "Pause for a moment at the top, then slowly lower your hips back down to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "vR1vold",
+  "name": "Zercher Squat",
+  "arName": "سكوات زيرشر كامل بالبار",
+  "equipment": "barbell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart and toes slightly turned out.",
+   "Hold the barbell in the crooks of your elbows, with your hands gripping the barbell for stability.",
+   "Engage your core and keep your chest lifted as you lower your hips back and down into a squat position.",
+   "Keep your knees in line with your toes and your weight in your heels.",
+   "Lower until your thighs are parallel to the ground, or as low as you can comfortably go."
+  ]
+ },
+ {
+  "id": "nUwVh7b",
+  "name": "Dumbbell Romanian Deadlift",
+  "arName": "ديدلفت بالدمبل",
+  "equipment": "dumbbell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet hip-width apart and a dumbbell in each hand in front of your thighs.",
+   "Keep a soft bend in your knees and your back flat.",
+   "Push your hips back and slide the dumbbells down your legs.",
+   "Stop when you feel a stretch along the back of your thighs.",
+   "Squeeze your glutes to bring your hips forward and stand tall."
+  ]
+ },
+ {
+  "id": "NNoHCEA",
+  "name": "Smith Full Squat",
+  "arName": "سكوات كامل على جهاز سميث",
+  "equipment": "machine",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Set up the smith machine with the barbell at shoulder height.",
+   "Stand with your feet shoulder-width apart, toes slightly turned out.",
+   "Step under the bar and position it across your upper back, resting on your traps.",
+   "Grip the bar with your hands slightly wider than shoulder-width apart.",
+   "Unrack the bar and take a step back, maintaining a stable stance."
+  ]
+ },
+ {
+  "id": "ZuPXtCK",
+  "name": "Smith Hack Squat",
+  "arName": "هاك سكوات على جهاز سميث",
+  "equipment": "machine",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Adjust the barbell on the smith machine to an appropriate height for your body.",
+   "Stand with your feet shoulder-width apart, toes slightly pointed outwards.",
+   "Position yourself under the barbell, resting it on your upper traps and shoulders.",
+   "Grasp the barbell with an overhand grip, slightly wider than shoulder-width apart.",
+   "Engage your core and keep your chest up as you unrack the barbell."
+  ]
+ },
+ {
+  "id": "wfotm7S",
+  "name": "Bodyweight Drop Jump Squat",
+  "arName": "سكوات مع قفزة نزول بوزن الجسم",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart.",
+   "Lower your body into a squat position by bending your knees and pushing your hips back.",
+   "Jump up explosively, extending your hips, knees, and ankles.",
+   "While in mid-air, quickly bring your feet together.",
+   "Land softly on the balls of your feet and immediately drop back into a squat position."
+  ]
+ },
+ {
+  "id": "5VCj6iH",
+  "name": "Barbell Hack Squat",
+  "arName": "هاك سكوات بالبار",
+  "equipment": "barbell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Start by standing with your feet shoulder-width apart and your toes slightly turned out.",
+   "Hold the barbell behind your legs, resting it on your upper thighs.",
+   "Lower your body by bending at the knees and hips, keeping your back straight and your chest up.",
+   "Continue lowering until your thighs are parallel to the ground, or as low as you can comfortably go.",
+   "Pause for a moment, then push through your heels to return to the starting position."
+  ]
+ },
+ {
+  "id": "hip-thrust",
+  "name": "Hip Thrust",
+  "arName": "",
+  "equipment": "barbell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Sit on the floor with your upper back against a bench and a barbell over your hips.",
+   "Plant your feet flat, about hip-width apart and under your knees.",
+   "Tuck your chin and drive through your heels to lift your hips.",
+   "Squeeze your glutes hard when your body forms a straight line.",
+   "Lower your hips slowly until they nearly touch the floor."
+  ]
+ },
+ {
+  "id": "dumbbell-hip-thrust",
+  "name": "Dumbbell Hip Thrust",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Sit with your upper back on a bench and a dumbbell resting on your hips.",
+   "Hold the dumbbell in place with both hands.",
+   "Push through your heels and lift your hips until your body is level.",
+   "Squeeze your glutes at the top for a second.",
+   "Lower your hips under control without dropping them onto the floor."
+  ]
+ },
+ {
+  "id": "glute-bridge",
+  "name": "Glute Bridge",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Lie on your back with your knees bent and your feet flat on the floor.",
+   "Rest your arms at your sides with your palms down.",
+   "Push through your heels to lift your hips off the floor.",
+   "Squeeze your glutes until your body forms a straight line.",
+   "Lower your hips back down slowly, one vertebra at a time."
+  ]
+ },
+ {
+  "id": "single-leg-glute-bridge",
+  "name": "Single-Leg Glute Bridge",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Lie on your back with one knee bent and that foot flat on the floor.",
+   "Lift the other leg and hold it straight in the air.",
+   "Push through the planted heel to raise your hips.",
+   "Keep your hips level, without letting one side drop.",
+   "Lower yourself slowly and finish all the reps before swapping legs."
+  ]
+ },
+ {
+  "id": "dumbbell-glute-bridge",
+  "name": "Dumbbell Glute Bridge",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Lie on your back with your knees bent and a dumbbell across your hips.",
+   "Hold the dumbbell steady with both hands.",
+   "Drive your heels into the floor and lift your hips.",
+   "Pause at the top with your glutes squeezed tight.",
+   "Lower your hips slowly back to the floor."
+  ]
+ },
+ {
+  "id": "glute-bridge-march",
+  "name": "Glute Bridge March",
+  "arName": "مسيرة جسر الألوية",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Lie on your back and lift your hips into a bridge position.",
+   "Hold your hips level and your ribs down.",
+   "Bring one knee up towards your chest without dropping your hips.",
+   "Put that foot back down and repeat with the other leg.",
+   "Keep alternating legs while you hold the bridge."
+  ]
+ },
+ {
+  "id": "trap-bar-deadlift",
+  "name": "Trap Bar Deadlift",
+  "arName": "ديدلفت بالبار السداسي",
+  "equipment": "barbell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand inside a trap bar with your feet hip-width apart.",
+   "Push your hips back and grab both handles with straight arms.",
+   "Lift your chest and take the slack out of the bar.",
+   "Drive your feet into the floor and stand up tall.",
+   "Push your hips back to lower the bar to the floor."
+  ]
+ },
+ {
+  "id": "hip-abduction-machine",
+  "name": "Hip Abduction Machine",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Sit in the machine with the pads against the outside of your knees.",
+   "Keep your back flat against the seat and hold the handles.",
+   "Push your knees apart as far as the machine allows.",
+   "Squeeze your glutes for a moment at the widest point.",
+   "Bring your knees back together slowly."
+  ]
+ },
+ {
+  "id": "machine-glute-kickback",
+  "name": "Machine Glute Kickback",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand facing the machine and put one foot on the lever pad.",
+   "Hold the chest support and keep your back flat.",
+   "Push the pad back and up with your working leg.",
+   "Squeeze the glute at the end of the push.",
+   "Return the pad slowly and do all the reps on that side first."
+  ]
+ },
+ {
+  "id": "cable-standing-hip-abduction",
+  "name": "Cable Standing Hip Abduction",
+  "arName": "",
+  "equipment": "cable",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Strap a cable cuff around the ankle furthest from the machine.",
+   "Hold the frame for balance and stand tall.",
+   "Lift the working leg out to the side, keeping it straight.",
+   "Stop when you feel the side of your glute working.",
+   "Bring the leg back down slowly without letting the stack rest."
+  ]
+ },
+ {
+  "id": "reverse-hyperextension",
+  "name": "Reverse Hyperextension",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Lie face down on the machine with your hips at the edge of the pad.",
+   "Hold the handles and let your legs hang down.",
+   "Squeeze your glutes to lift your legs until they are level with your back.",
+   "Avoid arching your lower back at the top.",
+   "Lower your legs slowly and do not let them swing."
+  ]
+ },
+ {
+  "id": "dumbbell-sumo-deadlift",
+  "name": "Dumbbell Sumo Deadlift",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet wide and your toes turned out.",
+   "Hold one dumbbell with both hands between your legs.",
+   "Push your hips back and bend your knees to lower the weight.",
+   "Keep your chest up and the dumbbell close to your body.",
+   "Drive through your heels to stand up and squeeze your glutes."
+  ]
+ },
+ {
+  "id": "dumbbell-sumo-squat",
+  "name": "Dumbbell Sumo Squat",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Take a wide stance with your toes pointing out.",
+   "Hold a dumbbell hanging between your legs with both hands.",
+   "Keep your chest up and your back straight.",
+   "Squat down until your thighs are parallel to the floor.",
+   "Push through your heels and squeeze your glutes on the way up."
+  ]
+ },
+ {
+  "id": "deficit-reverse-lunge",
+  "name": "Deficit Reverse Lunge",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand on a low platform with a dumbbell in each hand.",
+   "Step one foot back and off the platform.",
+   "Lower your back knee towards the floor, below the level of the front foot.",
+   "Keep your torso upright and your front heel planted.",
+   "Drive up through the front leg to return onto the platform."
+  ]
+ },
+ {
+  "id": "dumbbell-curtsy-lunge",
+  "name": "Dumbbell Curtsy Lunge",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet hip-width apart and a dumbbell in each hand.",
+   "Step one foot back and across behind the other leg.",
+   "Bend both knees to lower into the curtsy position.",
+   "Keep your hips facing forward and your chest up.",
+   "Push through the front heel to stand back up."
+  ]
+ },
+ {
+  "id": "curtsy-lunge",
+  "name": "Curtsy Lunge",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet hip-width apart and your hands on your hips.",
+   "Step one foot back and diagonally behind the other.",
+   "Bend both knees to sink into the lunge.",
+   "Keep your hips square and your front knee over your foot.",
+   "Push through the front heel to return to standing."
+  ]
+ },
+ {
+  "id": "frog-pump",
+  "name": "Frog Pump",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Lie on your back and put the soles of your feet together.",
+   "Let your knees fall out to the sides.",
+   "Pull your heels in close to your body.",
+   "Squeeze your glutes to lift your hips off the floor.",
+   "Lower your hips slowly and repeat without resting."
+  ]
+ },
+ {
+  "id": "donkey-kick",
+  "name": "Donkey Kick",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Get on all fours with your hands under your shoulders.",
+   "Keep your back flat and your core braced.",
+   "Push one heel up towards the ceiling with the knee still bent.",
+   "Stop when your thigh is level with your body.",
+   "Lower the knee back down without touching the floor."
+  ]
+ },
+ {
+  "id": "fire-hydrant",
+  "name": "Fire Hydrant",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Start on all fours with your knees under your hips.",
+   "Keep your knee bent at ninety degrees.",
+   "Lift that leg out to the side, away from your body.",
+   "Stop before your torso starts to lean over.",
+   "Lower the knee back down under control."
+  ]
+ },
+ {
+  "id": "clamshell",
+  "name": "Clamshell",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Lie on your side with your knees bent and your feet stacked.",
+   "Rest your head on your bottom arm and keep your hips still.",
+   "Open the top knee towards the ceiling, keeping your feet together.",
+   "Stop before your hips start to roll back.",
+   "Close the knee slowly and repeat."
+  ]
+ },
+ {
+  "id": "hip-airplane",
+  "name": "Hip Airplane",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Stand on one leg and hinge forward with the other leg back.",
+   "Reach your arms out to the sides for balance.",
+   "Rotate your hips open towards the ceiling.",
+   "Rotate them back the other way until they face the floor.",
+   "Move slowly and keep the standing knee soft."
+  ]
+ },
+ {
+  "id": "side-lying-leg-raise",
+  "name": "Side-Lying Leg Raise",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Lie on your side with your legs stacked and straight.",
+   "Support your head with your bottom arm.",
+   "Lift the top leg towards the ceiling.",
+   "Keep your toes pointing forward, not up.",
+   "Lower the leg slowly without letting it rest."
+  ]
+ },
+ {
+  "id": "banded-glute-bridge",
+  "name": "Banded Glute Bridge",
+  "arName": "",
+  "equipment": "band",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Loop a short band just above your knees.",
+   "Lie on your back with your knees bent and your feet flat.",
+   "Push your knees out against the band.",
+   "Drive through your heels to lift your hips.",
+   "Squeeze your glutes at the top and lower slowly."
+  ]
+ },
+ {
+  "id": "banded-hip-thrust",
+  "name": "Banded Hip Thrust",
+  "arName": "",
+  "equipment": "band",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Sit with your upper back on a bench and a band around your hips.",
+   "Anchor both ends of the band under your feet or to the rack.",
+   "Push your hips up against the band's pull.",
+   "Squeeze your glutes when your body is level.",
+   "Lower your hips slowly without losing the tension."
+  ]
+ },
+ {
+  "id": "banded-frog-pump",
+  "name": "Banded Frog Pump",
+  "arName": "",
+  "equipment": "band",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Loop a band above your knees and lie on your back.",
+   "Put the soles of your feet together and let your knees fall open.",
+   "Press your knees out against the band.",
+   "Squeeze your glutes to lift your hips off the floor.",
+   "Lower under control and go straight into the next rep."
+  ]
+ },
+ {
+  "id": "banded-clamshell",
+  "name": "Banded Clamshell",
+  "arName": "",
+  "equipment": "band",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Loop a band above your knees and lie on your side.",
+   "Bend your knees and stack your feet.",
+   "Open the top knee against the band without rolling your hips.",
+   "Hold for a second at the top.",
+   "Close the knee slowly and keep the tension."
+  ]
+ },
+ {
+  "id": "banded-lateral-walk",
+  "name": "Banded Lateral Walk",
+  "arName": "",
+  "equipment": "band",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Put a band around your legs, just above the knees or at the ankles.",
+   "Bend your knees slightly and push them out against the band.",
+   "Step sideways without letting your feet come together.",
+   "Take several steps in one direction.",
+   "Walk back the other way to finish the set."
+  ]
+ },
+ {
+  "id": "banded-monster-walk",
+  "name": "Banded Monster Walk",
+  "arName": "",
+  "equipment": "band",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Loop a band around your ankles and get into a quarter squat.",
+   "Keep tension on the band by pushing your knees out.",
+   "Step forward and out at a diagonal with one foot.",
+   "Repeat with the other foot, staying low.",
+   "Walk forwards, then walk backwards the same way."
+  ]
+ },
+ {
+  "id": "banded-donkey-kick",
+  "name": "Banded Donkey Kick",
+  "arName": "",
+  "equipment": "band",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Loop a band around one foot and hold the other end under your hands.",
+   "Get on all fours with your back flat.",
+   "Push the banded foot up towards the ceiling with the knee bent.",
+   "Squeeze the glute at the top of the kick.",
+   "Bring the knee back down slowly against the band."
+  ]
+ },
+ {
+  "id": "banded-fire-hydrant",
+  "name": "Banded Fire Hydrant",
+  "arName": "",
+  "equipment": "band",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Loop a band above your knees and get on all fours.",
+   "Keep your hips level and your back flat.",
+   "Lift one knee out to the side against the band.",
+   "Do not let your torso lean to the other side.",
+   "Lower the knee slowly and keep the band under tension."
+  ]
+ },
+ {
+  "id": "banded-kickback",
+  "name": "Banded Kickback",
+  "arName": "",
+  "equipment": "band",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Anchor a band low and loop the free end around one ankle.",
+   "Stand facing the anchor and hold something for balance.",
+   "Kick the banded leg straight back, keeping it long.",
+   "Squeeze your glute at the end of the kick.",
+   "Bring the leg forward slowly against the band."
+  ]
+ },
+ {
+  "id": "banded-standing-hip-abduction",
+  "name": "Banded Standing Hip Abduction",
+  "arName": "",
+  "equipment": "band",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Loop a band around both ankles and stand tall.",
+   "Hold a wall or a rack for balance.",
+   "Lift one leg straight out to the side against the band.",
+   "Keep your torso upright and your hips square.",
+   "Bring the leg back in slowly and repeat."
+  ]
+ },
+ {
+  "id": "banded-seated-hip-abduction",
+  "name": "Banded Seated Hip Abduction",
+  "arName": "",
+  "equipment": "band",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Sit on a bench with a band looped above your knees.",
+   "Plant your feet and keep your back straight.",
+   "Push your knees apart against the band.",
+   "Hold the open position for a second.",
+   "Let your knees come back together slowly."
+  ]
+ }
+]

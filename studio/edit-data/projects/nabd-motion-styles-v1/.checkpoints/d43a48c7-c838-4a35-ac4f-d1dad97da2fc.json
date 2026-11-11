@@ -1,0 +1,108 @@
+{
+ "version": 1,
+ "projectId": "nabd-motion-styles-v1",
+ "checkpoint": {
+  "id": "d43a48c7-c838-4a35-ac4f-d1dad97da2fc",
+  "label": "قبل إضافة الستايلات 04–07",
+  "createdAt": "2026-11-10T15:42:49.899Z",
+  "sourceRev": 1,
+  "kind": "manual"
+ },
+ "project": {
+  "version": 1,
+  "name": "nabd-motion-styles-v1",
+  "createdAt": "2026-11-10T15:18:23.697Z",
+  "settings": {
+   "marks": {},
+   "aspect": "1:1",
+   "resolution": 1080,
+   "fps": 24,
+   "loudness": -14,
+   "cutFade": 0.012,
+   "theme": {
+    "accent": "#ff785c",
+    "accent2": "#a6bfb8",
+    "panel": "#171b16",
+    "text": "#f5f2e9",
+    "font": "IBM Plex Sans Arabic",
+    "direction": "rtl"
+   },
+   "motionBlur": 0,
+   "aiNotes": false
+  },
+  "media": [],
+  "tracks": [
+   {
+    "id": "V1",
+    "kind": "video",
+    "name": "الأساسي",
+    "magnetic": true,
+    "muted": false,
+    "hidden": false,
+    "audio": "music",
+    "locked": false
+   },
+   {
+    "id": "motion",
+    "kind": "overlay",
+    "name": "عينات نبض",
+    "magnetic": false,
+    "muted": false,
+    "hidden": false,
+    "audio": "music",
+    "locked": false
+   }
+  ],
+  "clips": [
+   {
+    "id": "nabd-sculpted-v1",
+    "trackId": "motion",
+    "start": 0,
+    "in": 0,
+    "out": 6,
+    "speed": 1,
+    "volume": 1,
+    "label": "01 · مجسّم مبسّط",
+    "graphic": "graphics/squat",
+    "graphicData": {
+     "style": "sculpted",
+     "lang": "ar"
+    }
+   },
+   {
+    "id": "nabd-technical-v1",
+    "trackId": "motion",
+    "start": 6,
+    "in": 0,
+    "out": 6,
+    "speed": 1,
+    "volume": 1,
+    "label": "02 · رسم تقني",
+    "graphic": "graphics/squat",
+    "graphicData": {
+     "style": "technical",
+     "lang": "ar"
+    }
+   },
+   {
+    "id": "nabd-duotone-v1",
+    "trackId": "motion",
+    "start": 12,
+    "in": 0,
+    "out": 6,
+    "speed": 1,
+    "volume": 1,
+    "label": "03 · رسم بلونين",
+    "graphic": "graphics/squat",
+    "graphicData": {
+     "style": "duotone",
+     "lang": "ar"
+    }
+   }
+  ],
+  "suggestions": [],
+  "ideas": [],
+  "notes": [],
+  "stylesUsed": []
+ }
+}

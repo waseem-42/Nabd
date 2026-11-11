@@ -1,0 +1,210 @@
+{
+ "version": 1,
+ "name": "nabd-rig-batch-01",
+ "createdAt": "2026-11-10T16:59:57.009Z",
+ "settings": {
+  "marks": {},
+  "aspect": "1:1",
+  "resolution": 1080,
+  "fps": 24,
+  "loudness": -14,
+  "cutFade": 0.012,
+  "theme": {
+   "accent": "#ff785c",
+   "accent2": "#a6bfb8",
+   "panel": "#171b16",
+   "text": "#f5f2e9",
+   "font": "IBM Plex Sans Arabic",
+   "direction": "rtl"
+  },
+  "motionBlur": 0,
+  "aiNotes": false
+ },
+ "media": [],
+ "tracks": [
+  {
+   "id": "V1",
+   "kind": "video",
+   "name": "الأساسي",
+   "magnetic": true,
+   "muted": false,
+   "hidden": false,
+   "audio": "music",
+   "locked": false
+  },
+  {
+   "id": "motion",
+   "kind": "overlay",
+   "name": "الدفعة الأولى · حركة مستمرة",
+   "magnetic": false,
+   "muted": false,
+   "hidden": false,
+   "audio": "music",
+   "locked": false
+  }
+ ],
+ "clips": [
+  {
+   "id": "rig-squat-01",
+   "trackId": "motion",
+   "start": 0,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "01 · سكوات بوزن الجسم",
+   "graphic": "graphics/rigs",
+   "graphicData": {
+    "exercise": "6YUfHPL",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "rig-pushup-01",
+   "trackId": "motion",
+   "start": 6,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "02 · الضغط",
+   "graphic": "graphics/rigs",
+   "graphicData": {
+    "exercise": "I4hDWkc",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "rig-split-01",
+   "trackId": "motion",
+   "start": 12,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "03 · سبليت سكوات",
+   "graphic": "graphics/rigs",
+   "graphicData": {
+    "exercise": "9E25EOx",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "rig-bridge-01",
+   "trackId": "motion",
+   "start": 18,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "04 · جسر الأرداف",
+   "graphic": "graphics/rigs",
+   "graphicData": {
+    "exercise": "glute-bridge",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "rig-calf-01",
+   "trackId": "motion",
+   "start": 24,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "05 · رفع السمانة",
+   "graphic": "graphics/rigs",
+   "graphicData": {
+    "exercise": "bJYHBIN",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "rig-curl-01",
+   "trackId": "motion",
+   "start": 30,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "06 · كيرل دمبل",
+   "graphic": "graphics/rigs",
+   "graphicData": {
+    "exercise": "NbVPDMW",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "rig-pulldown-01",
+   "trackId": "motion",
+   "start": 36,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "07 · السحب العلوي",
+   "graphic": "graphics/rigs",
+   "graphicData": {
+    "exercise": "RVwzP10",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "rig-row-01",
+   "trackId": "motion",
+   "start": 42,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "08 · تجديف الكيبل",
+   "graphic": "graphics/rigs",
+   "graphicData": {
+    "exercise": "fUBheHs",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "rig-shoulder-01",
+   "trackId": "motion",
+   "start": 48,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "09 · ضغط كتف بالدمبل",
+   "graphic": "graphics/rigs",
+   "graphicData": {
+    "exercise": "3d7wHyd",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "rig-bench-01",
+   "trackId": "motion",
+   "start": 54,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "10 · بنش بالدمبل",
+   "graphic": "graphics/rigs",
+   "graphicData": {
+    "exercise": "SpYC0Kp",
+    "lang": "ar"
+   }
+  }
+ ],
+ "suggestions": [],
+ "ideas": [],
+ "notes": [
+  {
+   "id": "n2zz4f02",
+   "at": 0,
+   "text": "مراجعة تقنية 2026-11-10: صُححت نقاط ارتكاز القدم في الضغط والسحب العلوي وضغط الكتف. هذه مطابقة تقنية للمراجع وليست مراجعة مدرب مؤهل؛ الاعتماد المهني ما زال مطلوبًا.",
+   "author": "claude",
+   "status": "open"
+  }
+ ],
+ "stylesUsed": []
+}

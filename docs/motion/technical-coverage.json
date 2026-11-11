@@ -1,0 +1,97 @@
+{
+  "style": "technical",
+  "total": 466,
+  "illustrated": 449,
+  "continuous": 15,
+  "poseOnly": 434,
+  "continuousExerciseIds": [
+    "6YUfHPL",
+    "I4hDWkc",
+    "9E25EOx",
+    "glute-bridge",
+    "bJYHBIN",
+    "NbVPDMW",
+    "RVwzP10",
+    "fUBheHs",
+    "3d7wHyd",
+    "SpYC0Kp",
+    "qXTaZnJ",
+    "wQ2c4XD",
+    "DsgkuIt",
+    "T2mxWqc",
+    "3ZflifB"
+  ],
+  "uniqueArtFiles": 388,
+  "sourcePoses": 1076,
+  "activitySymbols": [
+    {
+      "id": "football",
+      "name": "Football"
+    },
+    {
+      "id": "basketball",
+      "name": "Basketball"
+    },
+    {
+      "id": "volleyball",
+      "name": "Volleyball"
+    },
+    {
+      "id": "tennis",
+      "name": "Tennis"
+    },
+    {
+      "id": "padel",
+      "name": "Padel"
+    },
+    {
+      "id": "badminton",
+      "name": "Badminton"
+    },
+    {
+      "id": "squash",
+      "name": "Squash"
+    },
+    {
+      "id": "table-tennis",
+      "name": "Table Tennis"
+    },
+    {
+      "id": "handball",
+      "name": "Handball"
+    },
+    {
+      "id": "rugby",
+      "name": "Rugby"
+    },
+    {
+      "id": "boxing",
+      "name": "Boxing"
+    },
+    {
+      "id": "martial-arts",
+      "name": "Martial Arts"
+    },
+    {
+      "id": "climbing",
+      "name": "Climbing"
+    },
+    {
+      "id": "skiing",
+      "name": "Skiing"
+    },
+    {
+      "id": "surfing",
+      "name": "Surfing"
+    },
+    {
+      "id": "dance",
+      "name": "Dance"
+    },
+    {
+      "id": "golf",
+      "name": "Golf"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,1171 @@
+[
+ {
+  "id": "mountain-climber",
+  "name": "Mountain Climber",
+  "arName": "متسلق الجبال",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Start in a push-up position with your hands under your shoulders.",
+   "Keep your body in a straight line and your core braced.",
+   "Drive one knee towards your chest.",
+   "Swap legs quickly, as if you were running in place.",
+   "Keep your hips low and your shoulders over your hands."
+  ]
+ },
+ {
+  "id": "dead-bug",
+  "name": "Dead Bug",
+  "arName": "الحشرة الميتة",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Lie on your back with your arms up and your knees over your hips.",
+   "Press your lower back into the floor.",
+   "Lower one arm overhead and the opposite leg towards the floor.",
+   "Stop just before your back arches and come back to the start.",
+   "Alternate sides on every rep."
+  ]
+ },
+ {
+  "id": "bird-dog",
+  "name": "Bird Dog",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Get on all fours with your hands under your shoulders and knees under your hips.",
+   "Keep your back flat and your neck in line with your spine.",
+   "Reach one arm forward and the opposite leg back at the same time.",
+   "Hold for a second without letting your hips tilt.",
+   "Return to all fours and swap sides."
+  ]
+ },
+ {
+  "id": "pallof-press",
+  "name": "Pallof Press",
+  "arName": "",
+  "equipment": "cable",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Set a cable at chest height and stand side-on to the machine.",
+   "Hold the handle with both hands against your chest.",
+   "Step away until the cable pulls you towards the stack.",
+   "Press your hands straight out in front of you without twisting.",
+   "Bring the handle back to your chest under control."
+  ]
+ },
+ {
+  "id": "half-kneeling-pallof-press",
+  "name": "Half-Kneeling Pallof Press",
+  "arName": "",
+  "equipment": "cable",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Kneel on one knee side-on to a cable set at chest height.",
+   "Hold the handle with both hands at your sternum.",
+   "Squeeze the glute of the kneeling leg and stay tall.",
+   "Press the handle straight out and resist the pull to the side.",
+   "Return the handle to your chest without letting your hips turn."
+  ]
+ },
+ {
+  "id": "cable-pallof-hold",
+  "name": "Cable Pallof Hold",
+  "arName": "",
+  "equipment": "cable",
+  "primary": "abdomen",
+  "mode": "time",
+  "steps": [
+   "Stand side-on to a cable machine set at chest height.",
+   "Hold the handle with both hands and press it straight out.",
+   "Lock your arms and keep them level with your sternum.",
+   "Resist the cable pulling your torso around.",
+   "Hold the position, then swap sides and repeat."
+  ]
+ },
+ {
+  "id": "hollow-body-hold",
+  "name": "Hollow Body Hold",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "time",
+  "steps": [
+   "Lie on your back with your arms overhead and your legs straight.",
+   "Press your lower back flat into the floor.",
+   "Lift your shoulders and legs a few centimetres off the ground.",
+   "Keep your ribs down and your body in a shallow banana shape.",
+   "Hold the position and breathe steadily."
+  ]
+ },
+ {
+  "id": "hollow-rock",
+  "name": "Hollow Rock",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Get into a hollow body position with your arms overhead.",
+   "Keep your lower back glued to the floor and your body tense.",
+   "Rock backwards and forwards using your shoulders, not your legs.",
+   "Do not let your feet or hands touch the ground.",
+   "Keep the rocking small and steady."
+  ]
+ },
+ {
+  "id": "v-up",
+  "name": "V-Up",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Lie flat on your back with your arms stretched overhead.",
+   "Keep your legs straight and together.",
+   "Lift your arms and legs at the same time to meet over your hips.",
+   "Touch your hands to your feet at the top.",
+   "Lower back down slowly without touching the floor."
+  ]
+ },
+ {
+  "id": "flutter-kick",
+  "name": "Flutter Kick",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Lie on your back with your hands under your hips.",
+   "Lift both legs a few centimetres off the floor.",
+   "Press your lower back down into the ground.",
+   "Kick your legs up and down in small alternating movements.",
+   "Keep your legs straight and your core tight."
+  ]
+ },
+ {
+  "id": "lying-leg-raise",
+  "name": "Lying Leg Raise",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Lie on your back with your legs straight and your hands by your hips.",
+   "Press your lower back into the floor.",
+   "Lift both legs until they point at the ceiling.",
+   "Lower them slowly without touching the ground.",
+   "Stop the descent as soon as your back starts to arch."
+  ]
+ },
+ {
+  "id": "plank-shoulder-tap",
+  "name": "Plank Shoulder Tap",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Get into a high plank with your hands under your shoulders.",
+   "Set your feet a little wider than your hips for balance.",
+   "Lift one hand and tap the opposite shoulder.",
+   "Keep your hips still, without rocking side to side.",
+   "Put the hand down and repeat with the other side."
+  ]
+ },
+ {
+  "id": "plank-jack",
+  "name": "Plank Jack",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Start in a high plank with your feet together.",
+   "Brace your core and keep your hips level.",
+   "Jump both feet out wide.",
+   "Jump them straight back together.",
+   "Keep a steady rhythm without letting your hips bounce."
+  ]
+ },
+ {
+  "id": "bear-plank",
+  "name": "Bear Plank",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "time",
+  "steps": [
+   "Get on all fours with your hands under your shoulders and knees under your hips.",
+   "Tuck your toes and lift your knees a couple of centimetres off the floor.",
+   "Keep your back flat and your shoulders over your hands.",
+   "Push the floor away and hold the position.",
+   "Breathe steadily and do not let your hips rise."
+  ]
+ },
+ {
+  "id": "bear-crawl",
+  "name": "Bear Crawl",
+  "arName": "زحف الدب",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Start in a bear plank with your knees hovering off the floor.",
+   "Move an opposite hand and foot forward at the same time.",
+   "Keep your hips low and your back flat as you crawl.",
+   "Take short steps and stay under control.",
+   "Crawl back to where you started."
+  ]
+ },
+ {
+  "id": "inchworm",
+  "name": "Inchworm",
+  "arName": "دودة الإنش",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Stand tall and bend forward to put your hands on the floor.",
+   "Walk your hands out until you reach a push-up position.",
+   "Hold there for a moment with your core tight.",
+   "Walk your feet up towards your hands with your legs as straight as you can.",
+   "Stand back up and repeat."
+  ]
+ },
+ {
+  "id": "l-sit-hold",
+  "name": "L-Sit Hold",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "time",
+  "steps": [
+   "Sit on the floor or between two parallettes with your hands beside your hips.",
+   "Push down hard and lift your hips off the ground.",
+   "Raise your straight legs until they are level with your hips.",
+   "Keep your shoulders pushed down and your chest up.",
+   "Hold the L shape for as long as you can."
+  ]
+ },
+ {
+  "id": "side-plank-hip-dip",
+  "name": "Side Plank Hip Dip",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "obliques",
+  "mode": "reps",
+  "steps": [
+   "Get into a side plank on your forearm with your feet stacked.",
+   "Line up your elbow under your shoulder.",
+   "Lower your hip towards the floor without touching it.",
+   "Drive your hip back up until your body is straight again.",
+   "Finish the reps on one side before swapping."
+  ]
+ },
+ {
+  "id": "dragon-flag",
+  "name": "Dragon Flag",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Lie on a bench and grab it behind your head with both hands.",
+   "Lift your whole body up so you rest only on your upper back.",
+   "Keep your body rigid in one straight line.",
+   "Lower yourself slowly without bending at the hips.",
+   "Stop just above the bench and pull back up."
+  ]
+ },
+ {
+  "id": "half-burpee",
+  "name": "Half Burpee",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Start standing with your feet hip-width apart.",
+   "Drop into a squat and place both hands on the floor.",
+   "Jump your feet back into a plank position.",
+   "Jump them straight back in towards your hands.",
+   "Stand up tall and go into the next rep."
+  ]
+ },
+ {
+  "id": "squat-thrust",
+  "name": "Squat Thrust",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart and your arms by your sides.",
+   "Squat down and plant both hands on the floor.",
+   "Thrust both feet back until you are in a plank.",
+   "Hold the plank for a beat with your core tight.",
+   "Pull your feet back in and stand up."
+  ]
+ },
+ {
+  "id": "banded-pallof-press",
+  "name": "Banded Pallof Press",
+  "arName": "",
+  "equipment": "band",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Anchor a band at chest height and stand side-on to it.",
+   "Hold the band with both hands against your sternum.",
+   "Step away until the band pulls hard to the side.",
+   "Press your hands straight forward without rotating.",
+   "Bring them back to your chest and keep your hips still."
+  ]
+ },
+ {
+  "id": "banded-woodchop",
+  "name": "Banded Woodchop",
+  "arName": "",
+  "equipment": "band",
+  "primary": "obliques",
+  "mode": "reps",
+  "steps": [
+   "Anchor a band high and stand side-on with your feet apart.",
+   "Hold the band with both hands above the far shoulder.",
+   "Pull it down and across your body towards the opposite hip.",
+   "Rotate through your torso and let your back foot pivot.",
+   "Return along the same path under control."
+  ]
+ },
+ {
+  "id": "banded-dead-bug",
+  "name": "Banded Dead Bug",
+  "arName": "",
+  "equipment": "band",
+  "primary": "abdomen",
+  "mode": "reps",
+  "steps": [
+   "Anchor a band behind your head and lie on your back.",
+   "Hold the band with straight arms over your chest.",
+   "Lift your knees to ninety degrees over your hips.",
+   "Lower one leg towards the floor while your arms hold the band.",
+   "Swap legs and keep your lower back flat throughout."
+  ]
+ },
+ {
+  "id": "Y7YcmIJ",
+  "name": "Barbell Bench Front Squat",
+  "arName": "سكوات أمامي بالبار على المقعد",
+  "equipment": "barbell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Start by standing with your feet shoulder-width apart and the barbell resting on your upper chest, just below your collarbone.",
+   "Hold the barbell with an overhand grip, keeping your elbows up and your upper arms parallel to the ground.",
+   "Lower your body down into a squat position by bending at the knees and hips, keeping your back straight and your chest up.",
+   "Pause for a moment at the bottom of the squat, then push through your heels to return to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "gFyFj9z",
+  "name": "Dumbbell Step-up",
+  "arName": "صعود الدرجة مع اندفاع بالدمبل",
+  "equipment": "dumbbell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand in front of a step or platform with a dumbbell in each hand, palms facing your sides.",
+   "Place your right foot on the step, ensuring your entire foot is on the surface.",
+   "Push through your right heel and lift your body up onto the step, bringing your left foot up as well.",
+   "Once both feet are on the step, lower your left foot back down to the starting position, keeping your right foot on the step.",
+   "Repeat the movement, alternating which foot you step up with each time."
+  ]
+ },
+ {
+  "id": "hBGWILP",
+  "name": "Cable Hip Adduction",
+  "arName": "تقريب الورك بالكابل",
+  "equipment": "cable",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Attach the ankle cuff to your ankle and stand facing the cable machine.",
+   "Position yourself far enough away from the machine so that there is tension on the cable.",
+   "Place your hands on the machine for support.",
+   "Keeping your leg straight, slowly move your leg across your body towards the midline.",
+   "Pause for a moment at the end of the movement, then slowly return to the starting position."
+  ]
+ },
+ {
+  "id": "0lQnxMZ",
+  "name": "Weighted Sissy Squat",
+  "arName": "سيسي سكوات بوزن إضافي",
+  "equipment": "weighted",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart and your toes pointing slightly outward.",
+   "Hold a weight in front of your chest with both hands, or place a barbell across your upper back.",
+   "Keeping your chest up and your core engaged, slowly lower your body down by bending at the knees and hips.",
+   "Continue lowering until your thighs are parallel to the ground or as low as you can comfortably go.",
+   "Pause for a moment at the bottom, then push through your heels to return to the starting position."
+  ]
+ },
+ {
+  "id": "W9pFVv1",
+  "name": "Barbell Bench Squat",
+  "arName": "سكوات على المقعد بالبار",
+  "equipment": "barbell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Set up a barbell on a squat rack at chest height.",
+   "Stand facing away from the rack, with your feet shoulder-width apart.",
+   "Bend your knees and lower your body down into a squat position, keeping your back straight and chest up.",
+   "Grasp the barbell with an overhand grip, slightly wider than shoulder-width apart.",
+   "Lift the barbell off the rack and step back, ensuring your feet are still shoulder-width apart."
+  ]
+ },
+ {
+  "id": "wWFspEi",
+  "name": "Smith Single Leg Split Squat",
+  "arName": "سكوات منفرج على ساق واحدة على جهاز سميث",
+  "equipment": "machine",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand in front of the smith machine with your feet shoulder-width apart.",
+   "Place one foot behind you on a bench or step, with your toes pointing forward.",
+   "Hold onto the smith machine bar for stability.",
+   "Bend your front knee and lower your body down into a lunge position, keeping your back straight.",
+   "Pause for a moment at the bottom, then push through your front heel to return to the starting position."
+  ]
+ },
+ {
+  "id": "SGY8Zui",
+  "name": "Barbell Push Press",
+  "arName": "كلين وضغط بالبار",
+  "equipment": "barbell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Rest a barbell on the front of your shoulders with your hands just outside them.",
+   "Stand with your feet hip-width apart and your core braced.",
+   "Dip a few centimetres by bending your knees, keeping your chest up.",
+   "Drive up through your legs and use that push to press the bar overhead.",
+   "Lower the bar back to your shoulders and reset before the next rep."
+  ]
+ },
+ {
+  "id": "6YUfHPL",
+  "name": "Bodyweight Squat",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart.",
+   "Lower your body by bending your knees and pushing your hips back as if sitting on a chair.",
+   "Keep your chest up and your back straight.",
+   "Lower yourself until your thighs are parallel to the ground.",
+   "Push through your heels to return to the starting position."
+  ]
+ },
+ {
+  "id": "uKyN64F",
+  "name": "Barbell One Leg Squat",
+  "arName": "سكوات بالبار على ساق واحدة",
+  "equipment": "barbell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart and hold a barbell across your upper back.",
+   "Lift one foot off the ground and extend it forward, keeping it parallel to the ground.",
+   "Bend your standing leg and lower your body down as if sitting back into a chair, keeping your chest up and your back straight.",
+   "Lower yourself until your thigh is parallel to the ground, then push through your heel to return to the starting position.",
+   "Repeat for the desired number of repetitions, then switch legs and repeat."
+  ]
+ },
+ {
+  "id": "mweqJin",
+  "name": "Quick Feet",
+  "arName": "خطوات سريعة v. 2",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart and your arms by your sides.",
+   "Begin by rapidly moving your feet up and down, as if you were running in place.",
+   "Keep your movements quick and light, focusing on staying on the balls of your feet.",
+   "Continue for the desired duration or number of repetitions."
+  ]
+ },
+ {
+  "id": "gfk9kD4",
+  "name": "Barbell Overhead Squat",
+  "arName": "سكوات فوق الرأس بالبار",
+  "equipment": "barbell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart and toes slightly turned out.",
+   "Hold the barbell with a wide grip, positioning it overhead with your arms fully extended.",
+   "Engage your core and lower your body down into a squat position, keeping your chest up and knees tracking over your toes.",
+   "Pause for a moment at the bottom, then push through your heels to return to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "c8f5cSY",
+  "name": "Side Lying Hip Abduction",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "glutes",
+  "mode": "reps",
+  "steps": [
+   "Lie on your side with your legs straight and stacked on top of each other.",
+   "Place your bottom arm under your head for support.",
+   "Squeeze the side of your glutes and lift your top leg as high as you can without rotating your hips or leaning backward.",
+   "Pause for a moment at the top, then slowly lower your leg back down to the starting position.",
+   "Repeat for the desired number of repetitions, then switch sides."
+  ]
+ },
+ {
+  "id": "W31mMjd",
+  "name": "Lateral Lunge",
+  "arName": "سكوات جانبي منفرج بالبار",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet wide apart and your hands together in front of your chest.",
+   "Shift your weight onto one leg and bend that knee, pushing your hips back.",
+   "Keep the other leg straight with the foot flat on the floor.",
+   "Go down until your thigh is close to parallel with the floor.",
+   "Push back to the middle and repeat on the other side."
+  ]
+ },
+ {
+  "id": "VO2qeJg",
+  "name": "Side Plank Hip Adduction",
+  "arName": "تقريب الورك من البلانك الجانبي",
+  "equipment": "bodyweight",
+  "primary": "obliques",
+  "mode": "reps",
+  "steps": [
+   "Lie on your side next to a bench, propped on your forearm with your elbow directly under your shoulder.",
+   "Rest the inside of your top leg on the bench, at the knee to make it easier or at the ankle to make it harder, with your bottom leg on the floor under it.",
+   "Brace your core and lift your hips until your body forms a straight line from head to feet.",
+   "Press your top leg down into the bench and raise your bottom leg until it touches the underside of the bench.",
+   "Lower the bottom leg towards the floor with control, keeping your hips up, and switch sides after the set."
+  ]
+ },
+ {
+  "id": "gGNQmVt",
+  "name": "Barbell Single Leg Split Squat",
+  "arName": "سكوات منفرج بالبار على ساق واحدة",
+  "equipment": "barbell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart, holding a barbell across your upper back.",
+   "Take a large step forward with one leg, keeping your torso upright.",
+   "Lower your body by bending your front knee and hip, while keeping your back leg straight.",
+   "Continue lowering until your front thigh is parallel to the ground.",
+   "Pause for a moment, then push through your front heel to return to the starting position."
+  ]
+ },
+ {
+  "id": "xdYPUtE",
+  "name": "Sissy Squat",
+  "arName": "سيسي سكوات",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart and your toes pointing slightly outward.",
+   "Hold onto a stable object for balance if needed.",
+   "Slowly lower your body by bending your knees and leaning back, keeping your torso upright.",
+   "Continue lowering until your thighs are parallel to the ground or as far as you can comfortably go.",
+   "Pause for a moment, then push through your heels to return to the starting position."
+  ]
+ },
+ {
+  "id": "9E25EOx",
+  "name": "Split Squats",
+  "arName": "سبليت سكوات",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart.",
+   "Take a step forward with one foot and place it about two feet in front of the other foot.",
+   "Lower your body by bending your knees and hips, keeping your back straight.",
+   "Continue lowering until your front thigh is parallel to the ground, and your back knee is hovering just above the ground.",
+   "Pause for a moment, then push through your front heel to return to the starting position."
+  ]
+ },
+ {
+  "id": "QChZi3x",
+  "name": "Squat to Overhead Reach",
+  "arName": "سكوات إلى مد الذراعين فوق الرأس",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart and toes slightly turned out.",
+   "Lower your body down into a squat position by bending your knees and pushing your hips back.",
+   "As you come up from the squat, extend your arms overhead, reaching towards the ceiling.",
+   "Return to the starting position by lowering your arms and bending your knees to squat down again.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "s7HX1BY",
+  "name": "Barbell Wide Squat",
+  "arName": "سكوات واسع بالبار",
+  "equipment": "barbell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet wider than shoulder-width apart, toes pointing slightly outward.",
+   "Hold the barbell across your upper back, resting it on your traps or rear delts.",
+   "Engage your core and keep your chest up as you lower your body down into a squat, pushing your hips back and bending your knees.",
+   "Lower until your thighs are parallel to the ground, or as low as you can comfortably go.",
+   "Pause for a moment at the bottom, then push through your heels to return to the starting position."
+  ]
+ },
+ {
+  "id": "dG5Smob",
+  "name": "Rack Pull",
+  "arName": "سناتش بول",
+  "equipment": "barbell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Set the safety pins or blocks so the bar rests just below your knees.",
+   "Stand close to the bar and grip it just outside your legs.",
+   "Brace your core and keep your back flat.",
+   "Drive your hips forward to stand up tall with the bar.",
+   "Lower the bar back to the pins under control."
+  ]
+ },
+ {
+  "id": "belt-squat",
+  "name": "Belt Squat",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Strap the belt around your hips and stand on the platform.",
+   "Set your feet shoulder-width apart with your toes slightly out.",
+   "Hold the handles and unload the weight from the support.",
+   "Squat down until your thighs are at least parallel to the floor.",
+   "Drive through your feet to stand back up tall."
+  ]
+ },
+ {
+  "id": "hip-adduction-machine",
+  "name": "Hip Adduction Machine",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Sit in the machine with the pads on the inside of your knees.",
+   "Start with your legs open and your back against the seat.",
+   "Squeeze your knees together against the resistance.",
+   "Hold for a second when your legs meet.",
+   "Let the pads push your knees apart slowly."
+  ]
+ },
+ {
+  "id": "landmine-squat",
+  "name": "Landmine Squat",
+  "arName": "",
+  "equipment": "barbell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Hold the loaded end of a landmine bar against your chest with both hands.",
+   "Stand with your feet shoulder-width apart.",
+   "Sit down between your hips, letting the bar guide you.",
+   "Go down until your thighs are parallel to the floor.",
+   "Push the floor away to stand back up."
+  ]
+ },
+ {
+  "id": "heel-elevated-goblet-squat",
+  "name": "Heel-Elevated Goblet Squat",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Put a small plate or wedge under both heels.",
+   "Hold a dumbbell against your chest with both hands.",
+   "Stand with your feet shoulder-width apart on the wedge.",
+   "Squat straight down, keeping your torso upright.",
+   "Push through your feet to stand back up."
+  ]
+ },
+ {
+  "id": "front-foot-elevated-split-squat",
+  "name": "Front-Foot Elevated Split Squat",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Put your front foot on a low step and your back foot on the floor.",
+   "Hold a dumbbell in each hand at your sides.",
+   "Keep your torso upright and your weight on the front leg.",
+   "Lower your back knee towards the floor.",
+   "Push through the front foot to stand back up."
+  ]
+ },
+ {
+  "id": "smith-machine-bulgarian-split-squat",
+  "name": "Smith Machine Bulgarian Split Squat",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Set the smith machine bar on your upper back and rest one foot on a bench behind you.",
+   "Place the front foot far enough forward to keep the knee stacked over the ankle.",
+   "Unrack the bar and brace your core.",
+   "Lower straight down until your back knee is close to the floor.",
+   "Drive through the front heel to return to the top."
+  ]
+ },
+ {
+  "id": "smith-machine-reverse-lunge",
+  "name": "Smith Machine Reverse Lunge",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Rest the smith machine bar across your upper back and unrack it.",
+   "Stand with your feet under the bar and your chest up.",
+   "Step one foot back and lower that knee towards the floor.",
+   "Keep most of your weight on the front leg.",
+   "Push off the front foot to bring your legs back together."
+  ]
+ },
+ {
+  "id": "reverse-lunge",
+  "name": "Reverse Lunge",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand tall with a dumbbell in each hand at your sides.",
+   "Step one foot straight back, landing on the ball of the foot.",
+   "Lower your back knee until it almost touches the floor.",
+   "Keep your front shin vertical and your chest up.",
+   "Push through the front heel to step back together."
+  ]
+ },
+ {
+  "id": "dumbbell-lateral-lunge",
+  "name": "Dumbbell Lateral Lunge",
+  "arName": "",
+  "equipment": "dumbbell",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand tall holding a dumbbell in each hand.",
+   "Take a wide step out to one side.",
+   "Push your hips back and bend that knee while the other leg stays straight.",
+   "Keep both feet flat and your chest up.",
+   "Push off the bent leg to return to the middle."
+  ]
+ },
+ {
+  "id": "wall-sit",
+  "name": "Wall Sit",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "time",
+  "steps": [
+   "Stand with your back flat against a wall and your feet a step forward.",
+   "Slide down until your knees are bent at ninety degrees.",
+   "Keep your knees over your ankles and your back on the wall.",
+   "Rest your hands on your thighs or hold them out in front.",
+   "Hold the position until your legs give in."
+  ]
+ },
+ {
+  "id": "burpee",
+  "name": "Burpee",
+  "arName": "بيربي",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart.",
+   "Squat down and put your hands on the floor.",
+   "Jump your feet back into a push-up position and lower your chest.",
+   "Push up and jump your feet back under your hips.",
+   "Jump straight up with your arms overhead."
+  ]
+ },
+ {
+  "id": "high-knees",
+  "name": "High Knees",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand tall with your feet hip-width apart.",
+   "Run on the spot, driving one knee up at a time.",
+   "Bring each knee up to hip height.",
+   "Land softly on the balls of your feet.",
+   "Pump your arms in time with your legs."
+  ]
+ },
+ {
+  "id": "jumping-jack",
+  "name": "Jumping Jack",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet together and your arms at your sides.",
+   "Jump your feet out wide while you raise your arms overhead.",
+   "Land softly with your knees slightly bent.",
+   "Jump back to bring your feet together and your arms down.",
+   "Keep a steady rhythm for the whole set."
+  ]
+ },
+ {
+  "id": "skater-hop",
+  "name": "Skater Hop",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand on one leg with a slight bend in your knee.",
+   "Jump sideways and land on the other foot.",
+   "Swing the free leg behind you as you land.",
+   "Absorb the landing softly and stay balanced.",
+   "Jump back to the other side and keep alternating."
+  ]
+ },
+ {
+  "id": "lateral-shuffle",
+  "name": "Lateral Shuffle",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Get into an athletic stance with your knees bent and your chest up.",
+   "Push off one foot to slide sideways.",
+   "Take quick steps without crossing your feet.",
+   "Stay low and keep your weight on the balls of your feet.",
+   "Shuffle back in the other direction."
+  ]
+ },
+ {
+  "id": "sprawl",
+  "name": "Sprawl",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Start standing with your feet shoulder-width apart.",
+   "Drop your hands to the floor and kick your legs back hard.",
+   "Let your hips sink towards the ground as you land.",
+   "Push back up and pull your feet under your hips.",
+   "Stand up and go straight into the next rep."
+  ]
+ },
+ {
+  "id": "pistol-squat",
+  "name": "Pistol Squat",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand on one leg with the other leg held out in front of you.",
+   "Stretch your arms forward for balance.",
+   "Sit down slowly on the standing leg, keeping the free leg off the floor.",
+   "Go all the way down until your hamstring meets your calf.",
+   "Drive through the whole foot to stand back up."
+  ]
+ },
+ {
+  "id": "assisted-pistol-squat",
+  "name": "Assisted Pistol Squat",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Hold onto a post or a suspension strap in front of you.",
+   "Stand on one leg and lift the other leg forward.",
+   "Use your hands to control the descent as you squat down.",
+   "Go as low as you can while keeping the free leg up.",
+   "Pull lightly on the support and push through your foot to stand."
+  ]
+ },
+ {
+  "id": "shrimp-squat",
+  "name": "Shrimp Squat",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand on one leg and bend the other knee so the foot points back.",
+   "Hold that foot behind you with the same-side hand.",
+   "Lower yourself until the back knee touches the floor.",
+   "Keep your chest up and your standing heel down.",
+   "Push back up without letting the back foot touch down."
+  ]
+ },
+ {
+  "id": "skater-squat",
+  "name": "Skater Squat",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand on one leg with the other leg bent behind you.",
+   "Reach your arms forward as a counterweight.",
+   "Hinge and squat down until the back knee taps the floor.",
+   "Keep your back flat and your standing foot planted.",
+   "Stand back up by driving through your heel."
+  ]
+ },
+ {
+  "id": "single-leg-box-squat",
+  "name": "Single-Leg Box Squat",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Stand on one leg in front of a box or a bench.",
+   "Hold the free leg out in front of you.",
+   "Sit back slowly until your glutes touch the box.",
+   "Do not drop or bounce off the surface.",
+   "Push through the standing foot to come back up."
+  ]
+ },
+ {
+  "id": "banded-squat",
+  "name": "Banded Squat",
+  "arName": "",
+  "equipment": "band",
+  "primary": "quads",
+  "mode": "reps",
+  "steps": [
+   "Loop a band above your knees and stand shoulder-width apart.",
+   "Push your knees out so the band stays tight.",
+   "Sit back and down into a squat.",
+   "Keep your chest up and your knees tracking over your toes.",
+   "Drive through your feet to stand back up."
+  ]
+ },
+ {
+  "id": "standing-quad-stretch",
+  "name": "Standing Quad Stretch",
+  "arName": "",
+  "equipment": "bodyweight",
+  "primary": "quads",
+  "mode": "time",
+  "steps": [
+   "Stand tall and hold a wall with one hand if you need balance.",
+   "Bend one knee and grab that ankle behind you.",
+   "Pull your heel towards your glute.",
+   "Keep your knees together and your hips tucked under.",
+   "Hold, then swap to the other leg."
+  ]
+ },
+ {
+  "id": "running",
+  "name": "Treadmill Run",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "quads",
+  "mode": "cardio",
+  "steps": [
+   "Step onto the treadmill and clip the safety key to your clothes.",
+   "Start the belt slowly and find your footing before speeding up.",
+   "Raise the speed until you are running at a pace you can hold.",
+   "Keep your torso tall and let your arms swing at your sides.",
+   "Slow the belt down for a few minutes before you step off."
+  ]
+ },
+ {
+  "id": "walking",
+  "name": "Treadmill Walk",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "quads",
+  "mode": "cardio",
+  "steps": [
+   "Step onto the treadmill and set a comfortable walking speed.",
+   "Stand tall and look ahead instead of down at your feet.",
+   "Let your arms swing naturally rather than gripping the handrails.",
+   "Roll through each step from heel to toe.",
+   "Slow the belt down before stepping off the machine."
+  ]
+ },
+ {
+  "id": "treadmill-incline-walk",
+  "name": "Treadmill Incline Walk",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "quads",
+  "mode": "cardio",
+  "steps": [
+   "Set the treadmill to a brisk walking speed.",
+   "Raise the incline until your legs feel the climb.",
+   "Stand tall and avoid leaning on the handrails.",
+   "Push through the whole foot on every step.",
+   "Drop the incline and the speed to cool down at the end."
+  ]
+ },
+ {
+  "id": "hiking",
+  "name": "Vertical Climber",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "quads",
+  "mode": "cardio",
+  "steps": [
+   "Step onto the climber and take a handle in each hand.",
+   "Put one foot on each pedal with your body upright.",
+   "Drive one knee up as the other leg extends down.",
+   "Keep the movement steady instead of bouncing.",
+   "Slow the pace down for the last minute of the set."
+  ]
+ },
+ {
+  "id": "cycling",
+  "name": "Stationary Bike",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "quads",
+  "mode": "cardio",
+  "steps": [
+   "Set the saddle so your knee stays slightly bent at the bottom.",
+   "Sit down and put the balls of your feet on the pedals.",
+   "Hold the bars with relaxed arms and a flat back.",
+   "Pedal at a steady cadence and adjust the resistance to taste.",
+   "Spin easy for a couple of minutes to finish."
+  ]
+ },
+ {
+  "id": "assault-bike",
+  "name": "Air Bike",
+  "arName": "دراجة هوائية للبطن",
+  "equipment": "machine",
+  "primary": "quads",
+  "mode": "cardio",
+  "steps": [
+   "Sit on the air bike and set the saddle to hip height.",
+   "Grab the moving handles and put your feet on the pedals.",
+   "Push and pull with your arms while your legs drive the pedals.",
+   "Keep your breathing under control as the fan gets louder.",
+   "Ease off gradually instead of stopping dead."
+  ]
+ },
+ {
+  "id": "elliptical",
+  "name": "Elliptical Trainer",
+  "arName": "",
+  "equipment": "machine",
+  "primary": "quads",
+  "mode": "cardio",
+  "steps": [
+   "Step onto the pedals and take hold of the moving handles.",
+   "Stand tall with your weight through the middle of your feet.",
+   "Push the pedals around in a smooth oval path.",
+   "Work the arms and legs together instead of just coasting.",
+   "Lower the resistance for the final minutes."
+  ]
+ },
+ {
+  "id": "fy7Tgy4",
+  "name": "Dumbbell Alternate Hammer Preacher Curl",
+  "arName": "هامر بريتشر كيرل بالتناوب بالدمبل",
+  "equipment": "dumbbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Sit on a preacher bench with a dumbbell in each hand, palms facing your torso and arms fully extended.",
+   "Keep your upper arms stationary and exhale as you curl the weights while contracting your biceps.",
+   "Continue to raise the dumbbells until your biceps are fully contracted and the dumbbells are at shoulder level.",
+   "Hold the contracted position for a brief pause as you squeeze your biceps.",
+   "Inhale and slowly begin to lower the dumbbells back to the starting position."
+  ]
+ },
+ {
+  "id": "IENzBdA",
+  "name": "Barbell Drag Curl",
+  "arName": "درَغ كيرل بالبار",
+  "equipment": "barbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Stand with your feet shoulder-width apart and hold a barbell with an underhand grip, palms facing up.",
+   "Let the barbell hang at arm's length in front of your thighs.",
+   "Keeping your upper arms stationary, curl the barbell up towards your chest by contracting your biceps.",
+   "Pause for a moment at the top, then slowly lower the barbell back down to the starting position.",
+   "Repeat for the desired number of repetitions."
+  ]
+ },
+ {
+  "id": "NlfIbzq",
+  "name": "Dumbbell Alternate Preacher Curl",
+  "arName": "بريتشر كيرل بالتناوب بالدمبل",
+  "equipment": "dumbbell",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Sit on a preacher bench with a dumbbell in each hand, palms facing up.",
+   "Rest your upper arms on the pad of the preacher bench, allowing your arms to fully extend.",
+   "Keeping your upper arms stationary, exhale and curl the dumbbell in your right hand as you contract your biceps.",
+   "Continue to curl the dumbbell until your biceps are fully contracted and the dumbbell is at shoulder level.",
+   "Pause for a moment, then inhale and slowly lower the dumbbell back to the starting position."
+  ]
+ },
+ {
+  "id": "G08RZcQ",
+  "name": "Cable Curl",
+  "arName": "كيرل بالكابل",
+  "equipment": "cable",
+  "primary": "biceps",
+  "mode": "reps",
+  "steps": [
+   "Stand facing the cable machine with your feet shoulder-width apart.",
+   "Grasp the cable attachment with an underhand grip, palms facing up.",
+   "Keep your elbows close to your sides and your upper arms stationary.",
+   "Exhale and curl the cable attachment towards your shoulders, contracting your biceps.",
+   "Pause for a moment at the top of the movement, squeezing your biceps."
+  ]
+ }
+]

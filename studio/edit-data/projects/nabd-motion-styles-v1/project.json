@@ -1,0 +1,165 @@
+{
+ "version": 1,
+ "name": "nabd-motion-styles-v1",
+ "createdAt": "2026-11-10T15:18:23.697Z",
+ "settings": {
+  "marks": {},
+  "aspect": "1:1",
+  "resolution": 1080,
+  "fps": 24,
+  "loudness": -14,
+  "cutFade": 0.012,
+  "theme": {
+   "accent": "#ff785c",
+   "accent2": "#a6bfb8",
+   "panel": "#171b16",
+   "text": "#f5f2e9",
+   "font": "IBM Plex Sans Arabic",
+   "direction": "rtl"
+  },
+  "motionBlur": 0,
+  "aiNotes": false
+ },
+ "media": [],
+ "tracks": [
+  {
+   "id": "V1",
+   "kind": "video",
+   "name": "الأساسي",
+   "magnetic": true,
+   "muted": false,
+   "hidden": false,
+   "audio": "music",
+   "locked": false
+  },
+  {
+   "id": "motion",
+   "kind": "overlay",
+   "name": "عينات نبض",
+   "magnetic": false,
+   "muted": false,
+   "hidden": false,
+   "audio": "music",
+   "locked": false
+  }
+ ],
+ "clips": [
+  {
+   "id": "nabd-sculpted-v1",
+   "trackId": "motion",
+   "start": 0,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "01 · مجسّم مبسّط",
+   "graphic": "graphics/squat",
+   "graphicData": {
+    "style": "sculpted",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "nabd-technical-v1",
+   "trackId": "motion",
+   "start": 6,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "02 · الرسم التقني — معتمد",
+   "graphic": "graphics/squat",
+   "graphicData": {
+    "style": "technical",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "nabd-duotone-v1",
+   "trackId": "motion",
+   "start": 12,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "03 · رسم بلونين",
+   "graphic": "graphics/squat",
+   "graphicData": {
+    "style": "duotone",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "nabd-athlete-v2",
+   "trackId": "motion",
+   "start": 18,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "04 · شخصية رياضية",
+   "graphic": "graphics/squat-v2",
+   "graphicData": {
+    "style": "athlete",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "nabd-contour-v2",
+   "trackId": "motion",
+   "start": 24,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "05 · خطوط واضحة",
+   "graphic": "graphics/squat-v2",
+   "graphicData": {
+    "style": "contour",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "nabd-segments-v2",
+   "trackId": "motion",
+   "start": 30,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "06 · أجزاء ملوّنة",
+   "graphic": "graphics/squat-v2",
+   "graphicData": {
+    "style": "segments",
+    "lang": "ar"
+   }
+  },
+  {
+   "id": "nabd-comparison-v2",
+   "trackId": "motion",
+   "start": 36,
+   "in": 0,
+   "out": 6,
+   "speed": 1,
+   "volume": 1,
+   "label": "07 · قبل وأثناء",
+   "graphic": "graphics/squat-v2",
+   "graphicData": {
+    "style": "comparison",
+    "lang": "ar"
+   }
+  }
+ ],
+ "suggestions": [],
+ "ideas": [],
+ "notes": [
+  {
+   "id": "nabd-approved-technical",
+   "at": 6,
+   "text": "اعتمد المستخدم الرسم التقني لتطبيق نبض. عُممت المعالجة الخطية على رسوم الوضعيات الأصلية، دون اختلاق بيانات مفاصل غير متاحة. الأنشطة التي لا تملك تسلسل وضعيات تعرض رموزًا ثابتة.",
+   "author": "claude",
+   "status": "done"
+  }
+ ],
+ "stylesUsed": []
+}
