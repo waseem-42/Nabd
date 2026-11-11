@@ -361,6 +361,126 @@
       "sources": [
         "https://www.acefitness.org/resources/everyone/exercise-library/333/tricep-pressdown/"
       ]
+    },
+    {
+      "id": "benchbar",
+      "exerciseId": "EIeI8Vf",
+      "title": {
+        "ar": "بنش برس بالبار",
+        "en": "Barbell bench press"
+      },
+      "yaw": 38,
+      "view": {
+        "ar": "أمامي مائل",
+        "en": "Three-quarter"
+      },
+      "action": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "returning": {
+        "ar": "دفع",
+        "en": "Press"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/5/chest-press/"
+      ]
+    },
+    {
+      "id": "bentrow",
+      "exerciseId": "eZyBC3j",
+      "title": {
+        "ar": "تجديف منحني بالبار",
+        "en": "Barbell bent-over row"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "سحب",
+        "en": "Pull"
+      },
+      "returning": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/12/bent-over-row/"
+      ]
+    },
+    {
+      "id": "standpress",
+      "exerciseId": "Kyd9Rz5",
+      "title": {
+        "ar": "ضغط عسكري واقفًا بالبار",
+        "en": "Standing barbell press"
+      },
+      "yaw": 25,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "دفع",
+        "en": "Press"
+      },
+      "returning": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/71/standing-shoulder-press/"
+      ]
+    },
+    {
+      "id": "barcurl",
+      "exerciseId": "25GPyDY",
+      "title": {
+        "ar": "كيرل بالبار",
+        "en": "Barbell curl"
+      },
+      "yaw": 32,
+      "view": {
+        "ar": "أمامي مائل",
+        "en": "Three-quarter"
+      },
+      "action": {
+        "ar": "ثني المرفق",
+        "en": "Curl"
+      },
+      "returning": {
+        "ar": "فرد المرفق",
+        "en": "Extend"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/70/bicep-curl/"
+      ]
+    },
+    {
+      "id": "legcurl",
+      "exerciseId": "C5jncD2",
+      "title": {
+        "ar": "ليج كيرل مستلقيًا",
+        "en": "Lying leg curl"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "ثني الركبة",
+        "en": "Curl"
+      },
+      "returning": {
+        "ar": "فرد الركبة",
+        "en": "Extend"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/153/lying-hamstrings-curl/"
+      ]
     }
   ]
 }

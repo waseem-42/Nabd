@@ -18,7 +18,13 @@ var RIGS = [
   definition("rdl", "wQ2c4XD", "\u062F\u064A\u062F\u0644\u0641\u062A \u0631\u0648\u0645\u0627\u0646\u064A", "Romanian deadlift", 15, ["\u0627\u0646\u062D\u0646\u0627\u0621 \u0645\u0646 \u0627\u0644\u0648\u0631\u0643", "Hinge"], ["\u0648\u0642\u0648\u0641", "Stand"], ["317/romanian-deadlift/"]),
   definition("lateral", "DsgkuIt", "\u0631\u0641\u0639 \u062C\u0627\u0646\u0628\u064A", "Dumbbell lateral raise", 85, ["\u0631\u0641\u0639", "Raise"], ["\u0646\u0632\u0648\u0644", "Lower"], ["26/lateral-raise/"]),
   definition("chinup", "T2mxWqc", "\u0639\u0642\u0644\u0629 \u0628\u0642\u0628\u0636\u0629 \u0645\u0639\u0643\u0648\u0633\u0629", "Chin-up", 70, ["\u0633\u062D\u0628", "Pull"], ["\u0646\u0632\u0648\u0644", "Lower"], ["190/chin-ups/"]),
-  definition("pushdown", "3ZflifB", "\u0628\u0648\u0634 \u062F\u0627\u0648\u0646 \u0628\u0627\u0644\u0643\u064A\u0628\u0644", "Cable pushdown", 20, ["\u062F\u0641\u0639 \u0644\u0644\u0623\u0633\u0641\u0644", "Press down"], ["\u0639\u0648\u062F\u0629", "Return"], ["333/tricep-pressdown/"])
+  definition("pushdown", "3ZflifB", "\u0628\u0648\u0634 \u062F\u0627\u0648\u0646 \u0628\u0627\u0644\u0643\u064A\u0628\u0644", "Cable pushdown", 20, ["\u062F\u0641\u0639 \u0644\u0644\u0623\u0633\u0641\u0644", "Press down"], ["\u0639\u0648\u062F\u0629", "Return"], ["333/tricep-pressdown/"]),
+  // Batch three: the most-programmed exercises that still used source poses.
+  definition("benchbar", "EIeI8Vf", "\u0628\u0646\u0634 \u0628\u0631\u0633 \u0628\u0627\u0644\u0628\u0627\u0631", "Barbell bench press", 38, ["\u0646\u0632\u0648\u0644", "Lower"], ["\u062F\u0641\u0639", "Press"], ["5/chest-press/"]),
+  definition("bentrow", "eZyBC3j", "\u062A\u062C\u062F\u064A\u0641 \u0645\u0646\u062D\u0646\u064A \u0628\u0627\u0644\u0628\u0627\u0631", "Barbell bent-over row", 15, ["\u0633\u062D\u0628", "Pull"], ["\u0646\u0632\u0648\u0644", "Lower"], ["12/bent-over-row/"]),
+  definition("standpress", "Kyd9Rz5", "\u0636\u063A\u0637 \u0639\u0633\u0643\u0631\u064A \u0648\u0627\u0642\u0641\u064B\u0627 \u0628\u0627\u0644\u0628\u0627\u0631", "Standing barbell press", 25, ["\u062F\u0641\u0639", "Press"], ["\u0646\u0632\u0648\u0644", "Lower"], ["71/standing-shoulder-press/"]),
+  definition("barcurl", "25GPyDY", "\u0643\u064A\u0631\u0644 \u0628\u0627\u0644\u0628\u0627\u0631", "Barbell curl", 32, ["\u062B\u0646\u064A \u0627\u0644\u0645\u0631\u0641\u0642", "Curl"], ["\u0641\u0631\u062F \u0627\u0644\u0645\u0631\u0641\u0642", "Extend"], ["70/bicep-curl/"]),
+  definition("legcurl", "C5jncD2", "\u0644\u064A\u062C \u0643\u064A\u0631\u0644 \u0645\u0633\u062A\u0644\u0642\u064A\u064B\u0627", "Lying leg curl", 15, ["\u062B\u0646\u064A \u0627\u0644\u0631\u0643\u0628\u0629", "Curl"], ["\u0641\u0631\u062F \u0627\u0644\u0631\u0643\u0628\u0629", "Extend"], ["153/lying-hamstrings-curl/"])
 ];
 var RIG_DURATION = 6;
 var RIG_PHASES = { actionStart: 0.45, holdStart: 2.55, returnStart: 3.05, returnEnd: 5.55 };
@@ -39,7 +45,12 @@ var RIG_GUIDES = {
   rdl: { track: "wristR", work: [...legs, ["hip", "shoulder"]], exhaleOnAction: false, altYaw: 60 },
   lateral: { track: "wristR", work: [["shoulderR", "elbowR"], ["shoulderL", "elbowL"], ["shoulderL", "shoulderR"]], exhaleOnAction: true, altYaw: 30 },
   chinup: { track: "head", work: [...upperArms, ["hip", "shoulder"]], exhaleOnAction: true, altYaw: 15 },
-  pushdown: { track: "wristR", work: upperArms, exhaleOnAction: true, altYaw: 70 }
+  pushdown: { track: "wristR", work: upperArms, exhaleOnAction: true, altYaw: 70 },
+  benchbar: { track: "wristR", work: [...upperArms, ["shoulderL", "shoulderR"]], exhaleOnAction: false, altYaw: 80 },
+  bentrow: { track: "wristR", work: [...upperArms, ["hip", "shoulder"]], exhaleOnAction: true, altYaw: 60 },
+  standpress: { track: "wristR", work: [...upperArms, ["shoulderL", "shoulderR"]], exhaleOnAction: true, altYaw: 80 },
+  barcurl: { track: "wristR", work: upperArms, exhaleOnAction: true, altYaw: 80 },
+  legcurl: { track: "ankleR", work: [["kneeR", "ankleR"], ["kneeL", "ankleL"], ["hipR", "kneeR"], ["hipL", "kneeL"]], exhaleOnAction: true, altYaw: 60 }
 };
 var findRig = (exerciseId) => RIGS.find((rig) => rig.exerciseId === exerciseId);
 var add = (a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
@@ -298,6 +309,71 @@ function sampleRig(id, time) {
     equipment([add(handle, [0, 0, -48]), add(handle, [0, 0, 48])], true, 4);
     equipment([[125, 0, -30], [125, 445, -30], [95, 445, -30], [95, 430, 0]]);
     equipment([[125, 0, 30], [125, 445, 30], [95, 445, 30]]);
+  } else if (id === "benchbar") {
+    body([0, 110, 0], [-1, 0, 0]);
+    const bar = [mix(-118, -100, p), mix(240, 150, p), 0];
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      leg(side, [120, 20, sign * 26], [1, 1, 0]);
+      arm(side, add(bar, [0, 0, sign * 62]), [0, -1, sign]);
+    }
+    barbell(bar);
+    for (const z of [-48, 48]) {
+      equipment([[-205, 88, z], [25, 88, z]], false, 6);
+      equipment([[-170, 88, z], [-170, 0, z]]);
+      equipment([[5, 88, z], [5, 0, z]]);
+    }
+  } else if (id === "bentrow") {
+    const lean = 0.85, axis = vertical(lean);
+    body([-45, 200, 0], axis);
+    const shoulder = get("shoulder"), front = [Math.cos(lean), -Math.sin(lean), 0];
+    const hang = [shoulder[0] + 5, shoulder[1] - 130, 0], chest = add(add(get("hip"), scale(axis, 50)), scale(front, 28));
+    const bar = [mix(hang[0], chest[0], p), mix(hang[1], chest[1], p), 0];
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      leg(side, [0, 20, sign * 26], [1, 0, 0]);
+      arm(side, add(bar, [0, 0, sign * 48]), [-0.6, 1, sign * 0.2]);
+    }
+    barbell(bar);
+  } else if (id === "standpress") {
+    body([0, 219.6, 0], vertical(0));
+    const shoulder = get("shoulder"), bar = [mix(18, 2, p) + 14 * Math.sin(Math.PI * p), mix(shoulder[1] + 7, shoulder[1] + 125, p), 0];
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      leg(side, [0, 20, sign * 26]);
+      arm(side, add(bar, [0, 0, sign * 70]), [0.4, -1, sign * 0.6]);
+    }
+    barbell(bar);
+  } else if (id === "barcurl") {
+    body([0, 219.6, 0], vertical(0));
+    const angle = deg(mix(15, 140, p));
+    let bar = [0, 0, 0];
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      leg(side, [0, 20, sign * 26]);
+      const elbow = add(get("shoulder" + side), [0, -70, 0]);
+      const wrist = add(elbow, [65 * Math.sin(angle), -65 * Math.cos(angle), 0]);
+      arm(side, wrist, [1, 0, 0], elbow);
+      bar = [wrist[0], wrist[1], 0];
+    }
+    barbell(bar);
+  } else if (id === "legcurl") {
+    body([0, 110, 0], [-1, 0, 0], [-1, -0.15, 0]);
+    const angle = deg(mix(8, 100, p)), d = [Math.cos(angle), Math.sin(angle), 0], n = [Math.sin(angle), -Math.cos(angle), 0];
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      const ankle = add([100, 110, sign * 26], scale(d, 100));
+      leg(side, ankle, [0, -1, 0], add(add(ankle, scale(d, 6)), scale(n, 32)), add(add(ankle, scale(d, 16)), scale(n, -12)));
+      arm(side, [-200, 95, sign * 50], [0, -1, 0]);
+    }
+    const pad = add(add([100, 110, 0], scale(d, 88)), scale(n, -16));
+    equipment([[100, 95, 0], pad], true, 3);
+    equipment([add(pad, [0, 0, -45]), add(pad, [0, 0, 45])], true, 9);
+    for (const z of [-40, 40]) {
+      equipment([[-235, 88, z], [95, 88, z]], false, 6);
+      equipment([[-200, 88, z], [-200, 0, z]]);
+      equipment([[60, 88, z], [60, 0, z]]);
+    }
   }
   return result;
 }

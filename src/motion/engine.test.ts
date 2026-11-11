@@ -3,9 +3,9 @@ import { EXERCISE_BY_ID } from '@/data/catalog'
 import { RIGS, findRig, length, movementClock, rigFit, sampleRig, sub } from './engine'
 
 describe('continuous exercise rigs',()=>{
-  it('maps fifteen exact catalogue ids without inheriting a rig through shared art slugs',()=>{
-    expect(RIGS).toHaveLength(15)
-    expect(new Set(RIGS.map(rig=>rig.exerciseId)).size).toBe(15)
+  it('maps twenty exact catalogue ids without inheriting a rig through shared art slugs',()=>{
+    expect(RIGS).toHaveLength(20)
+    expect(new Set(RIGS.map(rig=>rig.exerciseId)).size).toBe(20)
     for(const rig of RIGS)expect(EXERCISE_BY_ID.has(rig.exerciseId)).toBe(true)
     expect(findRig('qx4fgX7')).toBeUndefined() // Elevated dumbbell split squat shares an art slug.
     expect(findRig('9E25EOx')?.id).toBe('split')
@@ -91,5 +91,38 @@ describe('continuous exercise rigs',()=>{
       }
       expect(bar[0]![0]).toBeGreaterThan(pose.points.head![0])
     }
+  })
+  it('batch three: barbell bench to the lower chest, row with a still hinge, press around the face',()=>{
+    const benchTop=sampleRig('benchbar',0),benchLow=sampleRig('benchbar',2.8)
+    for(const key of ['hip','shoulder','head','toeR'])expect(benchLow.points[key]).toEqual(benchTop.points[key])
+    expect(benchLow.points.wristR![1]).toBeLessThan(benchTop.points.wristR![1]-70)
+    expect(benchLow.points.wristR![1]-benchLow.points.shoulderR![1]).toBeGreaterThan(20) // bar stays above the chest
+    expect(Math.abs(benchTop.points.wristR![2])).toBeGreaterThan(Math.abs(benchTop.points.shoulderR![2])) // grip wider than shoulders
+    for(let frame=0;frame<=90;frame++){
+      const pose=sampleRig('bentrow',frame/15)
+      for(const key of ['hip','shoulder','head','kneeR','toeR'])expect(pose.points[key],`bentrow:${key}@${frame}`).toEqual(sampleRig('bentrow',0).points[key])
+    }
+    const rowTop=sampleRig('bentrow',2.8),rowBottom=sampleRig('bentrow',0)
+    expect(rowTop.points.wristR![1]).toBeGreaterThan(rowBottom.points.wristR![1]+40)
+    for(let frame=0;frame<=90;frame++){
+      const pose=sampleRig('standpress',frame/15),head=pose.points.head!
+      // The bar never passes through the head: it is in front of it or above it.
+      const clear=pose.points.wristR![0]>head[0]+16||pose.points.wristR![1]>head[1]+16||pose.points.wristR![1]<head[1]-16
+      expect(clear,`standpress@${frame}`).toBe(true)
+    }
+    expect(sampleRig('standpress',2.8).points.wristR![1]).toBeGreaterThan(sampleRig('standpress',2.8).points.head![1]+40)
+  })
+  it('batch three: the barbell curl keeps the upper arms still and the leg curl keeps the thighs on the pad',()=>{
+    const start=sampleRig('barcurl',0),end=sampleRig('barcurl',2.8)
+    expect(end.points.elbowR).toEqual(start.points.elbowR)
+    expect(end.points.wristR![1]).toBeGreaterThan(start.points.wristR![1]+90)
+    for(let frame=0;frame<=90;frame++){
+      const pose=sampleRig('legcurl',frame/15)
+      for(const side of ['L','R']){
+        expect(pose.points['knee'+side]![0]).toBeCloseTo(100,6)
+        expect(pose.points['knee'+side]![1]).toBeCloseTo(110,6)
+      }
+    }
+    expect(sampleRig('legcurl',2.8).points.ankleR![1]).toBeGreaterThan(sampleRig('legcurl',0).points.ankleR![1]+80)
   })
 })

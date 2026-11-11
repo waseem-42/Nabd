@@ -64,6 +64,27 @@ export const EXERCISE_SAFETY: Record<string, L10n[]> = {
     { ar: 'خل المرفقين لاصقة بجنبك؛ الساعد بس اللي يتحرك.', en: 'Keep the elbows at your sides; only the forearms move.' },
     { ar: 'ارجع بهدوء لمستوى الصدر تقريبًا، ولا تخلي الوزن يسحب يدينك فجأة.', en: 'Return slowly to about chest height; don’t let the stack yank your hands up.' },
   ],
+  // Batch three.
+  EIeI8Vf: [
+    { ar: 'ثبّت الرأس والكتفين والمؤخرة على البنش والقدمين على الأرض. استخدم مساند الأمان أو شخص يساعدك.', en: 'Keep head, shoulders and hips on the bench and feet on the floor. Use safety arms or a spotter.' },
+    { ar: 'انزل البار بتحكم لأسفل الصدر بدون ارتداد عليه، والرسغين فوق المرفقين.', en: 'Lower the bar with control to the lower chest without bouncing it, wrists stacked over elbows.' },
+  ],
+  eZyBC3j: [
+    { ar: 'انحنِ من الوركين وظهرك مستقيم وثني خفيف في الركبتين، وثبّت هذي الوضعية طول المجموعة.', en: 'Hinge at the hips with a straight back and slightly bent knees, and hold that position for the whole set.' },
+    { ar: 'اسحب البار لأسفل الجذع بدون هز الجسم؛ خفف الوزن إذا بدأ ظهرك يتقوّس.', en: 'Pull the bar toward the lower torso without jerking the body; reduce the load if your back starts to round.' },
+  ],
+  Kyd9Rz5: [
+    { ar: 'ابدأ من البار على أعلى الكتفين، وشد البطن والمؤخرة عشان ما يتقوّس أسفل ظهرك.', en: 'Start with the bar on the upper shoulders and brace your abs and glutes so the lower back doesn’t arch.' },
+    { ar: 'ادفع البار فوق الرأس وارجعه للكتفين بتحكم. إذا تحس بضغط في الكتف، جرّب الدمبل أو وزن أخف.', en: 'Press overhead and return to the shoulders with control. If your shoulder feels pinched, try dumbbells or a lighter load.' },
+  ],
+  '25GPyDY': [
+    { ar: 'المرفقين جنب الجسم والصدر ثابت؛ الذراعين بس اللي تتحرك.', en: 'Keep the elbows by your sides and the chest still; only the arms move.' },
+    { ar: 'ارفع ونزّل بتحكم بدون تأرجح الجذع أو دفع الوركين.', en: 'Curl and lower with control, without swinging the torso or driving with the hips.' },
+  ],
+  C5jncD2: [
+    { ar: 'خل الركبة على خط محور الجهاز، واضبط المسند فوق الكعب مباشرة.', en: 'Line your knee up with the machine’s pivot and set the pad just above the heels.' },
+    { ar: 'شد البطن عشان ما يرتفع أسفل الظهر، واثنِ الركبة وارجعها بتحكم.', en: 'Brace your core so the lower back stays still, and curl and return under control.' },
+  ],
 }
 
 const GENERAL: Record<Exercise['kind'], L10n[]> = {

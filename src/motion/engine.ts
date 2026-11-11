@@ -2,6 +2,7 @@
 export type Vec3 = [number, number, number]
 export type RigId = 'squat' | 'pushup' | 'split' | 'bridge' | 'calf' | 'curl' | 'pulldown' | 'row' | 'shoulder' | 'bench'
   | 'backsquat' | 'rdl' | 'lateral' | 'chinup' | 'pushdown'
+  | 'benchbar' | 'bentrow' | 'standpress' | 'barcurl' | 'legcurl'
 export interface RigDefinition {
   id: RigId
   exerciseId: string
@@ -39,6 +40,12 @@ export const RIGS: RigDefinition[] = [
   definition('lateral','DsgkuIt','رفع جانبي','Dumbbell lateral raise',85,['رفع','Raise'],['نزول','Lower'],['26/lateral-raise/']),
   definition('chinup','T2mxWqc','عقلة بقبضة معكوسة','Chin-up',70,['سحب','Pull'],['نزول','Lower'],['190/chin-ups/']),
   definition('pushdown','3ZflifB','بوش داون بالكيبل','Cable pushdown',20,['دفع للأسفل','Press down'],['عودة','Return'],['333/tricep-pressdown/']),
+  // Batch three: the most-programmed exercises that still used source poses.
+  definition('benchbar','EIeI8Vf','بنش برس بالبار','Barbell bench press',38,['نزول','Lower'],['دفع','Press'],['5/chest-press/']),
+  definition('bentrow','eZyBC3j','تجديف منحني بالبار','Barbell bent-over row',15,['سحب','Pull'],['نزول','Lower'],['12/bent-over-row/']),
+  definition('standpress','Kyd9Rz5','ضغط عسكري واقفًا بالبار','Standing barbell press',25,['دفع','Press'],['نزول','Lower'],['71/standing-shoulder-press/']),
+  definition('barcurl','25GPyDY','كيرل بالبار','Barbell curl',32,['ثني المرفق','Curl'],['فرد المرفق','Extend'],['70/bicep-curl/']),
+  definition('legcurl','C5jncD2','ليج كيرل مستلقيًا','Lying leg curl',15,['ثني الركبة','Curl'],['فرد الركبة','Extend'],['153/lying-hamstrings-curl/']),
 ]
 export const RIG_DURATION = 6
 /** Phase boundaries of one repetition, seconds (see movementClock). */
@@ -68,6 +75,11 @@ export const RIG_GUIDES: Record<RigId, RigGuide> = {
   lateral: { track: 'wristR', work: [['shoulderR','elbowR'],['shoulderL','elbowL'],['shoulderL','shoulderR']], exhaleOnAction: true, altYaw: 30 },
   chinup: { track: 'head', work: [...upperArms, ['hip','shoulder']], exhaleOnAction: true, altYaw: 15 },
   pushdown: { track: 'wristR', work: upperArms, exhaleOnAction: true, altYaw: 70 },
+  benchbar: { track: 'wristR', work: [...upperArms, ['shoulderL','shoulderR']], exhaleOnAction: false, altYaw: 80 },
+  bentrow: { track: 'wristR', work: [...upperArms, ['hip','shoulder']], exhaleOnAction: true, altYaw: 60 },
+  standpress: { track: 'wristR', work: [...upperArms, ['shoulderL','shoulderR']], exhaleOnAction: true, altYaw: 80 },
+  barcurl: { track: 'wristR', work: upperArms, exhaleOnAction: true, altYaw: 80 },
+  legcurl: { track: 'ankleR', work: [['kneeR','ankleR'],['kneeL','ankleL'],['hipR','kneeR'],['hipL','kneeL']], exhaleOnAction: true, altYaw: 60 },
 }
 export const findRig = (exerciseId?: string) => RIGS.find(rig=>rig.exerciseId===exerciseId)
 export const add = (a: Vec3, b: Vec3): Vec3 => [a[0]+b[0],a[1]+b[1],a[2]+b[2]]
@@ -236,6 +248,46 @@ export function sampleRig(id:RigId,time:number):RigPose {
     const pulley:Vec3=[95,430,0]
     equipment([pulley,handle],true,1.5);equipment([add(handle,[0,0,-48]),add(handle,[0,0,48])],true,4)
     equipment([[125,0,-30],[125,445,-30],[95,445,-30],[95,430,0]]);equipment([[125,0,30],[125,445,30],[95,445,30]])
+  }else if(id==='benchbar'){
+    // Flat bench, grip a little wider than the shoulders; the bar lowers to the lower chest.
+    body([0,110,0],[-1,0,0])
+    const bar:Vec3=[mix(-118,-100,p),mix(240,150,p),0]
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[120,20,sign*26],[1,1,0]);arm(side,add(bar,[0,0,sign*62]),[0,-1,sign])}
+    barbell(bar)
+    for(const z of [-48,48]){equipment([[-205,88,z],[25,88,z]],false,6);equipment([[-170,88,z],[-170,0,z]]);equipment([[5,88,z],[5,0,z]])}
+  }else if(id==='bentrow'){
+    // The hinge holds still (flat back, soft knees); only the arms pull the bar to the lower torso.
+    const lean=.85,axis=vertical(lean)
+    body([-45,200,0],axis)
+    const shoulder=get('shoulder'),front:Vec3=[Math.cos(lean),-Math.sin(lean),0]
+    const hang:Vec3=[shoulder[0]+5,shoulder[1]-130,0],chest=add(add(get('hip'),scale(axis,50)),scale(front,28))
+    const bar:Vec3=[mix(hang[0],chest[0],p),mix(hang[1],chest[1],p),0]
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[0,20,sign*26],[1,0,0]);arm(side,add(bar,[0,0,sign*48]),[-.6,1,sign*.2])}
+    barbell(bar)
+  }else if(id==='standpress'){
+    // From the front of the shoulders to overhead; the bar curves forward around the face.
+    body([0,219.6,0],vertical(0))
+    const shoulder=get('shoulder'),bar:Vec3=[mix(18,2,p)+14*Math.sin(Math.PI*p),mix(shoulder[1]+7,shoulder[1]+125,p),0]
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[0,20,sign*26]);arm(side,add(bar,[0,0,sign*70]),[.4,-1,sign*.6])}
+    barbell(bar)
+  }else if(id==='barcurl'){
+    // Same elbow path as the dumbbell curl, with both hands on one bar.
+    body([0,219.6,0],vertical(0))
+    const angle=deg(mix(15,140,p));let bar:Vec3=[0,0,0]
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[0,20,sign*26]);const elbow=add(get('shoulder'+side),[0,-70,0]);const wrist=add(elbow,[65*Math.sin(angle),-65*Math.cos(angle),0]);arm(side,wrist,[1,0,0],elbow);bar=[wrist[0],wrist[1],0]}
+    barbell(bar)
+  }else if(id==='legcurl'){
+    // Face down on the machine, knees just off the pad edge; the shins rotate about the knee.
+    body([0,110,0],[-1,0,0],[-1,-.15,0])
+    const angle=deg(mix(8,100,p)),d:Vec3=[Math.cos(angle),Math.sin(angle),0],n:Vec3=[Math.sin(angle),-Math.cos(angle),0]
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1
+      const ankle=add([100,110,sign*26],scale(d,100))
+      leg(side,ankle,[0,-1,0],add(add(ankle,scale(d,6)),scale(n,32)),add(add(ankle,scale(d,16)),scale(n,-12)))
+      arm(side,[-200,95,sign*50],[0,-1,0])
+    }
+    const pad=add(add([100,110,0],scale(d,88)),scale(n,-16))
+    equipment([[100,95,0],pad],true,3);equipment([add(pad,[0,0,-45]),add(pad,[0,0,45])],true,9)
+    for(const z of [-40,40]){equipment([[-235,88,z],[95,88,z]],false,6);equipment([[-200,88,z],[-200,0,z]]);equipment([[60,88,z],[60,0,z]])}
   }
   return result
 }
