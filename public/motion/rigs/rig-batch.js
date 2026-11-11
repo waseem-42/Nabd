@@ -1,7 +1,7 @@
 // src/motion/engine.ts
 var viewOf = (yaw) => yaw > 65 ? { ar: "\u0623\u0645\u0627\u0645\u064A", en: "Front" } : yaw > 30 ? { ar: "\u0623\u0645\u0627\u0645\u064A \u0645\u0627\u0626\u0644", en: "Three-quarter" } : { ar: "\u062C\u0627\u0646\u0628\u064A", en: "Side" };
 var ace = "https://www.acefitness.org/resources/everyone/exercise-library/";
-var definition = (id, exerciseId, ar, en, yaw, action, returning, sources) => ({ id, exerciseId, title: { ar, en }, yaw, view: viewOf(yaw), action: { ar: action[0], en: action[1] }, returning: { ar: returning[0], en: returning[1] }, sources: sources.map((path) => ace + path) });
+var definition = (id, exerciseId, ar, en, yaw, action, returning, sources) => ({ id, exerciseId, title: { ar, en }, yaw, view: viewOf(yaw), action: { ar: action[0], en: action[1] }, returning: { ar: returning[0], en: returning[1] }, sources: sources.map((path) => path.startsWith("http") ? path : ace + path) });
 var RIGS = [
   definition("squat", "6YUfHPL", "\u0633\u0643\u0648\u0627\u062A \u0628\u0648\u0632\u0646 \u0627\u0644\u062C\u0633\u0645", "Bodyweight squat", 15, ["\u0646\u0632\u0648\u0644", "Lower"], ["\u0635\u0639\u0648\u062F", "Rise"], ["135/bodyweight-squat/"]),
   definition("pushup", "I4hDWkc", "\u0627\u0644\u0636\u063A\u0637", "Push-up", 15, ["\u0646\u0632\u0648\u0644", "Lower"], ["\u062F\u0641\u0639", "Press"], ["41/push-up/"]),
@@ -18,7 +18,20 @@ var RIGS = [
   definition("rdl", "wQ2c4XD", "\u062F\u064A\u062F\u0644\u0641\u062A \u0631\u0648\u0645\u0627\u0646\u064A", "Romanian deadlift", 15, ["\u0627\u0646\u062D\u0646\u0627\u0621 \u0645\u0646 \u0627\u0644\u0648\u0631\u0643", "Hinge"], ["\u0648\u0642\u0648\u0641", "Stand"], ["317/romanian-deadlift/"]),
   definition("lateral", "DsgkuIt", "\u0631\u0641\u0639 \u062C\u0627\u0646\u0628\u064A", "Dumbbell lateral raise", 85, ["\u0631\u0641\u0639", "Raise"], ["\u0646\u0632\u0648\u0644", "Lower"], ["26/lateral-raise/"]),
   definition("chinup", "T2mxWqc", "\u0639\u0642\u0644\u0629 \u0628\u0642\u0628\u0636\u0629 \u0645\u0639\u0643\u0648\u0633\u0629", "Chin-up", 70, ["\u0633\u062D\u0628", "Pull"], ["\u0646\u0632\u0648\u0644", "Lower"], ["190/chin-ups/"]),
-  definition("pushdown", "3ZflifB", "\u0628\u0648\u0634 \u062F\u0627\u0648\u0646 \u0628\u0627\u0644\u0643\u064A\u0628\u0644", "Cable pushdown", 20, ["\u062F\u0641\u0639 \u0644\u0644\u0623\u0633\u0641\u0644", "Press down"], ["\u0639\u0648\u062F\u0629", "Return"], ["333/tricep-pressdown/"])
+  definition("pushdown", "3ZflifB", "\u0628\u0648\u0634 \u062F\u0627\u0648\u0646 \u0628\u0627\u0644\u0643\u064A\u0628\u0644", "Cable pushdown", 20, ["\u062F\u0641\u0639 \u0644\u0644\u0623\u0633\u0641\u0644", "Press down"], ["\u0639\u0648\u062F\u0629", "Return"], ["333/tricep-pressdown/"]),
+  // Batch three: the most-programmed exercises that still used source poses.
+  definition("benchbar", "EIeI8Vf", "\u0628\u0646\u0634 \u0628\u0631\u0633 \u0628\u0627\u0644\u0628\u0627\u0631", "Barbell bench press", 38, ["\u0646\u0632\u0648\u0644", "Lower"], ["\u062F\u0641\u0639", "Press"], ["5/chest-press/"]),
+  definition("bentrow", "eZyBC3j", "\u062A\u062C\u062F\u064A\u0641 \u0645\u0646\u062D\u0646\u064A \u0628\u0627\u0644\u0628\u0627\u0631", "Barbell bent-over row", 15, ["\u0633\u062D\u0628", "Pull"], ["\u0646\u0632\u0648\u0644", "Lower"], ["12/bent-over-row/"]),
+  definition("standpress", "Kyd9Rz5", "\u0636\u063A\u0637 \u0639\u0633\u0643\u0631\u064A \u0648\u0627\u0642\u0641\u064B\u0627 \u0628\u0627\u0644\u0628\u0627\u0631", "Standing barbell press", 25, ["\u062F\u0641\u0639", "Press"], ["\u0646\u0632\u0648\u0644", "Lower"], ["71/standing-shoulder-press/"]),
+  definition("barcurl", "25GPyDY", "\u0643\u064A\u0631\u0644 \u0628\u0627\u0644\u0628\u0627\u0631", "Barbell curl", 32, ["\u062B\u0646\u064A \u0627\u0644\u0645\u0631\u0641\u0642", "Curl"], ["\u0641\u0631\u062F \u0627\u0644\u0645\u0631\u0641\u0642", "Extend"], ["70/bicep-curl/"]),
+  definition("legcurl", "C5jncD2", "\u0644\u064A\u062C \u0643\u064A\u0631\u0644 \u0645\u0633\u062A\u0644\u0642\u064A\u064B\u0627", "Lying leg curl", 15, ["\u062B\u0646\u064A \u0627\u0644\u0631\u0643\u0628\u0629", "Curl"], ["\u0641\u0631\u062F \u0627\u0644\u0631\u0643\u0628\u0629", "Extend"], ["153/lying-hamstrings-curl/"]),
+  // Batch four: home exercises (no equipment, or dumbbells only).
+  definition("plank", "plank-hold", "\u0628\u0644\u0627\u0646\u0643", "Front plank", 15, ["\u062B\u0628\u0651\u062A \u0627\u0644\u0628\u0637\u0646", "Brace"], ["\u062A\u0646\u0641\u0651\u0633", "Breathe"], ["32/front-plank/"]),
+  definition("crunch", "TFqbd8t", "\u0643\u0631\u0646\u0634", "Crunch", 15, ["\u0631\u0641\u0639 \u0627\u0644\u0643\u062A\u0641\u064A\u0646", "Curl up"], ["\u0646\u0632\u0648\u0644", "Lower"], ["52/crunch/"]),
+  definition("birddog", "bird-dog", "\u0628\u064A\u0631\u062F \u062F\u0648\u062C", "Bird dog", 20, ["\u0645\u062F\u0651 \u0627\u0644\u0630\u0631\u0627\u0639 \u0648\u0627\u0644\u0631\u062C\u0644", "Reach"], ["\u0631\u062C\u0648\u0639", "Return"], ["14/bird-dog/"]),
+  definition("deadbug", "dead-bug", "\u0627\u0644\u062D\u0634\u0631\u0629 \u0627\u0644\u0645\u064A\u062A\u0629", "Dead bug", 15, ["\u0645\u062F\u0651 \u0627\u0644\u0630\u0631\u0627\u0639 \u0648\u0627\u0644\u0631\u062C\u0644", "Extend"], ["\u0631\u062C\u0648\u0639", "Return"], ["147/supine-dead-bug/"]),
+  definition("goblet", "yn8yg1r", "\u062C\u0648\u0628\u0644\u062A \u0633\u0643\u0648\u0627\u062A", "Goblet squat", 15, ["\u0646\u0632\u0648\u0644", "Lower"], ["\u0635\u0639\u0648\u062F", "Rise"], ["362/goblet-squat/"]),
+  definition("dbrow", "BJ0Hz5L", "\u062A\u062C\u062F\u064A\u0641 \u0645\u0646\u062D\u0646\u064A \u0628\u0627\u0644\u062F\u0645\u0628\u0644", "Dumbbell bent-over row", 15, ["\u0633\u062D\u0628", "Pull"], ["\u0646\u0632\u0648\u0644", "Lower"], ["https://www.acefitness.org/resources/everyone/blog/5241/4-upper-body-movements-for-beginners/"])
 ];
 var RIG_DURATION = 6;
 var RIG_PHASES = { actionStart: 0.45, holdStart: 2.55, returnStart: 3.05, returnEnd: 5.55 };
@@ -39,7 +52,18 @@ var RIG_GUIDES = {
   rdl: { track: "wristR", work: [...legs, ["hip", "shoulder"]], exhaleOnAction: false, altYaw: 60 },
   lateral: { track: "wristR", work: [["shoulderR", "elbowR"], ["shoulderL", "elbowL"], ["shoulderL", "shoulderR"]], exhaleOnAction: true, altYaw: 30 },
   chinup: { track: "head", work: [...upperArms, ["hip", "shoulder"]], exhaleOnAction: true, altYaw: 15 },
-  pushdown: { track: "wristR", work: upperArms, exhaleOnAction: true, altYaw: 70 }
+  pushdown: { track: "wristR", work: upperArms, exhaleOnAction: true, altYaw: 70 },
+  benchbar: { track: "wristR", work: [...upperArms, ["shoulderL", "shoulderR"]], exhaleOnAction: false, altYaw: 80 },
+  bentrow: { track: "wristR", work: [...upperArms, ["hip", "shoulder"]], exhaleOnAction: true, altYaw: 60 },
+  standpress: { track: "wristR", work: [...upperArms, ["shoulderL", "shoulderR"]], exhaleOnAction: true, altYaw: 80 },
+  barcurl: { track: "wristR", work: upperArms, exhaleOnAction: true, altYaw: 80 },
+  plank: { track: "hip", work: [["hip", "shoulder"]], exhaleOnAction: true, altYaw: 55 },
+  crunch: { track: "shoulder", work: [["hip", "shoulder"]], exhaleOnAction: true, altYaw: 55 },
+  birddog: { track: "wristR", work: [["hip", "shoulder"], ["hipL", "kneeL"]], exhaleOnAction: true, altYaw: 60 },
+  deadbug: { track: "ankleL", work: [["hip", "shoulder"]], exhaleOnAction: true, altYaw: 55 },
+  goblet: { track: "hip", work: legs, exhaleOnAction: false, altYaw: 60 },
+  dbrow: { track: "wristR", work: [...upperArms, ["hip", "shoulder"]], exhaleOnAction: true, altYaw: 60 },
+  legcurl: { track: "ankleR", work: [["kneeR", "ankleR"], ["kneeL", "ankleL"], ["hipR", "kneeR"], ["hipL", "kneeL"]], exhaleOnAction: true, altYaw: 60 }
 };
 var findRig = (exerciseId) => RIGS.find((rig) => rig.exerciseId === exerciseId);
 var add = (a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
@@ -129,6 +153,10 @@ function sampleRig(id, time) {
   function dumbbellAlongX(wrist) {
     equipment([add(wrist, [-20, 0, 0]), add(wrist, [20, 0, 0])], true, 3);
     for (const x of [-15, 15]) equipment([add(wrist, [x, -10, -8]), add(wrist, [x, 10, -8]), add(wrist, [x, 10, 8]), add(wrist, [x, -10, 8]), add(wrist, [x, -10, -8])], true, 2);
+  }
+  function uprightDumbbell(center) {
+    equipment([add(center, [0, -22, 0]), add(center, [0, 22, 0])], true, 3);
+    for (const y of [-22, 22]) equipment([add(center, [-9, y, -11]), add(center, [9, y, -11]), add(center, [9, y, 11]), add(center, [-9, y, 11]), add(center, [-9, y, -11])], true, 2);
   }
   function barbell(center) {
     equipment([add(center, [0, 0, -125]), add(center, [0, 0, 125])], true, 4);
@@ -298,6 +326,128 @@ function sampleRig(id, time) {
     equipment([add(handle, [0, 0, -48]), add(handle, [0, 0, 48])], true, 4);
     equipment([[125, 0, -30], [125, 445, -30], [95, 445, -30], [95, 430, 0]]);
     equipment([[125, 0, 30], [125, 445, 30], [95, 445, 30]]);
+  } else if (id === "benchbar") {
+    body([0, 110, 0], [-1, 0, 0]);
+    const bar = [mix(-118, -100, p), mix(240, 150, p), 0];
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      leg(side, [120, 20, sign * 26], [1, 1, 0]);
+      arm(side, add(bar, [0, 0, sign * 62]), [0, -1, sign]);
+    }
+    barbell(bar);
+    for (const z of [-48, 48]) {
+      equipment([[-205, 88, z], [25, 88, z]], false, 6);
+      equipment([[-170, 88, z], [-170, 0, z]]);
+      equipment([[5, 88, z], [5, 0, z]]);
+    }
+  } else if (id === "bentrow") {
+    const lean = 0.85, axis = vertical(lean);
+    body([-45, 200, 0], axis);
+    const shoulder = get("shoulder"), front = [Math.cos(lean), -Math.sin(lean), 0];
+    const hang = [shoulder[0] + 5, shoulder[1] - 130, 0], chest = add(add(get("hip"), scale(axis, 50)), scale(front, 28));
+    const bar = [mix(hang[0], chest[0], p), mix(hang[1], chest[1], p), 0];
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      leg(side, [0, 20, sign * 26], [1, 0, 0]);
+      arm(side, add(bar, [0, 0, sign * 48]), [-0.6, 1, sign * 0.2]);
+    }
+    barbell(bar);
+  } else if (id === "standpress") {
+    body([0, 219.6, 0], vertical(0));
+    const shoulder = get("shoulder"), bar = [mix(18, 2, p) + 14 * Math.sin(Math.PI * p), mix(shoulder[1] + 7, shoulder[1] + 125, p), 0];
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      leg(side, [0, 20, sign * 26]);
+      arm(side, add(bar, [0, 0, sign * 70]), [0.4, -1, sign * 0.6]);
+    }
+    barbell(bar);
+  } else if (id === "barcurl") {
+    body([0, 219.6, 0], vertical(0));
+    const angle = deg(mix(15, 140, p));
+    let bar = [0, 0, 0];
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      leg(side, [0, 20, sign * 26]);
+      const elbow = add(get("shoulder" + side), [0, -70, 0]);
+      const wrist = add(elbow, [65 * Math.sin(angle), -65 * Math.cos(angle), 0]);
+      arm(side, wrist, [1, 0, 0], elbow);
+      bar = [wrist[0], wrist[1], 0];
+    }
+    barbell(bar);
+  } else if (id === "plank") {
+    const angle = deg(10.5 + 0.8 * p), axis = horizontal(angle), ankle = [-160, 20, 0];
+    body(add(ankle, scale(axis, 200)), axis, horizontal(deg(4)));
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      leg(side, [-160, 20, sign * 26], [0, 1, 0], [-125, 0, sign * 26], [-185, 40, sign * 26]);
+      arm(side, [-160 + 318 * Math.cos(deg(10.5)) + 65, 8, sign * 40], [-1, -1, 0]);
+    }
+  } else if (id === "crunch") {
+    const axis = [-Math.cos(mix(0.05, 0.5, p)), Math.sin(mix(0.05, 0.5, p)), 0];
+    body([0, 22, 0], axis);
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      leg(side, [95, 20, sign * 26], [0, 1, 0]);
+      arm(side, add(get("neck"), [0, 6, sign * 16]), [0.3, 0.6, sign]);
+    }
+  } else if (id === "birddog") {
+    const tilt = Math.asin((8 + 132 - 110) / 118);
+    body([0, 110, 0], horizontal(tilt), horizontal(deg(-8)));
+    const kneeFoot = (ankle) => [add(ankle, [-30, -10, 0]), add(ankle, [5, 18, 0])];
+    const still = [-100, 10, 26], reach = [mix(-100, -196, p), mix(10, 108, p), -26];
+    leg("R", still, [0, -1, 0], ...kneeFoot(still));
+    leg("L", reach, [0, -1, 0], ...kneeFoot(reach));
+    const shoulderR = get("shoulderR"), under = shoulderR[0];
+    arm("L", [under, 8, -42.5], [-1, 0, 0]);
+    arm("R", [mix(under, under + 132, p), mix(8, shoulderR[1], p), 42.5], [-1, -0.3, 0]);
+  } else if (id === "deadbug") {
+    body([0, 22, 0], [-1, 0, 0], [-1, 0.12, 0]);
+    const foot = (ankle) => [add(ankle, [12, 32, 0]), add(ankle, [10, -20, 0])];
+    const table = [100, 122, 26], lowered = [mix(100, 192, p), mix(122, 58, p), -26];
+    leg("R", table, [-1, 1, 0], ...foot(table));
+    leg("L", lowered, [-1, 1, 0], ...foot(lowered));
+    const shoulderL = get("shoulderL"), shoulderR = get("shoulderR");
+    arm("L", add(shoulderL, [0, 132, 0]), [1, 0, 0]);
+    arm("R", add(shoulderR, [mix(0, -122, p), mix(132, 50, p), 0]), [1, 0, 0]);
+  } else if (id === "goblet") {
+    const lean = mix(0.05, 0.32, p), axis = vertical(lean), front = [Math.cos(lean), -Math.sin(lean), 0];
+    body([mix(-6, -55, p), mix(219, 120, p), 0], axis);
+    const chest = add(add(get("shoulder"), scale(axis, -45)), scale(front, 30));
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      leg(side, [0, 20, sign * 26]);
+      arm(side, add(chest, [0, -6, sign * 11]), [0, -1, sign * 0.8]);
+    }
+    uprightDumbbell(chest);
+  } else if (id === "dbrow") {
+    const lean = 0.85, axis = vertical(lean);
+    body([-45, 200, 0], axis);
+    const shoulder = get("shoulder"), front = [Math.cos(lean), -Math.sin(lean), 0];
+    const hang = [shoulder[0] + 5, shoulder[1] - 130, 0], ribs = add(add(get("hip"), scale(axis, 55)), scale(front, 24));
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      leg(side, [0, 20, sign * 26], [1, 0, 0]);
+      const wrist = [mix(hang[0], ribs[0], p), mix(hang[1], ribs[1], p), sign * mix(46, 58, p)];
+      arm(side, wrist, [-0.6, 1, sign * 0.4]);
+      dumbbellAlongX(wrist);
+    }
+  } else if (id === "legcurl") {
+    body([0, 110, 0], [-1, 0, 0], [-1, -0.15, 0]);
+    const angle = deg(mix(8, 100, p)), d = [Math.cos(angle), Math.sin(angle), 0], n = [Math.sin(angle), -Math.cos(angle), 0];
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      const ankle = add([100, 110, sign * 26], scale(d, 100));
+      leg(side, ankle, [0, -1, 0], add(add(ankle, scale(d, 6)), scale(n, 32)), add(add(ankle, scale(d, 16)), scale(n, -12)));
+      arm(side, [-200, 95, sign * 50], [0, -1, 0]);
+    }
+    const pad = add(add([100, 110, 0], scale(d, 88)), scale(n, -16));
+    equipment([[100, 95, 0], pad], true, 3);
+    equipment([add(pad, [0, 0, -45]), add(pad, [0, 0, 45])], true, 9);
+    for (const z of [-40, 40]) {
+      equipment([[-235, 88, z], [95, 88, z]], false, 6);
+      equipment([[-200, 88, z], [-200, 0, z]]);
+      equipment([[60, 88, z], [60, 0, z]]);
+    }
   }
   return result;
 }
@@ -326,9 +476,22 @@ function rigFit(definition2, yaw = definition2.yaw) {
 // src/motion/svgRenderer.ts
 var NS = "http://www.w3.org/2000/svg";
 var serial = 0;
+var SEGMENT_COLORS = {
+  limb: "#a6bfb8",
+  limbFar: "#6a8d83",
+  limbFarFront: "#8aa59d",
+  shirt: "#f5f2e9",
+  shirtShade: "#d9dccf",
+  shortsFar: "#9c5546",
+  dark: "#56695d",
+  hair: "#3e4c43",
+  frame: "#3a443c",
+  implement: "#c9cfc3"
+};
 function createRigRenderer(svg2, definition2, showTitle = false, options = {}) {
   const document2 = svg2.ownerDocument;
   const yaw = options.yaw ?? definition2.yaw;
+  const style = options.style ?? "segments";
   const guide = RIG_GUIDES[definition2.id];
   const element = (tag, attributes) => {
     const node = document2.createElementNS(NS, tag);
@@ -349,6 +512,11 @@ function createRigRenderer(svg2, definition2, showTitle = false, options = {}) {
   const defs = element("defs", {}), pattern = element("pattern", { id, width: 45, height: 45, patternUnits: "userSpaceOnUse" });
   pattern.append(element("path", { d: "M45 0H0V45", fill: "none", stroke: text, "stroke-width": 1, opacity: 0.04 }));
   defs.append(pattern);
+  if (style === "segments") {
+    const glow = element("radialGradient", { id, cx: "50%", cy: "46%", r: "60%" });
+    glow.append(element("stop", { offset: "0%", "stop-color": text, "stop-opacity": 0.07 }), element("stop", { offset: "100%", "stop-color": text, "stop-opacity": 0 }));
+    defs.replaceChildren(glow);
+  }
   svg2.append(defs, element("rect", { width: 900, height: 900, fill: panel }), element("rect", { width: 900, height: 900, fill: `url(#${id})` }));
   const guidesLayer = group(), equipment = group(), body = group(), hud = group();
   svg2.append(guidesLayer, equipment, body, hud);
@@ -388,6 +556,90 @@ function createRigRenderer(svg2, definition2, showTitle = false, options = {}) {
       circle(guidesLayer, path.at(-1), 7, accent, "none", 0, 0.7);
     }
   }
+  function drawSegments(pose) {
+    const C = SEGMENT_COLORS, s = fit.scale;
+    const P = (name) => {
+      const value = pose.points[name];
+      if (!value) throw new Error(`Missing point ${name}`);
+      return project(value);
+    };
+    const far = yaw >= 60 ? C.limbFarFront : C.limbFar;
+    const heel = P("heelR"), toe = P("toeR"), facing = Math.sign(toe[0] - heel[0]) || 1;
+    const capsule = (parent, a, b, w1, w2, fill, extra = {}) => {
+      const dx = b[0] - a[0], dy = b[1] - a[1], length2 = Math.hypot(dx, dy) || 1, nx = -dy / length2, ny = dx / length2;
+      const g = element("g", extra);
+      parent.append(g);
+      g.append(element("path", { d: `M${a[0] + nx * w1} ${a[1] + ny * w1}L${b[0] + nx * w2} ${b[1] + ny * w2}L${b[0] - nx * w2} ${b[1] - ny * w2}L${a[0] - nx * w1} ${a[1] - ny * w1}Z`, fill }));
+      g.append(element("circle", { cx: a[0], cy: a[1], r: w1, fill }), element("circle", { cx: b[0], cy: b[1], r: w2, fill }));
+    };
+    const hull = (parent, points, radius, fill, extra = {}) => parent.append(element("path", { d: "M" + points.map((p) => `${p[0]} ${p[1]}`).join("L") + "Z", fill, stroke: fill, "stroke-width": radius * 2, "stroke-linejoin": "round", ...extra }));
+    const lerp = (a, b, k) => [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k];
+    const xs = Object.values(pose.points).map((p) => project(p)[0]), minX = Math.min(...xs), maxX = Math.max(...xs);
+    body.append(element("ellipse", { cx: (minX + maxX) / 2, cy: fit.y + 5 * s, rx: (maxX - minX) / 2 + 22 * s, ry: 8 * s, fill: "#000", opacity: 0.28 }));
+    if (options.highlight && (pose.phase === 1 || pose.phase === 2)) {
+      for (const [a, b] of guide.work) body.append(element("path", { d: `M${P(a).join(" ")}L${P(b).join(" ")}`, stroke: accent, "stroke-width": 58 * s, "stroke-linecap": "round", fill: "none", opacity: 0.2, "data-work": "1" }));
+    }
+    const wristL = pose.points.wristL, wristR = pose.points.wristR;
+    const near = (points, to) => {
+      if (!to) return Infinity;
+      const c = points.reduce((m, p) => [m[0] + p[0] / points.length, m[1] + p[1] / points.length, m[2] + p[2] / points.length], [0, 0, 0]);
+      return Math.hypot(c[0] - to[0], c[1] - to[1], c[2] - to[2]);
+    };
+    const back = [], front = [];
+    for (const item of pose.equipment) {
+      if (!item.accent) back.push(item);
+      else if (near(item.points, wristL) < 45 && near(item.points, wristL) < near(item.points, wristR)) back.push(item);
+      else front.push(item);
+    }
+    const drawItems = (items) => {
+      for (const item of items) {
+        const d = item.points.map(project).map((p, i) => `${i ? "L" : "M"}${p[0]} ${p[1]}`).join("");
+        const w = item.width ?? 2;
+        body.append(element("path", { d, fill: "none", stroke: item.accent ? C.implement : C.frame, "stroke-width": item.accent ? Math.max(3, w * 2.2) : Math.max(4, w * 3.2), "stroke-linecap": "round", "stroke-linejoin": "round", "data-equipment": item.accent ? "implement" : "frame" }));
+      }
+    };
+    const shoe = (side2, color) => {
+      hull(body, [P("ankle" + side2), P("heel" + side2), P("toe" + side2)], 6.5 * s, color);
+      body.append(element("path", { d: `M${P("heel" + side2).join(" ")}L${P("toe" + side2).join(" ")}`, stroke: C.shirtShade, "stroke-width": 2.5 * s, "stroke-linecap": "round", opacity: side2 === "R" ? 0.8 : 0.35, transform: `translate(0 ${6 * s})` }));
+    };
+    const leg = (side2, limb, shorts) => {
+      const hip = P("hip" + side2), knee = P("knee" + side2), ankle = P("ankle" + side2);
+      capsule(body, knee, ankle, 12 * s, 8.5 * s, limb);
+      capsule(body, hip, knee, 17 * s, 12.5 * s, limb);
+      capsule(body, hip, lerp(hip, knee, 0.52), 19 * s, 15.5 * s, shorts, { "data-part": "shorts" });
+      shoe(side2, C.dark);
+    };
+    const arm = (side2, limb, sleeve) => {
+      const shoulder = P("shoulder" + side2), elbow = P("elbow" + side2), wrist = P("wrist" + side2);
+      capsule(body, shoulder, elbow, 10.5 * s, 8.5 * s, limb);
+      capsule(body, elbow, wrist, 8.5 * s, 6.5 * s, limb);
+      capsule(body, shoulder, lerp(shoulder, elbow, 0.36), 12.5 * s, 11 * s, sleeve, { "data-part": "sleeve" });
+      body.append(element("circle", { cx: wrist[0], cy: wrist[1], r: 8.5 * s, fill: limb }));
+    };
+    drawItems(back);
+    leg("L", far, C.shortsFar);
+    arm("L", far, C.shirtShade);
+    capsule(body, P("shoulder"), P("neck"), 7.5 * s, 7 * s, C.limb);
+    hull(body, [P("shoulderL"), P("shoulderR"), P("hipR"), P("hipL")], (yaw >= 60 ? 11 : 17) * s, C.shirt, { "data-part": "torso" });
+    hull(body, [P("hipL"), P("hipR")], 18.5 * s, accent, { "data-part": "shorts" });
+    leg("R", C.limb, accent);
+    const head = P("head"), neck = P("neck"), r = 17 * s, side = yaw < 60 ? 1 : 0;
+    const ul = Math.hypot(head[0] - neck[0], head[1] - neck[1]) || 1, u = [(head[0] - neck[0]) / ul, (head[1] - neck[1]) / ul];
+    body.append(element("circle", { cx: head[0] - facing * side * 0.26 * r + u[0] * 0.2 * r, cy: head[1] + u[1] * 0.2 * r, r: 0.95 * r, fill: C.hair }));
+    body.append(element("circle", { cx: head[0] + facing * side * 0.06 * r, cy: head[1], r: 0.9 * r, fill: C.limb }));
+    if (side) {
+      body.append(element("circle", { cx: head[0] + facing * 0.86 * r - u[0] * 0.1 * r, cy: head[1] - u[1] * 0.1 * r, r: 0.2 * r, fill: C.limb }));
+      body.append(element("circle", { cx: head[0] + facing * 0.5 * r + u[0] * 0.12 * r, cy: head[1] + u[1] * 0.12 * r, r: 0.09 * r, fill: C.hair }));
+      body.append(element("circle", { cx: head[0] - facing * 0.12 * r, cy: head[1], r: 0.2 * r, fill: "none", stroke: C.limbFar, "stroke-width": 1.5 * s }));
+    }
+    arm("R", C.limb, C.shirt);
+    drawItems(front);
+    if (options.highlight || showTitle) for (const name of ["hipR", "kneeR", "shoulderR", "elbowR"]) {
+      const p = P(name), ring = Math.max(6, 7 * s);
+      body.append(element("circle", { cx: p[0], cy: p[1], r: ring, fill: panel, stroke: accent, "stroke-width": Math.max(2.5, 2.6 * s), "data-joint": name }));
+      body.append(element("circle", { cx: p[0], cy: p[1], r: ring * 0.3, fill: text }));
+    }
+  }
   function render(time, lang = "ar") {
     const pose = sampleRig(definition2.id, time);
     equipment.replaceChildren();
@@ -395,6 +647,20 @@ function createRigRenderer(svg2, definition2, showTitle = false, options = {}) {
     hud.replaceChildren();
     svg2.dataset.time = time.toFixed(3);
     svg2.dataset.phase = String(pose.phase);
+    if (style === "segments") {
+      drawSegments(pose);
+      if (showTitle) label(450, 66, definition2.title[lang], 30, text);
+      const phase2 = pose.phase === 0 ? lang === "ar" ? "\u0627\u0633\u062A\u0639\u062F\u0627\u062F" : "Ready" : pose.phase === 1 ? definition2.action[lang] : pose.phase === 2 ? lang === "ar" ? "\u0648\u0642\u0641\u0629 \u0642\u0635\u064A\u0631\u0629" : "Brief hold" : definition2.returning[lang];
+      if (showTitle) {
+        circle(hud, [450, 818], 4, accent, "none", 0);
+        label(450, 866, phase2, 32, text);
+      }
+      if (pose.phase === 1 || pose.phase === 3) {
+        const exhale = pose.phase === 1 === guide.exhaleOnAction;
+        svg2.dataset.breath = exhale ? "out" : "in";
+      } else delete svg2.dataset.breath;
+      return;
+    }
     line(equipment, [80, fit.y], [820, fit.y], text, 1, 0.12);
     for (const item of pose.equipment) {
       const points = item.points.map(project);

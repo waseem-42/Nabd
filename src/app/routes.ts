@@ -9,7 +9,6 @@ export const routes = {
   progress: '/progress',
   session: (id: string) => `/progress/session/${id}`,
   settings: '/settings',
-  motionLab: '/motion-lab',
   motionBatch: '/motion-batch',
 
   onboarding: '/onboarding',
@@ -23,11 +22,11 @@ export const routes = {
   summary: (sessionId: string) => `/summary/${sessionId}`,
 } as const
 
+/** Three tabs; settings sit behind the gear icon in the header. */
 export const TABS = [
-  { key: 'today', path: routes.today, label: 'common.tab.today' },
-  { key: 'library', path: routes.library, label: 'common.tab.library' },
-  { key: 'progress', path: routes.progress, label: 'common.tab.progress' },
-  { key: 'settings', path: routes.settings, label: 'common.tab.settings' },
+  { key: 'today', path: routes.today, label: 'app.tab.train' },
+  { key: 'library', path: routes.library, label: 'app.tab.exercises' },
+  { key: 'progress', path: routes.progress, label: 'app.tab.log' },
 ] as const
 
 export type TabKey = (typeof TABS)[number]['key']

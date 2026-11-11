@@ -15,7 +15,7 @@ describe('continuous exercise integration',()=>{
   it('routes the exact curl id into a continuous rig and pauses when seeking',()=>{
     act(()=>root.render(<ExercisePlayer activity="NbVPDMW" slug="bicep-curl" name="Curl"/>))
     expect(host.querySelector('[data-rig-player]')?.getAttribute('data-rig-player')).toBe('curl')
-    const end=[...host.querySelectorAll('button')].find(button=>button.textContent==='End of movement')!
+    const end=host.querySelector<HTMLButtonElement>('button[data-segment="hold"]')!
     act(()=>end.click())
     expect(host.querySelector('[data-motion]')?.getAttribute('data-time')).toBe('2.800')
     act(()=>vi.advanceTimersByTime(3000))

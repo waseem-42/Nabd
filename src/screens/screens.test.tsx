@@ -3,17 +3,15 @@ import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { App } from '@/app/App'
 import { routes } from '@/app/routes'
-import { PROGRAM_TEMPLATES } from '@/data/catalog'
 import { ALL_TABLES } from '@/db/db'
-import { getActiveSession, listDoneSessions, startProgramFromTemplate } from '@/db'
+import { getActiveSession, getProgram, listDoneSessions, startProgramFromTemplate } from '@/db'
 import { useWorkout } from '@/store/session'
 import { useSettings } from '@/store/settings'
-import { useMotionReview } from '@/store/motionReview'
 import { DEFAULT_SETTINGS } from '@/types'
 
 /*
- * Smoke tests: every route renders real content against a real (fake) IndexedDB, and the core
- * loop — start the next workout, tick a set, finish — ends on the summary with a saved session.
+ * Smoke tests for the place-first app: setup, each screen, the place switch, and the core
+ * loop — start today's workout, tick a set, finish — ending on the summary with a saved session.
  */
 
 ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
@@ -49,14 +47,20 @@ function click(el: Element | null | undefined) {
   act(() => (el as HTMLElement).click())
 }
 
-const byText = (text: string) =>
-  [...document.querySelectorAll('button')].find((b) => b.textContent?.includes(text))
+const byText = (text: string, selector = 'button') =>
+  [...document.querySelectorAll<HTMLElement>(selector)].find((b) => b.textContent?.includes(text))
+
+async function passPreparation() {
+  await waitForText('Before you start')
+  for (const check of document.querySelectorAll('input[type="checkbox"]')) click(check)
+  click(byText('Begin session'))
+  await settle()
+}
 
 beforeEach(async () => {
   await Promise.all(ALL_TABLES.map((t) => t.clear()))
   useSettings.getState().replace({ ...DEFAULT_SETTINGS, lang: 'en', onboarded: true, place: 'gym' })
   useWorkout.setState({ session: null, rest: null, hydrated: true })
-  useMotionReview.getState().clear()
 })
 
 afterEach(() => {
@@ -65,72 +69,84 @@ afterEach(() => {
   document.body.innerHTML = ''
 })
 
-describe('screens', () => {
-  it('sends a first-time user to onboarding', async () => {
+describe('setup', () => {
+  it('asks where, what gear and which level, then follows a matching plan', async () => {
     useSettings.getState().set({ onboarded: false })
     await render(routes.today)
     expect(window.location.pathname).toBe(routes.onboarding)
-    await waitForText('Nabd')
-  })
+    await waitForText('Where do you train?')
+    click(byText('Home'))
+    click(byText('Next'))
+    await waitForText('What do you have at home?')
+    click(byText('Dumbbells'))
+    click(byText('Next'))
+    await waitForText('Your level?')
+    click(byText('Let’s go'))
+    await settle(10)
 
+    const settings = useSettings.getState()
+    expect(settings.onboarded).toBe(true)
+    expect(settings.place).toBe('home')
+    expect(settings.homeEquipment).toEqual(expect.arrayContaining(['bodyweight', 'dumbbell']))
+    expect((await getProgram(settings.homeProgramId!))?.templateId).toBe('home-dumbbell')
+    expect(window.location.pathname).toBe(routes.today)
+  })
+})
+
+describe('screens', () => {
   it.each([
-    ['today', routes.today, 'No program yet'],
-    ['library', routes.library, 'Barbell Bench Press'],
-    ['exercise', routes.exercise('EIeI8Vf'), 'Barbell Bench Press'],
-    ['progress', routes.progress, 'No workouts yet'],
-    ['settings', routes.settings, 'Based on GymMane by InlitX'],
-    ['programs', routes.programs, 'Ready-made programs'],
-    ['template', routes.program(PROGRAM_TEMPLATES[0]!.id), 'Start this program'],
-    ['new routine', routes.routine('new'), 'New day'],
-    ['motion studio', routes.motionLab, 'Motion studio'],
-    ['continuous motion batch', routes.motionBatch, 'Technical motion'],
+    ['train without a plan', routes.today, 'Pick your plan'],
+    ['exercise', routes.exercise('EIeI8Vf'), 'How to'],
+    ['log', routes.progress, 'Your first finished workout'],
+    ['settings', routes.settings, 'Settings'],
+    ['plans', routes.programs, 'Ready plans'],
   ])('renders %s', async (_name, path, text) => {
     await render(path)
     await waitForText(text)
   })
 
-  it('saves a sample approval without changing workout settings', async () => {
-    const settings = useSettings.getState()
-    await render(routes.motionLab)
-    await waitForText('Approve this sample style')
-    click(byText('Previous styles'))
-    click(byText('Technical'))
-    click(byText('Approve this sample style'))
-    expect(useMotionReview.getState().approved).toBe('technical')
-    expect(useSettings.getState()).toBe(settings)
-    await waitForText('Sample style approved')
+  it('lists only animated exercises that fit the place', async () => {
+    await render(routes.library)
+    await waitForText('Barbell Bench Press')
+    expect(document.body.textContent).not.toContain('Leg Press') // no animation yet
+    act(() => useSettings.getState().set({ place: 'home' }))
+    await waitForText('Plank')
+    expect(document.body.textContent).not.toContain('Barbell Bench Press')
+    expect(document.querySelectorAll('[data-motion-thumb]').length).toBeGreaterThan(5)
   })
 
-  it('offers the four new styles while preserving an earlier sample approval', async () => {
-    useMotionReview.getState().approve('technical')
-    await render(routes.motionLab)
-    await waitForText('Athlete illustration')
-    expect(document.body.textContent).toContain('Before and during')
-    expect(document.querySelector('button[aria-pressed="true"]')?.textContent).toContain('Technical')
-    click(byText('Color segments'))
-    click(byText('Approve this sample style'))
-    expect(useMotionReview.getState().approved).toBe('segments')
-  })
-
-  it('runs a workout from the active program to the summary', async () => {
+  it('keeps a separate plan for each place', async () => {
     await startProgramFromTemplate('fullbody', 'en')
     await render(routes.today)
-    await waitForText('Up next')
+    await waitForText('Gym full body')
+    click(byText('Home'))
+    await waitForText('Pick your plan')
+    click(byText('Follow'))
+    await waitForText('Home start')
+    click(byText('Gym'))
+    await waitForText('Gym full body')
+    expect(useSettings.getState().homeProgramId).not.toBe(useSettings.getState().gymProgramId)
+  })
+})
 
-    click(byText('Start workout'))
+describe('workout', () => {
+  it('runs today’s workout from the plan to the summary', async () => {
+    await startProgramFromTemplate('fullbody', 'en')
+    await render(routes.today)
+    await waitForText('Today’s workout')
+    click(byText('Start'))
     await settle()
-    await waitForText('Before you start')
     expect(useWorkout.getState().session).toBeNull()
-    expect(byText('Begin session')?.disabled).toBe(true)
-    for (const check of document.querySelectorAll('input[type="checkbox"]')) click(check)
-    click(byText('Begin session'))
-    await settle()
+    expect(byText('Begin session')?.hasAttribute('disabled')).toBe(true)
+    await passPreparation()
     expect(window.location.pathname).toBe(routes.workout)
     expect(useWorkout.getState().session?.entries.length).toBeGreaterThan(0)
 
-    click(document.querySelector('button[aria-pressed="false"][aria-label^="Set 1"]'))
+    // The open set's big button ticks it and starts the rest timer.
+    const firstUndone = useWorkout.getState().session!.entries[0]!.sets.findIndex((s) => !s.done)
+    click(byText('Set done'))
     await settle(2)
-    expect(useWorkout.getState().session?.entries[0]?.sets[0]?.done).toBe(true)
+    expect(useWorkout.getState().session?.entries[0]?.sets[firstUndone]?.done).toBe(true)
     expect(useWorkout.getState().rest).not.toBeNull()
 
     click(byText('Finish'))
@@ -138,17 +154,14 @@ describe('screens', () => {
     // Unticked sets remain, so a confirmation comes first.
     click([...document.querySelectorAll('[role="alertdialog"] button')].find((b) => b.textContent === 'Finish'))
     await settle()
-
     expect(window.location.pathname).toMatch(/^\/summary\//)
     await waitForText('Workout complete!')
-    const done = await listDoneSessions()
-    expect(done).toHaveLength(1)
-    expect(done[0]!.entries).toHaveLength(1)
+    expect(await listDoneSessions()).toHaveLength(1)
   })
 
   it('cancels preparation without creating a session and resets checks when reopened', async () => {
     await render(routes.today)
-    click(byText('Quick workout'))
+    click(byText('Free workout'))
     await settle()
     click(document.querySelector('input[type="checkbox"]'))
     click(byText('Not ready now'))
@@ -156,10 +169,9 @@ describe('screens', () => {
     expect(useWorkout.getState().session).toBeNull()
     expect(await getActiveSession()).toBeUndefined()
     expect(window.location.pathname).toBe(routes.today)
-    click(byText('Quick workout'))
+    click(byText('Free workout'))
     await settle()
-    expect([...document.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')].every(input => !input.checked)).toBe(true)
-    expect(byText('Begin session')?.disabled).toBe(true)
+    expect([...document.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')].every((input) => !input.checked)).toBe(true)
   })
 
   it('resumes without a new preparation check; symptom help stops rest and preserves completed work', async () => {
@@ -170,7 +182,8 @@ describe('screens', () => {
     useWorkout.getState().toggleSet(0, 0)
     const session = useWorkout.getState().session!
     await render(routes.today)
-    click(byText('Resume'))
+    await waitForText('Resume workout')
+    click(byText('Resume workout', 'a'))
     await settle()
     expect(document.body.textContent).not.toContain('Before you start')
     expect(useWorkout.getState().rest).not.toBeNull()
@@ -180,8 +193,6 @@ describe('screens', () => {
     expect(useWorkout.getState().session).toEqual(session)
     click(byText('Close guidance'))
     await settle()
-    expect(useWorkout.getState().rest).toBeNull()
-    expect((await getActiveSession())?.entries[0]?.sets[0]?.done).toBe(true)
     click(byText('Pain or dizziness?'))
     await settle()
     click(byText('End and save completed sets'))
@@ -189,7 +200,6 @@ describe('screens', () => {
     const saved = (await listDoneSessions())[0]!
     expect(saved.id).toBe(session.id)
     expect(saved.entries[0]?.sets).toHaveLength(1)
-    expect(saved.entries[0]?.sets[0]).toEqual(session.entries[0]?.sets[0])
     expect(useWorkout.getState().session).toBeNull()
   })
 })

@@ -25,10 +25,22 @@ export function usePrograms(): UserProgram[] | undefined {
   return useLiveQuery(listPrograms, [])
 }
 
-/** The program in `settings.activeProgramId`, with its routines in rotation order. */
+/**
+ * The program followed at the current place, with its routines in rotation order. Older
+ * installs only have `activeProgramId`; it still counts when it belongs to this place.
+ */
 export function useActiveProgram(): { program: UserProgram; routines: Routine[] } | null | undefined {
-  const id = useSettings((s) => s.activeProgramId)
-  return useLiveQuery(async () => (id ? getProgramWithRoutines(id) : null), [id])
+  const place = useSettings((s) => s.place)
+  const own = useSettings((s) => (s.place === 'home' ? s.homeProgramId : s.gymProgramId))
+  const legacy = useSettings((s) => s.activeProgramId)
+  return useLiveQuery(async () => {
+    for (const id of [own, legacy]) {
+      if (!id) continue
+      const found = await getProgramWithRoutines(id)
+      if (found && found.program.place === place) return found
+    }
+    return null
+  }, [own, legacy, place])
 }
 
 /** Finished sessions, newest first. */

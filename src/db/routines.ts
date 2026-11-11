@@ -90,8 +90,16 @@ export async function startProgramFromTemplate(templateId: string, lang: Lang): 
     await db.routines.bulkAdd(routines)
     await db.programs.add(program)
   })
-  useSettings.getState().set({ activeProgramId: program.id })
+  followProgram(program)
   return program
+}
+
+/** Makes `program` the one followed at its place (and the legacy active one). */
+export function followProgram(program: Pick<UserProgram, 'id' | 'place'>): void {
+  useSettings.getState().set({
+    activeProgramId: program.id,
+    ...(program.place === 'home' ? { homeProgramId: program.id } : { gymProgramId: program.id }),
+  })
 }
 
 export async function createProgram(input: ProgramInput): Promise<UserProgram> {
@@ -117,7 +125,12 @@ export async function deleteProgram(id: string): Promise<void> {
     await db.routines.bulkDelete(program.routineIds.filter((r) => !shared.has(r)))
     await db.programs.delete(id)
   })
-  if (getSettings().activeProgramId === id) useSettings.getState().set({ activeProgramId: null })
+  const settings = getSettings()
+  const patch: Partial<typeof settings> = {}
+  if (settings.activeProgramId === id) patch.activeProgramId = null
+  if (settings.homeProgramId === id) patch.homeProgramId = null
+  if (settings.gymProgramId === id) patch.gymProgramId = null
+  if (Object.keys(patch).length) useSettings.getState().set(patch)
 }
 
 /** The program with its routines in rotation order (missing ids are skipped). */

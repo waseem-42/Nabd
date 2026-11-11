@@ -10,7 +10,8 @@ import {
   updateRoutine,
   useAllExercises,
 } from '@/db'
-import { filterForPlace, fitsPlace } from '@/domain/place'
+import { animatedFor } from '@/domain/animated'
+import { fitsPlace } from '@/domain/place'
 import { DEFAULT_SET_COUNT } from '@/domain/session'
 import { pick, useLang, useT } from '@/i18n'
 import { useSettings } from '@/store/settings'
@@ -21,7 +22,6 @@ import {
   Card,
   ConfirmDialog,
   EmptyState,
-  ExerciseArt,
   ExercisePickerSheet,
   IconButton,
   PlaceToggle,
@@ -32,6 +32,7 @@ import {
   useToast,
 } from '@/ui'
 import { useHomeGear } from './parts/useFormat'
+import { MotionThumb } from '@/ui/MotionThumb'
 
 interface Draft {
   name: string
@@ -83,7 +84,8 @@ export default function RoutineEdit() {
   }, [id, isNew, programId])
 
   const draftPlace = draft?.place ?? defaultPlace
-  const placeExercises = useMemo(() => filterForPlace(exercises, draftPlace, gear), [exercises, draftPlace, gear])
+  // Plans are built from exercises with a clear animation only.
+  const placeExercises = useMemo(() => animatedFor(exercises, draftPlace, gear), [exercises, draftPlace, gear])
 
   if (missing) {
     return (
@@ -234,7 +236,7 @@ function ItemEditor({
   return (
     <Card padded={false} className="p-4">
       <div className="flex items-center gap-3">
-        <ExerciseArt slug={exercise?.art ?? null} still name={name} className="size-12 rounded-xl" />
+        <MotionThumb exerciseId={item.exerciseId} art={exercise?.art} name={name} still className="size-12 rounded-xl" />
         <div className="min-w-0 flex-1">
           <p className="truncate text-base font-semibold text-text">{name}</p>
           {!fits && (

@@ -27,11 +27,11 @@ function writeDone(id: string) {
  * A short general warm-up built from today's muscles, the person's background and body:
  * pulse first, then the areas that will work. Collapses once ticked off or once lifting starts.
  */
-export function WarmupCard({ session, lookup }: { session: WorkoutSession; lookup: (id: string) => Exercise | undefined }) {
+export function WarmupCard({ session, lookup, collapsed }: { session: WorkoutSession; lookup: (id: string) => Exercise | undefined; /** Start folded (one line) instead of open. */ collapsed?: boolean }) {
   const t = useT()
   const profile = useBodyProfile()
   const started = session.entries.some((e) => e.sets.some((s) => s.done))
-  const [open, setOpen] = useState(() => !started && !readDone(session.id))
+  const [open, setOpen] = useState(() => !collapsed && !started && !readDone(session.id))
   const [ticked, setTicked] = useState<Set<number>>(new Set())
 
   const { items, minutes, lowImpact } = useMemo(() => {

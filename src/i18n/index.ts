@@ -12,6 +12,7 @@ import settings from './dict/settings'
 import motion from './dict/motion'
 import safety from './dict/safety'
 import body from './dict/body'
+import app from './dict/app'
 
 /**
  * UI strings. Each dictionary file holds both languages side by side so a key can never exist
@@ -36,6 +37,7 @@ const DICT = {
   ...motion,
   ...safety,
   ...body,
+  ...app,
 }
 
 export type TKey = keyof typeof DICT
