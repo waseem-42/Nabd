@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash 'D:\\AntigravityProjects\\Nabd\\.codex\\hooks\\sync-start.sh'",
+            "timeout": 60,
+            "statusMessage": "مزامنة نبض مع GitHub..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash 'D:\\AntigravityProjects\\Nabd\\.codex\\hooks\\auto-push.sh'",
+            "timeout": 90,
+            "statusMessage": "حفظ ورفع التعديلات..."
+          }
+        ]
+      }
+    ]
+  }
+}
