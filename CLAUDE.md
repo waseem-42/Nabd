@@ -9,6 +9,18 @@ different machines, each with their own Claude Code. Collaboration guide (Arabic
 - `npm run build` — typecheck + production build (must pass before any PR)
 - `npm test` — vitest
 
+## Auto-sync hooks (.claude/settings.json)
+- SessionStart (`.claude/hooks/sync-start.sh`) fetches, fast-forwards `main` or merges
+  `origin/main` into the current branch (aborts on conflict), and lists open PRs.
+  Summarize its output to the user briefly in your first reply.
+- Stop (`.claude/hooks/auto-push.sh`) auto-commits all changes, pushes them to the
+  current feature branch (moving work off `main` to `work/<user>-<date>` if needed), and
+  opens a draft PR once. So you don't need to commit/push manually; never merge for the user
+  unless asked.
+- If a hook reports a conflict or failed push, help the user resolve it without losing work.
+- After a branch's PR is merged and the user starts new work, switch to `main`, pull, and
+  start a new branch.
+
 ## Git workflow (required)
 - Never commit directly to `main`. Start every change with `git switch main && git pull`,
   then `git switch -c feat/<short-name>` (or `fix/…`, `docs/…`).
