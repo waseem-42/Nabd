@@ -3,9 +3,9 @@ import { EXERCISE_BY_ID } from '@/data/catalog'
 import { RIGS, findRig, length, movementClock, rigFit, sampleRig, sub } from './engine'
 
 describe('continuous exercise rigs',()=>{
-  it('maps twenty-six exact catalogue ids without inheriting a rig through shared art slugs',()=>{
-    expect(RIGS).toHaveLength(26)
-    expect(new Set(RIGS.map(rig=>rig.exerciseId)).size).toBe(26)
+  it('maps thirty-two exact catalogue ids without inheriting a rig through shared art slugs',()=>{
+    expect(RIGS).toHaveLength(32)
+    expect(new Set(RIGS.map(rig=>rig.exerciseId)).size).toBe(32)
     for(const rig of RIGS)expect(EXERCISE_BY_ID.has(rig.exerciseId)).toBe(true)
     expect(findRig('qx4fgX7')).toBeUndefined() // Elevated dumbbell split squat shares an art slug.
     expect(findRig('9E25EOx')?.id).toBe('split')
@@ -145,5 +145,34 @@ describe('continuous exercise rigs',()=>{
     const tilt=(pose:typeof goblet)=>{const v=sub(pose.points.shoulder!,pose.points.hip!);return Math.atan2(v[0],v[1])}
     expect(tilt(goblet)).toBeLessThan(tilt(squat)-.1)
     for(let frame=0;frame<=90;frame++)for(const key of ['hip','shoulder','kneeR'])expect(sampleRig('dbrow',frame/15).points[key]).toEqual(sampleRig('dbrow',0).points[key])
+  })
+  it('batch five: reverse lunge plants the front foot, climber and superman keep the trunk on its contacts',()=>{
+    const still=(id:Parameters<typeof sampleRig>[0],keys:string[])=>{const first=sampleRig(id,0);for(let frame=0;frame<=90;frame++){const pose=sampleRig(id,frame/15);for(const key of keys)expect(pose.points[key],`${id}:${key}@${frame}`).toEqual(first.points[key])}}
+    still('revlunge',['ankleR','heelR','toeR'])
+    const lunge=sampleRig('revlunge',2.8)
+    expect(lunge.points.ankleL![0]).toBeLessThan(-200) // the moving foot steps behind
+    expect(lunge.points.hip![1]).toBeLessThan(sampleRig('revlunge',0).points.hip![1]-90)
+    still('climber',['shoulder','wristL','wristR','toeL'])
+    const climb=sampleRig('climber',2.8)
+    expect(climb.points.hip).toEqual(sampleRig('climber',0).points.hip) // back to a straight plank once the knee is in
+    expect(climb.points.kneeR![0]).toBeGreaterThan(climb.points.hip![0]+50) // the knee drives under the chest
+    for(let frame=0;frame<=600;frame++)expect(sampleRig('climber',frame/100).points.kneeR![1]).toBeGreaterThan(10) // and never touches the floor on the way
+    still('superman',['hip'])
+    const lift=sampleRig('superman',2.8),flat=sampleRig('superman',0)
+    for(const key of ['wristR','ankleR','head'])expect(lift.points[key]![1]).toBeGreaterThan(flat.points[key]![1]+15)
+    expect(lift.points.wristR![1]).toBeLessThan(90) // a few centimetres, not a full back bend
+  })
+  it('batch five: leg extension moves only the shins, bench dip keeps hands and feet planted, hip thrust levels the torso',()=>{
+    // Knees come from the limb solver, so they hold still to rounding error rather than bit for bit.
+    for(let frame=0;frame<=90;frame++)for(const key of ['hip','shoulder','kneeR','kneeL','wristR'])expect(length(sub(sampleRig('legext',frame/15).points[key]!,sampleRig('legext',0).points[key]!))).toBeLessThan(1e-9)
+    expect(sampleRig('legext',2.8).points.ankleR![1]).toBeGreaterThan(sampleRig('legext',0).points.ankleR![1]+80)
+    for(let frame=0;frame<=90;frame++)for(const key of ['wristL','wristR','ankleL','ankleR'])expect(sampleRig('benchdip',frame/15).points[key]).toEqual(sampleRig('benchdip',0).points[key])
+    const dip=sampleRig('benchdip',2.8)
+    expect(dip.points.shoulder![1]).toBeLessThan(sampleRig('benchdip',0).points.shoulder![1]-35)
+    expect(dip.points.elbowR![0]).toBeLessThan(dip.points.wristR![0]) // elbows bend back, not out
+    const top=sampleRig('hipthrust',2.8),bottom=sampleRig('hipthrust',0)
+    expect(top.points.shoulder).toEqual(bottom.points.shoulder)
+    expect(Math.abs(top.points.hip![1]-top.points.shoulder![1])).toBeLessThan(1) // level at the top
+    expect(top.points.hip![1]).toBeGreaterThan(bottom.points.hip![1]+60)
   })
 })

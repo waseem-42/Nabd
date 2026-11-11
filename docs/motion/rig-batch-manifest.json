@@ -481,6 +481,295 @@
       "sources": [
         "https://www.acefitness.org/resources/everyone/exercise-library/153/lying-hamstrings-curl/"
       ]
+    },
+    {
+      "id": "plank",
+      "exerciseId": "plank-hold",
+      "title": {
+        "ar": "بلانك",
+        "en": "Front plank"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "ثبّت البطن",
+        "en": "Brace"
+      },
+      "returning": {
+        "ar": "تنفّس",
+        "en": "Breathe"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+      ]
+    },
+    {
+      "id": "crunch",
+      "exerciseId": "TFqbd8t",
+      "title": {
+        "ar": "كرنش",
+        "en": "Crunch"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "رفع الكتفين",
+        "en": "Curl up"
+      },
+      "returning": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+      ]
+    },
+    {
+      "id": "birddog",
+      "exerciseId": "bird-dog",
+      "title": {
+        "ar": "بيرد دوج",
+        "en": "Bird dog"
+      },
+      "yaw": 20,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "مدّ الذراع والرجل",
+        "en": "Reach"
+      },
+      "returning": {
+        "ar": "رجوع",
+        "en": "Return"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/14/bird-dog/"
+      ]
+    },
+    {
+      "id": "deadbug",
+      "exerciseId": "dead-bug",
+      "title": {
+        "ar": "الحشرة الميتة",
+        "en": "Dead bug"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "مدّ الذراع والرجل",
+        "en": "Extend"
+      },
+      "returning": {
+        "ar": "رجوع",
+        "en": "Return"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+      ]
+    },
+    {
+      "id": "goblet",
+      "exerciseId": "yn8yg1r",
+      "title": {
+        "ar": "جوبلت سكوات",
+        "en": "Goblet squat"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "returning": {
+        "ar": "صعود",
+        "en": "Rise"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/362/goblet-squat/"
+      ]
+    },
+    {
+      "id": "dbrow",
+      "exerciseId": "BJ0Hz5L",
+      "title": {
+        "ar": "تجديف منحني بالدمبل",
+        "en": "Dumbbell bent-over row"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "سحب",
+        "en": "Pull"
+      },
+      "returning": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/blog/5241/4-upper-body-movements-for-beginners/"
+      ]
+    },
+    {
+      "id": "revlunge",
+      "exerciseId": "reverse-lunge",
+      "title": {
+        "ar": "اندفاع للخلف بالدمبل",
+        "en": "Dumbbell reverse lunge"
+      },
+      "yaw": 18,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "رجوع ونزول",
+        "en": "Step back"
+      },
+      "returning": {
+        "ar": "صعود",
+        "en": "Rise"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/319/reverse-lunge/"
+      ]
+    },
+    {
+      "id": "climber",
+      "exerciseId": "mountain-climber",
+      "title": {
+        "ar": "متسلق الجبال",
+        "en": "Mountain climber"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "سحب الركبة",
+        "en": "Knee in"
+      },
+      "returning": {
+        "ar": "رجوع",
+        "en": "Return"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+      ]
+    },
+    {
+      "id": "superman",
+      "exerciseId": "superman",
+      "title": {
+        "ar": "سوبرمان",
+        "en": "Superman"
+      },
+      "yaw": 20,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "رفع الذراعين والرجلين",
+        "en": "Lift"
+      },
+      "returning": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+      ]
+    },
+    {
+      "id": "legext",
+      "exerciseId": "leg-extension",
+      "title": {
+        "ar": "ليج إكستنشن على الجهاز",
+        "en": "Seated leg extension"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "فرد الركبة",
+        "en": "Extend"
+      },
+      "returning": {
+        "ar": "ثني الركبة",
+        "en": "Lower"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/183/seated-leg-extension/"
+      ]
+    },
+    {
+      "id": "benchdip",
+      "exerciseId": "X6C6i5Y",
+      "title": {
+        "ar": "غطس الترايسبس",
+        "en": "Bench triceps dip"
+      },
+      "yaw": 20,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "returning": {
+        "ar": "دفع",
+        "en": "Press"
+      },
+      "sources": [
+        "https://www.acefitness.org/education-and-resources/lifestyle/blog/3618/triceps-exercises-body-weight-bench-dips-vs-dumbbell-triceps-kickbacks/"
+      ]
+    },
+    {
+      "id": "hipthrust",
+      "exerciseId": "hip-thrust",
+      "title": {
+        "ar": "هيب ثرست بالبار",
+        "en": "Barbell hip thrust"
+      },
+      "yaw": 15,
+      "view": {
+        "ar": "جانبي",
+        "en": "Side"
+      },
+      "action": {
+        "ar": "رفع الحوض",
+        "en": "Lift hips"
+      },
+      "returning": {
+        "ar": "نزول",
+        "en": "Lower"
+      },
+      "sources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/318/hip-bridge/",
+        "https://www.acefitness.org/continuing-education/certified/november-2019/7403/understanding-the-barbell-hip-thrust/"
+      ]
     }
   ]
 }

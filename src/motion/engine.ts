@@ -4,6 +4,7 @@ export type RigId = 'squat' | 'pushup' | 'split' | 'bridge' | 'calf' | 'curl' | 
   | 'backsquat' | 'rdl' | 'lateral' | 'chinup' | 'pushdown'
   | 'benchbar' | 'bentrow' | 'standpress' | 'barcurl' | 'legcurl'
   | 'plank' | 'crunch' | 'birddog' | 'deadbug' | 'goblet' | 'dbrow'
+  | 'revlunge' | 'climber' | 'superman' | 'legext' | 'benchdip' | 'hipthrust'
 export interface RigDefinition {
   id: RigId
   exerciseId: string
@@ -54,6 +55,13 @@ export const RIGS: RigDefinition[] = [
   definition('deadbug','dead-bug','الحشرة الميتة','Dead bug',15,['مدّ الذراع والرجل','Extend'],['رجوع','Return'],['147/supine-dead-bug/']),
   definition('goblet','yn8yg1r','جوبلت سكوات','Goblet squat',15,['نزول','Lower'],['صعود','Rise'],['362/goblet-squat/']),
   definition('dbrow','BJ0Hz5L','تجديف منحني بالدمبل','Dumbbell bent-over row',15,['سحب','Pull'],['نزول','Lower'],['https://www.acefitness.org/resources/everyone/blog/5241/4-upper-body-movements-for-beginners/']),
+  // Batch five: three home moves and three gym moves.
+  definition('revlunge','reverse-lunge','اندفاع للخلف بالدمبل','Dumbbell reverse lunge',18,['رجوع ونزول','Step back'],['صعود','Rise'],['319/reverse-lunge/']),
+  definition('climber','mountain-climber','متسلق الجبال','Mountain climber',15,['سحب الركبة','Knee in'],['رجوع','Return'],['258/mountain-climbers/']),
+  definition('superman','superman','سوبرمان','Superman',20,['رفع الذراعين والرجلين','Lift'],['نزول','Lower'],['9/supermans/']),
+  definition('legext','leg-extension','ليج إكستنشن على الجهاز','Seated leg extension',15,['فرد الركبة','Extend'],['ثني الركبة','Lower'],['183/seated-leg-extension/']),
+  definition('benchdip','X6C6i5Y','غطس الترايسبس','Bench triceps dip',20,['نزول','Lower'],['دفع','Press'],['https://www.acefitness.org/education-and-resources/lifestyle/blog/3618/triceps-exercises-body-weight-bench-dips-vs-dumbbell-triceps-kickbacks/']),
+  definition('hipthrust','hip-thrust','هيب ثرست بالبار','Barbell hip thrust',15,['رفع الحوض','Lift hips'],['نزول','Lower'],['318/hip-bridge/','https://www.acefitness.org/continuing-education/certified/november-2019/7403/understanding-the-barbell-hip-thrust/']),
 ]
 export const RIG_DURATION = 6
 /** Phase boundaries of one repetition, seconds (see movementClock). */
@@ -93,6 +101,12 @@ export const RIG_GUIDES: Record<RigId, RigGuide> = {
   deadbug: { track: 'ankleL', work: [['hip','shoulder']], exhaleOnAction: true, altYaw: 55 },
   goblet: { track: 'hip', work: legs, exhaleOnAction: false, altYaw: 60 },
   dbrow: { track: 'wristR', work: [...upperArms, ['hip','shoulder']], exhaleOnAction: true, altYaw: 60 },
+  revlunge: { track: 'hip', work: legs, exhaleOnAction: false, altYaw: 60 },
+  climber: { track: 'kneeR', work: [['hip','shoulder'],['hipR','kneeR']], exhaleOnAction: true, altYaw: 55 },
+  superman: { track: 'wristR', work: [['hip','shoulder'],['hipR','kneeR'],['hipL','kneeL']], exhaleOnAction: true, altYaw: 60 },
+  legext: { track: 'ankleR', work: legs, exhaleOnAction: true, altYaw: 60 },
+  benchdip: { track: 'shoulder', work: upperArms, exhaleOnAction: false, altYaw: 70 },
+  hipthrust: { track: 'hip', work: [...legs, ['hipL','hipR']], exhaleOnAction: true, altYaw: 55 },
   legcurl: { track: 'ankleR', work: [['kneeR','ankleR'],['kneeL','ankleL'],['hipR','kneeR'],['hipL','kneeL']], exhaleOnAction: true, altYaw: 60 },
 }
 export const findRig = (exerciseId?: string) => RIGS.find(rig=>rig.exerciseId===exerciseId)
@@ -359,6 +373,69 @@ export function sampleRig(id:RigId,time:number):RigPose {
     const pad=add(add([100,110,0],scale(d,88)),scale(n,-16))
     equipment([[100,95,0],pad],true,3);equipment([add(pad,[0,0,-45]),add(pad,[0,0,45])],true,9)
     for(const z of [-40,40]){equipment([[-235,88,z],[95,88,z]],false,6);equipment([[-200,88,z],[-200,0,z]]);equipment([[60,88,z],[60,0,z]])}
+  }else if(id==='revlunge'){
+    // The front foot stays planted; the other foot steps back while the hips lower straight down.
+    const hip:Vec3=[mix(0,-105,p),mix(219.6,115,p),0]
+    body(hip,vertical(.06))
+    const lift=20*Math.sin(Math.PI*p),back:Vec3=[mix(0,-230,p),20+15*p+lift,-26]
+    leg('R',[0,20,26],[1,0,0])
+    // The back foot rolls onto its toes as one rigid piece.
+    const roll=-.5*p,turn=([x,y]:[number,number]):Vec3=>[x*Math.cos(roll)-y*Math.sin(roll),x*Math.sin(roll)+y*Math.cos(roll),0]
+    leg('L',back,[1,-1,0],add(back,turn([35,-20])),add(back,turn([-25,-20])))
+    for(const side of ['L','R'] as const){const wrist=add(get('shoulder'+side),[5,-130,0]);arm(side,wrist,[-1,0,0]);dumbbellAlongX(wrist)}
+  }else if(id==='climber'){
+    // High plank on the hands; the right knee drives toward the chest and back. Shoulders stay over the
+    // hands, while the hips lift a little mid-stride (the support foot rolls onto its toes) so the knee clears the floor.
+    const swing=Math.sin(Math.PI*p),shoulder=add([-160,20,0],scale(horizontal(deg(20.9)),318)),axis=horizontal(deg(20.9-14*swing))
+    body(sub(shoulder,scale(axis,118)),axis)
+    const foot:Vec3=[mix(-160,10,p),mix(20,45,p)+25*swing,26]
+    leg('R',foot,[1,-.2,0],add(foot,[35,-20,0]),add(foot,[-25,20,0]))
+    const toe:Vec3=[-125,0,-26],roll=-deg(22)*swing,turn=([x,y]:[number,number]):Vec3=>[x*Math.cos(roll)-y*Math.sin(roll),x*Math.sin(roll)+y*Math.cos(roll),0]
+    leg('L',add(toe,turn([-35,20])),[0,-1,0],toe,add(toe,turn([-60,40])))
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;arm(side,[140,0,sign*42.5],[-1,0,0]);equipment([[127,0,sign*42.5],[156,0,sign*42.5]],false,4)}
+  }else if(id==='superman'){
+    // Face down, pelvis on the floor; the chest, arms and legs lift a few centimetres together.
+    const chest=mix(0,.18,p),legLift=mix(0,.14,p),reach=chest+mix(0,.1,p)
+    body([0,22,0],[-Math.cos(chest),Math.sin(chest),0])
+    const d:Vec3=[Math.cos(legLift),Math.sin(legLift),0],down:Vec3=[Math.sin(legLift),-Math.cos(legLift),0]
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1
+      const ankle=add([0,22,sign*26],scale(d,199.5))
+      leg(side,ankle,[0,-1,0],add(add(ankle,scale(d,30)),scale(down,14)),add(add(ankle,scale(d,-5)),scale(down,-18)))
+      arm(side,add(get('shoulder'+side),[-133*Math.cos(reach),133*Math.sin(reach),sign*8]),[0,-1,0])
+    }
+  }else if(id==='legext'){
+    // Seated, thighs supported to the knee; only the shins swing up against the pad.
+    body([0,125,0],vertical(-.1))
+    const angle=deg(mix(0,80,p)),d:Vec3=[Math.sin(angle),-Math.cos(angle),0],n:Vec3=[Math.cos(angle),Math.sin(angle),0]
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1
+      const ankle=add([100,125,sign*26],scale(d,100))
+      leg(side,ankle,[0,1,0],add(add(ankle,scale(n,32)),scale(d,6)),add(add(ankle,scale(d,12)),scale(n,-12)))
+      const wrist:Vec3=[20,120,sign*60];arm(side,wrist,[-1,0,sign*.5]);equipment([add(wrist,[-14,0,0]),add(wrist,[14,0,0])],false,5)
+    }
+    const pad=add(add([100,125,0],scale(d,85)),scale(n,16))
+    equipment([[100,125,0],pad],true,3);equipment([add(pad,[0,0,-45]),add(pad,[0,0,45])],true,9)
+    for(const z of [-40,40]){equipment([[-40,110,z],[105,110,z]],false,6);equipment([[-35,110,z],[-60,300,z]],false,5);equipment([[-20,110,z],[-20,0,z]]);equipment([[90,110,z],[90,0,z]])}
+  }else if(id==='benchdip'){
+    // Hands on the bench edge behind, feet flat in front; the elbows bend straight back.
+    const axis=vertical(.05),shoulder:Vec3=[mix(8,18,p),mix(234,192,p),0]
+    body(sub(shoulder,scale(axis,118)),axis)
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1
+      leg(side,[150,20,sign*26],[0,1,0])
+      arm(side,[-5,104,sign*40],[-1,0,0])
+    }
+    for(const z of [-45,45]){equipment([[-130,100,z],[0,100,z]],false,6);equipment([[-120,100,z],[-120,0,z]]);equipment([[-10,100,z],[-10,0,z]])}
+  }else if(id==='hipthrust'){
+    // Upper back on the bench edge, feet flat; the hips drive the bar up until the torso is level.
+    const a=mix(.75,0,p),shoulder:Vec3=[-120,110,0]
+    const hip=add(shoulder,[118*Math.cos(a),-118*Math.sin(a),0])
+    body(hip,[-Math.cos(a),Math.sin(a),0],[-Math.cos(a+.4),Math.sin(a+.4),0])
+    const bar=add(hip,[0,22,0])
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1
+      leg(side,[110,20,sign*26],[0,1,0])
+      arm(side,add(bar,[0,0,sign*55]),[0,1,sign])
+    }
+    barbell(bar)
+    for(const z of [-45,45]){equipment([[-230,100,z],[-110,100,z]],false,6);equipment([[-220,100,z],[-220,0,z]]);equipment([[-120,100,z],[-120,0,z]])}
   }
   return result
 }

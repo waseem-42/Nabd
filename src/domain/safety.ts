@@ -64,6 +64,31 @@ export const EXERCISE_SAFETY: Record<string, L10n[]> = {
     { ar: 'خل المرفقين لاصقة بجنبك؛ الساعد بس اللي يتحرك.', en: 'Keep the elbows at your sides; only the forearms move.' },
     { ar: 'ارجع بهدوء لمستوى الصدر تقريبًا، ولا تخلي الوزن يسحب يدينك فجأة.', en: 'Return slowly to about chest height; don’t let the stack yank your hands up.' },
   ],
+  // Batch five.
+  'reverse-lunge': [
+    { ar: 'ارجع خطوة للخلف وانزل بشكل مستقيم، والركبة الأمامية فوق القدم وباتجاه الأصابع.', en: 'Step back and lower straight down, front knee over the foot and tracking the toes.' },
+    { ar: 'الجذع مستقيم والدمبل على جنبك؛ ادفع من كعب القدم الأمامية للرجوع.', en: 'Keep the torso upright with the dumbbells at your sides; push through the front heel to return.' },
+  ],
+  'mountain-climber': [
+    { ar: 'اليدين تحت الكتفين والبطن مشدود؛ لا تخلي الورك يهبط أو يرتفع كثير.', en: 'Hands under the shoulders and abs braced; don’t let the hips sag or pike too high.' },
+    { ar: 'ابدأ ببطء وزوّد السرعة بس إذا قدرت تحافظ على ثبات الجذع.', en: 'Start slowly and only speed up while you can keep the trunk steady.' },
+  ],
+  superman: [
+    { ar: 'ارفع الذراعين والرجلين كم سانتي بس، والرقبة على خط الظهر ونظرك للأرض.', en: 'Lift the arms and legs only a few centimetres, neck in line with the back and eyes on the floor.' },
+    { ar: 'شد البطن والمؤخرة ولا تقوّس أسفل الظهر بقوة؛ وقف إذا حسيت ألم.', en: 'Brace the abs and glutes and don’t force a deep arch; stop if your lower back hurts.' },
+  ],
+  'leg-extension': [
+    { ar: 'عدّل الجهاز بحيث الركبة على محور الجهاز والوسادة فوق الكاحل.', en: 'Set the machine so the knee lines up with its pivot and the pad sits just above the ankle.' },
+    { ar: 'افرد الركبة بتحكم بدون قفل عنيف، ونزّل الوزن ببطء؛ استخدم وزن خفيف إذا عندك ألم بالركبة.', en: 'Extend with control without snapping the knee locked, and lower slowly; keep the load light if your knees hurt.' },
+  ],
+  X6C6i5Y: [
+    { ar: 'خل ظهرك قريب من البنش والكتفين لتحت وللخلف، والمرفقين يرجعون للخلف مو للجنب.', en: 'Keep your back close to the bench, shoulders down and back, and elbows bending straight back, not out.' },
+    { ar: 'انزل لين الذراع العلوي يقارب الأرضية بس؛ إذا عندك مشكلة بالكتف اختر تمرين ثاني.', en: 'Lower only until the upper arms are about level; if you have shoulder problems, pick another exercise.' },
+  ],
+  'hip-thrust': [
+    { ar: 'أعلى الظهر على حافة البنش والقدمين ثابتة، والبار على مفصل الورك مع وسادة.', en: 'Rest the upper back on the bench edge with feet planted, and the bar on the hip crease with a pad.' },
+    { ar: 'ارفع لين يصير الجذع موازي للأرض واعصر المؤخرة؛ لا تكمل بتقويس أسفل الظهر.', en: 'Rise until the torso is level and squeeze the glutes; don’t keep going by arching the lower back.' },
+  ],
   // Batch four (home).
   'plank-hold': [
     { ar: 'المرفقين تحت الكتفين، والجسم خط واحد من الكعب للرأس؛ لا تخلي الورك ينزل أو يرتفع.', en: 'Elbows under the shoulders and one straight line from heels to head; don’t let the hips sag or pike.' },

@@ -31,7 +31,14 @@ var RIGS = [
   definition("birddog", "bird-dog", "\u0628\u064A\u0631\u062F \u062F\u0648\u062C", "Bird dog", 20, ["\u0645\u062F\u0651 \u0627\u0644\u0630\u0631\u0627\u0639 \u0648\u0627\u0644\u0631\u062C\u0644", "Reach"], ["\u0631\u062C\u0648\u0639", "Return"], ["14/bird-dog/"]),
   definition("deadbug", "dead-bug", "\u0627\u0644\u062D\u0634\u0631\u0629 \u0627\u0644\u0645\u064A\u062A\u0629", "Dead bug", 15, ["\u0645\u062F\u0651 \u0627\u0644\u0630\u0631\u0627\u0639 \u0648\u0627\u0644\u0631\u062C\u0644", "Extend"], ["\u0631\u062C\u0648\u0639", "Return"], ["147/supine-dead-bug/"]),
   definition("goblet", "yn8yg1r", "\u062C\u0648\u0628\u0644\u062A \u0633\u0643\u0648\u0627\u062A", "Goblet squat", 15, ["\u0646\u0632\u0648\u0644", "Lower"], ["\u0635\u0639\u0648\u062F", "Rise"], ["362/goblet-squat/"]),
-  definition("dbrow", "BJ0Hz5L", "\u062A\u062C\u062F\u064A\u0641 \u0645\u0646\u062D\u0646\u064A \u0628\u0627\u0644\u062F\u0645\u0628\u0644", "Dumbbell bent-over row", 15, ["\u0633\u062D\u0628", "Pull"], ["\u0646\u0632\u0648\u0644", "Lower"], ["https://www.acefitness.org/resources/everyone/blog/5241/4-upper-body-movements-for-beginners/"])
+  definition("dbrow", "BJ0Hz5L", "\u062A\u062C\u062F\u064A\u0641 \u0645\u0646\u062D\u0646\u064A \u0628\u0627\u0644\u062F\u0645\u0628\u0644", "Dumbbell bent-over row", 15, ["\u0633\u062D\u0628", "Pull"], ["\u0646\u0632\u0648\u0644", "Lower"], ["https://www.acefitness.org/resources/everyone/blog/5241/4-upper-body-movements-for-beginners/"]),
+  // Batch five: three home moves and three gym moves.
+  definition("revlunge", "reverse-lunge", "\u0627\u0646\u062F\u0641\u0627\u0639 \u0644\u0644\u062E\u0644\u0641 \u0628\u0627\u0644\u062F\u0645\u0628\u0644", "Dumbbell reverse lunge", 18, ["\u0631\u062C\u0648\u0639 \u0648\u0646\u0632\u0648\u0644", "Step back"], ["\u0635\u0639\u0648\u062F", "Rise"], ["319/reverse-lunge/"]),
+  definition("climber", "mountain-climber", "\u0645\u062A\u0633\u0644\u0642 \u0627\u0644\u062C\u0628\u0627\u0644", "Mountain climber", 15, ["\u0633\u062D\u0628 \u0627\u0644\u0631\u0643\u0628\u0629", "Knee in"], ["\u0631\u062C\u0648\u0639", "Return"], ["258/mountain-climbers/"]),
+  definition("superman", "superman", "\u0633\u0648\u0628\u0631\u0645\u0627\u0646", "Superman", 20, ["\u0631\u0641\u0639 \u0627\u0644\u0630\u0631\u0627\u0639\u064A\u0646 \u0648\u0627\u0644\u0631\u062C\u0644\u064A\u0646", "Lift"], ["\u0646\u0632\u0648\u0644", "Lower"], ["9/supermans/"]),
+  definition("legext", "leg-extension", "\u0644\u064A\u062C \u0625\u0643\u0633\u062A\u0646\u0634\u0646 \u0639\u0644\u0649 \u0627\u0644\u062C\u0647\u0627\u0632", "Seated leg extension", 15, ["\u0641\u0631\u062F \u0627\u0644\u0631\u0643\u0628\u0629", "Extend"], ["\u062B\u0646\u064A \u0627\u0644\u0631\u0643\u0628\u0629", "Lower"], ["183/seated-leg-extension/"]),
+  definition("benchdip", "X6C6i5Y", "\u063A\u0637\u0633 \u0627\u0644\u062A\u0631\u0627\u064A\u0633\u0628\u0633", "Bench triceps dip", 20, ["\u0646\u0632\u0648\u0644", "Lower"], ["\u062F\u0641\u0639", "Press"], ["https://www.acefitness.org/education-and-resources/lifestyle/blog/3618/triceps-exercises-body-weight-bench-dips-vs-dumbbell-triceps-kickbacks/"]),
+  definition("hipthrust", "hip-thrust", "\u0647\u064A\u0628 \u062B\u0631\u0633\u062A \u0628\u0627\u0644\u0628\u0627\u0631", "Barbell hip thrust", 15, ["\u0631\u0641\u0639 \u0627\u0644\u062D\u0648\u0636", "Lift hips"], ["\u0646\u0632\u0648\u0644", "Lower"], ["318/hip-bridge/", "https://www.acefitness.org/continuing-education/certified/november-2019/7403/understanding-the-barbell-hip-thrust/"])
 ];
 var RIG_DURATION = 6;
 var RIG_PHASES = { actionStart: 0.45, holdStart: 2.55, returnStart: 3.05, returnEnd: 5.55 };
@@ -63,6 +70,12 @@ var RIG_GUIDES = {
   deadbug: { track: "ankleL", work: [["hip", "shoulder"]], exhaleOnAction: true, altYaw: 55 },
   goblet: { track: "hip", work: legs, exhaleOnAction: false, altYaw: 60 },
   dbrow: { track: "wristR", work: [...upperArms, ["hip", "shoulder"]], exhaleOnAction: true, altYaw: 60 },
+  revlunge: { track: "hip", work: legs, exhaleOnAction: false, altYaw: 60 },
+  climber: { track: "kneeR", work: [["hip", "shoulder"], ["hipR", "kneeR"]], exhaleOnAction: true, altYaw: 55 },
+  superman: { track: "wristR", work: [["hip", "shoulder"], ["hipR", "kneeR"], ["hipL", "kneeL"]], exhaleOnAction: true, altYaw: 60 },
+  legext: { track: "ankleR", work: legs, exhaleOnAction: true, altYaw: 60 },
+  benchdip: { track: "shoulder", work: upperArms, exhaleOnAction: false, altYaw: 70 },
+  hipthrust: { track: "hip", work: [...legs, ["hipL", "hipR"]], exhaleOnAction: true, altYaw: 55 },
   legcurl: { track: "ankleR", work: [["kneeR", "ankleR"], ["kneeL", "ankleL"], ["hipR", "kneeR"], ["hipL", "kneeL"]], exhaleOnAction: true, altYaw: 60 }
 };
 var findRig = (exerciseId) => RIGS.find((rig) => rig.exerciseId === exerciseId);
@@ -447,6 +460,89 @@ function sampleRig(id, time) {
       equipment([[-235, 88, z], [95, 88, z]], false, 6);
       equipment([[-200, 88, z], [-200, 0, z]]);
       equipment([[60, 88, z], [60, 0, z]]);
+    }
+  } else if (id === "revlunge") {
+    const hip = [mix(0, -105, p), mix(219.6, 115, p), 0];
+    body(hip, vertical(0.06));
+    const lift = 20 * Math.sin(Math.PI * p), back = [mix(0, -230, p), 20 + 15 * p + lift, -26];
+    leg("R", [0, 20, 26], [1, 0, 0]);
+    const roll = -0.5 * p, turn = ([x, y]) => [x * Math.cos(roll) - y * Math.sin(roll), x * Math.sin(roll) + y * Math.cos(roll), 0];
+    leg("L", back, [1, -1, 0], add(back, turn([35, -20])), add(back, turn([-25, -20])));
+    for (const side of ["L", "R"]) {
+      const wrist = add(get("shoulder" + side), [5, -130, 0]);
+      arm(side, wrist, [-1, 0, 0]);
+      dumbbellAlongX(wrist);
+    }
+  } else if (id === "climber") {
+    const swing = Math.sin(Math.PI * p), shoulder = add([-160, 20, 0], scale(horizontal(deg(20.9)), 318)), axis = horizontal(deg(20.9 - 14 * swing));
+    body(sub(shoulder, scale(axis, 118)), axis);
+    const foot = [mix(-160, 10, p), mix(20, 45, p) + 25 * swing, 26];
+    leg("R", foot, [1, -0.2, 0], add(foot, [35, -20, 0]), add(foot, [-25, 20, 0]));
+    const toe = [-125, 0, -26], roll = -deg(22) * swing, turn = ([x, y]) => [x * Math.cos(roll) - y * Math.sin(roll), x * Math.sin(roll) + y * Math.cos(roll), 0];
+    leg("L", add(toe, turn([-35, 20])), [0, -1, 0], toe, add(toe, turn([-60, 40])));
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      arm(side, [140, 0, sign * 42.5], [-1, 0, 0]);
+      equipment([[127, 0, sign * 42.5], [156, 0, sign * 42.5]], false, 4);
+    }
+  } else if (id === "superman") {
+    const chest = mix(0, 0.18, p), legLift = mix(0, 0.14, p), reach = chest + mix(0, 0.1, p);
+    body([0, 22, 0], [-Math.cos(chest), Math.sin(chest), 0]);
+    const d = [Math.cos(legLift), Math.sin(legLift), 0], down = [Math.sin(legLift), -Math.cos(legLift), 0];
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      const ankle = add([0, 22, sign * 26], scale(d, 199.5));
+      leg(side, ankle, [0, -1, 0], add(add(ankle, scale(d, 30)), scale(down, 14)), add(add(ankle, scale(d, -5)), scale(down, -18)));
+      arm(side, add(get("shoulder" + side), [-133 * Math.cos(reach), 133 * Math.sin(reach), sign * 8]), [0, -1, 0]);
+    }
+  } else if (id === "legext") {
+    body([0, 125, 0], vertical(-0.1));
+    const angle = deg(mix(0, 80, p)), d = [Math.sin(angle), -Math.cos(angle), 0], n = [Math.cos(angle), Math.sin(angle), 0];
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      const ankle = add([100, 125, sign * 26], scale(d, 100));
+      leg(side, ankle, [0, 1, 0], add(add(ankle, scale(n, 32)), scale(d, 6)), add(add(ankle, scale(d, 12)), scale(n, -12)));
+      const wrist = [20, 120, sign * 60];
+      arm(side, wrist, [-1, 0, sign * 0.5]);
+      equipment([add(wrist, [-14, 0, 0]), add(wrist, [14, 0, 0])], false, 5);
+    }
+    const pad = add(add([100, 125, 0], scale(d, 85)), scale(n, 16));
+    equipment([[100, 125, 0], pad], true, 3);
+    equipment([add(pad, [0, 0, -45]), add(pad, [0, 0, 45])], true, 9);
+    for (const z of [-40, 40]) {
+      equipment([[-40, 110, z], [105, 110, z]], false, 6);
+      equipment([[-35, 110, z], [-60, 300, z]], false, 5);
+      equipment([[-20, 110, z], [-20, 0, z]]);
+      equipment([[90, 110, z], [90, 0, z]]);
+    }
+  } else if (id === "benchdip") {
+    const axis = vertical(0.05), shoulder = [mix(8, 18, p), mix(234, 192, p), 0];
+    body(sub(shoulder, scale(axis, 118)), axis);
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      leg(side, [150, 20, sign * 26], [0, 1, 0]);
+      arm(side, [-5, 104, sign * 40], [-1, 0, 0]);
+    }
+    for (const z of [-45, 45]) {
+      equipment([[-130, 100, z], [0, 100, z]], false, 6);
+      equipment([[-120, 100, z], [-120, 0, z]]);
+      equipment([[-10, 100, z], [-10, 0, z]]);
+    }
+  } else if (id === "hipthrust") {
+    const a = mix(0.75, 0, p), shoulder = [-120, 110, 0];
+    const hip = add(shoulder, [118 * Math.cos(a), -118 * Math.sin(a), 0]);
+    body(hip, [-Math.cos(a), Math.sin(a), 0], [-Math.cos(a + 0.4), Math.sin(a + 0.4), 0]);
+    const bar = add(hip, [0, 22, 0]);
+    for (const side of ["L", "R"]) {
+      const sign = side === "L" ? -1 : 1;
+      leg(side, [110, 20, sign * 26], [0, 1, 0]);
+      arm(side, add(bar, [0, 0, sign * 55]), [0, 1, sign]);
+    }
+    barbell(bar);
+    for (const z of [-45, 45]) {
+      equipment([[-230, 100, z], [-110, 100, z]], false, 6);
+      equipment([[-220, 100, z], [-220, 0, z]]);
+      equipment([[-120, 100, z], [-120, 0, z]]);
     }
   }
   return result;
