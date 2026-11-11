@@ -3,6 +3,7 @@ export type Vec3 = [number, number, number]
 export type RigId = 'squat' | 'pushup' | 'split' | 'bridge' | 'calf' | 'curl' | 'pulldown' | 'row' | 'shoulder' | 'bench'
   | 'backsquat' | 'rdl' | 'lateral' | 'chinup' | 'pushdown'
   | 'benchbar' | 'bentrow' | 'standpress' | 'barcurl' | 'legcurl'
+  | 'plank' | 'crunch' | 'birddog' | 'deadbug' | 'goblet' | 'dbrow'
 export interface RigDefinition {
   id: RigId
   exerciseId: string
@@ -22,7 +23,7 @@ export interface RigPose {
 }
 export const viewOf = (yaw: number) => yaw>65?{ar:'أمامي',en:'Front'}:yaw>30?{ar:'أمامي مائل',en:'Three-quarter'}:{ar:'جانبي',en:'Side'}
 const ace = 'https://www.acefitness.org/resources/everyone/exercise-library/'
-const definition = (id: RigId, exerciseId: string, ar: string, en: string, yaw: number, action: [string,string], returning: [string,string], sources: string[]): RigDefinition => ({id,exerciseId,title:{ar,en},yaw,view:viewOf(yaw),action:{ar:action[0],en:action[1]},returning:{ar:returning[0],en:returning[1]},sources:sources.map(path=>ace+path)})
+const definition = (id: RigId, exerciseId: string, ar: string, en: string, yaw: number, action: [string,string], returning: [string,string], sources: string[]): RigDefinition => ({id,exerciseId,title:{ar,en},yaw,view:viewOf(yaw),action:{ar:action[0],en:action[1]},returning:{ar:returning[0],en:returning[1]},sources:sources.map(path=>path.startsWith('http')?path:ace+path)})
 export const RIGS: RigDefinition[] = [
   definition('squat','6YUfHPL','سكوات بوزن الجسم','Bodyweight squat',15,['نزول','Lower'],['صعود','Rise'],['135/bodyweight-squat/']),
   definition('pushup','I4hDWkc','الضغط','Push-up',15,['نزول','Lower'],['دفع','Press'],['41/push-up/']),
@@ -46,6 +47,13 @@ export const RIGS: RigDefinition[] = [
   definition('standpress','Kyd9Rz5','ضغط عسكري واقفًا بالبار','Standing barbell press',25,['دفع','Press'],['نزول','Lower'],['71/standing-shoulder-press/']),
   definition('barcurl','25GPyDY','كيرل بالبار','Barbell curl',32,['ثني المرفق','Curl'],['فرد المرفق','Extend'],['70/bicep-curl/']),
   definition('legcurl','C5jncD2','ليج كيرل مستلقيًا','Lying leg curl',15,['ثني الركبة','Curl'],['فرد الركبة','Extend'],['153/lying-hamstrings-curl/']),
+  // Batch four: home exercises (no equipment, or dumbbells only).
+  definition('plank','plank-hold','بلانك','Front plank',15,['ثبّت البطن','Brace'],['تنفّس','Breathe'],['32/front-plank/']),
+  definition('crunch','TFqbd8t','كرنش','Crunch',15,['رفع الكتفين','Curl up'],['نزول','Lower'],['52/crunch/']),
+  definition('birddog','bird-dog','بيرد دوج','Bird dog',20,['مدّ الذراع والرجل','Reach'],['رجوع','Return'],['14/bird-dog/']),
+  definition('deadbug','dead-bug','الحشرة الميتة','Dead bug',15,['مدّ الذراع والرجل','Extend'],['رجوع','Return'],['147/supine-dead-bug/']),
+  definition('goblet','yn8yg1r','جوبلت سكوات','Goblet squat',15,['نزول','Lower'],['صعود','Rise'],['362/goblet-squat/']),
+  definition('dbrow','BJ0Hz5L','تجديف منحني بالدمبل','Dumbbell bent-over row',15,['سحب','Pull'],['نزول','Lower'],['https://www.acefitness.org/resources/everyone/blog/5241/4-upper-body-movements-for-beginners/']),
 ]
 export const RIG_DURATION = 6
 /** Phase boundaries of one repetition, seconds (see movementClock). */
@@ -79,6 +87,12 @@ export const RIG_GUIDES: Record<RigId, RigGuide> = {
   bentrow: { track: 'wristR', work: [...upperArms, ['hip','shoulder']], exhaleOnAction: true, altYaw: 60 },
   standpress: { track: 'wristR', work: [...upperArms, ['shoulderL','shoulderR']], exhaleOnAction: true, altYaw: 80 },
   barcurl: { track: 'wristR', work: upperArms, exhaleOnAction: true, altYaw: 80 },
+  plank: { track: 'hip', work: [['hip','shoulder']], exhaleOnAction: true, altYaw: 55 },
+  crunch: { track: 'shoulder', work: [['hip','shoulder']], exhaleOnAction: true, altYaw: 55 },
+  birddog: { track: 'wristR', work: [['hip','shoulder'],['hipL','kneeL']], exhaleOnAction: true, altYaw: 60 },
+  deadbug: { track: 'ankleL', work: [['hip','shoulder']], exhaleOnAction: true, altYaw: 55 },
+  goblet: { track: 'hip', work: legs, exhaleOnAction: false, altYaw: 60 },
+  dbrow: { track: 'wristR', work: [...upperArms, ['hip','shoulder']], exhaleOnAction: true, altYaw: 60 },
   legcurl: { track: 'ankleR', work: [['kneeR','ankleR'],['kneeL','ankleL'],['hipR','kneeR'],['hipL','kneeL']], exhaleOnAction: true, altYaw: 60 },
 }
 export const findRig = (exerciseId?: string) => RIGS.find(rig=>rig.exerciseId===exerciseId)
@@ -144,6 +158,10 @@ export function sampleRig(id:RigId,time:number):RigPose {
   function dumbbellAlongX(wrist:Vec3){
     equipment([add(wrist,[-20,0,0]),add(wrist,[20,0,0])],true,3)
     for(const x of [-15,15])equipment([add(wrist,[x,-10,-8]),add(wrist,[x,10,-8]),add(wrist,[x,10,8]),add(wrist,[x,-10,8]),add(wrist,[x,-10,-8])],true,2)
+  }
+  function uprightDumbbell(center:Vec3){
+    equipment([add(center,[0,-22,0]),add(center,[0,22,0])],true,3)
+    for(const y of [-22,22])equipment([add(center,[-9,y,-11]),add(center,[9,y,-11]),add(center,[9,y,11]),add(center,[-9,y,11]),add(center,[-9,y,-11])],true,2)
   }
   function barbell(center:Vec3){
     equipment([add(center,[0,0,-125]),add(center,[0,0,125])],true,4)
@@ -276,6 +294,59 @@ export function sampleRig(id:RigId,time:number):RigPose {
     const angle=deg(mix(15,140,p));let bar:Vec3=[0,0,0]
     for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[0,20,sign*26]);const elbow=add(get('shoulder'+side),[0,-70,0]);const wrist=add(elbow,[65*Math.sin(angle),-65*Math.cos(angle),0]);arm(side,wrist,[1,0,0],elbow);bar=[wrist[0],wrist[1],0]}
     barbell(bar)
+  }else if(id==='plank'){
+    // Forearm plank: a straight line from heels to head; the hold only braces a touch higher.
+    const angle=deg(10.5+.8*p),axis=horizontal(angle),ankle:Vec3=[-160,20,0]
+    body(add(ankle,scale(axis,200)),axis,horizontal(deg(4)))
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1
+      leg(side,[-160,20,sign*26],[0,1,0],[-125,0,sign*26],[-185,40,sign*26])
+      arm(side,[-160+318*Math.cos(deg(10.5))+65,8,sign*40],[-1,-1,0])
+    }
+  }else if(id==='crunch'){
+    // On the back, knees bent and feet flat; only the shoulders curl up off the floor.
+    const axis:Vec3=[-Math.cos(mix(.05,.5,p)),Math.sin(mix(.05,.5,p)),0]
+    body([0,22,0],axis)
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1
+      leg(side,[95,20,sign*26],[0,1,0])
+      arm(side,add(get('neck'),[0,6,sign*16]),[.3,.6,sign])
+    }
+  }else if(id==='birddog'){
+    // Hands under shoulders, knees under hips; the right arm and left leg reach out together.
+    // Arms straight under the shoulders: the back rises gently from the hips to the shoulders.
+    const tilt=Math.asin((8+132-110)/118)
+    body([0,110,0],horizontal(tilt),horizontal(deg(-8)))
+    const kneeFoot=(ankle:Vec3):[Vec3,Vec3]=>[add(ankle,[-30,-10,0]),add(ankle,[5,18,0])]
+    const still:Vec3=[-100,10,26],reach:Vec3=[mix(-100,-196,p),mix(10,108,p),-26]
+    leg('R',still,[0,-1,0],...kneeFoot(still));leg('L',reach,[0,-1,0],...kneeFoot(reach))
+    const shoulderR=get('shoulderR'),under=shoulderR[0]
+    arm('L',[under,8,-42.5],[-1,0,0])
+    arm('R',[mix(under,under+132,p),mix(8,shoulderR[1],p),42.5],[-1,-.3,0])
+  }else if(id==='deadbug'){
+    // On the back, arms up and knees over hips; the right arm and left leg lower together.
+    body([0,22,0],[-1,0,0],[-1,.12,0])
+    const foot=(ankle:Vec3):[Vec3,Vec3]=>[add(ankle,[12,32,0]),add(ankle,[10,-20,0])]
+    const table:Vec3=[100,122,26],lowered:Vec3=[mix(100,192,p),mix(122,58,p),-26]
+    leg('R',table,[-1,1,0],...foot(table));leg('L',lowered,[-1,1,0],...foot(lowered))
+    const shoulderL=get('shoulderL'),shoulderR=get('shoulderR')
+    arm('L',add(shoulderL,[0,132,0]),[1,0,0])
+    arm('R',add(shoulderR,[mix(0,-122,p),mix(132,50,p),0]),[1,0,0])
+  }else if(id==='goblet'){
+    // The dumbbell held at the chest keeps the torso more upright than the bodyweight squat.
+    const lean=mix(.05,.32,p),axis=vertical(lean),front:Vec3=[Math.cos(lean),-Math.sin(lean),0]
+    body([mix(-6,-55,p),mix(219,120,p),0],axis)
+    const chest=add(add(get('shoulder'),scale(axis,-45)),scale(front,30))
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[0,20,sign*26]);arm(side,add(chest,[0,-6,sign*11]),[0,-1,sign*.8])}
+    uprightDumbbell(chest)
+  }else if(id==='dbrow'){
+    // Same still hinge as the barbell row, a dumbbell in each hand.
+    const lean=.85,axis=vertical(lean)
+    body([-45,200,0],axis)
+    const shoulder=get('shoulder'),front:Vec3=[Math.cos(lean),-Math.sin(lean),0]
+    const hang:Vec3=[shoulder[0]+5,shoulder[1]-130,0],ribs=add(add(get('hip'),scale(axis,55)),scale(front,24))
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[0,20,sign*26],[1,0,0])
+      const wrist:Vec3=[mix(hang[0],ribs[0],p),mix(hang[1],ribs[1],p),sign*mix(46,58,p)]
+      arm(side,wrist,[-.6,1,sign*.4]);dumbbellAlongX(wrist)
+    }
   }else if(id==='legcurl'){
     // Face down on the machine, knees just off the pad edge; the shins rotate about the knee.
     body([0,110,0],[-1,0,0],[-1,-.15,0])

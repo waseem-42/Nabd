@@ -3,9 +3,9 @@ import { EXERCISE_BY_ID } from '@/data/catalog'
 import { RIGS, findRig, length, movementClock, rigFit, sampleRig, sub } from './engine'
 
 describe('continuous exercise rigs',()=>{
-  it('maps twenty exact catalogue ids without inheriting a rig through shared art slugs',()=>{
-    expect(RIGS).toHaveLength(20)
-    expect(new Set(RIGS.map(rig=>rig.exerciseId)).size).toBe(20)
+  it('maps twenty-six exact catalogue ids without inheriting a rig through shared art slugs',()=>{
+    expect(RIGS).toHaveLength(26)
+    expect(new Set(RIGS.map(rig=>rig.exerciseId)).size).toBe(26)
     for(const rig of RIGS)expect(EXERCISE_BY_ID.has(rig.exerciseId)).toBe(true)
     expect(findRig('qx4fgX7')).toBeUndefined() // Elevated dumbbell split squat shares an art slug.
     expect(findRig('9E25EOx')?.id).toBe('split')
@@ -124,5 +124,26 @@ describe('continuous exercise rigs',()=>{
       }
     }
     expect(sampleRig('legcurl',2.8).points.ankleR![1]).toBeGreaterThan(sampleRig('legcurl',0).points.ankleR![1]+80)
+  })
+  it('batch four: plank holds its contacts, crunch and dead bug keep the hips down',()=>{
+    const still=(id:Parameters<typeof sampleRig>[0],keys:string[])=>{const first=sampleRig(id,0);for(let frame=0;frame<=90;frame++){const pose=sampleRig(id,frame/15);for(const key of keys)expect(pose.points[key],`${id}:${key}@${frame}`).toEqual(first.points[key])}}
+    still('plank',['wristL','wristR','toeL','toeR'])
+    const plank=sampleRig('plank',2.8),line=sub(plank.points.shoulder!,plank.points.hip!),legs=sub(plank.points.hip!,plank.points.ankleR!)
+    expect(line[1]/line[0]).toBeCloseTo(legs[1]/legs[0],6) // one straight line, no sagging hips
+    expect(plank.points.elbowR![1]).toBeLessThan(15) // forearms on the floor
+    still('crunch',['hip','toeL','toeR','heelL','heelR'])
+    expect(sampleRig('crunch',2.8).points.shoulder![1]).toBeGreaterThan(sampleRig('crunch',0).points.shoulder![1]+40)
+    still('deadbug',['hip','shoulder','ankleR','wristL'])
+    expect(sampleRig('deadbug',2.8).points.ankleL![1]).toBeGreaterThan(30) // the lowered foot stays off the floor
+  })
+  it('batch four: bird dog keeps a level back on one hand and knee; goblet stays upright; dumbbell row keeps its hinge',()=>{
+    const start=sampleRig('birddog',0),reach=sampleRig('birddog',2.8)
+    for(const key of ['hip','shoulder','wristL','kneeR','ankleR'])expect(reach.points[key]).toEqual(start.points[key])
+    expect(Math.abs(reach.points.wristR![1]-reach.points.shoulderR![1])).toBeLessThan(10)
+    expect(Math.abs(reach.points.ankleL![1]-reach.points.hipL![1])).toBeLessThan(10)
+    const goblet=sampleRig('goblet',2.8),squat=sampleRig('squat',2.8)
+    const tilt=(pose:typeof goblet)=>{const v=sub(pose.points.shoulder!,pose.points.hip!);return Math.atan2(v[0],v[1])}
+    expect(tilt(goblet)).toBeLessThan(tilt(squat)-.1)
+    for(let frame=0;frame<=90;frame++)for(const key of ['hip','shoulder','kneeR'])expect(sampleRig('dbrow',frame/15).points[key]).toEqual(sampleRig('dbrow',0).points[key])
   })
 })

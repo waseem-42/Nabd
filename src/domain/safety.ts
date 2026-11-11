@@ -64,6 +64,31 @@ export const EXERCISE_SAFETY: Record<string, L10n[]> = {
     { ar: 'خل المرفقين لاصقة بجنبك؛ الساعد بس اللي يتحرك.', en: 'Keep the elbows at your sides; only the forearms move.' },
     { ar: 'ارجع بهدوء لمستوى الصدر تقريبًا، ولا تخلي الوزن يسحب يدينك فجأة.', en: 'Return slowly to about chest height; don’t let the stack yank your hands up.' },
   ],
+  // Batch four (home).
+  'plank-hold': [
+    { ar: 'المرفقين تحت الكتفين، والجسم خط واحد من الكعب للرأس؛ لا تخلي الورك ينزل أو يرتفع.', en: 'Elbows under the shoulders and one straight line from heels to head; don’t let the hips sag or pike.' },
+    { ar: 'تنفّس بانتظام. ابدأ بثواني قليلة وزوّدها تدريجيًا، ووقف إذا حسيت بألم في أسفل الظهر.', en: 'Breathe steadily. Start with a few seconds and build up, and stop if your lower back hurts.' },
+  ],
+  TFqbd8t: [
+    { ar: 'ارفع الكتفين بس بحركة بطيئة، والذقن مائل شوي للصدر؛ لا تسحب رقبتك بيدينك.', en: 'Curl only the shoulders up slowly with the chin slightly tucked; don’t pull your neck with your hands.' },
+    { ar: 'لا تستعجل: السرعة تخلي عضلات الورك تساعد وتضغط على أسفل الظهر.', en: 'Don’t rush: going fast brings in the hip flexors and stresses the lower back.' },
+  ],
+  'bird-dog': [
+    { ar: 'اليدين تحت الكتفين والركبتين تحت الوركين، والظهر محايد طول الحركة.', en: 'Hands under shoulders and knees under hips, with a neutral back throughout.' },
+    { ar: 'لا ترفع الذراع والرجل أعلى من اللي يقدر ظهرك يثبت عليه.', en: 'Don’t lift the arm and leg higher than your lower back can stay steady.' },
+  ],
+  'dead-bug': [
+    { ar: 'شد البطن وخل أسفل الظهر قريب من الأرض؛ إذا بدأ يتقوّس قلّل المدى.', en: 'Brace your abs and keep the lower back close to the floor; shorten the range if it starts to arch.' },
+    { ar: 'تحرّك ببطء وتنفّس بشكل طبيعي، بدون حبس النفس.', en: 'Move slowly and breathe normally, without holding your breath.' },
+  ],
+  yn8yg1r: [
+    { ar: 'الدمبل قريب من الصدر والمرفقين لتحت، والظهر مستقيم.', en: 'Hold the dumbbell close to the chest, elbows tucked, back straight.' },
+    { ar: 'انزل للعمق اللي تتحكم فيه والركبتين باتجاه أصابع القدم، وادفع من القدمين للوقوف.', en: 'Squat as deep as you control with knees tracking the toes, then push through the feet to stand.' },
+  ],
+  BJ0Hz5L: [
+    { ar: 'انحنِ من الوركين وظهرك مستقيم وثني خفيف في الركبتين، وثبّت هذي الوضعية.', en: 'Hinge at the hips with a straight back and slightly bent knees, and hold that position.' },
+    { ar: 'اسحب الدمبل باتجاه البطن بدون هز الجسم، ونزّله بتحكم.', en: 'Pull the dumbbells toward your abdomen without jerking, and lower with control.' },
+  ],
   // Batch three.
   EIeI8Vf: [
     { ar: 'ثبّت الرأس والكتفين والمؤخرة على البنش والقدمين على الأرض. استخدم مساند الأمان أو شخص يساعدك.', en: 'Keep head, shoulders and hips on the bench and feet on the floor. Use safety arms or a spotter.' },
