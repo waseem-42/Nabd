@@ -28,8 +28,10 @@ describe('technical exercise player',()=>{
     expect(host.querySelector('[data-pose]')?.getAttribute('data-pose')).toBe('1')
     act(()=>vi.advanceTimersByTime(5000))
     expect(host.querySelector('[data-pose]')?.getAttribute('data-pose')).toBe('1')
+    // Other poses fade out rather than disappearing; only one is ever fully visible.
     const paths=[...host.querySelectorAll('[data-pose] svg path')]
-    expect(paths.filter(path=>(path as SVGElement).style.display!=='none')).toHaveLength(1)
+    expect(paths.filter(path=>(path as SVGElement).style.opacity==='1')).toHaveLength(1)
+    expect(paths.filter(path=>path.hasAttribute('data-active'))).toHaveLength(1)
     act(()=>button('Reset motion').click())
     expect(host.querySelector('[data-pose]')?.getAttribute('data-pose')).toBe('0')
   })

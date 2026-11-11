@@ -67,7 +67,8 @@ export default {
   'motion.breatheOut': { ar: 'زفير', en: 'breathe out' },
   'motion.repCount': { ar: 'التكرار {n}', en: 'Rep {n}' },
   'motion.angle': { ar: 'غيّر زاوية العرض', en: 'Change camera angle' },
-  'motion.legendWork': { ar: 'العضلات الشغّالة', en: 'Working muscles' },
+  'motion.guides': { ar: 'إرشادات', en: 'Guides' },
+  'motion.legendWork':{ ar: 'العضلات الشغّالة', en: 'Working muscles' },
   'motion.legendPath': { ar: 'مسار الحركة', en: 'Movement path' },
   'motion.legendEnd': { ar: 'نهاية المدى', en: 'End of range' },
 } satisfies Dict
