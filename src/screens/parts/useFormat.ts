@@ -41,7 +41,7 @@ export function useFormat() {
       /** Weight with its unit: "62.5 kg". */
       weightWithUnit: (kg: number) => `${weight(kg)} ${unitLabel}`,
       number: (n: number, decimals = 0) => fmtNumber(n, lang, decimals),
-      /** Name of a bundled or custom exercise; a placeholder for a deleted custom one. */
+      /** Name of a catalogue exercise; a placeholder for an id no longer in it. */
       exerciseName: (id: string) => {
         const ex = byId(id)
         return ex ? pick(ex.name, lang) : t('common.unknownExercise')

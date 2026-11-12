@@ -223,7 +223,7 @@ const GENERAL: Record<Exercise['kind'], L10n[]> = {
 }
 
 export function safetyFor(exercise: Exercise): { specific: boolean; cues: L10n[] } {
-  const exact = exercise.custom ? undefined : EXERCISE_SAFETY[exercise.id]
+  const exact = EXERCISE_SAFETY[exercise.id]
   return { specific: !!exact, cues: exact ? [...exact, GENERAL[exercise.kind][0]!] : GENERAL[exercise.kind] }
 }
 
@@ -257,9 +257,9 @@ const ADDITIONAL_STEPS: Record<string, L10n[]> = {
 export function exerciseStepsFor(exercise: Exercise, lang: Lang): string[] {
   const translated = exercise.steps[lang].length > 0
   const steps = translated ? exercise.steps[lang] : exercise.steps.en
-  const corrections = exercise.custom ? undefined : STEP_CORRECTIONS[exercise.id]
+  const corrections = STEP_CORRECTIONS[exercise.id]
   const copyLang = translated ? lang : 'en'
-  const additions = exercise.custom || !steps.length ? [] : ADDITIONAL_STEPS[exercise.id] ?? []
+  const additions = !steps.length ? [] : ADDITIONAL_STEPS[exercise.id] ?? []
   return [...steps.map((step, i) => corrections?.[i]?.[copyLang] ?? step), ...additions.map(step => step[copyLang])]
 }
 

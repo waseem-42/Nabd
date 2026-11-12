@@ -1,5 +1,5 @@
 import Dexie, { type EntityTable } from 'dexie'
-import type { BodyWeightEntry, Exercise, Routine, UserProgram, WorkoutSession } from '@/types'
+import type { BodyWeightEntry, Routine, UserProgram, WorkoutSession } from '@/types'
 
 /** The on-device database. Settings are not here — they live in localStorage (store/settings). */
 export const db = new Dexie('nabd') as Dexie & {
@@ -7,7 +7,6 @@ export const db = new Dexie('nabd') as Dexie & {
   programs: EntityTable<UserProgram, 'id'>
   sessions: EntityTable<WorkoutSession, 'id'>
   bodyWeights: EntityTable<BodyWeightEntry, 'day'>
-  customExercises: EntityTable<Exercise, 'id'>
 }
 
 db.version(1).stores({
@@ -18,4 +17,8 @@ db.version(1).stores({
   customExercises: 'id',
 })
 
-export const ALL_TABLES = [db.routines, db.programs, db.sessions, db.bodyWeights, db.customExercises]
+// Version 2 drops user-added exercises: every exercise in Nabd comes with a motion.
+// Past sessions that used one keep its id and show a placeholder name.
+db.version(2).stores({ customExercises: null })
+
+export const ALL_TABLES = [db.routines, db.programs, db.sessions, db.bodyWeights]

@@ -20,7 +20,6 @@ export default {
   'library.chart.sec': { ar: 'تطوّر المدة', en: 'Duration over time' },
   'library.steps': { ar: 'طريقة الأداء', en: 'How to do it' },
   'library.noSteps': { ar: 'ما فيه شرح لهذا التمرين', en: 'No instructions for this exercise' },
-  'library.custom': { ar: 'تمرينك', en: 'Custom' },
   'library.create': { ar: 'تمرين جديد', en: 'New exercise' },
   'library.name': { ar: 'اسم التمرين', en: 'Exercise name' },
   'library.measure': { ar: 'كيف ينقاس', en: 'Measured by' },

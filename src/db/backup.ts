@@ -17,12 +17,11 @@ export class BackupError extends Error {
 }
 
 export async function exportBackup(): Promise<BackupFile> {
-  const [routines, programs, sessions, bodyWeights, customExercises] = await Promise.all([
+  const [routines, programs, sessions, bodyWeights] = await Promise.all([
     db.routines.toArray(),
     db.programs.toArray(),
     db.sessions.toArray(),
     db.bodyWeights.toArray(),
-    db.customExercises.toArray(),
   ])
   return {
     app: 'nabd',
@@ -33,7 +32,6 @@ export async function exportBackup(): Promise<BackupFile> {
     programs,
     sessions,
     bodyWeights,
-    customExercises,
   }
 }
 
@@ -47,7 +45,6 @@ const TABLE_CHECKS: [key: keyof BackupFile, valid: (v: unknown) => boolean][] = 
   ['programs', rows((r) => typeof r.id === 'string' && Array.isArray(r.routineIds))],
   ['sessions', rows((r) => typeof r.id === 'string' && (r.status === 'active' || r.status === 'done') && Array.isArray(r.entries))],
   ['bodyWeights', rows((r) => typeof r.day === 'string' && typeof r.kg === 'number')],
-  ['customExercises', rows((r) => typeof r.id === 'string')],
 ]
 
 /** Throws BackupError unless `data` has the shape of a version-1 backup. */
@@ -73,7 +70,7 @@ export async function importBackup(data: unknown): Promise<void> {
     await db.programs.bulkPut(backup.programs)
     await db.sessions.bulkPut(backup.sessions)
     await db.bodyWeights.bulkPut(backup.bodyWeights)
-    await db.customExercises.bulkPut(backup.customExercises)
+    // Older backups may carry `customExercises`; user-added exercises are gone, so it is skipped.
   })
   useSettings.getState().replace(backup.settings)
   useWorkout.setState({ session: null, rest: null })

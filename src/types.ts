@@ -81,11 +81,9 @@ export interface Exercise {
   art: string | null
   /** Numbered how-to steps. `ar` may be empty until translated — fall back to `en`. */
   steps: { en: string[]; ar: string[] }
-  /** true for exercises the user added (stored in the db, not the bundled catalogue). */
-  custom?: boolean
 }
 
-/** Finds an exercise by id across the bundled catalogue and the user's custom exercises. */
+/** Finds an exercise by id in the bundled catalogue. */
 export type ExerciseLookup = (id: string) => Exercise | undefined
 
 /** Shape of `public/art/<slug>.json`: one SVG path `d` string per animation frame. */
@@ -293,5 +291,6 @@ export interface BackupFile {
   programs: UserProgram[]
   sessions: WorkoutSession[]
   bodyWeights: BodyWeightEntry[]
-  customExercises: Exercise[]
+  /** Only in backups from before user-added exercises were removed; ignored on import. */
+  customExercises?: unknown[]
 }

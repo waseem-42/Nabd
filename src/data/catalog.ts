@@ -1,4 +1,4 @@
-import type { Exercise, ProgramTemplate, RawExercise, RawExerciseAr } from '@/types'
+import type { Exercise, ExerciseLookup, ProgramTemplate, RawExercise, RawExerciseAr } from '@/types'
 import rawExercises from './exercises.json'
 import rawAr from './exercises.ar.json'
 import rawPrograms from './programs.json'
@@ -16,6 +16,9 @@ export const EXERCISES: Exercise[] = (rawExercises as unknown as RawExercise[]).
 }))
 
 export const EXERCISE_BY_ID: ReadonlyMap<string, Exercise> = new Map(EXERCISES.map((e) => [e.id, e]))
+
+/** undefined for ids no longer in the catalogue (e.g. a removed user-added exercise). */
+export const exerciseLookup: ExerciseLookup = (id) => EXERCISE_BY_ID.get(id)
 
 export const PROGRAM_TEMPLATES = rawPrograms as unknown as ProgramTemplate[]
 

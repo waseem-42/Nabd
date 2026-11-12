@@ -227,7 +227,7 @@ export function detectPRs(session: WorkoutSession, earlier: WorkoutSession[], lo
   })
 }
 
-/** For ids the lookup no longer knows (a deleted custom exercise). */
+/** For ids the lookup no longer knows (a removed user-added exercise). */
 function inferMetric(sets: LoggedSet[]): Metric {
   if (sets.some((s) => (s.sec ?? 0) > 0)) return 'sec'
   return sets.some((s) => s.weight > 0) ? 'weight' : 'reps'

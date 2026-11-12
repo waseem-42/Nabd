@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
-import { loadExerciseLookup } from '@/db/customExercises'
+import { exerciseLookup } from '@/data/catalog'
 import { listBodyWeights } from '@/db/bodyWeights'
 import { deleteSession, getActiveSession, listDoneSessions, saveSession } from '@/db/sessions'
 import * as ops from '@/domain/session'
@@ -70,10 +70,10 @@ async function flushWrites(): Promise<void> {
 }
 
 async function prefillContext(): Promise<ops.PrefillContext> {
-  const [lookup, history, weights] = await Promise.all([loadExerciseLookup(), listDoneSessions(), listBodyWeights()])
+  const [history, weights] = await Promise.all([listDoneSessions(), listBodyWeights()])
   const settings = getSettings()
   return {
-    lookup,
+    lookup: exerciseLookup,
     history,
     defaultRestSec: settings.restSec,
     autoWarmup: settings.autoWarmup,

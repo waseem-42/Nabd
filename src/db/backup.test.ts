@@ -6,7 +6,6 @@ import { getSettings, useSettings } from '@/store/settings'
 import { DEFAULT_SETTINGS } from '@/types'
 import { BackupError, exportBackup, importBackup, readBackupFile } from './backup'
 import { listBodyWeights, upsertBodyWeight } from './bodyWeights'
-import { createCustomExercise, listCustomExercises } from './customExercises'
 import { ALL_TABLES } from './db'
 import { createRoutine, listPrograms, listRoutines, startProgramFromTemplate } from './routines'
 import { getActiveSession, listDoneSessions, saveSession } from './sessions'
@@ -18,8 +17,6 @@ async function seed() {
   await saveSession({ ...done('2026-10-02', [['bench', [set(85, 5, { done: false })]]]), status: 'active' })
   await upsertBodyWeight('2026-10-01', 80)
   await upsertBodyWeight('2026-10-02', 79.5)
-  const { id: _id, custom: _custom, ...input } = ex('x', { name: { en: 'Towel row', ar: 'تجديف بالمنشفة' } })
-  await createCustomExercise(input)
   useSettings.getState().set({ lang: 'en', unit: 'lb', place: 'gym', restSec: 120 })
 }
 
@@ -52,7 +49,6 @@ describe('backup round-trip', () => {
     expect(await listPrograms()).toHaveLength(1)
     expect(await listDoneSessions()).toHaveLength(1)
     expect(await listBodyWeights()).toHaveLength(2)
-    expect((await listCustomExercises())[0]?.custom).toBe(true)
     // The restored active session is picked up by the workout store.
     expect(useWorkout.getState().session?.id).toBe((await getActiveSession())?.id)
   })
@@ -84,6 +80,16 @@ describe('importBackup validation', () => {
       expect((err as BackupError).code).toBe('invalid')
     }
     expect({ ...(await exportBackup()), exportedAt: 0 }).toEqual({ ...before, exportedAt: 0 })
+  })
+
+  it('still restores a backup made before user-added exercises were removed', async () => {
+    await seed()
+    const old = { ...(await valid()), customExercises: [{ ...ex('custom-1'), custom: true }] }
+    await Promise.all(ALL_TABLES.map((t) => t.clear()))
+    await importBackup(old)
+    expect(await listDoneSessions()).toHaveLength(1)
+    expect(await listBodyWeights()).toHaveLength(2)
+    expect(await exportBackup()).not.toHaveProperty('customExercises')
   })
 
   it('reports a file that is not JSON', async () => {

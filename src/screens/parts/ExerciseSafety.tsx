@@ -7,7 +7,7 @@ import { Card } from '@/ui/Card'
 
 export function SafetySources({ exercise }: { exercise?: Exercise }) {
   const t = useT()
-  const sources = exercise && !exercise.custom ? findRig(exercise.id)?.sources ?? [] : []
+  const sources = exercise ? findRig(exercise.id)?.sources ?? [] : []
   return <details className="text-xs leading-relaxed text-muted">
     <summary className="min-h-11 cursor-pointer py-3 font-medium underline underline-offset-4">{t('safety.sources')}</summary>
     <p className="mb-2">{t('safety.limit')}</p>

@@ -10,7 +10,6 @@ describe('exercise safety guidance', () => {
       const pulldown=EXERCISE_BY_ID.get('RVwzP10')!
       expect(exerciseStepsFor(pulldown,lang)).toHaveLength(pulldown.steps[lang].length+1)
       expect(exerciseStepsFor(pulldown,lang).at(-1)).toContain(lang==='ar'?'بتحكم':'control')
-      expect(exerciseStepsFor({...pulldown,custom:true},lang)).toEqual(pulldown.steps[lang])
       for(const id of ['NbVPDMW','3d7wHyd']){
         const exercise=EXERCISE_BY_ID.get(id)!
         expect(exerciseStepsFor(exercise,lang)[2]).not.toEqual(exercise.steps[lang][2])
@@ -31,7 +30,6 @@ describe('exercise safety guidance', () => {
     expect(Object.keys(EXERCISE_SAFETY).sort()).toEqual(RIGS.map(r => r.exerciseId).sort())
     for (const rig of RIGS) expect(EXERCISE_BY_ID.has(rig.exerciseId)).toBe(true)
     expect(safetyFor(ex('other', { art: 'bodyweight-squat' })).specific).toBe(false)
-    expect(safetyFor(ex('6YUfHPL', { custom: true })).specific).toBe(false)
   })
 
   it('replaces fixed depths, stance distance and bench angle without modifying source steps', () => {
@@ -46,7 +44,6 @@ describe('exercise safety guidance', () => {
       }
       expect(exerciseStepsFor(exercise, 'en').join(' ')).not.toMatch(/two feet|90-degree|vertebra|thighs are parallel/)
       expect(exercise.steps).toEqual(original)
-      expect(exerciseStepsFor({ ...exercise, custom: true }, 'en')).toEqual(original.en)
     }
   })
 })
