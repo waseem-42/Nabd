@@ -3,9 +3,9 @@ import { EXERCISE_BY_ID } from '@/data/catalog'
 import { RIGS, WARMUP_RIGS, findRig, length, movementClock, rigFit, sampleRig, sub } from './engine'
 
 describe('continuous exercise rigs',()=>{
-  it('maps thirty-two exact catalogue ids without inheriting a rig through shared art slugs',()=>{
-    expect(RIGS).toHaveLength(32)
-    expect(new Set(RIGS.map(rig=>rig.exerciseId)).size).toBe(32)
+  it('maps forty exact catalogue ids without inheriting a rig through shared art slugs',()=>{
+    expect(RIGS).toHaveLength(40)
+    expect(new Set(RIGS.map(rig=>rig.exerciseId)).size).toBe(40)
     for(const rig of RIGS)expect(EXERCISE_BY_ID.has(rig.exerciseId)).toBe(true)
     expect(findRig('qx4fgX7')).toBeUndefined() // Elevated dumbbell split squat shares an art slug.
     expect(findRig('9E25EOx')?.id).toBe('split')

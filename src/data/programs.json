@@ -25,7 +25,7 @@
             "reps": 10
           },
           {
-            "exerciseId": "I4hDWkc",
+            "exerciseId": "knee-push-up",
             "sets": 3,
             "reps": 8
           },
@@ -35,9 +35,9 @@
             "reps": 12
           },
           {
-            "exerciseId": "bird-dog",
+            "exerciseId": "prone-t-raise",
             "sets": 3,
-            "reps": 8
+            "reps": 10
           },
           {
             "exerciseId": "plank-hold",
@@ -58,7 +58,7 @@
             "reps": 8
           },
           {
-            "exerciseId": "I4hDWkc",
+            "exerciseId": "chair-dip",
             "sets": 3,
             "reps": 8
           },
@@ -68,14 +68,14 @@
             "reps": 15
           },
           {
-            "exerciseId": "dead-bug",
+            "exerciseId": "superman",
             "sets": 3,
             "reps": 8
           },
           {
-            "exerciseId": "TFqbd8t",
+            "exerciseId": "dead-bug",
             "sets": 3,
-            "reps": 12
+            "reps": 8
           }
         ]
       },
@@ -91,24 +91,24 @@
             "reps": 12
           },
           {
+            "exerciseId": "knee-push-up",
+            "sets": 3,
+            "reps": 10
+          },
+          {
             "exerciseId": "glute-bridge",
             "sets": 3,
             "reps": 15
           },
           {
-            "exerciseId": "I4hDWkc",
-            "sets": 3,
-            "reps": 10
-          },
-          {
-            "exerciseId": "plank-hold",
-            "sets": 3,
-            "sec": 30
-          },
-          {
             "exerciseId": "bird-dog",
             "sets": 3,
             "reps": 10
+          },
+          {
+            "exerciseId": "side-plank-hold",
+            "sets": 3,
+            "sec": 15
           }
         ]
       }
@@ -145,21 +145,21 @@
             "reps": 10
           },
           {
-            "exerciseId": "glute-bridge",
+            "exerciseId": "single-leg-glute-bridge",
             "sets": 3,
-            "reps": 15
+            "reps": 10
           },
           {
-            "exerciseId": "bJYHBIN",
+            "exerciseId": "0jp9Rlz",
             "sets": 3,
-            "reps": 20
+            "reps": 12
           }
         ]
       },
       {
         "name": {
-          "ar": "صدر وبطن",
-          "en": "Chest & core"
+          "ar": "دفع وبطن",
+          "en": "Push and core"
         },
         "items": [
           {
@@ -168,19 +168,19 @@
             "reps": 12
           },
           {
-            "exerciseId": "plank-hold",
+            "exerciseId": "pike-push-up",
             "sets": 3,
-            "sec": 40
+            "reps": 8
           },
           {
-            "exerciseId": "TFqbd8t",
-            "sets": 3,
-            "reps": 15
-          },
-          {
-            "exerciseId": "bird-dog",
+            "exerciseId": "x6KpKpq",
             "sets": 3,
             "reps": 10
+          },
+          {
+            "exerciseId": "side-plank-hold",
+            "sets": 3,
+            "sec": 30
           }
         ]
       },
@@ -206,6 +206,11 @@
             "reps": 15
           },
           {
+            "exerciseId": "mountain-climber",
+            "sets": 3,
+            "reps": 20
+          },
+          {
             "exerciseId": "dead-bug",
             "sets": 3,
             "reps": 10
@@ -214,19 +219,24 @@
       },
       {
         "name": {
-          "ar": "صدر وبطن 2",
-          "en": "Chest & core 2"
+          "ar": "ظهر وذراعين",
+          "en": "Back and arms"
         },
         "items": [
           {
-            "exerciseId": "I4hDWkc",
-            "sets": 5,
-            "reps": 10
+            "exerciseId": "superman",
+            "sets": 3,
+            "reps": 12
           },
           {
-            "exerciseId": "TFqbd8t",
+            "exerciseId": "prone-t-raise",
             "sets": 3,
-            "reps": 20
+            "reps": 12
+          },
+          {
+            "exerciseId": "chair-dip",
+            "sets": 3,
+            "reps": 12
           },
           {
             "exerciseId": "plank-hold",
@@ -234,9 +244,9 @@
             "sec": 45
           },
           {
-            "exerciseId": "dead-bug",
+            "exerciseId": "TFqbd8t",
             "sets": 3,
-            "reps": 12
+            "reps": 20
           }
         ]
       }
@@ -296,7 +306,7 @@
         },
         "items": [
           {
-            "exerciseId": "9E25EOx",
+            "exerciseId": "reverse-lunge",
             "sets": 3,
             "reps": 8
           },
@@ -344,9 +354,9 @@
             "reps": 10
           },
           {
-            "exerciseId": "NbVPDMW",
+            "exerciseId": "chair-dip",
             "sets": 3,
-            "reps": 12
+            "reps": 10
           },
           {
             "exerciseId": "TFqbd8t",
@@ -513,9 +523,9 @@
             "reps": 12
           },
           {
-            "exerciseId": "TFqbd8t",
+            "exerciseId": "X6C6i5Y",
             "sets": 3,
-            "reps": 15
+            "reps": 10
           }
         ]
       },
@@ -536,9 +546,9 @@
             "reps": 8
           },
           {
-            "exerciseId": "fUBheHs",
+            "exerciseId": "T2mxWqc",
             "sets": 3,
-            "reps": 10
+            "reps": 6
           },
           {
             "exerciseId": "25GPyDY",
@@ -579,9 +589,9 @@
             "reps": 15
           },
           {
-            "exerciseId": "plank-hold",
+            "exerciseId": "leg-extension",
             "sets": 3,
-            "sec": 45
+            "reps": 12
           }
         ]
       }
@@ -661,9 +671,9 @@
             "reps": 15
           },
           {
-            "exerciseId": "plank-hold",
+            "exerciseId": "hip-thrust",
             "sets": 3,
-            "sec": 45
+            "reps": 10
           }
         ]
       },
@@ -712,9 +722,9 @@
             "reps": 10
           },
           {
-            "exerciseId": "9E25EOx",
+            "exerciseId": "leg-extension",
             "sets": 3,
-            "reps": 10
+            "reps": 12
           },
           {
             "exerciseId": "C5jncD2",

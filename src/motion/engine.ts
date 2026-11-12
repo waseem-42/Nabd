@@ -5,6 +5,7 @@ export type RigId = 'squat' | 'pushup' | 'split' | 'bridge' | 'calf' | 'curl' | 
   | 'benchbar' | 'bentrow' | 'standpress' | 'barcurl' | 'legcurl'
   | 'plank' | 'crunch' | 'birddog' | 'deadbug' | 'goblet' | 'dbrow'
   | 'revlunge' | 'climber' | 'superman' | 'legext' | 'benchdip' | 'hipthrust'
+  | 'kneepush' | 'closepush' | 'chairdip' | 'pike' | 'traise' | 'slbridge' | 'slcalf' | 'sideplank'
   | WarmupRigId
 /** Warm-up moves: animated like the exercises, but not catalogue entries. */
 export type WarmupRigId = 'wmarch' | 'wjacks' | 'warmcircles' | 'wscap' | 'wpullapart' | 'wlegswing' | 'whipopener' | 'wcatcow'
@@ -65,6 +66,15 @@ export const RIGS: RigDefinition[] = [
   definition('legext','leg-extension','ليج إكستنشن على الجهاز','Seated leg extension',15,['فرد الركبة','Extend'],['ثني الركبة','Lower'],['183/seated-leg-extension/']),
   definition('benchdip','X6C6i5Y','غطس الترايسبس','Bench triceps dip',20,['نزول','Lower'],['دفع','Press'],['https://www.acefitness.org/education-and-resources/lifestyle/blog/3618/triceps-exercises-body-weight-bench-dips-vs-dumbbell-triceps-kickbacks/']),
   definition('hipthrust','hip-thrust','هيب ثرست بالبار','Barbell hip thrust',15,['رفع الحوض','Lift hips'],['نزول','Lower'],['318/hip-bridge/','https://www.acefitness.org/continuing-education/certified/november-2019/7403/understanding-the-barbell-hip-thrust/']),
+  // Batch six: home without equipment, filling the gaps in arms, shoulders, chest and back.
+  definition('kneepush','knee-push-up','ضغط على الركبتين','Knee push-up',15,['نزول','Lower'],['دفع','Press'],['']),
+  definition('closepush','x6KpKpq','ضغط بقبضة ضيقة','Close-grip push-up',15,['نزول','Lower'],['دفع','Press'],['']),
+  definition('chairdip','chair-dip','غطس على الكرسي','Chair dip',20,['نزول','Lower'],['دفع','Press'],['']),
+  definition('pike','pike-push-up','ضغط بايك','Pike push-up',15,['نزول بالراس','Lower the head'],['دفع','Press'],['']),
+  definition('traise','prone-t-raise','رفع T من الانبطاح','Prone T raise',55,['رفع الذراعين','Lift'],['نزول','Lower'],['']),
+  definition('slbridge','single-leg-glute-bridge','جسر برجل وحدة','Single-leg glute bridge',15,['رفع الحوض','Lift hips'],['نزول','Lower'],['']),
+  definition('slcalf','0jp9Rlz','رفع السمانة برجل وحدة','Single-leg calf raise',18,['رفع الكعب','Raise heel'],['نزول','Lower'],['']),
+  definition('sideplank','side-plank-hold','بلانك جانبي','Side plank',12,['ثبّت الورك','Brace'],['تنفّس','Breathe'],['']),
 ]
 /**
  * Warm-up rigs, keyed by `warmup:<move>` so they never collide with catalogue ids. The
@@ -125,6 +135,14 @@ export const RIG_GUIDES: Record<RigId, RigGuide> = {
   legext: { track: 'ankleR', work: legs, exhaleOnAction: true, altYaw: 60 },
   benchdip: { track: 'shoulder', work: upperArms, exhaleOnAction: false, altYaw: 70 },
   hipthrust: { track: 'hip', work: [...legs, ['hipL','hipR']], exhaleOnAction: true, altYaw: 55 },
+  kneepush: { track: 'shoulder', work: [...upperArms, ['shoulderL','shoulderR']], exhaleOnAction: false, altYaw: 55 },
+  closepush: { track: 'shoulder', work: upperArms, exhaleOnAction: false, altYaw: 55 },
+  chairdip: { track: 'shoulder', work: upperArms, exhaleOnAction: false, altYaw: 70 },
+  pike: { track: 'head', work: [...upperArms, ['shoulderL','shoulderR']], exhaleOnAction: false, altYaw: 55 },
+  traise: { track: 'wristR', work: [['shoulderL','shoulderR'], ...upperArms], exhaleOnAction: true, altYaw: 20 },
+  slbridge: { track: 'hip', work: [['hipR','kneeR'], ['hipL','hipR']], exhaleOnAction: true, altYaw: 55 },
+  slcalf: { track: 'heelR', work: [['kneeR','ankleR']], exhaleOnAction: true, altYaw: 60 },
+  sideplank: { track: 'hip', work: [['hip','shoulder'], ['hipL','hipR']], exhaleOnAction: true, altYaw: 40 },
   legcurl: { track: 'ankleR', work: [['kneeR','ankleR'],['kneeL','ankleL'],['hipR','kneeR'],['hipL','kneeL']], exhaleOnAction: true, altYaw: 60 },
   wmarch: { track: 'kneeR', work: legs, exhaleOnAction: true, altYaw: 60 },
   wjacks: { track: 'wristR', work: [...legs, ...upperArms], exhaleOnAction: true, altYaw: 20 },
@@ -441,7 +459,7 @@ export function sampleRig(id:RigId,time:number):RigPose {
     const pad=add(add([100,125,0],scale(d,85)),scale(n,16))
     equipment([[100,125,0],pad],true,3);equipment([add(pad,[0,0,-45]),add(pad,[0,0,45])],true,9)
     for(const z of [-40,40]){equipment([[-40,110,z],[105,110,z]],false,6);equipment([[-35,110,z],[-60,300,z]],false,5);equipment([[-20,110,z],[-20,0,z]]);equipment([[90,110,z],[90,0,z]])}
-  }else if(id==='benchdip'){
+  }else if(id==='benchdip'||id==='chairdip'){
     // Hands on the bench edge behind, feet flat in front; the elbows bend straight back.
     const axis=vertical(.05),shoulder:Vec3=[mix(8,18,p),mix(234,192,p),0]
     body(sub(shoulder,scale(axis,118)),axis)
@@ -449,7 +467,9 @@ export function sampleRig(id:RigId,time:number):RigPose {
       leg(side,[150,20,sign*26],[0,1,0])
       arm(side,[-5,104,sign*40],[-1,0,0])
     }
-    for(const z of [-45,45]){equipment([[-130,100,z],[0,100,z]],false,6);equipment([[-120,100,z],[-120,0,z]]);equipment([[-10,100,z],[-10,0,z]])}
+    if(id==='benchdip')for(const z of [-45,45]){equipment([[-130,100,z],[0,100,z]],false,6);equipment([[-120,100,z],[-120,0,z]]);equipment([[-10,100,z],[-10,0,z]])}
+    // A chair: short seat, legs and a backrest.
+    else for(const z of [-45,45]){equipment([[-95,100,z],[0,100,z]],false,6);equipment([[-88,100,z],[-88,0,z]]);equipment([[-8,100,z],[-8,0,z]]);equipment([[-92,100,z],[-102,235,z]],false,4)}
   }else if(id==='hipthrust'){
     // Upper back on the bench edge, feet flat; the hips drive the bar up until the torso is level.
     const a=mix(.75,0,p),shoulder:Vec3=[-120,110,0]
@@ -462,6 +482,64 @@ export function sampleRig(id:RigId,time:number):RigPose {
     }
     barbell(bar)
     for(const z of [-45,45]){equipment([[-230,100,z],[-110,100,z]],false,6);equipment([[-220,100,z],[-220,0,z]]);equipment([[-120,100,z],[-120,0,z]])}
+  }else if(id==='kneepush'){
+    // Knees on the floor and shins up; the body pivots at the knees in one line from knees to head.
+    const knee:Vec3=[-40,12,0],axis=horizontal(deg(mix(33,8,p)))
+    body(add(knee,scale(axis,100)),axis)
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1
+      const k:Vec3=[knee[0],knee[1],sign*26],ankle=add(k,[-94,34,0])
+      leg(side,ankle,sub(k,scale(add(get('hip'+side),ankle),.5)),add(ankle,[-32,-8,0]),add(ankle,[8,22,0]))
+      arm(side,[140,0,sign*42.5],[-1,0,0]);equipment([[127,0,sign*42.5],[156,0,sign*42.5]],false,4)
+    }
+  }else if(id==='closepush'){
+    // A push-up with the hands under the chest: the elbows brush the ribs on the way down.
+    const axis=horizontal(deg(mix(20.5,4,p))),ankle:Vec3=[-160,20,0]
+    body(add(ankle,scale(axis,200)),axis)
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[-160,20,sign*26],[0,1,0],[-125,0,sign*26],[-185,40,sign*26]);arm(side,[140,0,sign*20],[-1,0,0]);equipment([[127,0,sign*20],[156,0,sign*20]],false,4)}
+  }else if(id==='pike'){
+    // Hips high in an upside-down V; the head lowers toward the floor as the hips drift forward.
+    const ankle:Vec3=[-90,20,0],legA=deg(mix(68,56,p)),torso=deg(mix(54.3,75,p))
+    body(add(ankle,[199.6*Math.cos(legA),199.6*Math.sin(legA),0]),[Math.cos(torso),-Math.sin(torso),0])
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[-90,20,sign*26],[1,0,0]);arm(side,[132,0,sign*42.5],[.3,1,0])}
+  }else if(id==='traise'){
+    // Face down, forehead resting; straight arms out to the sides lift a little and lower.
+    body([0,22,0],[-1,0,0])
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1
+      const ankle:Vec3=[199.5,22,sign*26];leg(side,ankle,[0,-1,0],[229.5,8,sign*26],[194.5,40,sign*26])
+      const a=mix(0,.42,p);arm(side,add(get('shoulder'+side),[-8,133*Math.sin(a),sign*133*Math.cos(a)]),[0,1,0])
+    }
+  }else if(id==='slbridge'){
+    // The glute bridge on one planted foot; the free leg stays straight in line with its thigh.
+    const shoulder:Vec3=[-130,22,0],ankle:Vec3=[125,20,26]
+    const kneeAtTop=solveLimb(shoulder,[125,20,0],218,100,[0,1,0])
+    const axis=horizontal(mix(.03,Math.atan2(kneeAtTop[1]-shoulder[1],kneeAtTop[0]-shoulder[0]),p)),hip=add(shoulder,scale(axis,118))
+    body(hip,scale(axis,-1),[-1,0,0])
+    leg('R',ankle,[0,1,0])
+    const thigh=sub(get('kneeR'),get('hipR')),dir=scale(thigh,1/length(thigh)),perp:Vec3=[-dir[1],dir[0],0]
+    const free=add(get('hipL'),scale(dir,199.6))
+    leg('L',free,[0,1,0],add(free,add(scale(perp,32),scale(dir,6))),add(free,add(scale(perp,-12),scale(dir,16))))
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;arm(side,add(get('shoulder'+side),[130,-8,0]),[0,0,sign])}
+  }else if(id==='slcalf'){
+    // The standing calf raise on the right foot; the left foot hooks up behind, hands on the wall.
+    const angle=.4*p
+    const ankle:Vec3=[35-35*Math.cos(angle)+20*Math.sin(angle),35*Math.sin(angle)+20*Math.cos(angle),26]
+    body(add(ankle,[0,199.6,-26]),vertical(0))
+    leg('R',ankle,[1,0,0],[35,0,26],[35-60*Math.cos(angle),60*Math.sin(angle),26])
+    const lifted=add(get('hipL'),[-70,-150,0]);leg('L',lifted,[1,0,0],add(lifted,[30,-14,0]),add(lifted,[-24,-14,0]))
+    for(const side of ['L','R'] as const)arm(side,[110,280,(side==='L'?-1:1)*42.5],[0,-1,0])
+    equipment([[110,0,-65],[110,370,-65]]);equipment([[110,370,-65],[110,370,65],[110,0,65]])
+  }else if(id==='sideplank'){
+    // On the right forearm with the feet stacked: one straight line from the feet to the head,
+    // the top arm reaching to the ceiling. The hold only braces a touch.
+    const a=deg(mix(13.9,13.2,p)),up:Vec3=[Math.cos(a),Math.sin(a),0],down:Vec3=[Math.sin(a),-Math.cos(a),0]
+    const shoulderR:Vec3=[150,80,0],centre=sub(shoulderR,scale(down,42.5)),hip=sub(centre,scale(up,118))
+    body(hip,up)
+    // Stack the shoulders and hips vertically instead of side by side.
+    set('shoulderR',shoulderR);set('shoulderL',sub(centre,scale(down,42.5)))
+    set('hipR',add(hip,scale(down,26)));set('hipL',sub(hip,scale(down,26)))
+    for(const side of ['L','R'] as const){const ankle=sub(get('hip'+side),scale(up,199.6));leg(side,ankle,[0,0,-1],add(ankle,[0,-12,-30]),add(ankle,[0,-12,20]))}
+    const elbow:Vec3=[150,10,0];arm('R',add(elbow,[0,0,-65]),[0,0,-1],elbow)
+    arm('L',add(get('shoulderL'),scale(down,-133)),[1,0,0])
   }else if(id.startsWith('w')){
     warmup(id as WarmupRigId,((time%RIG_DURATION)+RIG_DURATION)%RIG_DURATION)
   }

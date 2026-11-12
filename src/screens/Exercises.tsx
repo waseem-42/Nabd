@@ -6,7 +6,7 @@ import { animatedFor } from '@/domain/animated'
 import { useT } from '@/i18n'
 import { useSettings } from '@/store/settings'
 import { MUSCLE_GROUPS, MUSCLE_TO_GROUP, type MuscleGroup } from '@/types'
-import { MuscleGroupIcon, cx } from '@/ui'
+import { MuscleGroupIcon, SearchField, cx, normalizeSearch } from '@/ui'
 import { MotionThumb } from '@/ui/MotionThumb'
 import { useFormat, useHomeGear } from './parts/useFormat'
 
@@ -18,13 +18,18 @@ export default function Exercises() {
   const gear = useHomeGear()
   const { exercises } = useAllExercises()
   const [group, setGroup] = useState<MuscleGroup | null>(null)
+  const [query, setQuery] = useState('')
 
   const here = useMemo(() => animatedFor(exercises, place, gear), [exercises, place, gear])
   const groups = MUSCLE_GROUPS.filter((g) => here.some((e) => MUSCLE_TO_GROUP[e.primary] === g))
-  const shown = group ? here.filter((e) => MUSCLE_TO_GROUP[e.primary] === group) : here
+  const shown = useMemo(() => {
+    const q = normalizeSearch(query)
+    return here.filter((e) => (!group || MUSCLE_TO_GROUP[e.primary] === group) && (!q || normalizeSearch(`${e.name.ar} ${e.name.en}`).includes(q)))
+  }, [here, group, query])
 
   return (
     <div className="flex flex-col gap-4 pt-2">
+      <div className="px-5"><SearchField value={query} onChange={setQuery} placeholder={t('common.searchExercises')} /></div>
       <div className="flex gap-2 overflow-x-auto px-5 pb-1 [scrollbar-width:none]" role="group" aria-label={t('app.groups')}>
         {[null, ...groups].map((g) => (
           <button

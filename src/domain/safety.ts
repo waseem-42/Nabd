@@ -89,6 +89,39 @@ export const EXERCISE_SAFETY: Record<string, L10n[]> = {
     { ar: 'أعلى الظهر على حافة البنش والقدمين ثابتة، والبار على مفصل الورك مع وسادة.', en: 'Rest the upper back on the bench edge with feet planted, and the bar on the hip crease with a pad.' },
     { ar: 'ارفع لين يصير الجذع موازي للأرض واعصر المؤخرة؛ لا تكمل بتقويس أسفل الظهر.', en: 'Rise until the torso is level and squeeze the glutes; don’t keep going by arching the lower back.' },
   ],
+  // Batch six (home, no equipment).
+  'knee-push-up': [
+    { ar: 'حط وسادة أو منشفة تحت الركبتين، والجسم خط واحد من الركبة للرأس.', en: 'Pad your knees with a towel, and keep one straight line from knees to head.' },
+    { ar: 'المرفقين قريبين من الجسم بزاوية مائلة، مو مفتوحين للجنب.', en: 'Keep the elbows angled close to the body, not flared out to the sides.' },
+  ],
+  x6KpKpq: [
+    { ar: 'اليدين تحت الصدر بعرض الكتفين أو أضيق شوي، مو ملتصقة؛ الضيق الزايد يضغط الرسغ.', en: 'Hands under the chest, shoulder-width or a little narrower, not touching; too narrow strains the wrists.' },
+    { ar: 'المرفقين يلمسون جنبك وأنت نازل. إذا صعب، سوّه على الركبتين.', en: 'Let the elbows brush your sides on the way down. If it’s too hard, do it on your knees.' },
+  ],
+  'chair-dip': [
+    { ar: 'استخدم كرسي ثابت ما يتحرك، ويفضّل مسنود على الجدار.', en: 'Use a sturdy chair that can’t slide, ideally against a wall.' },
+    { ar: 'الظهر قريب من الكرسي والمرفقين للخلف؛ انزل لين الذراع العلوي يقارب الأفقي بس.', en: 'Keep your back close to the chair and elbows pointing back; lower only until the upper arms are about level.' },
+  ],
+  'pike-push-up': [
+    { ar: 'الورك عالي طول الوقت، وانزل بالراس لنقطة قدّام اليدين شوي.', en: 'Keep the hips high and lower the head to a point just in front of the hands.' },
+    { ar: 'انزل ببطء ولا تخلي الراس يضرب الأرض؛ وقف إذا حسيت ضغط على الرقبة أو الكتف.', en: 'Lower slowly and never let your head bump the floor; stop if your neck or shoulders feel strained.' },
+  ],
+  'prone-t-raise': [
+    { ar: 'ارفع الذراعين كم سانتي بس بعصر لوحي الكتف، والإبهام لفوق.', en: 'Lift the arms just a few centimetres by squeezing the shoulder blades, thumbs up.' },
+    { ar: 'الجبهة مرتاحة على الأرض والرقبة ما ترتفع.', en: 'Keep the forehead resting and the neck relaxed; don’t lift the head.' },
+  ],
+  'single-leg-glute-bridge': [
+    { ar: 'ادفع بكعب الرجل الثابتة، وخل الحوض مستوي بدون ما يميل لجهة.', en: 'Drive through the heel of the planted foot and keep the hips level, without dropping to one side.' },
+    { ar: 'ارفع لين يصير خط من الكتف للركبة؛ لا تقوّس أسفل الظهر.', en: 'Rise to a line from shoulder to knee; don’t arch the lower back.' },
+  ],
+  '0jp9Rlz': [
+    { ar: 'امسك الجدار أو شي ثابت للتوازن، والركبة مستقيمة بدون قفل.', en: 'Hold a wall or something sturdy for balance, knee straight but not locked.' },
+    { ar: 'اطلع ببطء على مشط القدم ونزّل الكعب بتحكم.', en: 'Rise slowly onto the ball of the foot and lower the heel with control.' },
+  ],
+  'side-plank-hold': [
+    { ar: 'المرفق تحت الكتف بالضبط، والورك فوق الورك بدون ما يميل لقدّام.', en: 'Elbow right under the shoulder, top hip stacked over the bottom one without rolling forward.' },
+    { ar: 'إذا صعب، اثنِ الركبتين وارتكز عليها. وقف إذا حسيت ألم بالكتف.', en: 'If it’s hard, bend the knees and support on them. Stop if your shoulder hurts.' },
+  ],
   // Batch four (home).
   'plank-hold': [
     { ar: 'المرفقين تحت الكتفين، والجسم خط واحد من الكعب للرأس؛ لا تخلي الورك ينزل أو يرتفع.', en: 'Elbows under the shoulders and one straight line from heels to head; don’t let the hips sag or pike.' },
