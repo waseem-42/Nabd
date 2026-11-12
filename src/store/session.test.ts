@@ -65,6 +65,8 @@ describe('workout store', () => {
     useSettings.getState().set({ restSec: 45 })
     store().toggleSet(0, 0)
     expect(store().rest?.totalSec).toBe(45)
+    // Let the last write land so it can't leak into the next test's fresh database.
+    await persisted((s) => expect(s.entries[0]!.sets[0]!.done).toBe(true))
     store().skipRest()
     store().toggleSet(0, 0)
     expect(store().rest).toBeNull()

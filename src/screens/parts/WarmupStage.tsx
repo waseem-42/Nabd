@@ -28,8 +28,12 @@ function markWarmupDone(sessionId: string) {
   }
 }
 
-/** Warm-up moves that have an animated rig of their own. */
-const MOVE_RIG: Partial<Record<WarmupItem['move'], string>> = { bwSquat: '6YUfHPL', deadBug: 'dead-bug' }
+/** Every warm-up move is animated: two reuse the exercise rigs, the rest have warm-up rigs. */
+const MOVE_RIG: Record<WarmupItem['move'], string> = {
+  march: 'warmup:march', jog: 'warmup:jog', armCircles: 'warmup:armCircles', scapPushup: 'warmup:scapPushup',
+  bandPullApart: 'warmup:bandPullApart', legSwings: 'warmup:legSwings', hipOpener: 'warmup:hipOpener', catCow: 'warmup:catCow',
+  bwSquat: '6YUfHPL', deadBug: 'dead-bug',
+}
 const PER_SIDE = new Set<WarmupItem['move']>(['legSwings', 'hipOpener'])
 
 export function useWarmupItems(session: WorkoutSession, lookup: (id: string) => Exercise | undefined) {
@@ -91,9 +95,9 @@ export function WarmupStage({ session, lookup, onDone }: { session: WorkoutSessi
         ))}
       </div>
 
-      {rig ? (
-        <MotionThumb key={rig} exerciseId={rig} name={t(`body.move.${item.move}`)} className="mx-4 mt-3 aspect-[4/3] rounded-control" />
-      ) : null}
+      <div className="px-4 pt-3">
+        <MotionThumb key={rig} exerciseId={rig} name={t(`body.move.${item.move}`)} className="aspect-[4/3] w-full rounded-control" />
+      </div>
 
       <div className="px-4 pt-4">
         <div className="flex items-start justify-between gap-3">

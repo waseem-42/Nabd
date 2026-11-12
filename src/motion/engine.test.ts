@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { EXERCISE_BY_ID } from '@/data/catalog'
-import { RIGS, findRig, length, movementClock, rigFit, sampleRig, sub } from './engine'
+import { RIGS, WARMUP_RIGS, findRig, length, movementClock, rigFit, sampleRig, sub } from './engine'
 
 describe('continuous exercise rigs',()=>{
   it('maps thirty-two exact catalogue ids without inheriting a rig through shared art slugs',()=>{
@@ -9,8 +9,9 @@ describe('continuous exercise rigs',()=>{
     for(const rig of RIGS)expect(EXERCISE_BY_ID.has(rig.exerciseId)).toBe(true)
     expect(findRig('qx4fgX7')).toBeUndefined() // Elevated dumbbell split squat shares an art slug.
     expect(findRig('9E25EOx')?.id).toBe('split')
+    for(const rig of WARMUP_RIGS)expect(findRig(rig.exerciseId)?.id).toBe(rig.id)
   })
-  it.each(RIGS)('$id preserves every bone length throughout its complete repetition',(definition)=>{
+  it.each([...RIGS, ...WARMUP_RIGS])('$id preserves every bone length throughout its complete repetition',(definition)=>{
     const initial=sampleRig(definition.id,0)
     const expected=initial.bones.map(bone=>length(sub(initial.points[bone.a]!,initial.points[bone.b]!)))
     for(let frame=0;frame<=180;frame++){
@@ -43,7 +44,7 @@ describe('continuous exercise rigs',()=>{
     for(const boundary of [.45,2.55,3.05,5.55,6])expect(Math.abs(movementClock(boundary-1e-5).progress-movementClock(boundary+1e-5).progress)).toBeLessThan(1e-6)
   })
   it('keeps every foot above the floor, with raised push-up heels and planted toes',()=>{
-    for(const definition of RIGS)for(let frame=0;frame<=180;frame++){
+    for(const definition of [...RIGS, ...WARMUP_RIGS])for(let frame=0;frame<=180;frame++){
       const pose=sampleRig(definition.id,frame/30)
       for(const side of ['L','R']){
         for(const part of ['heel','toe'])expect(pose.points[part+side]![1],`${definition.id}:${part}${side}@${frame}`).toBeGreaterThanOrEqual(-1e-6)

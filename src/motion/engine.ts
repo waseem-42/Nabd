@@ -5,6 +5,9 @@ export type RigId = 'squat' | 'pushup' | 'split' | 'bridge' | 'calf' | 'curl' | 
   | 'benchbar' | 'bentrow' | 'standpress' | 'barcurl' | 'legcurl'
   | 'plank' | 'crunch' | 'birddog' | 'deadbug' | 'goblet' | 'dbrow'
   | 'revlunge' | 'climber' | 'superman' | 'legext' | 'benchdip' | 'hipthrust'
+  | WarmupRigId
+/** Warm-up moves: animated like the exercises, but not catalogue entries. */
+export type WarmupRigId = 'wmarch' | 'wjacks' | 'warmcircles' | 'wscap' | 'wpullapart' | 'wlegswing' | 'whipopener' | 'wcatcow'
 export interface RigDefinition {
   id: RigId
   exerciseId: string
@@ -63,6 +66,21 @@ export const RIGS: RigDefinition[] = [
   definition('benchdip','X6C6i5Y','غطس الترايسبس','Bench triceps dip',20,['نزول','Lower'],['دفع','Press'],['https://www.acefitness.org/education-and-resources/lifestyle/blog/3618/triceps-exercises-body-weight-bench-dips-vs-dumbbell-triceps-kickbacks/']),
   definition('hipthrust','hip-thrust','هيب ثرست بالبار','Barbell hip thrust',15,['رفع الحوض','Lift hips'],['نزول','Lower'],['318/hip-bridge/','https://www.acefitness.org/continuing-education/certified/november-2019/7403/understanding-the-barbell-hip-thrust/']),
 ]
+/**
+ * Warm-up rigs, keyed by `warmup:<move>` so they never collide with catalogue ids. The
+ * rhythmic ones (march, jacks, circles) repeat several times inside one 6 s loop.
+ */
+export const WARMUP_RIGS: RigDefinition[] = [
+  definition('wmarch','warmup:march','مشي في المكان','March in place',15,['رفع الركبة','Knee up'],['تبديل','Switch'],['https://www.acefitness.org/resources/everyone/exercise-library/']),
+  definition('wjacks','warmup:jog','جمبنق جاك','Jumping jacks',85,['فتح','Out'],['ضم','In'],['https://www.acefitness.org/resources/everyone/exercise-library/']),
+  definition('warmcircles','warmup:armCircles','دوائر الذراعين','Arm circles',40,['دوران','Circle'],['دوران','Circle'],['https://www.acefitness.org/resources/everyone/exercise-library/']),
+  definition('wscap','warmup:scapPushup','ضغط لوحي الكتف','Scapular push-up',15,['دفع','Push'],['نزول','Sink'],['https://www.acefitness.org/resources/everyone/exercise-library/']),
+  definition('wpullapart','warmup:bandPullApart','فتح الذراعين للخلف','Pull-apart',60,['فتح','Pull apart'],['رجوع','Return'],['https://www.acefitness.org/resources/everyone/exercise-library/']),
+  definition('wlegswing','warmup:legSwings','أرجحة الرجل','Leg swings',15,['للأمام','Forward'],['للخلف','Back'],['https://www.acefitness.org/resources/everyone/exercise-library/']),
+  definition('whipopener','warmup:hipOpener','فتح الحوض','Hip opener',45,['رفع وفتح','Lift and open'],['نزول','Lower'],['https://www.acefitness.org/resources/everyone/exercise-library/']),
+  definition('wcatcow','warmup:catCow','قطة وبقرة','Cat–cow',15,['بقرة','Cow'],['قطة','Cat'],['https://www.acefitness.org/resources/everyone/exercise-library/']),
+]
+
 export const RIG_DURATION = 6
 /** Phase boundaries of one repetition, seconds (see movementClock). */
 export const RIG_PHASES = { actionStart: .45, holdStart: 2.55, returnStart: 3.05, returnEnd: 5.55 } as const
@@ -108,8 +126,16 @@ export const RIG_GUIDES: Record<RigId, RigGuide> = {
   benchdip: { track: 'shoulder', work: upperArms, exhaleOnAction: false, altYaw: 70 },
   hipthrust: { track: 'hip', work: [...legs, ['hipL','hipR']], exhaleOnAction: true, altYaw: 55 },
   legcurl: { track: 'ankleR', work: [['kneeR','ankleR'],['kneeL','ankleL'],['hipR','kneeR'],['hipL','kneeL']], exhaleOnAction: true, altYaw: 60 },
+  wmarch: { track: 'kneeR', work: legs, exhaleOnAction: true, altYaw: 60 },
+  wjacks: { track: 'wristR', work: [...legs, ...upperArms], exhaleOnAction: true, altYaw: 20 },
+  warmcircles: { track: 'wristR', work: upperArms, exhaleOnAction: true, altYaw: 80 },
+  wscap: { track: 'shoulder', work: [['shoulderL','shoulderR']], exhaleOnAction: true, altYaw: 55 },
+  wpullapart: { track: 'wristR', work: [...upperArms, ['shoulderL','shoulderR']], exhaleOnAction: true, altYaw: 85 },
+  wlegswing: { track: 'ankleR', work: [['hipR','kneeR']], exhaleOnAction: true, altYaw: 60 },
+  whipopener: { track: 'kneeR', work: [['hipR','kneeR']], exhaleOnAction: true, altYaw: 80 },
+  wcatcow: { track: 'head', work: [['hip','shoulder']], exhaleOnAction: false, altYaw: 55 },
 }
-export const findRig = (exerciseId?: string) => RIGS.find(rig=>rig.exerciseId===exerciseId)
+export const findRig = (exerciseId?: string) => RIGS.find(rig=>rig.exerciseId===exerciseId)??WARMUP_RIGS.find(rig=>rig.exerciseId===exerciseId)
 export const add = (a: Vec3, b: Vec3): Vec3 => [a[0]+b[0],a[1]+b[1],a[2]+b[2]]
 export const sub = (a: Vec3, b: Vec3): Vec3 => [a[0]-b[0],a[1]-b[1],a[2]-b[2]]
 export const scale = (a: Vec3, k: number): Vec3 => [a[0]*k,a[1]*k,a[2]*k]
@@ -436,8 +462,89 @@ export function sampleRig(id:RigId,time:number):RigPose {
     }
     barbell(bar)
     for(const z of [-45,45]){equipment([[-230,100,z],[-110,100,z]],false,6);equipment([[-220,100,z],[-220,0,z]]);equipment([[-120,100,z],[-120,0,z]])}
+  }else if(id.startsWith('w')){
+    warmup(id as WarmupRigId,((time%RIG_DURATION)+RIG_DURATION)%RIG_DURATION)
   }
   return result
+
+  /** Warm-up moves. `t` is the loop time in [0, 6); cycles are whole numbers per loop so it repeats seamlessly. */
+  function warmup(wid:WarmupRigId,t:number){
+    const wave=(cycles:number,offset=0)=>Math.sin(2*Math.PI*(cycles*t/RIG_DURATION+offset))
+    const ease=(x:number)=>{const k=Math.max(0,Math.min(1,x));return k*k*(3-2*k)}
+    const turn=(roll:number,[x,y]:[number,number]):Vec3=>[x*Math.cos(roll)-y*Math.sin(roll),x*Math.sin(roll)+y*Math.cos(roll),0]
+    const standingArm=(side:'L'|'R',swing:number)=>{const shoulder=get('shoulder'+side);arm(side,add(shoulder,[128*Math.sin(swing),-128*Math.cos(swing),0]),[-1,0,0])}
+    if(wid==='wmarch'){
+      // Alternate knees to about hip height; the opposite arm swings forward.
+      body([0,219.6,0],vertical(0))
+      const w=wave(2),lift={R:ease(Math.max(0,w)*1.15),L:ease(Math.max(0,-w)*1.15)}
+      for(const side of ['L','R'] as const){const sign=side==='L'?-1:1,s=lift[side]
+        const ankle:Vec3=[100*s,20+99.6*s,sign*26]
+        leg(side,ankle,[1,0,0],add(ankle,turn(-.5*s,[35,-20])),add(ankle,turn(-.5*s,[-25,-20])))
+      }
+      standingArm('R',-.55*w);standingArm('L',.55*w)
+    }else if(wid==='wjacks'){
+      // Feet jump out as the arms sweep overhead, then both come back in. Three jacks a loop.
+      const open=(1-Math.cos(2*Math.PI*3*t/RIG_DURATION))/2,jump=16*Math.abs(wave(3))
+      const spread=42*open
+      body([0,20+jump+Math.sqrt(199*199-spread*spread),0],vertical(0))
+      for(const side of ['L','R'] as const){const sign=side==='L'?-1:1
+        leg(side,[0,20+jump,sign*(26+spread)],[1,0,0],[35,jump,sign*(26+spread)],[-25,jump,sign*(26+spread)])
+        const a=deg(mix(10,165,open))
+        arm(side,add(get('shoulder'+side),[4,-130*Math.cos(a),sign*130*Math.sin(a)]),[0,-1,0])
+      }
+    }else if(wid==='warmcircles'){
+      // Arms held out to the sides draw small forward circles, growing and shrinking once a loop.
+      body([0,219.6,0],vertical(0))
+      const r=mix(18,42,(1-Math.cos(2*Math.PI*t/RIG_DURATION))/2),a=2*Math.PI*4*t/RIG_DURATION
+      for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[0,20,sign*26])
+        arm(side,add(get('shoulder'+side),[r*Math.sin(a),r*Math.cos(a),sign*Math.sqrt(130*130-r*r)]),[0,-1,0])
+      }
+    }else if(wid==='wscap'){
+      // High plank, arms straight: the chest sinks between the shoulder blades and pushes back up.
+      const s=(1-Math.cos(2*Math.PI*3*t/RIG_DURATION))/2,axis=horizontal(deg(mix(20.9,18,s))),ankle:Vec3=[-160,20,0]
+      body(add(ankle,scale(axis,200)),axis)
+      for(const side of ['L','R'] as const){const sign=side==='L'?-1:1
+        leg(side,[-160,20,sign*26],[0,1,0],[-125,0,sign*26],[-185,40,sign*26])
+        arm(side,[140,0,sign*42.5],[-1,0,0]);equipment([[127,0,sign*42.5],[156,0,sign*42.5]],false,4)
+      }
+    }else if(wid==='wpullapart'){
+      // Straight arms at chest height open out to the sides, stretching the band, and return.
+      const s=movementClock(t).progress
+      body([0,219.6,0],vertical(0))
+      const a=deg(mix(4,80,s));const wrists:Vec3[]=[]
+      for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[0,20,sign*26])
+        const wrist=add(get('shoulder'+side),[130*Math.cos(a),-14,sign*130*Math.sin(a)]);arm(side,wrist,[0,-1,0]);wrists.push(wrist)
+      }
+      equipment(wrists,true,3)
+    }else if(wid==='wlegswing'){
+      // One hand on a wall; the outside leg swings forward and back from the hip, twice a loop.
+      body([0,219.6,0],vertical(0))
+      const a=.15+.6*wave(2),ankle=add([0,219.6,26],[192*Math.sin(a),-192*Math.cos(a),0])
+      leg('R',ankle,[1,0,0],add(ankle,turn(a,[35,-20])),add(ankle,turn(a,[-25,-20])))
+      leg('L',[0,20,-26])
+      arm('L',[10,300,-125],[0,-1,-1]);equipment([[10,0,-132],[10,400,-132]],false,6)
+      standingArm('R',-.4*wave(2))
+    }else if(wid==='whipopener'){
+      // Knee up in front, around to the side, and down; then the same again.
+      body([0,219.6,0],vertical(0))
+      const k=(t%3)/3,lift=ease(k/.3)-ease((k-.62)/.3),open=deg(85)*ease((k-.3)/.32)
+      const dir:Vec3=[Math.cos(open),0,Math.sin(open)]
+      const ankle=add([0,20,26],add(scale(dir,100*lift),[0,99.6*lift,0]))
+      leg('R',ankle,dir,add(ankle,add(scale(dir,35),[0,-20,0])),add(ankle,add(scale(dir,-25),[0,-20,0])))
+      leg('L',[0,20,-26])
+      for(const side of ['L','R'] as const)arm(side,add(get('shoulder'+side),[10,-110,(side==='L'?-1:1)*60]),[-1,0,0])
+    }else if(wid==='wcatcow'){
+      // On all fours with straight arms: the shoulders stay over the hands while the hips drop
+      // and the head lifts (cow), then the hips rise and the head tucks under (cat).
+      const s=(1-Math.cos(2*Math.PI*t/RIG_DURATION))/2,shoulder:Vec3=[114,140,0],a=mix(.36,.08,s),axis=horizontal(a)
+      body(sub(shoulder,scale(axis,118)),axis,horizontal(deg(mix(35,-65,s))))
+      const kneeFoot=(ankle:Vec3):[Vec3,Vec3]=>[add(ankle,[-30,-10,0]),add(ankle,[5,18,0])]
+      for(const side of ['L','R'] as const){const sign=side==='L'?-1:1
+        const ankle:Vec3=[-100,10,sign*26];leg(side,ankle,[0,-1,0],...kneeFoot(ankle))
+        arm(side,[114,8,sign*42.5],[-1,0,0])
+      }
+    }
+  }
 }
 
 export function projectPoint(point:Vec3,yaw:number):[number,number] {
