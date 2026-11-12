@@ -84,6 +84,8 @@ export async function startProgramFromTemplate(templateId: string, lang: Lang): 
     templateId,
     routineIds: routines.map((r) => r.id),
     createdAt: now,
+    weeks: template.weeks,
+    cycleStart: now,
   }
 
   await db.transaction('rw', db.routines, db.programs, async () => {
@@ -92,6 +94,11 @@ export async function startProgramFromTemplate(templateId: string, lang: Lang): 
   })
   followProgram(program)
   return program
+}
+
+/** Starts the program's block again at week 1 (the weights carry on from the history). */
+export async function restartProgram(id: string, now = Date.now()): Promise<void> {
+  await db.programs.update(id, { cycleStart: now })
 }
 
 /** Makes `program` the one followed at its place (and the legacy active one). */

@@ -59,6 +59,9 @@ export const ACCESSORIES = ['bench', 'pullup-bar'] as const
 export type Accessory = (typeof ACCESSORIES)[number]
 
 export type Level = 'beginner' | 'intermediate' | 'advanced'
+
+/** What the user trains for: shapes target reps and the suggested rest. */
+export type Goal = 'strength' | 'muscle' | 'fitness'
 export type ExerciseKind = 'strength' | 'calisthenics' | 'cardio' | 'stretch' | 'sport'
 
 /** How a set of this exercise is measured: weight×reps, a timed hold, or cardio minutes. */
@@ -133,6 +136,10 @@ export interface ProgramTemplate {
   place: Place
   level: Level
   daysPerWeek: number
+  /** Length of one block; the last week is a lighter deload week. */
+  weeks: number
+  /** The template to suggest when this one is finished (none for the top level). */
+  next?: string
   days: { name: L10n; items: RoutineItem[] }[]
 }
 
@@ -158,6 +165,10 @@ export interface UserProgram {
   templateId?: string
   routineIds: string[]
   createdAt: number
+  /** Block length in weeks (from the template); absent for open-ended programs. */
+  weeks?: number
+  /** Start of the current block: weeks are counted from the first workout after it. */
+  cycleStart?: number
 }
 
 // ── Workout sessions ────────────────────────────────────────────────────────────────────────
@@ -185,7 +196,7 @@ export interface SessionEntry {
    * Where the prefilled numbers came from, so the screen can explain them: 'progress' = last
    * time plus one step (every target was hit), 'body' = a starting weight from body weight.
    */
-  prefill?: 'progress' | 'body'
+  prefill?: 'progress' | 'body' | 'deload'
   note?: string
 }
 
@@ -202,6 +213,8 @@ export interface WorkoutSession {
   entries: SessionEntry[]
   /** Exercise ids that hit a personal record in this session (filled when finishing). */
   prs?: string[]
+  /** Done in a program's deload week: lighter on purpose, so later prefills skip it. */
+  deload?: boolean
 }
 
 export interface BodyWeightEntry {
@@ -238,6 +251,11 @@ export interface Settings {
   keepAwake: boolean
   /** Short vibrations when a set is done and when rest ends. */
   haptics: boolean
+  goal: Goal
+  /** Weekdays the user plans to train (0 = Sunday … 6 = Saturday); empty = not set. */
+  trainingDays: number[]
+  /** 'HH:MM', used for the calendar reminder. */
+  reminderTime: string
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -257,6 +275,9 @@ export const DEFAULT_SETTINGS: Settings = {
   autoWarmup: true,
   keepAwake: true,
   haptics: true,
+  goal: 'muscle',
+  trainingDays: [],
+  reminderTime: '18:00',
 }
 
 /** Full local backup file (Settings → export / import). */

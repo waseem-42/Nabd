@@ -3,17 +3,19 @@ import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
 import { routes } from '@/app/routes'
 import { startProgramFromTemplate, upsertBodyWeight } from '@/db'
+import { GOAL_REST } from '@/domain/goal'
 import { recommendTemplate } from '@/domain/recommend'
 import { useLang, useT } from '@/i18n'
 import { isoDay } from '@/i18n/format'
 import { useSettings } from '@/store/settings'
-import type { Accessory, Equipment, Level, Place } from '@/types'
+import type { Accessory, Equipment, Goal, Level, Place } from '@/types'
 import { Brand, Button, Stepper, cx } from '@/ui'
 import { MotionThumb } from '@/ui/MotionThumb'
+import { DayPicker } from './parts/DayPicker'
 
-type Step = 'place' | 'gear' | 'level'
+type Step = 'place' | 'gear' | 'level' | 'goal'
 
-/** First run: where you train, what you have at home, your level. Then a plan is ready. */
+/** First run: where you train, what you have at home, your level and goal. Then a plan is ready. */
 export default function Setup() {
   const t = useT()
   const lang = useLang()
@@ -23,17 +25,19 @@ export default function Setup() {
   const [place, setPlace] = useState<Place>(settings.place)
   const [equipment, setEquipment] = useState<Equipment[]>(settings.homeEquipment)
   const [accessories, setAccessories] = useState<Accessory[]>(settings.homeAccessories)
-  const [level, setLevel] = useState<Level>(settings.level === 'advanced' ? 'intermediate' : settings.level)
+  const [level, setLevel] = useState<Level>(settings.level)
+  const [goal, setGoal] = useState<Goal>(settings.goal)
+  const [days, setDays] = useState<number[]>(settings.trainingDays)
   const [weight, setWeight] = useState<number | null>(null)
   const [busy, setBusy] = useState(false)
-  const steps: Step[] = place === 'home' ? ['place', 'gear', 'level'] : ['place', 'level']
+  const steps: Step[] = place === 'home' ? ['place', 'gear', 'level', 'goal'] : ['place', 'level', 'goal']
   const index = steps.indexOf(step)
   const Forward = lang === 'ar' ? ArrowLeft : ArrowRight
 
   async function finish() {
     setBusy(true)
     const gear = { homeEquipment: equipment.includes('bodyweight') ? equipment : ['bodyweight' as Equipment, ...equipment], homeAccessories: accessories }
-    settings.set({ place, level, ...gear })
+    settings.set({ place, level, goal, restSec: GOAL_REST[goal], trainingDays: days, ...gear })
     if (weight) await upsertBodyWeight(isoDay(Date.now()), weight)
     const template = recommendTemplate(place, gear, level)
     if (template) await startProgramFromTemplate(template.id, lang)
@@ -105,7 +109,7 @@ export default function Setup() {
         <section className="flex flex-1 flex-col gap-4">
           <h1 className="text-3xl font-bold">{t('app.setup.level')}</h1>
           <div className="flex flex-col gap-3">
-            {(['beginner', 'intermediate'] as const).map((value) => (
+            {(['beginner', 'intermediate', 'advanced'] as const).map((value) => (
               <button key={value} type="button" aria-pressed={level === value} onClick={() => setLevel(value)} className={cx('rounded-card border-2 bg-surface px-5 py-4 text-start', level === value ? 'border-accent' : 'border-line')}>
                 <span className="block text-lg font-bold">{t(`app.level.${value}`)}</span>
                 <span className="block text-sm text-muted">{t(`app.level.${value}Hint`)}</span>
@@ -116,6 +120,25 @@ export default function Setup() {
             <p className="mb-1 font-semibold">{t('app.setup.weight')}</p>
             <p className="mb-3 text-sm text-muted">{t('app.setup.weightHint')}</p>
             <Stepper label={t('app.setup.weight')} value={weight ?? 70} onChange={(kg) => setWeight(kg)} step={1} min={30} max={250} unit={t('common.unit.kg')} />
+          </div>
+        </section>
+      )}
+
+      {step === 'goal' && (
+        <section className="flex flex-1 flex-col gap-4">
+          <h1 className="text-3xl font-bold">{t('app.goal.title')}</h1>
+          <div className="flex flex-col gap-3">
+            {(['strength', 'muscle', 'fitness'] as const).map((value) => (
+              <button key={value} type="button" aria-pressed={goal === value} onClick={() => setGoal(value)} className={cx('rounded-card border-2 bg-surface px-5 py-4 text-start', goal === value ? 'border-accent' : 'border-line')}>
+                <span className="block text-lg font-bold">{t(`app.goal.${value}`)}</span>
+                <span className="block text-sm text-muted">{t(`app.goal.${value}Hint`)}</span>
+              </button>
+            ))}
+          </div>
+          <div className="mt-2 rounded-card border border-line bg-surface p-4">
+            <p className="mb-1 font-semibold">{t('app.days.title')}</p>
+            <p className="mb-3 text-sm text-muted">{t('app.days.hint')}</p>
+            <DayPicker value={days} onChange={setDays} />
           </div>
         </section>
       )}

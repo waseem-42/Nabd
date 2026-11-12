@@ -60,6 +60,7 @@ describe('routineFit / templateFit', () => {
       place: 'home',
       level: 'beginner',
       daysPerWeek: 2,
+      weeks: 8,
       days: [
         { name: { en: 'A', ar: 'A' }, items: [{ exerciseId: 'push-up', sets: 3 }] },
         { name: { en: 'B', ar: 'B' }, items: [{ exerciseId: 'db-bench', sets: 3 }] },

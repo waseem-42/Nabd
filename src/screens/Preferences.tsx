@@ -1,14 +1,17 @@
 import { useRef, useState, type ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Download, ExternalLink, Flame, Languages, Minus, Plus, Sun, Timer, TriangleAlert, Upload, Vibrate, Volume2, Weight } from 'lucide-react'
+import { CalendarPlus, Download, ExternalLink, Flame, Languages, Minus, Plus, Sun, Target, Timer, TriangleAlert, Upload, Vibrate, Volume2, Weight } from 'lucide-react'
 import { BackupError, downloadBackup, exportBackup, importBackup, readBackupFile, upsertBodyWeight, useBodyWeights, useDoneSessions } from '@/db'
 import { fmtClock, fmtDate, isoDay } from '@/i18n/format'
 import { BodyProfileForm } from './parts/BodyProfileForm'
 import { useLang, useT } from '@/i18n'
 import { useSettings } from '@/store/settings'
-import type { Lang, Unit } from '@/types'
+import type { Goal, Lang, Unit } from '@/types'
 import { Brand, Button, Card, Chip, ConfirmDialog, IconButton, ListRow, Screen, Section, Segmented, Toggle, cx, useToast } from '@/ui'
 import { HomeGearPicker } from './parts/HomeGearPicker'
+import { DayPicker } from './parts/DayPicker'
+import { downloadReminder, reminderCalendar } from '@/app/calendar'
+import { GOAL_REST } from '@/domain/goal'
 
 const REST_PRESETS = [15, 30, 45, 60, 90, 120]
 const BACKUP_KEY = 'nabd-last-backup'
@@ -87,6 +90,47 @@ export default function Preferences() {
 
   return (
     <Screen title={t('app.settings')} onBack={() => navigate(-1)}>
+      <Section title={t('app.planSettings')}>
+        <Card padded={false} className="divide-y divide-line overflow-hidden">
+          <div className="p-4">
+            <div className="mb-3 flex items-center gap-3">
+              <RowIcon tone="accent"><Target className="size-5" /></RowIcon>
+              <p className="min-w-0 flex-1 text-base font-semibold text-text">{t('app.goal.setting')}</p>
+            </div>
+            <Segmented<Goal>
+              label={t('app.goal.setting')}
+              value={settings.goal}
+              onChange={(goal) => {
+                settings.set({ goal, restSec: GOAL_REST[goal] })
+                toast(t('app.goal.restNote', { rest: fmtClock(GOAL_REST[goal]) }))
+              }}
+              options={(['strength', 'muscle', 'fitness'] as const).map((value) => ({ value, label: t(`app.goal.${value}`) }))}
+            />
+            <p className="mt-2 text-sm text-muted">{t(`app.goal.${settings.goal}Hint`)}</p>
+          </div>
+          <div className="p-4">
+            <p className="text-base font-semibold text-text">{t('app.days.title')}</p>
+            <p className="mb-3 text-sm text-muted">{t('app.days.hint')}</p>
+            <DayPicker value={settings.trainingDays} onChange={(trainingDays) => settings.set({ trainingDays })} />
+            <label className="mt-4 flex items-center justify-between gap-3">
+              <span className="text-sm text-muted">{t('app.days.time')}</span>
+              <input type="time" value={settings.reminderTime} onChange={(e) => e.target.value && settings.set({ reminderTime: e.target.value })} className="min-h-11 rounded-control border border-line bg-bg px-3 text-text tabular-nums" dir="ltr" />
+            </label>
+            <Button
+              variant="secondary"
+              fullWidth
+              className="mt-3"
+              icon={<CalendarPlus className="size-5" />}
+              disabled={!settings.trainingDays.length}
+              onClick={() => downloadReminder(reminderCalendar(settings.trainingDays, settings.reminderTime, t('app.days.event')))}
+            >
+              {t('app.days.calendar')}
+            </Button>
+            <p className="mt-2 text-xs text-faint">{t('app.days.calendarHint')}</p>
+          </div>
+        </Card>
+      </Section>
+
       <Section title={t('settings.workout')}>
         <Card padded={false} className="divide-y divide-line overflow-hidden">
           <div className="p-4">

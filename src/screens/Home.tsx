@@ -1,19 +1,19 @@
 import { useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Play, RotateCw, Zap } from 'lucide-react'
+import { ArrowUpRight, Feather, Play, Repeat, RotateCw, Trophy, Zap } from 'lucide-react'
 import { routes } from '@/app/routes'
 import { useNow } from '@/app/useNow'
-import { startProgramFromTemplate, useActiveProgram, useAllExercises, useDoneSessions } from '@/db'
+import { restartProgram, startProgramFromTemplate, useActiveProgram, useAllExercises, useDoneSessions } from '@/db'
 import { muscleReadiness } from '@/domain/recovery'
-import { PROGRAM_TEMPLATES } from '@/data/catalog'
+import { PROGRAM_TEMPLATES, PROGRAM_TEMPLATE_BY_ID } from '@/data/catalog'
 import { routineMinutes, weekSummary } from '@/domain/progress'
-import { nextRoutine, planPosition } from '@/domain/session'
+import { nextRoutine, planPosition, type PlanPosition } from '@/domain/session'
 import { pick, useLang, useT } from '@/i18n'
 import { fmtClock, isoDay } from '@/i18n/format'
 import { sessionDurationSec } from '@/domain/progress'
 import { useWorkout } from '@/store/session'
 import { useSettings } from '@/store/settings'
-import type { ProgramTemplate, RoutineItem, WorkoutSession } from '@/types'
+import type { ProgramTemplate, RoutineItem, UserProgram, WorkoutSession } from '@/types'
 import { Button, MuscleGroupIcon, WeekDots, cx } from '@/ui'
 import { MotionThumb } from '@/ui/MotionThumb'
 import { useFormat } from './parts/useFormat'
@@ -33,16 +33,23 @@ export default function Home() {
   const [starting, setStarting] = useState(false)
 
   const next = useMemo(() => (plan && sessions ? nextRoutine(plan.program, plan.routines, sessions) : null), [plan, sessions])
-  const position = useMemo(() => (plan && sessions ? planPosition(plan.program, plan.routines, sessions, now) : null), [plan, sessions, now])
+  const position = useMemo(() => {
+    if (!plan || !sessions) return null
+    // Programs started before blocks existed take the length from their template.
+    const weeks = plan.program.weeks ?? (plan.program.templateId ? PROGRAM_TEMPLATE_BY_ID.get(plan.program.templateId)?.weeks : undefined) ?? null
+    return planPosition(plan.program, plan.routines, sessions, now, weeks)
+  }, [plan, sessions, now])
   const placeSessions = useMemo(() => (sessions ?? []).filter((s) => s.place === place), [sessions, place])
   const week = useMemo(() => weekSummary(placeSessions, now), [placeSessions, now])
-  const goal = Math.min(7, Math.max(1, plan?.routines.length || 3))
+  const trainingDays = useSettings((s) => s.trainingDays)
+  const goal = Math.min(7, Math.max(1, trainingDays.length || plan?.routines.length || 3))
+  const trainedToday = week.days.some((d) => d.day === isoDay(now) && d.trained)
 
   async function start() {
     if (!next || !plan) return
     setStarting(true)
     try {
-      await startWorkout({ routine: next, programId: plan.program.id })
+      await startWorkout({ routine: next, programId: plan.program.id, deload: !!position?.deload })
     } finally {
       setStarting(false)
     }
@@ -60,7 +67,9 @@ export default function Home() {
         </Link>
       )}
 
-      {plan === undefined ? null : plan && next ? (
+      {plan === undefined ? null : plan && position?.finished && !active ? (
+        <ProgramDone program={plan.program} position={position} />
+      ) : plan && next ? (
         <section className="overflow-hidden rounded-card border border-line bg-surface" aria-labelledby="today-title">
           <div className="flex items-start justify-between gap-3 px-5 pt-5">
             <div className="min-w-0">
@@ -71,7 +80,8 @@ export default function Home() {
               </p>
               {position && (
                 <p className="mt-1 text-sm font-semibold text-accent">
-                  {t('app.position', { day: fmt.number(position.day), total: fmt.number(position.total), week: fmt.number(position.week) })}
+                  {t('app.dayOf', { n: fmt.number(position.day), total: fmt.number(position.total) })} ·{' '}
+                  {position.weeks ? t('app.weekOf', { week: fmt.number(position.week), weeks: fmt.number(position.weeks) }) : t('app.weekN', { week: fmt.number(position.week) })}
                 </p>
               )}
             </div>
@@ -79,6 +89,12 @@ export default function Home() {
               <RotateCw className="size-3.5" aria-hidden />{t('app.changePlan')}
             </Link>
           </div>
+          {position?.deload && (
+            <p className="mx-5 mt-3 flex items-start gap-2 rounded-control bg-ok-soft px-3 py-2 text-sm text-ok">
+              <Feather className="mt-0.5 size-4 shrink-0" aria-hidden />
+              <span><span className="font-bold">{t('app.deload')}: </span>{t('app.deloadHint')}</span>
+            </p>
+          )}
           <ExerciseStrip items={next.items} />
           <div className="px-5 pb-5">
             {active ? null : (
@@ -94,7 +110,14 @@ export default function Home() {
 
       <section className="flex items-center gap-4 rounded-card border border-line bg-surface px-4 py-3">
         <div className="min-w-0 flex-1">
-          <p className="mb-2 text-sm font-semibold">{t('app.week', { n: fmt.number(week.count), goal: fmt.number(goal) })}</p>
+          <div className="mb-2 flex items-baseline justify-between gap-2">
+            <p className="text-sm font-semibold">{t('app.week', { n: fmt.number(week.count), goal: fmt.number(goal) })}</p>
+            {trainingDays.length > 0 && !trainedToday && (
+              <p className={cx('text-xs font-semibold', trainingDays.includes(new Date(now).getDay()) ? 'text-accent' : 'text-faint')}>
+                {t(trainingDays.includes(new Date(now).getDay()) ? 'app.days.today' : 'app.days.rest')}
+              </p>
+            )}
+          </div>
           <WeekDots today={isoDay(now)} trainedDays={week.days.filter((d) => d.trained).map((d) => d.day)} />
         </div>
       </section>
@@ -107,6 +130,54 @@ export default function Home() {
         </button>
       )}
     </div>
+  )
+}
+
+/** The block is over: repeat it, or move up to the next program. */
+function ProgramDone({ program, position }: { program: UserProgram; position: PlanPosition }) {
+  const t = useT()
+  const lang = useLang()
+  const fmt = useFormat()
+  const [busy, setBusy] = useState<'repeat' | 'next' | null>(null)
+  const template = program.templateId ? PROGRAM_TEMPLATE_BY_ID.get(program.templateId) : undefined
+  const next = template?.next ? PROGRAM_TEMPLATE_BY_ID.get(template.next) : undefined
+  const records = position.sessions.reduce((n, s) => n + (s.prs?.length ?? 0), 0)
+
+  async function run(kind: 'repeat' | 'next') {
+    setBusy(kind)
+    try {
+      if (kind === 'next' && next) await startProgramFromTemplate(next.id, lang)
+      else await restartProgram(program.id)
+    } finally {
+      setBusy(null)
+    }
+  }
+
+  return (
+    <section className="rounded-card border border-accent/40 bg-accent-soft p-5" aria-labelledby="done-title">
+      <Trophy className="mb-2 size-9 text-accent" aria-hidden />
+      <h1 id="done-title" className="text-2xl font-bold">{t('app.done.title', { name: program.name })}</h1>
+      <p className="mt-1 text-muted">
+        {t('app.done.body', { n: fmt.number(position.sessions.length), weeks: fmt.number(position.weeks ?? 0) })}
+        {records > 0 && ` ${t('app.done.records', { n: fmt.number(records) })}`}
+      </p>
+      <div className="mt-5 flex flex-col gap-3">
+        {next && (
+          <div>
+            <Button fullWidth size="lg" icon={<ArrowUpRight className="size-5" />} loading={busy === 'next'} onClick={() => void run('next')}>
+              {t('app.done.next', { name: pick(next.name, lang) })}
+            </Button>
+            <p className="mt-1.5 text-center text-xs text-muted">{t('app.done.nextHint', { desc: pick(next.description, lang) })}</p>
+          </div>
+        )}
+        <div>
+          <Button fullWidth size="lg" variant={next ? 'secondary' : 'primary'} icon={<Repeat className="size-5" />} loading={busy === 'repeat'} onClick={() => void run('repeat')}>
+            {t('app.done.repeat')}
+          </Button>
+          <p className="mt-1.5 text-center text-xs text-muted">{t('app.done.repeatHint')}</p>
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -214,7 +285,7 @@ function PlanCard({ template, busy, onFollow }: { template: ProgramTemplate; bus
           <h2 className="text-lg font-bold">{pick(template.name, lang)}</h2>
           <p className="text-sm text-muted">{pick(template.description, lang)}</p>
           <p className={cx('mt-1 text-xs font-semibold', template.place === 'home' ? 'text-home' : 'text-gym')}>
-            {t('app.daysPerWeek', { n: fmt.number(template.daysPerWeek) })} · {t(`app.level.${template.level === 'beginner' ? 'beginner' : 'intermediate'}`)}
+            {t('app.daysPerWeek', { n: fmt.number(template.daysPerWeek) })} · {t(`app.level.${template.level}`)}
           </p>
         </div>
         <Button size="md" loading={busy} onClick={onFollow}>{t('app.follow')}</Button>

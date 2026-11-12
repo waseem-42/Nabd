@@ -102,13 +102,26 @@ describe('program templates', () => {
     }
   })
 
+  it('runs in 8-week blocks and points to a real next program at the same place', () => {
+    const ids = new Map(programs.map((p) => [p.id, p]))
+    for (const p of programs) {
+      expect(p.weeks, p.id).toBe(8)
+      if (p.next) expect(ids.get(p.next)?.place, `${p.id} → ${p.next}`).toBe(p.place)
+    }
+    expect(programs.filter((p) => !p.next).every((p) => p.level === 'advanced')).toBe(true)
+  })
+
+  it('offers every level at both places', () => {
+    for (const place of ['home', 'gym']) for (const level of LEVELS) expect(programs.some((p) => p.place === place && p.level === level), `${place}/${level}`).toBe(true)
+  })
+
   it('marks a program as home only when it needs no gym equipment', () => {
     for (const p of programs) {
       const equipment = new Set(p.days.flatMap((d) => d.items.map((it) => byId.get(it.exerciseId)!.equipment)))
       if (p.place === 'gym') expect(equipment.size, p.id).toBeGreaterThan(0)
       else {
         // home programs are bodyweight, except the one that is explicitly a dumbbell program
-        const allowed = p.id === 'home-dumbbell' ? ['bodyweight', 'dumbbell'] : ['bodyweight']
+        const allowed = p.id.startsWith('home-dumbbell') ? ['bodyweight', 'dumbbell'] : ['bodyweight']
         for (const eq of equipment) expect(allowed, `${p.id} uses ${eq}`).toContain(eq)
       }
     }

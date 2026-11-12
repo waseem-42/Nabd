@@ -69,7 +69,7 @@ afterEach(() => {
 })
 
 describe('setup', () => {
-  it('asks where, what gear and which level, then follows a matching plan', async () => {
+  it('asks where, what gear, which level and what goal, then follows a matching plan', async () => {
     useSettings.getState().set({ onboarded: false })
     await render(routes.today)
     expect(window.location.pathname).toBe(routes.onboarding)
@@ -80,6 +80,9 @@ describe('setup', () => {
     click(byText('Dumbbells'))
     click(byText('Next'))
     await waitForText('Your level?')
+    click(byText('Next'))
+    await waitForText('What’s your goal?')
+    click(byText('Strength'))
     click(byText('Let’s go'))
     await settle(10)
 
@@ -87,7 +90,11 @@ describe('setup', () => {
     expect(settings.onboarded).toBe(true)
     expect(settings.place).toBe('home')
     expect(settings.homeEquipment).toEqual(expect.arrayContaining(['bodyweight', 'dumbbell']))
-    expect((await getProgram(settings.homeProgramId!))?.templateId).toBe('home-dumbbell')
+    expect(settings.goal).toBe('strength')
+    expect(settings.restSec).toBe(120)
+    const program = await getProgram(settings.homeProgramId!)
+    expect(program?.templateId).toBe('home-dumbbell')
+    expect(program?.weeks).toBe(8)
     expect(window.location.pathname).toBe(routes.today)
   })
 })

@@ -18,6 +18,8 @@ export interface StartOptions {
   routine?: Routine
   programId?: string
   name?: string
+  /** The program is in its deload week. */
+  deload?: boolean
 }
 
 interface WorkoutStore {
@@ -75,6 +77,7 @@ async function prefillContext(): Promise<ops.PrefillContext> {
     history,
     defaultRestSec: settings.restSec,
     autoWarmup: settings.autoWarmup,
+    goal: settings.goal,
     profile: { kg: weights.at(-1)?.kg ?? null, heightCm: settings.heightCm, level: settings.level, unit: settings.unit },
   }
 }
@@ -111,7 +114,7 @@ export const useWorkout = create<WorkoutStore>()(
 
         start: async (opts = {}) => {
           if (get().session) throw new Error('A workout session is already active')
-          const session = ops.createSession({ ...opts, place: getSettings().place }, await prefillContext())
+          const session = ops.createSession({ ...opts, place: getSettings().place }, { ...(await prefillContext()), deload: !!opts.deload })
           set({ session, rest: null })
           await persistSession(session)
           return session

@@ -3,6 +3,7 @@ import { MUSCLE_TO_GROUP } from '@/types'
 import type {
   ExerciseLookup,
   ExerciseMode,
+  Goal,
   LoggedSet,
   Place,
   Routine,
@@ -11,7 +12,8 @@ import type {
   UserProgram,
   WorkoutSession,
 } from '@/types'
-import { type BodyProfile, progressSets, suggestStartWeight, wantsWarmup, warmupSets } from './loading'
+import { deloadItem, itemForGoal } from './goal'
+import { type BodyProfile, progressSets, roundLoad, suggestStartWeight, wantsWarmup, warmupSets } from './loading'
 import { detectPRs, lastPerformance, startOfWeek } from './progress'
 
 /*
@@ -30,6 +32,10 @@ export interface PrefillContext {
   profile?: BodyProfile
   /** Prepend ramp-up sets to the first heavy lift of each muscle group in a new session. */
   autoWarmup?: boolean
+  /** Adjusts a routine's targets when a session is created (default: muscle, as written). */
+  goal?: Goal
+  /** The program's deload week: fewer sets and about 10% lighter. */
+  deload?: boolean
 }
 
 /** Rest after a ramp-up set: they're light, so waiting the full working rest wastes time. */
@@ -62,7 +68,8 @@ function prefillSets(
   ctx: PrefillContext,
 ): { sets: LoggedSet[]; source?: SessionEntry['prefill'] } {
   const exercise = ctx.lookup(exerciseId)
-  const last = lastPerformance(ctx.history, exerciseId)?.sets
+  // Deload sessions are light on purpose; progress continues from the last normal one.
+  const last = (lastPerformance(ctx.history.filter((s) => !s.deload), exerciseId) ?? lastPerformance(ctx.history, exerciseId))?.sets
   if (last?.length) {
     const progressed = exercise && ctx.profile ? progressSets(last, exercise, item?.reps, ctx.profile.unit) : null
     const base = progressed ?? last
@@ -124,8 +131,14 @@ export function createSession(opts: NewSessionOptions, ctx: PrefillContext): Wor
     place: opts.place,
     name: opts.name ?? opts.routine?.name ?? '',
     startedAt: opts.now ?? Date.now(),
-    entries: (opts.routine?.items ?? []).map((item) => buildEntry(item.exerciseId, ctx, item)),
+    entries: (opts.routine?.items ?? []).map((raw) => {
+      let item = itemForGoal(raw, ctx.lookup(raw.exerciseId), ctx.goal ?? 'muscle')
+      if (ctx.deload) item = deloadItem(item)
+      const entry = buildEntry(item.exerciseId, ctx, item)
+      return ctx.deload && opts.routine ? lighten(entry, ctx) : entry
+    }),
   }
+  if (ctx.deload && opts.routine) session.deload = true
   if (ctx.autoWarmup) {
     // Only the first heavy lift per muscle group: later ones are already warm.
     const warmed = new Set<string>()
@@ -141,6 +154,22 @@ export function createSession(opts: NewSessionOptions, ctx: PrefillContext): Wor
   if (opts.routine) session.routineId = opts.routine.id
   if (opts.programId) session.programId = opts.programId
   return session
+}
+
+/** Deload: about 10% less weight (rounded down to a loadable step), or a quarter fewer reps without load. */
+function lighten(entry: SessionEntry, ctx: PrefillContext): SessionEntry {
+  const exercise = ctx.lookup(entry.exerciseId)
+  if (!exercise || exercise.mode !== 'reps') return entry
+  const unit = ctx.profile?.unit ?? 'kg'
+  return {
+    ...entry,
+    prefill: 'deload',
+    sets: entry.sets.map((s) =>
+      s.weight > 0
+        ? { ...s, weight: roundLoad(s.weight * 0.9, exercise.equipment, unit, 'down') }
+        : { ...s, reps: Math.max(1, Math.round(s.reps * 0.75)) },
+    ),
+  }
 }
 
 // ── Entries ─────────────────────────────────────────────────────────────────────────────────
@@ -197,6 +226,26 @@ export function swapExercise(
     delete next.prefill
     if (original === exerciseId) delete next.swappedFrom
     else next.swappedFrom = original
+    return next
+  })
+}
+
+/**
+ * A routine's items with `from` replaced by `to` for good (the "always" answer to a swap).
+ * Sets and rest stay; the target switches between reps and seconds if the new move is measured differently.
+ */
+export function replaceInRoutine(items: RoutineItem[], from: string, to: string, lookup: ExerciseLookup): RoutineItem[] {
+  const timed = (lookup(to)?.mode ?? 'reps') !== 'reps'
+  return items.map((item) => {
+    if (item.exerciseId !== from) return item
+    const next: RoutineItem = { ...item, exerciseId: to }
+    if (timed && next.sec === undefined) {
+      delete next.reps
+      next.sec = 30
+    } else if (!timed && next.reps === undefined) {
+      delete next.sec
+      next.reps = 10
+    }
     return next
   })
 }
@@ -316,20 +365,45 @@ export interface PlanPosition {
   /** 1-based position of the next routine in the rotation. */
   day: number
   total: number
-  /** 1-based week since the first finished workout of this program (1 before any). */
+  /** 1-based calendar week since the first workout of the current block (1 before any). */
   week: number
+  /** Block length, or null for an open-ended program. */
+  weeks: number | null
+  /** The block's last week, done lighter. */
+  deload: boolean
+  /** Every week of the block is behind: time to repeat it or move up. */
+  finished: boolean
+  /** Finished workouts of this program in the current block. */
+  sessions: WorkoutSession[]
 }
 
-/** Where the user stands in the program: "Day 2 of 3 · Week 4". null without routines. */
-export function planPosition(program: UserProgram, routines: Routine[], doneSessions: WorkoutSession[], now = Date.now()): PlanPosition | null {
+/**
+ * Where the user stands in the program: "Day 2 of 3 · Week 4 of 8". Weeks count from the first
+ * workout on or after `cycleStart`, so restarting a block starts again at week 1. null without routines.
+ */
+export function planPosition(
+  program: UserProgram,
+  routines: Routine[],
+  doneSessions: WorkoutSession[],
+  now = Date.now(),
+  weeks: number | null = program.weeks ?? null,
+): PlanPosition | null {
   const next = nextRoutine(program, routines, doneSessions)
   if (!next) return null
   const known = new Set(routines.map((r) => r.id))
   const order = program.routineIds.filter((id) => known.has(id))
-  let first: number | null = null
-  for (const s of doneSessions) {
-    if (s.status === 'done' && s.programId === program.id && (first === null || s.startedAt < first)) first = s.startedAt
+  const since = program.cycleStart ?? 0
+  const sessions = doneSessions.filter((s) => s.status === 'done' && s.programId === program.id && s.startedAt >= since)
+  const first = sessions.length ? Math.min(...sessions.map((s) => s.startedAt)) : null
+  const elapsed = first === null ? 0 : Math.round((startOfWeek(now).getTime() - startOfWeek(first).getTime()) / (7 * 86_400_000))
+  const week = Math.max(0, elapsed) + 1
+  return {
+    day: order.indexOf(next.id) + 1,
+    total: order.length,
+    week,
+    weeks,
+    deload: weeks !== null && week === weeks,
+    finished: weeks !== null && week > weeks,
+    sessions,
   }
-  const weeks = first === null ? 0 : Math.round((startOfWeek(now).getTime() - startOfWeek(first).getTime()) / (7 * 86_400_000))
-  return { day: order.indexOf(next.id) + 1, total: order.length, week: Math.max(0, weeks) + 1 }
 }

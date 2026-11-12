@@ -5,18 +5,18 @@ import { routes } from '@/app/routes'
 import { unlockAudio, vibrate } from '@/app/feedback'
 import { useNow } from '@/app/useNow'
 import { useWakeLock } from '@/app/useWakeLock'
-import { useAllExercises, useDoneSessions } from '@/db'
+import { getRoutine, updateRoutine, useAllExercises, useDoneSessions } from '@/db'
 import { animatedFor } from '@/domain/animated'
 import { bodyweightShare, platesPerSide } from '@/domain/loading'
 import { alternativesFor } from '@/domain/place'
 import { lastPerformance, sessionDurationSec } from '@/domain/progress'
-import { hasDoneSets } from '@/domain/session'
+import { hasDoneSets, replaceInRoutine } from '@/domain/session'
 import { useLang, useT } from '@/i18n'
 import { fmtClock, kgToUnit, unitToKg } from '@/i18n/format'
 import { useWorkout } from '@/store/session'
 import { useSettings } from '@/store/settings'
 import type { Exercise, LoggedSet, WorkoutSession } from '@/types'
-import { Button, ConfirmDialog, ExercisePickerSheet, IconButton, Sheet, Stepper, cx } from '@/ui'
+import { Button, ConfirmDialog, ExercisePickerSheet, IconButton, Sheet, Stepper, cx, useToast } from '@/ui'
 import { MotionThumb } from '@/ui/MotionThumb'
 import { ExerciseInfoSheet } from './parts/ExerciseInfoSheet'
 import { RestPanel } from './parts/RestPanel'
@@ -61,6 +61,8 @@ function Focus({ session, onLeave }: { session: WorkoutSession; onLeave: () => v
   const [confirm, setConfirm] = useState<Confirm | null>(null)
   const [safety, setSafety] = useState(false)
   const [busy, setBusy] = useState(false)
+  const [swapped, setSwapped] = useState<{ from: string; to: string } | null>(null)
+  const toast = useToast()
   // The warm-up is the first step of every new workout until it is finished or skipped.
   const [warming, setWarming] = useState(() => !session.entries.some((e) => e.sets.some((s) => s.done)) && !warmupDone(session.id))
 
@@ -109,10 +111,25 @@ function Focus({ session, onLeave }: { session: WorkoutSession; onLeave: () => v
     await store.discard()
     navigate(routes.today, { replace: true })
   }
+  /** Swaps the current exercise, then asks whether the plan should change too. */
+  async function swapTo(id: string) {
+    const from = entry ? (entry.swappedFrom ?? entry.exerciseId) : null
+    await store.swapExercise(index, id)
+    if (from && from !== id && session.routineId) setSwapped({ from, to: id })
+  }
+  async function keepSwap() {
+    const change = swapped
+    setSwapped(null)
+    if (!change || !session.routineId) return
+    const routine = await getRoutine(session.routineId)
+    if (!routine) return
+    await updateRoutine(routine.id, { items: replaceInRoutine(routine.items, change.from, change.to, byId) })
+    toast(t('app.swap.saved'), { tone: 'ok' })
+  }
   async function picked(next: Exercise) {
     const mode$ = picker
     setPicker(null)
-    if (mode$?.kind === 'swap') await store.swapExercise(index, next.id)
+    if (mode$?.kind === 'swap') await swapTo(next.id)
     else {
       await store.addExercise(next.id)
       go(useWorkout.getState().session!.entries.length - 1)
@@ -209,7 +226,7 @@ function Focus({ session, onLeave }: { session: WorkoutSession; onLeave: () => v
                           type="button"
                           onClick={() => done(s)}
                           aria-pressed={set.done}
-                          aria-label={t('workout.setDone')}
+                          aria-label={set.kind === 'warmup' ? `${t('common.warmup')} · ${t('workout.setDone', { n: fmt.number(s + 1) })}` : t('workout.setDone', { n: fmt.number(entry.sets.slice(0, s + 1).filter((x) => x.kind !== 'warmup').length) })}
                           className={cx('flex size-11 shrink-0 items-center justify-center rounded-full border-2', set.done ? 'border-ok bg-ok text-ok-ink' : 'border-line-strong text-muted')}
                         >
                           <Check className="size-5" aria-hidden />
@@ -291,7 +308,7 @@ function Focus({ session, onLeave }: { session: WorkoutSession; onLeave: () => v
               <p className="flex items-center gap-2 text-sm text-muted"><Repeat2 className="size-4" aria-hidden />{t('workout.swapTitle')}</p>
               <div className="mb-2 grid grid-cols-3 gap-2">
                 {alternatives.slice(0, 3).map((alt) => (
-                  <button key={alt.id} type="button" onClick={() => { setMenu(false); void store.swapExercise(index, alt.id) }} className="overflow-hidden rounded-control border border-line text-start">
+                  <button key={alt.id} type="button" onClick={() => { setMenu(false); void swapTo(alt.id) }} className="overflow-hidden rounded-control border border-line text-start">
                     <MotionThumb exerciseId={alt.id} name={fmt.exerciseName(alt.id)} still className="aspect-square w-full" />
                     <span className="line-clamp-2 block p-2 text-xs font-semibold">{fmt.exerciseName(alt.id)}</span>
                   </button>
@@ -318,6 +335,13 @@ function Focus({ session, onLeave }: { session: WorkoutSession; onLeave: () => v
         excludeIds={session.entries.map((e) => e.exerciseId)}
         recentIds={recentIds}
       />
+      <Sheet open={!!swapped} onClose={() => setSwapped(null)} title={t('app.swap.title')}>
+        {swapped && <p className="mb-4 text-muted">{t('app.swap.body', { from: fmt.exerciseName(swapped.from), to: fmt.exerciseName(swapped.to) })}</p>}
+        <div className="flex flex-col gap-2">
+          <Button fullWidth onClick={() => void keepSwap()}>{t('app.swap.always')}</Button>
+          <Button fullWidth variant="secondary" onClick={() => setSwapped(null)}>{t('app.swap.once')}</Button>
+        </div>
+      </Sheet>
       <ExerciseInfoSheet exercise={info} onClose={() => setInfo(null)} />
       <WorkoutSafetySheet open={safety} onClose={() => setSafety(false)} onFinish={() => void finish()} busy={busy} />
 

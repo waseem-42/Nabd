@@ -12,6 +12,8 @@
     "place": "home",
     "level": "beginner",
     "daysPerWeek": 3,
+    "weeks": 8,
+    "next": "home",
     "days": [
       {
         "name": {
@@ -127,6 +129,8 @@
     "place": "home",
     "level": "intermediate",
     "daysPerWeek": 4,
+    "weeks": 8,
+    "next": "home-advanced",
     "days": [
       {
         "name": {
@@ -265,6 +269,8 @@
     "place": "home",
     "level": "beginner",
     "daysPerWeek": 3,
+    "weeks": 8,
+    "next": "home-dumbbell-plus",
     "days": [
       {
         "name": {
@@ -380,6 +386,8 @@
     "place": "gym",
     "level": "beginner",
     "daysPerWeek": 3,
+    "weeks": 8,
+    "next": "upperlower",
     "days": [
       {
         "name": {
@@ -495,6 +503,8 @@
     "place": "gym",
     "level": "intermediate",
     "daysPerWeek": 3,
+    "weeks": 8,
+    "next": "gym-advanced",
     "days": [
       {
         "name": {
@@ -610,6 +620,8 @@
     "place": "gym",
     "level": "intermediate",
     "daysPerWeek": 4,
+    "weeks": 8,
+    "next": "gym-advanced",
     "days": [
       {
         "name": {
@@ -740,6 +752,538 @@
             "exerciseId": "dead-bug",
             "sets": 3,
             "reps": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "home-advanced",
+    "name": {
+      "ar": "البيت المتقدم",
+      "en": "Advanced home"
+    },
+    "description": {
+      "ar": "4 أيام بوزن جسمك، فيها الوقوف على اليدين.",
+      "en": "Four bodyweight days, handstand work included."
+    },
+    "place": "home",
+    "level": "advanced",
+    "daysPerWeek": 4,
+    "weeks": 8,
+    "days": [
+      {
+        "name": {
+          "ar": "دفع",
+          "en": "Push"
+        },
+        "items": [
+          {
+            "exerciseId": "wall-handstand-push-up",
+            "sets": 4,
+            "reps": 5
+          },
+          {
+            "exerciseId": "feet-elevated-pike-push-up",
+            "sets": 3,
+            "reps": 8
+          },
+          {
+            "exerciseId": "x6KpKpq",
+            "sets": 4,
+            "reps": 12
+          },
+          {
+            "exerciseId": "wide-push-up",
+            "sets": 3,
+            "reps": 15
+          },
+          {
+            "exerciseId": "side-plank-hold",
+            "sets": 3,
+            "sec": 45
+          }
+        ]
+      },
+      {
+        "name": {
+          "ar": "أرجل",
+          "en": "Legs"
+        },
+        "items": [
+          {
+            "exerciseId": "9E25EOx",
+            "sets": 4,
+            "reps": 15
+          },
+          {
+            "exerciseId": "single-leg-glute-bridge",
+            "sets": 4,
+            "reps": 12
+          },
+          {
+            "exerciseId": "0jp9Rlz",
+            "sets": 4,
+            "reps": 15
+          },
+          {
+            "exerciseId": "6YUfHPL",
+            "sets": 3,
+            "reps": 25
+          },
+          {
+            "exerciseId": "mountain-climber",
+            "sets": 3,
+            "reps": 30
+          }
+        ]
+      },
+      {
+        "name": {
+          "ar": "ظهر",
+          "en": "Back"
+        },
+        "items": [
+          {
+            "exerciseId": "superman",
+            "sets": 4,
+            "reps": 15
+          },
+          {
+            "exerciseId": "reverse-snow-angel",
+            "sets": 3,
+            "reps": 12
+          },
+          {
+            "exerciseId": "prone-t-raise",
+            "sets": 3,
+            "reps": 15
+          },
+          {
+            "exerciseId": "crab-walk",
+            "sets": 3,
+            "reps": 30
+          },
+          {
+            "exerciseId": "dead-bug",
+            "sets": 3,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": {
+          "ar": "جسم كامل",
+          "en": "Full body"
+        },
+        "items": [
+          {
+            "exerciseId": "I4hDWkc",
+            "sets": 4,
+            "reps": 15
+          },
+          {
+            "exerciseId": "chair-dip",
+            "sets": 4,
+            "reps": 15
+          },
+          {
+            "exerciseId": "9E25EOx",
+            "sets": 3,
+            "reps": 15
+          },
+          {
+            "exerciseId": "single-leg-glute-bridge",
+            "sets": 3,
+            "reps": 12
+          },
+          {
+            "exerciseId": "plank-hold",
+            "sets": 3,
+            "sec": 60
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "home-dumbbell-plus",
+    "name": {
+      "ar": "البيت بالدمبل — متوسط",
+      "en": "Home dumbbells, intermediate"
+    },
+    "description": {
+      "ar": "4 أيام: علوي وسفلي بالدمبل.",
+      "en": "Four days of upper and lower body with dumbbells."
+    },
+    "place": "home",
+    "level": "intermediate",
+    "daysPerWeek": 4,
+    "weeks": 8,
+    "next": "home-advanced",
+    "days": [
+      {
+        "name": {
+          "ar": "علوي",
+          "en": "Upper"
+        },
+        "items": [
+          {
+            "exerciseId": "3d7wHyd",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "BJ0Hz5L",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "I4hDWkc",
+            "sets": 3,
+            "reps": 12
+          },
+          {
+            "exerciseId": "DsgkuIt",
+            "sets": 3,
+            "reps": 15
+          },
+          {
+            "exerciseId": "NbVPDMW",
+            "sets": 3,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": {
+          "ar": "سفلي",
+          "en": "Lower"
+        },
+        "items": [
+          {
+            "exerciseId": "yn8yg1r",
+            "sets": 4,
+            "reps": 12
+          },
+          {
+            "exerciseId": "reverse-lunge",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "single-leg-glute-bridge",
+            "sets": 3,
+            "reps": 12
+          },
+          {
+            "exerciseId": "0jp9Rlz",
+            "sets": 3,
+            "reps": 15
+          },
+          {
+            "exerciseId": "plank-hold",
+            "sets": 3,
+            "sec": 45
+          }
+        ]
+      },
+      {
+        "name": {
+          "ar": "علوي 2",
+          "en": "Upper 2"
+        },
+        "items": [
+          {
+            "exerciseId": "BJ0Hz5L",
+            "sets": 4,
+            "reps": 12
+          },
+          {
+            "exerciseId": "pike-push-up",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "x6KpKpq",
+            "sets": 3,
+            "reps": 12
+          },
+          {
+            "exerciseId": "NbVPDMW",
+            "sets": 3,
+            "reps": 12
+          },
+          {
+            "exerciseId": "chair-dip",
+            "sets": 3,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": {
+          "ar": "سفلي 2",
+          "en": "Lower 2"
+        },
+        "items": [
+          {
+            "exerciseId": "reverse-lunge",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "yn8yg1r",
+            "sets": 3,
+            "reps": 15
+          },
+          {
+            "exerciseId": "glute-bridge",
+            "sets": 4,
+            "reps": 15
+          },
+          {
+            "exerciseId": "mountain-climber",
+            "sets": 3,
+            "reps": 20
+          },
+          {
+            "exerciseId": "side-plank-hold",
+            "sets": 3,
+            "sec": 30
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gym-advanced",
+    "name": {
+      "ar": "النادي المتقدم",
+      "en": "Advanced gym"
+    },
+    "description": {
+      "ar": "4 أيام: دفع، سحب، أرجل، وجسم كامل. أوزان ثقيلة.",
+      "en": "Four days: push, pull, legs and full body. Heavy work."
+    },
+    "place": "gym",
+    "level": "advanced",
+    "daysPerWeek": 4,
+    "weeks": 8,
+    "days": [
+      {
+        "name": {
+          "ar": "دفع",
+          "en": "Push"
+        },
+        "items": [
+          {
+            "exerciseId": "EIeI8Vf",
+            "sets": 5,
+            "reps": 5
+          },
+          {
+            "exerciseId": "Kyd9Rz5",
+            "sets": 4,
+            "reps": 6
+          },
+          {
+            "exerciseId": "X6C6i5Y",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "DsgkuIt",
+            "sets": 4,
+            "reps": 15
+          },
+          {
+            "exerciseId": "3ZflifB",
+            "sets": 3,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": {
+          "ar": "سحب",
+          "en": "Pull"
+        },
+        "items": [
+          {
+            "exerciseId": "T2mxWqc",
+            "sets": 4,
+            "reps": 6
+          },
+          {
+            "exerciseId": "eZyBC3j",
+            "sets": 4,
+            "reps": 6
+          },
+          {
+            "exerciseId": "RVwzP10",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "fUBheHs",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "25GPyDY",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": {
+          "ar": "أرجل",
+          "en": "Legs"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 5,
+            "reps": 5
+          },
+          {
+            "exerciseId": "wQ2c4XD",
+            "sets": 4,
+            "reps": 6
+          },
+          {
+            "exerciseId": "hip-thrust",
+            "sets": 3,
+            "reps": 8
+          },
+          {
+            "exerciseId": "C5jncD2",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "leg-extension",
+            "sets": 3,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": {
+          "ar": "جسم كامل",
+          "en": "Full body"
+        },
+        "items": [
+          {
+            "exerciseId": "SpYC0Kp",
+            "sets": 4,
+            "reps": 8
+          },
+          {
+            "exerciseId": "BJ0Hz5L",
+            "sets": 4,
+            "reps": 10
+          },
+          {
+            "exerciseId": "3d7wHyd",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "yn8yg1r",
+            "sets": 3,
+            "reps": 12
+          },
+          {
+            "exerciseId": "side-plank-hold",
+            "sets": 3,
+            "sec": 45
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gym-2day",
+    "name": {
+      "ar": "النادي — يومين",
+      "en": "Gym, two days"
+    },
+    "description": {
+      "ar": "يومين بالأسبوع للجسم كامل. لما يكون وقتك ضيق.",
+      "en": "Two full-body days a week, for a busy schedule."
+    },
+    "place": "gym",
+    "level": "beginner",
+    "daysPerWeek": 2,
+    "weeks": 8,
+    "next": "fullbody",
+    "days": [
+      {
+        "name": {
+          "ar": "اليوم 1",
+          "en": "Day 1"
+        },
+        "items": [
+          {
+            "exerciseId": "qXTaZnJ",
+            "sets": 3,
+            "reps": 8
+          },
+          {
+            "exerciseId": "EIeI8Vf",
+            "sets": 3,
+            "reps": 8
+          },
+          {
+            "exerciseId": "RVwzP10",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "C5jncD2",
+            "sets": 3,
+            "reps": 12
+          },
+          {
+            "exerciseId": "plank-hold",
+            "sets": 3,
+            "sec": 30
+          }
+        ]
+      },
+      {
+        "name": {
+          "ar": "اليوم 2",
+          "en": "Day 2"
+        },
+        "items": [
+          {
+            "exerciseId": "wQ2c4XD",
+            "sets": 3,
+            "reps": 8
+          },
+          {
+            "exerciseId": "Kyd9Rz5",
+            "sets": 3,
+            "reps": 8
+          },
+          {
+            "exerciseId": "fUBheHs",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "exerciseId": "leg-extension",
+            "sets": 3,
+            "reps": 12
+          },
+          {
+            "exerciseId": "TFqbd8t",
+            "sets": 3,
+            "reps": 15
           }
         ]
       }

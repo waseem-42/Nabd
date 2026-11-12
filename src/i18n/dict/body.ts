@@ -33,6 +33,10 @@ export default {
     ar: 'وزن بداية مقترح من وزن جسمك وخبرتك. جرّبه في أول مجموعة وعدّله.',
     en: 'A starting weight from your body weight and experience. Try it on the first set and adjust.',
   },
+  'body.hint.deload': {
+    ar: 'أسبوع تخفيف: مجموعة أقل ووزن أخف بحوالي 10%. خله سهل عن قصد.',
+    en: 'Deload week: one set fewer and about 10% lighter. Keep it easy on purpose.',
+  },
   'body.effectiveLoad': { ar: 'تشيل تقريبًا {load} من وزن جسمك', en: "You're moving about {load} of body weight" },
   'body.addWarmups': { ar: 'أضف مجموعات إحماء', en: 'Add warm-up sets' },
   'body.noWarmupNeeded': { ar: 'الوزن خفيف — ما يحتاج إحماء خاص', en: 'Light enough — no ramp-up needed' },
