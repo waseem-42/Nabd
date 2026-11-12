@@ -25,7 +25,7 @@ The technical display treatment preserves these source poses and their CC BY-SA 
 
 The continuous skeletal animations in `src/motion/` are original Nabd code, separate from those
 source illustrations. Their movement references and scope are listed in
-`docs/CONTINUOUS-BATCH-01.md`.
+`docs/archive/CONTINUOUS-BATCH-01.md`.
 
 ## Fonts and icons
 

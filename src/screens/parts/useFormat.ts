@@ -18,6 +18,13 @@ export function useFormat() {
   return useMemo(() => {
     const unitLabel = t(`common.unit.${unit}`)
     const weight = (kg: number) => fmtWeight(kg, unit, lang)
+    /** "60 kg × 8", "12 reps", "0:45", "20 min". */
+    const set = (s: Pick<LoggedSet, 'weight' | 'reps' | 'sec'>, mode: ExerciseMode) => {
+      if (mode === 'time') return fmtClock(s.sec ?? 0)
+      if (mode === 'cardio') return `${fmtNumber(Math.round((s.sec ?? 0) / 60), lang)} ${t('common.min')}`
+      if (s.weight > 0) return `${weight(s.weight)} ${unitLabel} × ${fmtNumber(s.reps, lang)}`
+      return `${fmtNumber(s.reps, lang)} ${t('common.reps')}`
+    }
 
     return {
       unit,
@@ -32,12 +39,12 @@ export function useFormat() {
         return ex ? pick(ex.name, lang) : t('common.unknownExercise')
       },
       modeOf: (id: string): ExerciseMode => byId(id)?.mode ?? 'reps',
-      /** "60 kg × 8", "12 reps", "0:45", "20 min". */
-      set: (s: Pick<LoggedSet, 'weight' | 'reps' | 'sec'>, mode: ExerciseMode) => {
-        if (mode === 'time') return fmtClock(s.sec ?? 0)
-        if (mode === 'cardio') return `${fmtNumber(Math.round((s.sec ?? 0) / 60), lang)} ${t('common.min')}`
-        if (s.weight > 0) return `${weight(s.weight)} ${unitLabel} × ${fmtNumber(s.reps, lang)}`
-        return `${fmtNumber(s.reps, lang)} ${t('common.reps')}`
+      set,
+      /** Several sets on one line: "60 kg × 8 · 3 sets" when they match, else "60 kg × 8 · 55 kg × 10". */
+      setList: (sets: Pick<LoggedSet, 'weight' | 'reps' | 'sec'>[], mode: ExerciseMode) => {
+        const parts = sets.map((s) => set(s, mode))
+        if (parts.length > 1 && parts.every((p) => p === parts[0])) return t('app.w.lastSame', { set: parts[0]!, n: fmtNumber(parts.length, lang) })
+        return parts.slice(0, 4).join(' · ')
       },
       sessionName: (s: Pick<WorkoutSession, 'name'>) => s.name || t('common.quickWorkout'),
     }

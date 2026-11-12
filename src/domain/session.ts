@@ -12,7 +12,7 @@ import type {
   WorkoutSession,
 } from '@/types'
 import { type BodyProfile, progressSets, suggestStartWeight, wantsWarmup, warmupSets } from './loading'
-import { detectPRs, lastPerformance } from './progress'
+import { detectPRs, lastPerformance, startOfWeek } from './progress'
 
 /*
  * Pure, immutable operations on a WorkoutSession. Every function returns a new session and
@@ -310,4 +310,26 @@ export function nextRoutine(program: UserProgram, routines: Routine[], doneSessi
   }
   const index = last?.routineId ? (order.indexOf(last.routineId) + 1) % order.length : 0
   return byId.get(order[index]!) ?? null
+}
+
+export interface PlanPosition {
+  /** 1-based position of the next routine in the rotation. */
+  day: number
+  total: number
+  /** 1-based week since the first finished workout of this program (1 before any). */
+  week: number
+}
+
+/** Where the user stands in the program: "Day 2 of 3 · Week 4". null without routines. */
+export function planPosition(program: UserProgram, routines: Routine[], doneSessions: WorkoutSession[], now = Date.now()): PlanPosition | null {
+  const next = nextRoutine(program, routines, doneSessions)
+  if (!next) return null
+  const known = new Set(routines.map((r) => r.id))
+  const order = program.routineIds.filter((id) => known.has(id))
+  let first: number | null = null
+  for (const s of doneSessions) {
+    if (s.status === 'done' && s.programId === program.id && (first === null || s.startedAt < first)) first = s.startedAt
+  }
+  const weeks = first === null ? 0 : Math.round((startOfWeek(now).getTime() - startOfWeek(first).getTime()) / (7 * 86_400_000))
+  return { day: order.indexOf(next.id) + 1, total: order.length, week: Math.max(0, weeks) + 1 }
 }

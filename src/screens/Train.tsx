@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
-import { Check, ChevronLeft, ChevronRight, Flame, ListOrdered, MoreHorizontal, Plus, Repeat2, Trash2, TriangleAlert, X } from 'lucide-react'
+import { Check, ChevronLeft, ChevronRight, Flame, History, ListOrdered, MoreHorizontal, Plus, Repeat2, Trash2, TrendingUp, TriangleAlert, X } from 'lucide-react'
 import { routes } from '@/app/routes'
 import { unlockAudio, vibrate } from '@/app/feedback'
 import { useNow } from '@/app/useNow'
@@ -9,7 +9,7 @@ import { useAllExercises, useDoneSessions } from '@/db'
 import { animatedFor } from '@/domain/animated'
 import { bodyweightShare, platesPerSide } from '@/domain/loading'
 import { alternativesFor } from '@/domain/place'
-import { sessionDurationSec } from '@/domain/progress'
+import { lastPerformance, sessionDurationSec } from '@/domain/progress'
 import { hasDoneSets } from '@/domain/session'
 import { useLang, useT } from '@/i18n'
 import { fmtClock, kgToUnit, unitToKg } from '@/i18n/format'
@@ -119,6 +119,7 @@ function Focus({ session, onLeave }: { session: WorkoutSession; onLeave: () => v
     }
   }
 
+  const last = useMemo(() => (entry && history ? lastPerformance(history, entry.exerciseId) : null), [entry, history])
   const alternatives = exercise ? alternativesFor(exercise, pool, session.place, gear, { exclude: session.entries.map((e) => e.exerciseId), limit: 6 }) : []
   const allSetsDone = !!entry && entry.sets.every((s) => s.done)
 
@@ -166,6 +167,22 @@ function Focus({ session, onLeave }: { session: WorkoutSession; onLeave: () => v
                 <h1 className="min-w-0 flex-1 text-xl font-bold leading-snug">{fmt.exerciseName(entry.exerciseId)}</h1>
                 <IconButton label={t('common.more')} icon={<MoreHorizontal className="size-5" />} onClick={() => setMenu(true)} />
               </div>
+              {(last || (entry.prefill && !entry.sets.some((s) => s.done))) && (
+                <div className="mx-3 mb-3 flex flex-col gap-1.5 rounded-control bg-bg px-3 py-2.5 text-sm">
+                  {last && (
+                    <p className="flex items-start gap-2">
+                      <History className="mt-0.5 size-4 shrink-0 text-muted" aria-hidden />
+                      <span><span className="text-muted">{t('app.w.lastTime')}: </span><span className="font-semibold tabular-nums">{fmt.setList(last.sets, mode)}</span></span>
+                    </p>
+                  )}
+                  {entry.prefill && !entry.sets.some((s) => s.done) && (
+                    <p className="flex items-start gap-2 text-accent">
+                      <TrendingUp className="mt-0.5 size-4 shrink-0" aria-hidden />
+                      <span className="leading-snug">{t(`body.hint.${entry.prefill}`)}</span>
+                    </p>
+                  )}
+                </div>
+              )}
               {exercise && (
                 <div className="flex flex-wrap items-center gap-1.5 px-4 pb-3">
                   <span className="me-1 text-xs text-muted">{t('app.w.muscles')}</span>

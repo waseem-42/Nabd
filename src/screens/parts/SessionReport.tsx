@@ -80,7 +80,7 @@ export function SessionReport({ session, onExercise }: { session: WorkoutSession
                           s.kind === 'warmup' ? 'bg-warn-soft text-warn' : 'bg-surface-2 text-muted',
                         )}
                       >
-                        {s.kind === 'warmup' ? t('common.warmupShort') : j + 1}
+                        {s.kind === 'warmup' ? t('common.warmupShort') : fmt.number(entry.sets.slice(0, j + 1).filter((x) => x.kind !== 'warmup').length)}
                       </span>
                       <span className="font-medium text-text tabular-nums" dir="auto">
                         {fmt.set(s, mode)}

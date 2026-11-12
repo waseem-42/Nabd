@@ -1,10 +1,14 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ChevronDown, ShieldCheck } from 'lucide-react'
-import { useAllExercises } from '@/db'
+import { routes } from '@/app/routes'
+import { useAllExercises, useDoneSessions } from '@/db'
+import { exerciseHistory, metricOf, personalRecords } from '@/domain/progress'
 import { exerciseStepsFor, safetyFor } from '@/domain/safety'
 import { pick, useLang, useT } from '@/i18n'
-import { EmptyState, Screen, cx } from '@/ui'
+import { fmtClock, fmtDate, kgToUnit } from '@/i18n/format'
+import type { Exercise as ExerciseT } from '@/types'
+import { Card, EmptyState, LineChart, ListRow, Screen, StatTile, cx } from '@/ui'
 import { ExercisePlayer } from '@/ui/ExercisePlayer'
 import { SafetySources } from './parts/ExerciseSafety'
 import { useFormat } from './parts/useFormat'
@@ -52,6 +56,8 @@ export default function Exercise() {
           </section>
         )}
 
+        <ExerciseHistory exercise={exercise} />
+
         <section className="rounded-card border border-line bg-surface" data-exercise-safety={exercise.id}>
           <button type="button" aria-expanded={safetyOpen} onClick={() => setSafetyOpen((v) => !v)} className="flex min-h-14 w-full items-center gap-2 px-4 text-start font-bold">
             <ShieldCheck className="size-5 text-accent" aria-hidden />
@@ -68,5 +74,63 @@ export default function Exercise() {
         </section>
       </div>
     </Screen>
+  )
+}
+
+/** Best result, a chart of every session and the last few times — the proof of progress. */
+function ExerciseHistory({ exercise }: { exercise: ExerciseT }) {
+  const t = useT()
+  const lang = useLang()
+  const fmt = useFormat()
+  const navigate = useNavigate()
+  const sessions = useDoneSessions()
+  const metric = metricOf(exercise)
+  const points = useMemo(() => (sessions ? exerciseHistory(sessions, exercise) : []), [sessions, exercise])
+  const records = useMemo(() => (sessions ? personalRecords(sessions, exercise.id) : null), [sessions, exercise.id])
+  if (!sessions) return null
+
+  const show = (value: number) =>
+    metric === 'sec' ? fmtClock(value) : metric === 'reps' ? fmt.number(value) : fmt.number(Math.round(kgToUnit(value, fmt.unit) * 10) / 10, 1)
+  const best = records ? (metric === 'sec' ? records.sec : metric === 'reps' ? records.reps : records.weight) : 0
+  const bestUnit = metric === 'weight' ? fmt.unitLabel : metric === 'reps' ? t('common.reps') : undefined
+
+  return (
+    <section aria-labelledby="history-title">
+      <h2 id="history-title" className="mb-3 text-lg font-bold">{t('app.ex.history')}</h2>
+      {!points.length ? (
+        <p className="rounded-card border border-dashed border-line p-5 text-center text-sm text-muted">{t('app.ex.never')}</p>
+      ) : (
+        <div className="flex flex-col gap-3">
+          <div className="grid grid-cols-2 gap-2">
+            <StatTile value={show(best)} unit={bestUnit} label={t('app.ex.best')} tone="accent" />
+            <StatTile value={fmt.number(points.length)} label={t('app.ex.times')} />
+          </div>
+          <Card>
+            <p className="mb-2 text-sm text-muted">{t(`app.ex.chart.${metric}`)}</p>
+            <LineChart
+              points={points.slice(-12).map((p) => ({ label: fmtDate(p.startedAt, lang), value: metric === 'weight' ? Math.round(kgToUnit(p.value, fmt.unit) * 10) / 10 : p.value }))}
+              formatValue={(n) => (metric === 'sec' ? fmtClock(n) : fmt.number(n, metric === 'weight' ? 1 : 0))}
+              label={t(`app.ex.chart.${metric}`)}
+              height={150}
+            />
+          </Card>
+          <Card padded={false} className="py-1">
+            {[...points].reverse().slice(0, 3).map((p) => {
+              const session = sessions.find((s) => s.id === p.sessionId)
+              const sets = session?.entries.filter((e) => e.exerciseId === exercise.id).flatMap((e) => e.sets.filter((s) => s.done && s.kind === 'normal')) ?? []
+              return (
+                <ListRow
+                  key={p.sessionId}
+                  title={fmt.setList(sets, exercise.mode)}
+                  subtitle={fmtDate(p.startedAt, lang)}
+                  chevron
+                  onClick={() => navigate(routes.session(p.sessionId))}
+                />
+              )
+            })}
+          </Card>
+        </div>
+      )}
+    </section>
   )
 }

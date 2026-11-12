@@ -1,12 +1,13 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Trophy, TrendingDown, TrendingUp } from 'lucide-react'
 import { routes } from '@/app/routes'
 import { muscleSplit, recentRecords, weeklyHistory } from '@/domain/progress'
 import { useLang, useT } from '@/i18n'
-import { fmtDate, kgToUnit } from '@/i18n/format'
+import { upsertBodyWeight, useBodyWeights } from '@/db'
+import { fmtDate, isoDay, kgToUnit, unitToKg } from '@/i18n/format'
 import type { ExerciseLookup, WorkoutSession } from '@/types'
-import { Card, cx, ListRow, MuscleGroupIcon, Section } from '@/ui'
+import { Button, Card, cx, LineChart, ListRow, MuscleGroupIcon, Section, Stepper, useToast } from '@/ui'
 import { useFormat } from './useFormat'
 
 const WEEKS = 8
@@ -118,6 +119,58 @@ export function RecentRecords({ sessions }: { sessions: WorkoutSession[] }) {
             onClick={() => navigate(routes.exercise(r.exerciseId))}
           />
         ))}
+      </Card>
+    </Section>
+  )
+}
+
+/** Body weight over the last 90 days, the change in a month, and a quick way to log today's. */
+export function BodyWeightCard() {
+  const t = useT()
+  const lang = useLang()
+  const fmt = useFormat()
+  const toast = useToast()
+  const weights = useBodyWeights()
+  const [draft, setDraft] = useState<number | null>(null)
+  const recent = useMemo(() => {
+    const cutoff = isoDay(Date.now() - 90 * 86_400_000)
+    return (weights ?? []).filter((w) => w.day >= cutoff)
+  }, [weights])
+  if (!weights) return null
+  const latest = weights.at(-1)?.kg ?? null
+  const change = weightChange(weights, fmt.unit)
+  const shown = draft ?? Math.round(kgToUnit(latest ?? 70, fmt.unit) * 10) / 10
+
+  async function save() {
+    await upsertBodyWeight(isoDay(), Math.round(unitToKg(shown, fmt.unit) * 100) / 100)
+    setDraft(null)
+    toast(t('body.weightSaved'), { tone: 'ok' })
+  }
+
+  return (
+    <Section
+      title={t('progress.bodyWeight')}
+      action={
+        change !== null && change !== 0 ? (
+          <span className={cx('text-sm font-semibold tabular-nums', change < 0 ? 'text-ok' : 'text-muted')} dir="ltr">
+            {change > 0 ? '+' : '−'}{fmt.number(Math.abs(change), 1)} {fmt.unitLabel} <span className="font-normal text-faint">{t('progress.in30Days')}</span>
+          </span>
+        ) : undefined
+      }
+    >
+      <Card className="flex flex-col gap-4">
+        <LineChart
+          points={recent.map((w) => ({ label: fmtDate(new Date(`${w.day}T12:00:00`), lang), value: Math.round(kgToUnit(w.kg, fmt.unit) * 10) / 10 }))}
+          formatValue={(n) => fmt.number(n, 1)}
+          label={t('progress.bodyWeight')}
+          height={140}
+          emptyLabel={t('progress.weightEmpty')}
+        />
+        <div className="flex flex-col gap-3 border-t border-line pt-4">
+          <Stepper label={t('progress.logWeight')} value={shown} onChange={setDraft} step={fmt.unit === 'kg' ? 0.1 : 0.2} decimals={1} min={20} max={600} unit={fmt.unitLabel} />
+          <Button variant="secondary" fullWidth onClick={() => void save()}>{t('progress.logWeight')}</Button>
+          <p className="text-xs text-faint">{t('progress.weightHint')}</p>
+        </div>
       </Card>
     </Section>
   )

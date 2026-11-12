@@ -2,7 +2,7 @@
 
 Implemented 2026-11-10. Educational prompts intended to reduce avoidable mistakes; no claim of injury prevention, clinical validation, form detection or individual medical clearance.
 
-Follow-up: [batch-one technical review](BATCH-01-REVIEW.md) corrects push-up heel and seated foot contacts, adds the pulldown return instruction, and removes a forced curl height and hard shoulder-press lockout. Qualified-trainer review remains pending.
+Follow-up: [batch-one technical review](archive/BATCH-01-REVIEW.md) corrects push-up heel and seated foot contacts, adds the pulldown return instruction, and removes a forced curl height and hard shoulder-press lockout. Qualified-trainer review remains pending.
 
 ## Behaviour
 

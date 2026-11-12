@@ -366,6 +366,57 @@ export function recentRecords(sessions: WorkoutSession[], limit = 5): RecordEven
     .slice(0, limit)
 }
 
+// ── This workout against the last one ───────────────────────────────────────────────────────
+
+export interface SessionComparison {
+  previous: WorkoutSession
+  /** Volume change in percent, rounded; null when the previous session moved no weight. */
+  volumePct: number | null
+  /** Work sets now minus then. */
+  setsDelta: number
+  /** Exercises done both times whose best value (by their metric) went up / went down. */
+  improved: string[]
+  declined: string[]
+}
+
+/**
+ * The newest earlier finished session of the same routine, and how this one compares.
+ * null for a quick workout (no routine) or the first time a routine is done.
+ */
+export function compareWithPrevious(session: WorkoutSession, history: WorkoutSession[], lookup: ExerciseLookup): SessionComparison | null {
+  if (!session.routineId) return null
+  let previous: WorkoutSession | undefined
+  for (const s of done(history)) {
+    if (s.id === session.id || s.routineId !== session.routineId || s.startedAt >= session.startedAt) continue
+    if (!previous || s.startedAt > previous.startedAt) previous = s
+  }
+  if (!previous) return null
+
+  const before = sessionVolume(previous)
+  const countSets = (s: WorkoutSession) => s.entries.reduce((n, e) => n + workSets(e).length, 0)
+  const improved: string[] = []
+  const declined: string[] = []
+  for (const id of new Set(session.entries.map((e) => e.exerciseId))) {
+    const now = setsOf(session, id)
+    const then = setsOf(previous, id)
+    if (!now.length || !then.length) continue
+    const exercise = lookup(id)
+    const metric = exercise ? metricOf(exercise) : inferMetric(now)
+    const a = summarize(now)
+    const b = summarize(then)
+    const value = (r: ExerciseRecords) => (metric === 'sec' ? r.sec : metric === 'reps' ? r.reps : (r.e1rm ?? r.weight))
+    if (value(a) > value(b)) improved.push(id)
+    else if (value(a) < value(b)) declined.push(id)
+  }
+  return {
+    previous,
+    volumePct: before > 0 ? Math.round(((sessionVolume(session) - before) / before) * 100) : null,
+    setsDelta: countSets(session) - countSets(previous),
+    improved,
+    declined,
+  }
+}
+
 /** Rough length of a routine: ~40 s under the bar per set plus its rest. Whole minutes, at least 5. */
 export function routineMinutes(items: Pick<RoutineItem, 'sets' | 'sec' | 'restSec'>[], defaultRestSec: number): number {
   const sec = items.reduce((sum, item) => sum + item.sets * ((item.sec ?? 40) + (item.restSec ?? defaultRestSec)), 0)

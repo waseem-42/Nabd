@@ -4,16 +4,17 @@ import { Play, RotateCw, Zap } from 'lucide-react'
 import { routes } from '@/app/routes'
 import { useNow } from '@/app/useNow'
 import { startProgramFromTemplate, useActiveProgram, useAllExercises, useDoneSessions } from '@/db'
+import { muscleReadiness } from '@/domain/recovery'
 import { PROGRAM_TEMPLATES } from '@/data/catalog'
 import { routineMinutes, weekSummary } from '@/domain/progress'
-import { nextRoutine } from '@/domain/session'
+import { nextRoutine, planPosition } from '@/domain/session'
 import { pick, useLang, useT } from '@/i18n'
 import { fmtClock, isoDay } from '@/i18n/format'
 import { sessionDurationSec } from '@/domain/progress'
 import { useWorkout } from '@/store/session'
 import { useSettings } from '@/store/settings'
-import type { ProgramTemplate, RoutineItem } from '@/types'
-import { Button, WeekDots, cx } from '@/ui'
+import type { ProgramTemplate, RoutineItem, WorkoutSession } from '@/types'
+import { Button, MuscleGroupIcon, WeekDots, cx } from '@/ui'
 import { MotionThumb } from '@/ui/MotionThumb'
 import { useFormat } from './parts/useFormat'
 import { useStartWorkout } from './parts/useStartWorkout'
@@ -32,6 +33,7 @@ export default function Home() {
   const [starting, setStarting] = useState(false)
 
   const next = useMemo(() => (plan && sessions ? nextRoutine(plan.program, plan.routines, sessions) : null), [plan, sessions])
+  const position = useMemo(() => (plan && sessions ? planPosition(plan.program, plan.routines, sessions, now) : null), [plan, sessions, now])
   const placeSessions = useMemo(() => (sessions ?? []).filter((s) => s.place === place), [sessions, place])
   const week = useMemo(() => weekSummary(placeSessions, now), [placeSessions, now])
   const goal = Math.min(7, Math.max(1, plan?.routines.length || 3))
@@ -62,11 +64,16 @@ export default function Home() {
         <section className="overflow-hidden rounded-card border border-line bg-surface" aria-labelledby="today-title">
           <div className="flex items-start justify-between gap-3 px-5 pt-5">
             <div className="min-w-0">
-              <p className="text-sm text-muted">{t('app.today')} · {plan.program.name}</p>
+              <p className="truncate text-sm text-muted">{t('app.today')} · {plan.program.name}</p>
               <h1 id="today-title" className="truncate text-2xl font-bold">{next.name}</h1>
               <p className="mt-1 text-sm text-muted">
                 {t('app.exerciseCount', { n: fmt.number(next.items.length) })} · {t('app.minutes', { n: fmt.number(routineMinutes(next.items, restSec)) })}
               </p>
+              {position && (
+                <p className="mt-1 text-sm font-semibold text-accent">
+                  {t('app.position', { day: fmt.number(position.day), total: fmt.number(position.total), week: fmt.number(position.week) })}
+                </p>
+              )}
             </div>
             <Link to={routes.programs} className="flex min-h-11 shrink-0 items-center gap-1.5 rounded-pill border border-line px-3 text-xs font-semibold text-muted">
               <RotateCw className="size-3.5" aria-hidden />{t('app.changePlan')}
@@ -92,12 +99,48 @@ export default function Home() {
         </div>
       </section>
 
+      {sessions && <Readiness sessions={sessions} now={now} />}
+
       {!active && (
         <button type="button" onClick={() => void startWorkout()} className="flex min-h-12 items-center justify-center gap-2 rounded-control text-sm font-semibold text-muted">
           <Zap className="size-4" aria-hidden />{t('app.free')}
         </button>
       )}
     </div>
+  )
+}
+
+/** How rested each muscle group is, from when it last did work sets. Hidden until something was trained in the last 3 days. */
+function Readiness({ sessions, now }: { sessions: WorkoutSession[]; now: number }) {
+  const t = useT()
+  const { byId } = useAllExercises()
+  // Recomputed once a minute is plenty; `now` ticks every second only during a workout.
+  const minute = Math.floor(now / 60_000)
+  const groups = useMemo(() => muscleReadiness(sessions, byId, minute * 60_000), [sessions, byId, minute])
+  if (!groups.some((g) => g.value < 1)) return null
+  return (
+    <section className="rounded-card border border-line bg-surface px-4 py-3" aria-labelledby="ready-title">
+      <div className="mb-3 flex items-baseline justify-between gap-2">
+        <h2 id="ready-title" className="text-sm font-semibold">{t('body.recoveryTitle')}</h2>
+        <span className="text-xs text-faint">{t('app.readyHint')}</span>
+      </div>
+      <ul className="m-0 grid list-none grid-cols-3 gap-x-3 gap-y-3 p-0">
+        {groups.map((g) => {
+          const fresh = g.value >= 1
+          return (
+            <li key={g.group} className="flex items-center gap-2">
+              <MuscleGroupIcon group={g.group} className={cx('h-7 shrink-0', fresh ? 'text-muted' : 'text-warn')} />
+              <span className="min-w-0 flex-1">
+                <span className="block truncate text-xs font-medium">{t(`common.group.${g.group}`)}</span>
+                <span className="mt-1 block h-1 overflow-hidden rounded-pill bg-line" role="img" aria-label={t(fresh ? 'body.fresh' : 'body.recovering')}>
+                  <span className={cx('block h-full rounded-pill', fresh ? 'bg-ok' : 'bg-warn')} style={{ width: `${Math.max(8, g.value * 100)}%` }} />
+                </span>
+              </span>
+            </li>
+          )
+        })}
+      </ul>
+    </section>
   )
 }
 

@@ -67,6 +67,31 @@ export default {
   'app.w.warmups': { ar: 'أضف مجموعات إحماء', en: 'Add warm-up sets' },
   'app.w.leave': { ar: 'رجوع (التمرين يبقى شغّال)', en: 'Back (workout keeps running)' },
 
+  'app.w.lastTime': { ar: 'آخر مرة', en: 'Last time' },
+  'app.w.lastSame': { ar: '{n} مجموعات من {set}', en: '{n} sets of {set}' },
+
+  'app.position': { ar: 'اليوم {day} من {total} · الأسبوع {week}', en: 'Day {day} of {total} · Week {week}' },
+  'app.readyHint': { ar: 'من آخر مرة شغّلت كل عضلة', en: 'From when each muscle last worked' },
+
+  'app.s.vsLast': { ar: 'مقارنة بآخر مرة', en: 'Compared with last time' },
+  'app.s.volumeUp': { ar: 'شلت أكثر بـ{pct}%', en: 'You lifted {pct}% more' },
+  'app.s.volumeDown': { ar: 'شلت أقل بـ{pct}%', en: 'You lifted {pct}% less' },
+  'app.s.volumeSame': { ar: 'نفس مجموع الأوزان', en: 'Same total volume' },
+  'app.s.improved': { ar: 'تقدّمت في: {names}', en: 'Better at: {names}' },
+  'app.s.declined': { ar: 'أقل من آخر مرة: {names}', en: 'Below last time: {names}' },
+  'app.s.steady': { ar: 'نفس أرقام آخر مرة. المرة الجاية نزيد خطوة.', en: 'Same numbers as last time. Next time we add a step.' },
+  'app.s.first': { ar: 'أول مرة تسوي هاليوم. المرة الجاية نقارن ونزيد.', en: 'First time on this day. Next time we compare and add.' },
+  'app.s.next': { ar: 'تمرينك الجاي', en: 'Your next workout' },
+
+  'app.ex.history': { ar: 'تاريخك مع التمرين', en: 'Your history' },
+  'app.ex.best': { ar: 'أفضل رقم', en: 'Best' },
+  'app.ex.times': { ar: 'مرات', en: 'Times' },
+  'app.ex.last': { ar: 'آخر مرة', en: 'Last time' },
+  'app.ex.chart.weight': { ar: 'أقصى وزن تقديري لتكرار واحد', en: 'Estimated one-rep max' },
+  'app.ex.chart.reps': { ar: 'أكثر تكرارات في مجموعة', en: 'Most reps in a set' },
+  'app.ex.chart.sec': { ar: 'أطول مدة', en: 'Longest hold' },
+  'app.ex.never': { ar: 'أول ما تسويه في تمرين، يطلع تقدّمك هنا.', en: 'Once you do it in a workout, your progress shows here.' },
+
   'app.log.week': { ar: 'هالأسبوع', en: 'This week' },
   'app.log.sessions': { ar: 'تمارين', en: 'Workouts' },
   'app.log.minutes': { ar: 'دقيقة', en: 'Minutes' },
