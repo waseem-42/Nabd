@@ -4,6 +4,9 @@ Nabd (نبض) is a Vite + React + TypeScript PWA (npm). Two people work on it fr
 different machines, each with their own Codex. Collaboration guide (Arabic):
 `docs/COLLABORATION.md`.
 
+Roadmap (Arabic): `docs/ROADMAP.md` — check the current phase before starting new work, and
+tick the task off in the same PR.
+
 ## Commands
 - `npm run dev` — dev server (port 5173)
 - `npm run build` — typecheck + production build (must pass before any PR)
