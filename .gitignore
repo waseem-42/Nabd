@@ -19,6 +19,12 @@ studio/edit-data/projects/*/renders/
 *.log
 npm-debug.log*
 
+# Android test builds (npm run android:apk)
+*.apk
+*.aab
+*.jks
+*.keystore
+
 # Build / tool caches
 coverage
 .vite
