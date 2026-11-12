@@ -4,11 +4,13 @@ import type { Dict } from '../index'
 export default {
   'settings.general': { ar: 'عام', en: 'General' },
   'settings.workout': { ar: 'التمرين', en: 'Workout' },
-  'settings.rest': { ar: 'الراحة الافتراضية بين المجموعات', en: 'Default rest between sets' },
+  'settings.rest': { ar: 'الراحة بين المجموعات', en: 'Rest between sets' },
   'settings.restHint': {
-    ar: 'تقدر تغيّرها لكل تمرين أثناء الجلسة. صفر يعني بدون مؤقت.',
-    en: 'You can change it per exercise during a workout. Zero turns the timer off.',
+    ar: 'تشتغل بعد كل مجموعة في كل التمارين، وتقدر تزيد أو تنقص أثناء الراحة.',
+    en: 'Runs after every set in every exercise; you can add or cut time while resting.',
   },
+  'settings.restOff': { ar: 'بدون', en: 'Off' },
+  'settings.autoWarmupShort': { ar: 'مجموعات أخف قبل أول تمرين ثقيل لكل عضلة.', en: 'Lighter sets before the first heavy lift of each muscle.' },
   'settings.sound': { ar: 'صوت نهاية الراحة', en: 'Sound when rest ends' },
   'settings.homeGear': { ar: 'معدات البيت', en: 'Home equipment' },
   'settings.data': { ar: 'بياناتك', en: 'Your data' },

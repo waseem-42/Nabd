@@ -244,7 +244,7 @@ export const DEFAULT_SETTINGS: Settings = {
   lang: 'ar',
   unit: 'kg',
   place: 'home',
-  restSec: 90,
+  restSec: 30,
   homeEquipment: ['bodyweight'],
   homeAccessories: [],
   activeProgramId: null,

@@ -61,6 +61,7 @@ export default {
   'app.w.allDone': { ar: 'خلصت كل المجموعات', en: 'All sets done' },
   'app.w.list': { ar: 'تمارين الجلسة', en: 'Session exercises' },
   'app.w.target': { ar: 'الهدف', en: 'Target' },
+  'app.w.muscles': { ar: 'العضلات:', en: 'Muscles:' },
   'app.w.watch': { ar: 'شوف الحركة', en: 'Watch the movement' },
   'app.w.pain': { ar: 'ألم أو دوخة؟', en: 'Pain or dizziness?' },
   'app.w.warmups': { ar: 'أضف مجموعات إحماء', en: 'Add warm-up sets' },

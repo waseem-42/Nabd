@@ -18,7 +18,16 @@ export const useSettings = create<SettingsStore>()(
       set: (patch) => set(patch),
       replace: (next) => set({ ...DEFAULT_SETTINGS, ...next }),
     }),
-    { name: 'nabd-settings', version: 1 },
+    {
+      name: 'nabd-settings',
+      version: 2,
+      // v2: the default rest dropped from 90 s to 30 s; people who never changed it move too.
+      migrate: (persisted, version) => {
+        const state = (persisted ?? {}) as Partial<Settings>
+        if (version < 2 && (state.restSec === undefined || state.restSec === 90)) state.restSec = DEFAULT_SETTINGS.restSec
+        return state as SettingsStore
+      },
+    },
   ),
 )
 

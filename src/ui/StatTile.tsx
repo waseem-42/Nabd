@@ -22,9 +22,9 @@ const VALUE_TONE = {
 
 export function StatTile({ value, label, unit, icon, tone = 'default', className }: StatTileProps) {
   return (
-    <div className={cx('flex min-w-0 flex-col rounded-card border border-line bg-surface p-4', className)}>
+    <div className={cx('flex min-w-0 flex-col overflow-hidden rounded-card border border-line bg-surface p-4', className)}>
       <div className="flex items-baseline gap-1.5" dir="ltr">
-        <span className={cx('text-num font-bold tabular-nums', VALUE_TONE[tone])}>{value}</span>
+        <span className={cx('min-w-0 truncate font-bold tabular-nums', String(value).length > 4 ? 'text-3xl leading-none' : 'text-num', VALUE_TONE[tone])}>{value}</span>
         {unit && <span className="text-base font-medium text-muted">{unit}</span>}
       </div>
       <div className="mt-2 flex items-center gap-1.5 text-sm text-muted">

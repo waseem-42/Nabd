@@ -59,6 +59,55 @@ export default {
   'body.move.catCow': { ar: 'قطة وبقرة على الأربع', en: 'Cat–cow on all fours' },
   'body.move.deadBug': { ar: 'ديد بق ببطء', en: 'Slow dead bugs' },
   'body.perSide': { ar: '{n} لكل جهة', en: '{n} each side' },
+  'body.repsCount': { ar: '× {n}', en: '× {n}' },
+  'body.howTo': { ar: 'طريقة الأداء', en: 'How to do it' },
+  'body.warmupNext': { ar: 'تم، التالي', en: 'Done, next' },
+  'body.warmupStart': { ar: 'خلصت الإحماء، ابدأ التمرين', en: 'Warm-up done, start training' },
+  'body.warmupSkip': { ar: 'تخطي الإحماء', en: 'Skip warm-up' },
+  'body.warmupStep': { ar: 'الإحماء', en: 'Warm-up' },
+  'body.timerStart': { ar: 'ابدأ', en: 'Start' },
+  'body.timerPause': { ar: 'إيقاف', en: 'Pause' },
+  'body.timerReset': { ar: 'من البداية', en: 'Reset' },
+  'body.how.march': {
+    ar: 'قف مستقيم وشد بطنك خفيف.|ارفع ركبة لين تقارب مستوى الحوض، ونزّلها وارفع الثانية.|حرّك ذراعيك مع الخطوات وخلّ النَّفَس منتظم.',
+    en: 'Stand tall with your stomach lightly braced.|Lift one knee toward hip height, lower it and lift the other.|Swing your arms with the steps and keep breathing steadily.',
+  },
+  'body.how.jog': {
+    ar: 'هرول في مكانك على أطراف قدميك بخطوات قصيرة.|أو سوّ جمبنق جاك: افتح الرجلين والذراعين مع القفز ورجّعهم.|ابدأ بهدوء وزِد السرعة شوي شوي لين تحس بالدفا.',
+    en: 'Jog on the spot on the balls of your feet with short steps.|Or do jumping jacks: jump feet and arms out, then back in.|Start easy and build the pace until you feel warm.',
+  },
+  'body.how.armCircles': {
+    ar: 'افرد ذراعيك على الجانبين بمستوى الكتف.|سوّ دوائر صغيرة للأمام وكبّرها تدريجيًا.|نص الوقت للأمام والنص الثاني للخلف.',
+    en: 'Hold your arms out to the sides at shoulder height.|Make small forward circles and let them grow.|Spend half the time forward and half backward.',
+  },
+  'body.how.scapPushup': {
+    ar: 'خذ وضعية الضغط والذراعين مفرودة.|بدون ما تثني المرفق، خلّ صدرك ينزل شوي ولوحا الكتف يقربون من بعض.|ادفع الأرض بعيد ولوحا الكتف يتباعدون. حركة صغيرة وبطيئة.',
+    en: 'Get into a push-up position with straight arms.|Without bending your elbows, let your chest sink so the shoulder blades squeeze together.|Push the floor away so they spread apart. Small, slow movement.',
+  },
+  'body.how.bandPullApart': {
+    ar: 'امسك حبل مطاطي (أو بدونه) قدامك بمستوى الصدر والذراعين مفرودة.|افتح ذراعيك للجانبين لين يقرب الحبل من صدرك.|ضم لوحي الكتف لحظة وارجع ببطء.',
+    en: 'Hold a band (or nothing) in front at chest height, arms straight.|Pull your arms out to the sides until the band nears your chest.|Squeeze your shoulder blades for a moment and return slowly.',
+  },
+  'body.how.bwSquat': {
+    ar: 'القدمين بعرض الكتف تقريبًا وأصابع القدم للخارج شوي.|انزل كأنك بتجلس على كرسي، الصدر مرفوع والركب باتجاه أصابع القدم.|اطلع بالضغط على كامل القدم. انزل ببطء ووسّع المدى مع كل تكرار.',
+    en: 'Feet about shoulder-width apart, toes turned out a little.|Sit back as if onto a chair, chest up, knees tracking over the toes.|Stand by pressing through the whole foot. Go slowly and deepen each rep.',
+  },
+  'body.how.legSwings': {
+    ar: 'امسك جدار أو شي ثابت بيد وحدة.|أرجح الرجل البعيدة للأمام والخلف بشكل مريح والجذع ثابت.|كبّر المدى تدريجيًا، وبعدها بدّل الرجل.',
+    en: 'Hold a wall or something steady with one hand.|Swing the outside leg forward and back, keeping your torso still.|Let the range grow gradually, then switch legs.',
+  },
+  'body.how.hipOpener': {
+    ar: 'قف وامسك شي ثابت إذا تحتاج توازن.|ارفع الركبة لقدام ولفّها للجنب في دائرة كبيرة، ونزّلها.|سوّ العدد كامل، وبعدها بدّل الرجل.',
+    en: 'Stand and hold something steady if you need balance.|Lift the knee in front, circle it out to the side and lower it.|Finish the reps, then switch legs.',
+  },
+  'body.how.catCow': {
+    ar: 'انزل على يدينك وركبك: اليدين تحت الكتف والركب تحت الحوض.|مع الشهيق نزّل بطنك وارفع راسك وصدرك (بقرة).|مع الزفير قوّس ظهرك لفوق ونزّل راسك (قطة). حركة بطيئة مع النفس.',
+    en: 'Kneel on all fours: hands under shoulders, knees under hips.|Breathe in, let your belly drop and lift your head and chest (cow).|Breathe out, round your back up and tuck your head (cat). Move with the breath.',
+  },
+  'body.how.deadBug': {
+    ar: 'استلقِ على ظهرك، الذراعين لفوق والركب مثنية فوق الحوض.|اضغط أسفل ظهرك على الأرض وشد بطنك.|مدّ ذراع والرجل المعاكسة ببطء ورجّعهم، وبعدها الجهة الثانية.',
+    en: 'Lie on your back, arms up, knees bent above your hips.|Press your lower back into the floor and brace your stomach.|Slowly reach one arm and the opposite leg out, return, then switch.',
+  },
 
   // Recovery card.
   'body.recoveryTitle': { ar: 'جاهزية عضلاتك', en: 'Muscle readiness' },

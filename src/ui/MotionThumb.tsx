@@ -37,10 +37,12 @@ export interface MotionThumbProps {
   still?: boolean
   /** Fallback art slug when the exercise has no rig. */
   art?: string | null
+  /** Glow on the working muscles (the workout screen); lists stay plain. */
+  highlight?: boolean
 }
 
 /** A looping coloured-parts figure for lists and cards; plays only while on screen. */
-export function MotionThumb({ exerciseId, name, className, still, art }: MotionThumbProps) {
+export function MotionThumb({ exerciseId, name, className, still, art, highlight }: MotionThumbProps) {
   const rig = findRig(exerciseId)
   const lang = useLang()
   const reduced = usePrefersReducedMotion()
@@ -49,7 +51,7 @@ export function MotionThumb({ exerciseId, name, className, still, art }: MotionT
   useEffect(() => {
     const node = svg.current
     if (!rig || !node) return
-    const renderer = createRigRenderer(node, rig)
+    const renderer = createRigRenderer(node, rig, false, { highlight })
     renderer.render(2.8, lang)
     if (still || reduced) return
     let unsubscribe: (() => void) | null = null
@@ -59,7 +61,7 @@ export function MotionThumb({ exerciseId, name, className, still, art }: MotionT
     const observer = new IntersectionObserver(([entry]) => (entry?.isIntersecting ? start() : stop()), { rootMargin: '80px' })
     observer.observe(node)
     return () => { observer.disconnect(); stop() }
-  }, [rig, lang, still, reduced])
+  }, [rig, lang, still, reduced, highlight])
 
   if (!rig) return <ExerciseArt slug={art ?? null} still name={name} className={className} />
   return (

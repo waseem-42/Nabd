@@ -77,6 +77,17 @@ describe('session volume and duration', () => {
     expect(sessionDurationSec(s)).toBe(3600)
     expect(sessionDurationSec({ ...s, status: 'active', endedAt: undefined }, s.startedAt + 90_500)).toBe(91)
   })
+  it('does not count hours the finished workout was left open', () => {
+    const t0 = Date.UTC(2026, 10, 11, 18)
+    const at = (min: number) => t0 + min * 60_000
+    const left = {
+      ...s,
+      startedAt: t0,
+      endedAt: at(21 * 60),
+      entries: [{ exerciseId: 'bench', restSec: 30, sets: [{ weight: 20, reps: 10, kind: 'normal' as const, done: true, doneAt: at(5) }, { weight: 20, reps: 10, kind: 'normal' as const, done: true, doneAt: at(40) }] }],
+    }
+    expect(sessionDurationSec(left)).toBe(42 * 60)
+  })
 })
 
 describe('history, records and PRs', () => {

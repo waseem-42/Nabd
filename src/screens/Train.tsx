@@ -20,7 +20,7 @@ import { Button, ConfirmDialog, ExercisePickerSheet, IconButton, Sheet, Stepper,
 import { MotionThumb } from '@/ui/MotionThumb'
 import { ExerciseInfoSheet } from './parts/ExerciseInfoSheet'
 import { RestPanel } from './parts/RestPanel'
-import { WarmupCard } from './parts/WarmupCard'
+import { WarmupStage, warmupDone } from './parts/WarmupStage'
 import { WorkoutSafetySheet } from './parts/WorkoutSafetySheet'
 import { useBodyProfile, useFormat, useHomeGear } from './parts/useFormat'
 
@@ -61,6 +61,8 @@ function Focus({ session, onLeave }: { session: WorkoutSession; onLeave: () => v
   const [confirm, setConfirm] = useState<Confirm | null>(null)
   const [safety, setSafety] = useState(false)
   const [busy, setBusy] = useState(false)
+  // The warm-up is the first step of every new workout until it is finished or skipped.
+  const [warming, setWarming] = useState(() => !session.entries.some((e) => e.sets.some((s) => s.done)) && !warmupDone(session.id))
 
   const index = Math.min(current, Math.max(0, session.entries.length - 1))
   const entry = session.entries[index]
@@ -138,9 +140,9 @@ function Focus({ session, onLeave }: { session: WorkoutSession; onLeave: () => v
       </header>
 
       <main className="flex flex-1 flex-col gap-4 px-4 pt-2 pb-[calc(6rem+env(safe-area-inset-bottom))]">
-        {doneSets === 0 && <WarmupCard session={session} lookup={byId} collapsed />}
-
-        {!entry ? (
+        {warming && session.entries.length > 0 ? (
+          <WarmupStage session={session} lookup={byId} onDone={() => { setWarming(false); go(0) }} />
+        ) : !entry ? (
           <div className="flex flex-1 flex-col items-center justify-center gap-4 py-10 text-center">
             <p className="text-lg text-muted">{t('workout.emptyTitle')}</p>
             <Button icon={<Plus className="size-5" />} onClick={() => setPicker({ kind: 'add' })}>{t('workout.addExercise')}</Button>
@@ -149,15 +151,30 @@ function Focus({ session, onLeave }: { session: WorkoutSession; onLeave: () => v
           <>
             <section className="overflow-hidden rounded-card border border-line bg-surface">
               <button type="button" onClick={() => exercise && setInfo(exercise)} className="relative block w-full" aria-label={t('app.w.watch')}>
-                <MotionThumb exerciseId={entry.exerciseId} art={exercise?.art} name={fmt.exerciseName(entry.exerciseId)} className="aspect-[4/3] w-full" />
+                <MotionThumb exerciseId={entry.exerciseId} art={exercise?.art} name={fmt.exerciseName(entry.exerciseId)} highlight className="aspect-[4/3] w-full" />
                 <span className="absolute start-3 top-3 rounded-pill bg-bg/80 px-3 py-1 text-xs font-semibold tabular-nums backdrop-blur">
                   {t('app.w.of', { n: fmt.number(index + 1), total: fmt.number(session.entries.length) })}
                 </span>
+                {exercise && (
+                  <span className="absolute start-3 bottom-3 flex items-center gap-2 rounded-pill bg-bg/85 px-3 py-1.5 text-sm font-bold backdrop-blur">
+                    <span className="size-2.5 rounded-full bg-accent ring-4 ring-accent/30" aria-hidden />
+                    {t(`common.muscle.${exercise.primary}`)}
+                  </span>
+                )}
               </button>
               <div className="flex items-start gap-2 px-4 pt-3 pb-2">
                 <h1 className="min-w-0 flex-1 text-xl font-bold leading-snug">{fmt.exerciseName(entry.exerciseId)}</h1>
                 <IconButton label={t('common.more')} icon={<MoreHorizontal className="size-5" />} onClick={() => setMenu(true)} />
               </div>
+              {exercise && (
+                <div className="flex flex-wrap items-center gap-1.5 px-4 pb-3">
+                  <span className="me-1 text-xs text-muted">{t('app.w.muscles')}</span>
+                  <span className="rounded-pill border border-accent/40 bg-accent-soft px-2.5 py-1 text-xs font-bold text-accent">{t(`common.muscle.${exercise.primary}`)}</span>
+                  {exercise.secondary.filter((m) => m !== exercise.primary).slice(0, 3).map((m) => (
+                    <span key={m} className="rounded-pill border border-line bg-surface-2 px-2.5 py-1 text-xs text-muted">{t(`common.muscle.${m}`)}</span>
+                  ))}
+                </div>
+              )}
 
               <ol className="m-0 flex list-none flex-col gap-2 px-3 pb-3">
                 {entry.sets.map((set, s) => {
@@ -210,21 +227,29 @@ function Focus({ session, onLeave }: { session: WorkoutSession; onLeave: () => v
         </button>
       </main>
 
-      <nav className="fixed inset-x-0 bottom-0 z-20 mx-auto flex max-w-md items-center gap-2 border-t border-line bg-bg/95 px-4 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] backdrop-blur-xl">
-        <IconButton label={t('app.w.prev')} icon={<Back className="size-6" />} disabled={index === 0} onClick={() => go(index - 1)} />
+      {!warming && <nav className="fixed inset-x-0 bottom-0 z-20 mx-auto flex max-w-md items-center gap-2 border-t border-line bg-bg/95 px-4 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] backdrop-blur-xl">
+        <IconButton label={t('app.w.prev')} icon={<Back className="size-6" />} disabled={!session.entries.length} onClick={() => (index === 0 ? setWarming(true) : go(index - 1))} />
         <button type="button" onClick={() => setList(true)} className="flex min-h-12 flex-1 items-center justify-center gap-2 rounded-control bg-surface-2 text-sm font-semibold">
           <ListOrdered className="size-5" aria-hidden />{t('app.w.list')}
         </button>
         <IconButton label={t('app.w.next')} icon={<Forward className="size-6" />} disabled={index >= session.entries.length - 1} onClick={() => go(index + 1)} />
-      </nav>
+      </nav>}
 
       <Sheet open={list} onClose={() => setList(false)} title={t('app.w.list')}>
         <ul className="m-0 flex list-none flex-col gap-2 p-0">
+          {session.entries.length > 0 && (
+            <li>
+              <button type="button" onClick={() => { setWarming(true); setList(false) }} className={cx('flex w-full items-center gap-3 rounded-control border p-2 text-start', warming ? 'border-warn/40 bg-warn-soft' : 'border-line')}>
+                <span className="flex size-14 shrink-0 items-center justify-center rounded-control bg-warn-soft text-warn"><Flame className="size-6" aria-hidden /></span>
+                <span className="min-w-0 flex-1 font-semibold">{t('body.warmupStep')}</span>
+              </button>
+            </li>
+          )}
           {session.entries.map((e, i) => {
             const finished = e.sets.every((s) => s.done)
             return (
               <li key={`${e.exerciseId}-${i}`}>
-                <button type="button" onClick={() => { go(i); setList(false) }} className={cx('flex w-full items-center gap-3 rounded-control border p-2 text-start', i === index ? 'border-accent/40 bg-accent-soft' : 'border-line')}>
+                <button type="button" onClick={() => { setWarming(false); go(i); setList(false) }} className={cx('flex w-full items-center gap-3 rounded-control border p-2 text-start', !warming && i === index ? 'border-accent/40 bg-accent-soft' : 'border-line')}>
                   <MotionThumb exerciseId={e.exerciseId} name={fmt.exerciseName(e.exerciseId)} still className="size-14 rounded-control" />
                   <span className="min-w-0 flex-1">
                     <span className="block truncate font-semibold">{fmt.exerciseName(e.exerciseId)}</span>

@@ -39,7 +39,7 @@ interface WorkoutStore {
   addSet: (entryIndex: number) => Promise<void>
   removeSet: (entryIndex: number, setIndex: number) => void
   updateSet: (entryIndex: number, setIndex: number, patch: ops.SetPatch) => void
-  /** Marking a set done also starts the rest timer with that entry's restSec. */
+  /** Marking a set done also starts the rest timer with Settings.restSec. */
   toggleSet: (entryIndex: number, setIndex: number) => void
   /** Puts ramp-up sets in front of the entry (no-op when it has some or needs none). */
   addWarmups: (entryIndex: number) => Promise<void>
@@ -138,7 +138,9 @@ export const useWorkout = create<WorkoutStore>()(
           const next = apply((s) => ops.toggleSetDone(s, i, j))
           const entry = next?.entries[i]
           const done = entry?.sets[j]
-          if (entry && done?.done) get().startRest(done.kind === 'warmup' ? Math.min(entry.restSec, ops.WARMUP_REST_SEC) : entry.restSec)
+          // The rest length always follows Settings, so changing it there applies right away.
+          const rest = getSettings().restSec
+          if (entry && done?.done) get().startRest(done.kind === 'warmup' ? Math.min(rest, ops.WARMUP_REST_SEC) : rest)
         },
         addWarmups: async (i) => {
           const ctx = await prefillContext()

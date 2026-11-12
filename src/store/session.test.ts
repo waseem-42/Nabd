@@ -56,10 +56,15 @@ describe('workout store', () => {
     await expect(store().start()).rejects.toThrow('already active')
   })
 
-  it('toggling a set done starts rest with the entry restSec; undoing does not', async () => {
+  it('toggling a set done starts rest with the Settings rest; undoing does not', async () => {
     await store().start({ routine: PUSH })
     store().toggleSet(0, 0)
-    expect(store().rest?.totalSec).toBe(120)
+    expect(store().rest?.totalSec).toBe(75)
+    store().skipRest()
+    store().toggleSet(0, 0)
+    useSettings.getState().set({ restSec: 45 })
+    store().toggleSet(0, 0)
+    expect(store().rest?.totalSec).toBe(45)
     store().skipRest()
     store().toggleSet(0, 0)
     expect(store().rest).toBeNull()

@@ -9,7 +9,6 @@ import { PlaceToggle } from '@/ui/PlaceToggle'
 import { TabBar } from '@/ui/TabBar'
 import { ToastProvider } from '@/ui/Toast'
 import { routes } from './routes'
-import { SafetyProvider } from './SafetyProvider'
 
 const Home = lazy(() => import('@/screens/Home'))
 const Exercises = lazy(() => import('@/screens/Exercises'))
@@ -83,7 +82,6 @@ export function App() {
   return (
     <ToastProvider>
     <BrowserRouter>
-      <SafetyProvider>
       <Suspense fallback={null}>
         <Routes>
           {import.meta.env.DEV && <Route path="/dev/brand" element={<BrandGuide />} />}
@@ -111,7 +109,6 @@ export function App() {
           <Route path="*" element={<Navigate to={routes.today} replace />} />
         </Routes>
       </Suspense>
-      </SafetyProvider>
     </BrowserRouter>
     </ToastProvider>
   )

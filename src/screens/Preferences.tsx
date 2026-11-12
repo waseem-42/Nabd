@@ -1,16 +1,16 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, type ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Download, ExternalLink, TriangleAlert, Upload } from 'lucide-react'
+import { Download, ExternalLink, Flame, Languages, Minus, Plus, Sun, Timer, TriangleAlert, Upload, Vibrate, Volume2, Weight } from 'lucide-react'
 import { BackupError, downloadBackup, exportBackup, importBackup, readBackupFile, upsertBodyWeight, useBodyWeights, useDoneSessions } from '@/db'
-import { fmtDate, isoDay } from '@/i18n/format'
+import { fmtClock, fmtDate, isoDay } from '@/i18n/format'
 import { BodyProfileForm } from './parts/BodyProfileForm'
 import { useLang, useT } from '@/i18n'
 import { useSettings } from '@/store/settings'
 import type { Lang, Unit } from '@/types'
-import { Brand, Button, Card, Chip, ConfirmDialog, ListRow, Screen, Section, Segmented, Stepper, Toggle, useToast } from '@/ui'
+import { Brand, Button, Card, Chip, ConfirmDialog, IconButton, ListRow, Screen, Section, Segmented, Toggle, cx, useToast } from '@/ui'
 import { HomeGearPicker } from './parts/HomeGearPicker'
 
-const REST_PRESETS = [60, 90, 120, 180]
+const REST_PRESETS = [15, 30, 45, 60, 90, 120]
 const BACKUP_KEY = 'nabd-last-backup'
 const BACKUP_STALE_MS = 30 * 86_400_000
 
@@ -83,19 +83,47 @@ export default function Preferences() {
     return t('settings.importFailed')
   }
 
+  const restLabel = settings.restSec === 0 ? t('settings.restOff') : fmtClock(settings.restSec)
+
   return (
     <Screen title={t('app.settings')} onBack={() => navigate(-1)}>
-      <Section title={t('settings.homeGear')}>
-        <Card>
-          <HomeGearPicker />
+      <Section title={t('settings.workout')}>
+        <Card padded={false} className="divide-y divide-line overflow-hidden">
+          <div className="p-4">
+            <div className="flex items-center gap-3">
+              <RowIcon tone="accent"><Timer className="size-5" /></RowIcon>
+              <div className="min-w-0 flex-1">
+                <p className="text-base font-semibold text-text">{t('settings.rest')}</p>
+                <p className="text-sm leading-snug text-muted">{t('settings.restHint')}</p>
+              </div>
+            </div>
+            <div className="mt-4 flex items-center justify-between gap-3 rounded-control bg-bg p-2" dir="ltr">
+              <IconButton label={t('workout.restLess')} icon={<Minus className="size-5" />} disabled={settings.restSec <= 0} onClick={() => settings.set({ restSec: Math.max(0, settings.restSec - 15) })} />
+              <p className="text-num font-bold tabular-nums text-text" aria-live="polite">{restLabel}</p>
+              <IconButton label={t('workout.restMore')} icon={<Plus className="size-5" />} disabled={settings.restSec >= 600} onClick={() => settings.set({ restSec: Math.min(600, settings.restSec + 15) })} />
+            </div>
+            <div className="mt-3 grid grid-cols-6 gap-1.5" role="group" aria-label={t('settings.rest')}>
+              {REST_PRESETS.map((sec) => (
+                <Chip key={sec} className="justify-center px-0" selected={settings.restSec === sec} onClick={() => settings.set({ restSec: sec })}>
+                  <span dir="ltr" className="tabular-nums">{fmtClock(sec)}</span>
+                </Chip>
+              ))}
+            </div>
+          </div>
+          <SwitchRow icon={<Volume2 className="size-5" />} title={t('settings.sound')} checked={settings.sound} onChange={(sound) => settings.set({ sound })} />
+          <SwitchRow icon={<Vibrate className="size-5" />} title={t('settings.haptics')} checked={settings.haptics} onChange={(haptics) => settings.set({ haptics })} />
+          <SwitchRow icon={<Sun className="size-5" />} title={t('settings.keepAwake')} hint={t('settings.keepAwakeHint')} checked={settings.keepAwake} onChange={(keepAwake) => settings.set({ keepAwake })} />
+          <SwitchRow icon={<Flame className="size-5" />} tone="warn" title={t('body.autoWarmup')} hint={t('settings.autoWarmupShort')} checked={settings.autoWarmup} onChange={(autoWarmup) => settings.set({ autoWarmup })} />
         </Card>
       </Section>
 
       <Section title={t('settings.general')}>
-        <Card className="flex flex-col gap-5">
-          <div>
-            <p className="mb-2 text-sm font-medium text-muted">{t('onboarding.language')}</p>
+        <Card padded={false} className="divide-y divide-line overflow-hidden">
+          <div className="flex items-center gap-3 p-4">
+            <RowIcon><Languages className="size-5" /></RowIcon>
+            <p className="min-w-0 flex-1 text-base font-medium text-text">{t('onboarding.language')}</p>
             <Segmented<Lang>
+              className="w-44 shrink-0"
               label={t('onboarding.language')}
               value={settings.lang}
               onChange={(lang) => settings.set({ lang })}
@@ -105,9 +133,11 @@ export default function Preferences() {
               ]}
             />
           </div>
-          <div>
-            <p className="mb-2 text-sm font-medium text-muted">{t('onboarding.unit')}</p>
+          <div className="flex items-center gap-3 p-4">
+            <RowIcon><Weight className="size-5" /></RowIcon>
+            <p className="min-w-0 flex-1 text-base font-medium text-text">{t('onboarding.unit')}</p>
             <Segmented<Unit>
+              className="w-44 shrink-0"
               label={t('onboarding.unit')}
               value={settings.unit}
               onChange={(unit) => settings.set({ unit })}
@@ -140,47 +170,9 @@ export default function Preferences() {
         </Card>
       </Section>
 
-      <Section title={t('settings.workout')}>
-        <Card className="flex flex-col gap-5">
-          <div>
-            <p className="mb-2 text-sm font-medium text-muted">{t('settings.rest')}</p>
-            <div className="mb-4 grid grid-cols-4 gap-2" role="group" aria-label={t('settings.rest')}>
-              {REST_PRESETS.map((sec) => (
-                <Chip key={sec} className="justify-center px-0" selected={settings.restSec === sec} onClick={() => settings.set({ restSec: sec })}>
-                  <span dir="ltr" className="tabular-nums">{sec < 60 ? `0:${sec}` : `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`}</span>
-                </Chip>
-              ))}
-            </div>
-            <Stepper
-              label={t('settings.rest')}
-              value={settings.restSec}
-              onChange={(restSec) => settings.set({ restSec })}
-              step={15}
-              min={0}
-              max={600}
-              unit={t('common.sec')}
-            />
-          </div>
-          <label className="flex items-center justify-between gap-4">
-            <span className="text-base text-text">{t('settings.sound')}</span>
-            <Toggle checked={settings.sound} onChange={(sound) => settings.set({ sound })} label={t('settings.sound')} />
-          </label>
-          <div>
-            <label className="flex items-center justify-between gap-4">
-              <span className="text-base text-text">{t('body.autoWarmup')}</span>
-              <Toggle checked={settings.autoWarmup} onChange={(autoWarmup) => settings.set({ autoWarmup })} label={t('body.autoWarmup')} />
-            </label>
-          </div>
-          <label className="flex items-center justify-between gap-4">
-            <span className="text-base text-text">{t('settings.haptics')}</span>
-            <Toggle checked={settings.haptics} onChange={(haptics) => settings.set({ haptics })} label={t('settings.haptics')} />
-          </label>
-          <div>
-            <label className="flex items-center justify-between gap-4">
-              <span className="text-base text-text">{t('settings.keepAwake')}</span>
-              <Toggle checked={settings.keepAwake} onChange={(keepAwake) => settings.set({ keepAwake })} label={t('settings.keepAwake')} />
-            </label>
-          </div>
+      <Section title={t('settings.homeGear')}>
+        <Card>
+          <HomeGearPicker />
         </Card>
       </Section>
 
@@ -193,15 +185,17 @@ export default function Preferences() {
             {backupStale ? ' ' + t('settings.backupNudge') : ''}
           </p>
         </div>
-        <Card padded={false} className="py-1">
+        <Card padded={false} className="divide-y divide-line overflow-hidden">
           <ListRow
-            leading={<Download className="size-5 text-muted" />}
+            leading={<RowIcon><Download className="size-5" /></RowIcon>}
+            chevron
             title={t('settings.export')}
             subtitle={t('settings.exportHint')}
             onClick={() => void onExport()}
           />
           <ListRow
-            leading={<Upload className="size-5 text-muted" />}
+            leading={<RowIcon><Upload className="size-5" /></RowIcon>}
+            chevron
             title={t('settings.import')}
             subtitle={t('settings.importHint')}
             onClick={() => fileInput.current?.click()}
@@ -252,5 +246,28 @@ export default function Preferences() {
         onCancel={() => setPending(null)}
       />
     </Screen>
+  )
+}
+
+/** A tinted square behind a settings icon. */
+function RowIcon({ children, tone = 'default' }: { children: ReactNode; tone?: 'default' | 'accent' | 'warn' }) {
+  return (
+    <span className={cx('flex size-10 shrink-0 items-center justify-center rounded-control', tone === 'accent' ? 'bg-accent-soft text-accent' : tone === 'warn' ? 'bg-warn-soft text-warn' : 'bg-surface-2 text-muted')} aria-hidden>
+      {children}
+    </span>
+  )
+}
+
+/** One on/off setting: icon, title, optional hint and the switch. */
+function SwitchRow({ icon, title, hint, checked, onChange, tone }: { icon: ReactNode; title: string; hint?: string; checked: boolean; onChange: (next: boolean) => void; tone?: 'default' | 'accent' | 'warn' }) {
+  return (
+    <div className="flex min-h-16 items-center gap-3 px-4 py-3">
+      <RowIcon tone={tone}>{icon}</RowIcon>
+      <span className="min-w-0 flex-1">
+        <span className="block text-base font-medium text-text">{title}</span>
+        {hint && <span className="mt-0.5 block text-sm leading-snug text-muted">{hint}</span>}
+      </span>
+      <Toggle checked={checked} onChange={onChange} label={title} />
+    </div>
   )
 }

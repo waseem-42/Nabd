@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { App } from '@/app/App'
 import { routes } from '@/app/routes'
 import { ALL_TABLES } from '@/db/db'
-import { getActiveSession, getProgram, listDoneSessions, startProgramFromTemplate } from '@/db'
+import { getProgram, listDoneSessions, startProgramFromTemplate } from '@/db'
 import { useWorkout } from '@/store/session'
 import { useSettings } from '@/store/settings'
 import { DEFAULT_SETTINGS } from '@/types'
@@ -50,10 +50,9 @@ function click(el: Element | null | undefined) {
 const byText = (text: string, selector = 'button') =>
   [...document.querySelectorAll<HTMLElement>(selector)].find((b) => b.textContent?.includes(text))
 
-async function passPreparation() {
-  await waitForText('Before you start')
-  for (const check of document.querySelectorAll('input[type="checkbox"]')) click(check)
-  click(byText('Begin session'))
+async function skipWarmup() {
+  await waitForText('Skip warm-up')
+  click(byText('Skip warm-up'))
   await settle()
 }
 
@@ -136,11 +135,11 @@ describe('workout', () => {
     await waitForText('Today’s workout')
     click(byText('Start'))
     await settle()
-    expect(useWorkout.getState().session).toBeNull()
-    expect(byText('Begin session')?.hasAttribute('disabled')).toBe(true)
-    await passPreparation()
+    // No checklist: the workout opens straight on its warm-up step.
     expect(window.location.pathname).toBe(routes.workout)
     expect(useWorkout.getState().session?.entries.length).toBeGreaterThan(0)
+    await waitForText('How to do it')
+    await skipWarmup()
 
     // The open set's big button ticks it and starts the rest timer.
     const firstUndone = useWorkout.getState().session!.entries[0]!.sets.findIndex((s) => !s.done)
@@ -159,22 +158,7 @@ describe('workout', () => {
     expect(await listDoneSessions()).toHaveLength(1)
   })
 
-  it('cancels preparation without creating a session and resets checks when reopened', async () => {
-    await render(routes.today)
-    click(byText('Free workout'))
-    await settle()
-    click(document.querySelector('input[type="checkbox"]'))
-    click(byText('Not ready now'))
-    await settle()
-    expect(useWorkout.getState().session).toBeNull()
-    expect(await getActiveSession()).toBeUndefined()
-    expect(window.location.pathname).toBe(routes.today)
-    click(byText('Free workout'))
-    await settle()
-    expect([...document.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')].every((input) => !input.checked)).toBe(true)
-  })
-
-  it('resumes without a new preparation check; symptom help stops rest and preserves completed work', async () => {
+  it('resumes without the warm-up once a set is done; symptom help stops rest and preserves completed work', async () => {
     await useWorkout.getState().start({ routine: {
       id: 'safety-test', name: 'Safety test', place: 'gym',
       items: [{ exerciseId: '6YUfHPL', sets: 3, reps: 8, restSec: 90 }], createdAt: 0, updatedAt: 0,

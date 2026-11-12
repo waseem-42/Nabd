@@ -71,8 +71,29 @@ export function sessionVolume(session: WorkoutSession): number {
 }
 
 /** Whole seconds from start to end (or to `now` while still active). */
+/** Gaps longer than this before the first set or after the last mean the app was left open. */
+const IDLE_MS = 20 * 60_000
+/** Time allowed for the warm-up before the first set, and for the last set itself. */
+const LEAD_MS = 10 * 60_000
+const TAIL_MS = 2 * 60_000
+
+/**
+ * Training time in whole seconds. Live while active; for a finished session a workout left
+ * open for hours is trimmed to its sets (plus a warm-up allowance) instead of counting the wait.
+ */
 export function sessionDurationSec(session: WorkoutSession, now = Date.now()): number {
-  return Math.max(0, Math.round(((session.endedAt ?? now) - session.startedAt) / 1000))
+  let start = session.startedAt
+  let end = session.endedAt ?? now
+  if (session.endedAt !== undefined) {
+    const stamps = session.entries.flatMap((e) => e.sets.map((s) => s.doneAt)).filter((t): t is number => typeof t === 'number')
+    if (stamps.length) {
+      const first = Math.min(...stamps)
+      const last = Math.max(...stamps)
+      if (first - start > IDLE_MS) start = first - LEAD_MS
+      if (end - last > IDLE_MS) end = last + TAIL_MS
+    }
+  }
+  return Math.max(0, Math.round((end - start) / 1000))
 }
 
 function done(sessions: WorkoutSession[]): WorkoutSession[] {

@@ -99,8 +99,10 @@ export function createRigRenderer(svg:SVGSVGElement,definition:RigDefinition,sho
     // Floor shadow spans the whole figure, so lying and hinged positions stay grounded.
     const xs=Object.values(pose.points).map(p=>project(p)[0]),minX=Math.min(...xs),maxX=Math.max(...xs)
     body.append(element('ellipse',{cx:(minX+maxX)/2,cy:fit.y+5*s,rx:(maxX-minX)/2+22*s,ry:8*s,fill:'#000',opacity:.28}))
-    if(options.highlight&&(pose.phase===1||pose.phase===2)){
-      for(const [a,b] of guide.work)body.append(element('path',{d:`M${P(a).join(' ')}L${P(b).join(' ')}`,stroke:accent,'stroke-width':58*s,'stroke-linecap':'round',fill:'none',opacity:.2,'data-work':'1'}))
+    // Working muscles: a halo behind the body all through the rep, brighter under load.
+    const load=pose.phase===1||pose.phase===2
+    if(options.highlight){
+      for(const [a,b] of guide.work)body.append(element('path',{d:`M${P(a).join(' ')}L${P(b).join(' ')}`,stroke:accent,'stroke-width':62*s,'stroke-linecap':'round',fill:'none',opacity:load?.32:.16,'data-work':'1'}))
     }
     // Implements held in the far hand go behind the body; everything else in front.
     const wristL=pose.points.wristL,wristR=pose.points.wristR
@@ -146,6 +148,13 @@ export function createRigRenderer(svg:SVGSVGElement,definition:RigDefinition,sho
       body.append(element('circle',{cx:head[0]-facing*.12*r,cy:head[1],r:.2*r,fill:'none',stroke:C.limbFar,'stroke-width':1.5*s}))
     }
     arm('R',C.limb,C.shirt)
+    // ...and the muscle itself painted coral on top of the limb, so it reads as "this one works".
+    if(options.highlight){
+      for(const [a,b] of guide.work){
+        const pa=P(a),pb=P(b)
+        body.append(element('path',{d:`M${lerp(pa,pb,.18).join(' ')}L${lerp(pa,pb,.82).join(' ')}`,stroke:accent,'stroke-width':15*s,'stroke-linecap':'round',fill:'none',opacity:load?.9:.5,'data-muscle':'1'}))
+      }
+    }
     drawItems(front)
     // Coral joint rings belong to the full-size player; thumbnails stay clean.
     if(options.highlight||showTitle)for(const name of ['hipR','kneeR','shoulderR','elbowR']){
