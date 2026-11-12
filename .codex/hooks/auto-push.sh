@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Stop: auto-save work straight to main. Commits changes, rebases on the latest origin/main
-# (so the other person's pushes are kept), then pushes. No branches, no Pull Requests.
+# (so pushes from another machine are kept), then pushes. No branches, no Pull Requests.
 cd "${CLAUDE_PROJECT_DIR:-.}" || exit 0
 gitdir=$(git rev-parse --git-dir 2>/dev/null) || exit 0
 
@@ -41,7 +41,7 @@ fi
 git fetch -q origin main 2>/dev/null || msg "nabd-sync: حُفظ commit محليًا لكن تعذّر الاتصال بـ GitHub. ينرفع في المرة الجاية."
 [ -z "$(git log --oneline origin/main..HEAD)" ] && exit 0
 
-# Put our commits on top of whatever the other person pushed, then push.
+# Put our commits on top of anything pushed from another machine, then push.
 if ! git rebase -q origin/main >/dev/null 2>&1; then
   git rebase --abort >/dev/null 2>&1
   msg "nabd-sync: ما انرفع - تعديلاتك تتعارض مع تحديث جديد على main. شغلك محفوظ محليًا. اطلب: «حل التعارض وارفع»."

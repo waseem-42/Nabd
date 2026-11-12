@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SessionStart: bring main up to date with what the other person pushed.
+# SessionStart: bring main up to date with anything pushed from another machine.
 # Never discards local work: rebases with autostash and aborts on any conflict.
 cd "${CLAUDE_PROJECT_DIR:-.}" || exit 0
 git rev-parse --git-dir >/dev/null 2>&1 || exit 0
