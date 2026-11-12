@@ -1,38 +1,31 @@
 # Nabd — Codex instructions
 
-Nabd (نبض) is a Vite + React + TypeScript PWA (npm). Two people work on it from
-different machines, each with their own Codex. Collaboration guide (Arabic):
-`docs/COLLABORATION.md`.
+Nabd (نبض) is a Vite + React + TypeScript PWA (npm), open source under AGPL-3.0. Two people
+work on it from different machines, each with their own Codex. Collaboration guide
+(Arabic): `docs/COLLABORATION.md`.
 
 Roadmap (Arabic): `docs/ROADMAP.md` — check the current phase before starting new work, and
-tick the task off in the same PR.
+tick the task off in the same commit.
 
 ## Commands
 - `npm run dev` — dev server (port 5173)
-- `npm run build` — typecheck + production build (must pass before any PR)
+- `npm run build` — typecheck + production build (must pass before pushing)
 - `npm test` — vitest
 
-## Auto-sync hooks (.Codex/settings.json)
-- SessionStart (`.Codex/hooks/sync-start.sh`) fetches, fast-forwards `main` or merges
-  `origin/main` into the current branch (aborts on conflict), and lists open PRs.
-  Summarize its output to the user briefly in your first reply.
-- Stop (`.Codex/hooks/auto-push.sh`) auto-commits all changes, pushes them to the
-  current feature branch (moving work off `main` to `work/<user>-<date>` if needed), and
-  opens a draft PR once. So you don't need to commit/push manually; never merge for the user
-  unless asked.
-- If a hook reports a conflict or failed push, help the user resolve it without losing work.
-- After a branch's PR is merged and the user starts new work, switch to `main`, pull, and
-  start a new branch.
+## Auto-sync hooks (.codex/hooks.json)
+- SessionStart (`.codex/hooks/sync-start.sh`) fetches and rebases `main` on `origin/main`
+  (autostash; aborts on conflict). Summarize its output to the user briefly in your first reply.
+- Stop (`.codex/hooks/auto-push.sh`) auto-commits all changes, rebases them on the latest
+  `origin/main`, and pushes to `main`. So you don't need to commit/push manually.
+- If a hook reports a conflict or failed push, help the user resolve it without losing work
+  (theirs or the other person's), then push to `main`.
+- If the checkout is on an old feature branch, help the user bring that work onto `main`.
 
 ## Git workflow (required)
-- Never commit directly to `main`. Start every change with `git switch main && git pull`,
-  then `git switch -c feat/<short-name>` (or `fix/…`, `docs/…`).
-- Keep commits small; run `npm run build` (and `npm test`) before pushing.
-- Push the branch and open a Pull Request into `main` (`gh pr create --base main`).
-- Never merge a PR or enable auto-merge unless the user explicitly asks.
+- Work directly on `main`. No feature branches and no Pull Requests unless the user asks.
+- Run `npm run build` and `npm test` before a change is considered done; a red `main`
+  breaks the other person too.
 - Never `git push --force`, `git reset --hard`, or delete files/branches you didn't create
   without the user's approval.
-- Never commit `.env` files, API keys, tokens or passwords.
-- Before starting work, check `gh pr list` to avoid editing files another open PR touches;
-  warn the user if overlap is likely.
+- Never commit `.env` files, API keys, tokens or passwords — the repository is public.
 - Don't edit `package-lock.json` by hand; use `npm install <pkg>`.
