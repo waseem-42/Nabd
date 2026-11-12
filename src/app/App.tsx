@@ -24,6 +24,7 @@ const Summary = lazy(() => import('@/screens/Summary'))
 const Gallery = lazy(() => import('@/ui/Gallery'))
 const BrandGuide = lazy(() => import('@/screens/BrandGuide'))
 const MotionBatch = lazy(() => import('@/screens/MotionBatch'))
+const CoachReview = lazy(() => import('@/screens/CoachReview'))
 
 /** Keeps <html lang dir> in sync with the chosen language. */
 function useDocumentLanguage() {
@@ -88,6 +89,7 @@ export function App() {
           <Route element={<PlainLayout />}>
             <Route path={routes.onboarding} element={<Setup />} />
             <Route path={routes.motionBatch} element={<MotionBatch />} />
+            <Route path={routes.coachReview} element={<CoachReview />} />
             {import.meta.env.DEV && <Route path="/dev/ui" element={<Gallery />} />}
           </Route>
           <Route element={<RequireOnboarded />}>

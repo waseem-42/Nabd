@@ -251,6 +251,8 @@ export interface Settings {
   keepAwake: boolean
   /** Short vibrations when a set is done and when rest ends. */
   haptics: boolean
+  /** Notify when a rest ends while the app is in the background (needs notification permission). */
+  restAlert: boolean
   goal: Goal
   /** Weekdays the user plans to train (0 = Sunday … 6 = Saturday); empty = not set. */
   trainingDays: number[]
@@ -275,6 +277,7 @@ export const DEFAULT_SETTINGS: Settings = {
   autoWarmup: true,
   keepAwake: true,
   haptics: true,
+  restAlert: false,
   goal: 'muscle',
   trainingDays: [],
   reminderTime: '18:00',

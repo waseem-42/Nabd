@@ -132,6 +132,17 @@ export default {
   'app.swap.always': { ar: 'دايم في خطتي', en: 'Always, in my plan' },
   'app.swap.saved': { ar: 'تغيّرت خطتك', en: 'Your plan is updated' },
 
+  'app.restAlert.title': { ar: 'خلصت الراحة', en: 'Rest is over' },
+  'app.restAlert.body': { ar: 'يلا، المجموعة الجاية.', en: 'On to the next set.' },
+  'app.restAlert.setting': { ar: 'تنبيه انتهاء الراحة', en: 'Rest-over alert' },
+  'app.restAlert.hint': { ar: 'إشعار لما تخلص الراحة وأنت طالع من التطبيق.', en: 'A notification when rest ends while you’re out of the app.' },
+  'app.restAlert.denied': { ar: 'المتصفح ما سمح بالإشعارات. فعّلها من إعدادات المتصفح.', en: 'The browser blocked notifications. Allow them in its settings.' },
+  'app.install.title': { ar: 'ثبّت نبض على شاشتك', en: 'Add Nabd to your home screen' },
+  'app.install.body': { ar: 'يفتح بضغطة، بشاشة كاملة، ويشتغل بدون نت.', en: 'Opens in one tap, full screen, and works offline.' },
+  'app.install.action': { ar: 'ثبّت', en: 'Install' },
+  'app.install.ios': { ar: 'اضغط زر المشاركة تحت، بعدها «إضافة إلى الشاشة الرئيسية».', en: 'Tap the Share button below, then “Add to Home Screen”.' },
+  'app.install.later': { ar: 'مو الحين', en: 'Not now' },
+
   'app.log.week': { ar: 'هالأسبوع', en: 'This week' },
   'app.log.sessions': { ar: 'تمارين', en: 'Workouts' },
   'app.log.minutes': { ar: 'دقيقة', en: 'Minutes' },

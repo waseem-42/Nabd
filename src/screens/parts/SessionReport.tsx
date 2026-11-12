@@ -65,7 +65,7 @@ export function SessionReport({ session, onExercise }: { session: WorkoutSession
             return (
               <Card key={i}>
                 {onExercise ? (
-                  <button type="button" className="block w-full" onClick={() => onExercise(entry.exerciseId)}>
+                  <button type="button" className="block min-h-11 w-full" onClick={() => onExercise(entry.exerciseId)}>
                     {head}
                   </button>
                 ) : (

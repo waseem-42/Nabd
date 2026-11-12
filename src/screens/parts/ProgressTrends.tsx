@@ -90,7 +90,7 @@ export function MuscleSplit({ sessions, lookup, now }: { sessions: WorkoutSessio
         </ul>
         <p className="mt-4 border-t border-line pt-3 text-xs leading-relaxed text-faint">
           {missed.length
-            ? t('progress.splitMissed', { groups: missed.map((m) => t(`common.group.${m.group}`)).join('، ') })
+            ? t('progress.splitMissed', { groups: fmt.list(missed.map((m) => t(`common.group.${m.group}`))) })
             : t('progress.splitBalanced')}
         </p>
       </Card>

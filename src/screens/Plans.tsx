@@ -65,7 +65,7 @@ function MyPlan({ program, following }: { program: UserProgram; following: boole
       <div className="flex items-center gap-3 p-4">
         <button type="button" aria-expanded={open} onClick={() => setOpen((v) => !v)} className="flex min-w-0 flex-1 items-center gap-2 text-start">
           <span className="min-w-0 flex-1">
-            <span className="block truncate font-bold">{program.name}</span>
+            <span className="block truncate font-bold">{fmt.planName(program.name)}</span>
             <span className="block text-xs text-muted">{t('app.daysPerWeek', { n: fmt.number(program.routineIds.length) })}</span>
           </span>
           <ChevronDown className={cx('size-5 text-muted transition-transform', open && 'rotate-180')} aria-hidden />
@@ -80,7 +80,7 @@ function MyPlan({ program, following }: { program: UserProgram; following: boole
         <div className="flex flex-col gap-2 border-t border-line p-3">
           {detail.routines.map((routine) => (
             <button key={routine.id} type="button" onClick={() => navigate(routes.routine(routine.id))} className="flex min-h-12 items-center gap-3 rounded-control bg-bg px-3 text-start">
-              <span className="flex-1 font-semibold">{routine.name}</span>
+              <span className="flex-1 font-semibold">{fmt.planName(routine.name)}</span>
               <span className="text-xs text-muted">{t('app.exerciseCount', { n: fmt.number(routine.items.length) })}</span>
               <Pencil className="size-4 text-muted" aria-hidden />
             </button>

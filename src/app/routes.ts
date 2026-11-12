@@ -10,6 +10,8 @@ export const routes = {
   session: (id: string) => `/progress/session/${id}`,
   settings: '/settings',
   motionBatch: '/motion-batch',
+  /** Printable sheet for a coach; open without onboarding. */
+  coachReview: '/coach-review',
 
   onboarding: '/onboarding',
   programs: '/programs',

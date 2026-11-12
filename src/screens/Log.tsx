@@ -34,6 +34,7 @@ export default function Log() {
   if (!all) return null
   return (
     <div className="flex flex-col gap-2 pt-2">
+      <h1 className="sr-only">{t('app.tab.log')}</h1>
       <section aria-label={t('app.log.week')} className="grid grid-cols-3 gap-2 px-5">
         <StatTile value={fmt.number(week.count)} label={t('app.log.sessions')} tone={place} />
         <StatTile value={fmt.number(minutes)} label={t('app.log.minutes')} />

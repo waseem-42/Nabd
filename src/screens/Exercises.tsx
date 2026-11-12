@@ -29,6 +29,7 @@ export default function Exercises() {
 
   return (
     <div className="flex flex-col gap-4 pt-2">
+      <h1 className="sr-only">{t('app.tab.exercises')}</h1>
       <div className="px-5"><SearchField value={query} onChange={setQuery} placeholder={t('common.searchExercises')} /></div>
       <div className="flex gap-2 overflow-x-auto px-5 pb-1 [scrollbar-width:none]" role="group" aria-label={t('app.groups')}>
         {[null, ...groups].map((g) => (

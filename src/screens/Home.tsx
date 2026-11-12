@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ArrowUpRight, Feather, Play, Repeat, RotateCw, Trophy, Zap } from 'lucide-react'
+import { ArrowUpRight, Feather, Play, Repeat, RotateCw, Share, Smartphone, Trophy, Zap } from 'lucide-react'
 import { routes } from '@/app/routes'
 import { useNow } from '@/app/useNow'
+import { dismissInstall, promptInstall, useInstall } from '@/app/install'
 import { restartProgram, startProgramFromTemplate, useActiveProgram, useAllExercises, useDoneSessions } from '@/db'
 import { muscleReadiness } from '@/domain/recovery'
 import { PROGRAM_TEMPLATES, PROGRAM_TEMPLATE_BY_ID } from '@/data/catalog'
@@ -73,8 +74,8 @@ export default function Home() {
         <section className="overflow-hidden rounded-card border border-line bg-surface" aria-labelledby="today-title">
           <div className="flex items-start justify-between gap-3 px-5 pt-5">
             <div className="min-w-0">
-              <p className="truncate text-sm text-muted">{t('app.today')} · {plan.program.name}</p>
-              <h1 id="today-title" className="truncate text-2xl font-bold">{next.name}</h1>
+              <p className="truncate text-sm text-muted">{t('app.today')} · {fmt.planName(plan.program.name)}</p>
+              <h1 id="today-title" className="truncate text-2xl font-bold">{fmt.planName(next.name)}</h1>
               <p className="mt-1 text-sm text-muted">
                 {t('app.exerciseCount', { n: fmt.number(next.items.length) })} · {t('app.minutes', { n: fmt.number(routineMinutes(next.items, restSec)) })}
               </p>
@@ -122,6 +123,8 @@ export default function Home() {
         </div>
       </section>
 
+      {sessions && sessions.length > 0 && !active && <InstallCard />}
+
       {sessions && <Readiness sessions={sessions} now={now} />}
 
       {!active && (
@@ -130,6 +133,28 @@ export default function Home() {
         </button>
       )}
     </div>
+  )
+}
+
+/** After the first finished workout: offer to put the app on the home screen. */
+function InstallCard() {
+  const t = useT()
+  const mode = useInstall()
+  if (!mode) return null
+  return (
+    <section className="flex items-start gap-3 rounded-card border border-line bg-surface p-4" aria-labelledby="install-title">
+      <span className="flex size-10 shrink-0 items-center justify-center rounded-control bg-accent-soft text-accent"><Smartphone className="size-5" aria-hidden /></span>
+      <div className="min-w-0 flex-1">
+        <h2 id="install-title" className="font-bold">{t('app.install.title')}</h2>
+        <p className="mt-0.5 text-sm text-muted">
+          {mode === 'ios' ? <><Share className="me-1 inline size-4 align-text-bottom" aria-hidden />{t('app.install.ios')}</> : t('app.install.body')}
+        </p>
+        <div className="mt-3 flex gap-2">
+          {mode === 'prompt' && <Button size="md" onClick={() => void promptInstall()}>{t('app.install.action')}</Button>}
+          <Button size="md" variant="ghost" onClick={dismissInstall}>{t('app.install.later')}</Button>
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -156,7 +181,7 @@ function ProgramDone({ program, position }: { program: UserProgram; position: Pl
   return (
     <section className="rounded-card border border-accent/40 bg-accent-soft p-5" aria-labelledby="done-title">
       <Trophy className="mb-2 size-9 text-accent" aria-hidden />
-      <h1 id="done-title" className="text-2xl font-bold">{t('app.done.title', { name: program.name })}</h1>
+      <h1 id="done-title" className="text-2xl font-bold">{t('app.done.title', { name: fmt.planName(program.name) })}</h1>
       <p className="mt-1 text-muted">
         {t('app.done.body', { n: fmt.number(position.sessions.length), weeks: fmt.number(position.weeks ?? 0) })}
         {records > 0 && ` ${t('app.done.records', { n: fmt.number(records) })}`}

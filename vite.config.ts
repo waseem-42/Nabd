@@ -36,6 +36,8 @@ export default defineConfig({
         // App shell + catalogue are precached; exercise art is fetched on demand and kept.
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
         globIgnores: ['art/**'],
+        // Rest-over notifications while the app is in the background.
+        importScripts: ['rest-alert.js'],
         navigateFallback: '/index.html',
         runtimeCaching: [
           {

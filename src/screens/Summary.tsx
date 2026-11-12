@@ -51,7 +51,7 @@ function VersusLast({ session }: { session: WorkoutSession }) {
   const { byId } = useAllExercises()
   const result = useMemo(() => (history ? compareWithPrevious(session, history, byId) : undefined), [session, history, byId])
   if (result === undefined || !session.routineId) return null
-  const names = (ids: string[]) => ids.map(fmt.exerciseName).join('، ')
+  const names = (ids: string[]) => fmt.list(ids.map(fmt.exerciseName))
 
   return (
     <Section title={t('app.s.vsLast')}>
@@ -106,7 +106,7 @@ function NextUp({ session }: { session: WorkoutSession }) {
           ))}
         </div>
         <div className="min-w-0 flex-1">
-          <p className="truncate text-lg font-bold">{next.name}</p>
+          <p className="truncate text-lg font-bold">{fmt.planName(next.name)}</p>
           <p className="text-sm text-muted">
             {t('app.exerciseCount', { n: fmt.number(next.items.length) })} · {t('app.minutes', { n: fmt.number(routineMinutes(next.items, restSec)) })}
           </p>

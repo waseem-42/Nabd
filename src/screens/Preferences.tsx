@@ -1,6 +1,6 @@
 import { useRef, useState, type ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CalendarPlus, Download, ExternalLink, Flame, Languages, Minus, Plus, Sun, Target, Timer, TriangleAlert, Upload, Vibrate, Volume2, Weight } from 'lucide-react'
+import { Bell, CalendarPlus, Download, ExternalLink, Flame, Languages, Minus, Plus, Sun, Target, Timer, TriangleAlert, Upload, Vibrate, Volume2, Weight } from 'lucide-react'
 import { BackupError, downloadBackup, exportBackup, importBackup, readBackupFile, upsertBodyWeight, useBodyWeights, useDoneSessions } from '@/db'
 import { fmtClock, fmtDate, isoDay } from '@/i18n/format'
 import { BodyProfileForm } from './parts/BodyProfileForm'
@@ -12,6 +12,7 @@ import { HomeGearPicker } from './parts/HomeGearPicker'
 import { DayPicker } from './parts/DayPicker'
 import { downloadReminder, reminderCalendar } from '@/app/calendar'
 import { GOAL_REST } from '@/domain/goal'
+import { enableRestAlert, notificationsSupported } from '@/app/restAlert'
 
 const REST_PRESETS = [15, 30, 45, 60, 90, 120]
 const BACKUP_KEY = 'nabd-last-backup'
@@ -155,6 +156,19 @@ export default function Preferences() {
             </div>
           </div>
           <SwitchRow icon={<Volume2 className="size-5" />} title={t('settings.sound')} checked={settings.sound} onChange={(sound) => settings.set({ sound })} />
+          {notificationsSupported() && (
+            <SwitchRow
+              icon={<Bell className="size-5" />}
+              title={t('app.restAlert.setting')}
+              hint={t('app.restAlert.hint')}
+              checked={settings.restAlert}
+              onChange={async (on) => {
+                if (!on) return settings.set({ restAlert: false })
+                if (await enableRestAlert()) settings.set({ restAlert: true })
+                else toast(t('app.restAlert.denied'), { tone: 'danger' })
+              }}
+            />
+          )}
           <SwitchRow icon={<Vibrate className="size-5" />} title={t('settings.haptics')} checked={settings.haptics} onChange={(haptics) => settings.set({ haptics })} />
           <SwitchRow icon={<Sun className="size-5" />} title={t('settings.keepAwake')} hint={t('settings.keepAwakeHint')} checked={settings.keepAwake} onChange={(keepAwake) => settings.set({ keepAwake })} />
           <SwitchRow icon={<Flame className="size-5" />} tone="warn" title={t('body.autoWarmup')} hint={t('settings.autoWarmupShort')} checked={settings.autoWarmup} onChange={(autoWarmup) => settings.set({ autoWarmup })} />
