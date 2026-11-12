@@ -122,6 +122,35 @@ export const EXERCISE_SAFETY: Record<string, L10n[]> = {
     { ar: 'المرفق تحت الكتف بالضبط، والورك فوق الورك بدون ما يميل لقدّام.', en: 'Elbow right under the shoulder, top hip stacked over the bottom one without rolling forward.' },
     { ar: 'إذا صعب، اثنِ الركبتين وارتكز عليها. وقف إذا حسيت ألم بالكتف.', en: 'If it’s hard, bend the knees and support on them. Stop if your shoulder hurts.' },
   ],
+  // Batch seven (home, no equipment).
+  'wide-push-up': [
+    { ar: 'اليدين أوسع من الكتفين بشبر تقريبًا مو أكثر؛ الوسع الزايد يضغط على الكتف.', en: 'Hands about a hand’s width outside the shoulders, no wider; too wide strains the shoulders.' },
+    { ar: 'الجسم خط واحد، وانزل لمدى تقدر تتحكم فيه.', en: 'Keep one straight line and lower only as far as you control.' },
+  ],
+  'wall-push-up': [
+    { ar: 'وقف على أرض ما تزحلق، واليدين على الجدار بارتفاع الكتف.', en: 'Stand on a non-slip floor with hands on the wall at shoulder height.' },
+    { ar: 'كل ما بعّدت رجولك عن الجدار صار أصعب؛ ابدأ قريب.', en: 'The further your feet are from the wall, the harder it gets; start close.' },
+  ],
+  'reverse-snow-angel': [
+    { ar: 'الذراعين مستقيمة وقريبة من الأرض، وحرّكها ببطء لمدى مريح للكتف.', en: 'Keep the arms straight and just off the floor, sweeping slowly within a comfortable shoulder range.' },
+    { ar: 'الجبهة على الأرض، ولا ترفع الصدر بقوة.', en: 'Keep the forehead down and don’t heave the chest up.' },
+  ],
+  'scapular-push-up': [
+    { ar: 'الذراعين مستقيمة طول الوقت؛ الحركة من لوحي الكتف بس، مو من المرفق.', en: 'Arms stay straight throughout; the movement comes only from the shoulder blades, not the elbows.' },
+    { ar: 'البطن مشدود والورك ما ينزل.', en: 'Keep the abs braced and don’t let the hips sag.' },
+  ],
+  'feet-elevated-pike-push-up': [
+    { ar: 'هذا تمرين متقدم: تأكد إنك تسوي ضغط البايك العادي بسهولة قبله.', en: 'This is advanced: make sure the regular pike push-up is easy for you first.' },
+    { ar: 'صندوق ثابت ما يتحرك، وانزل ببطء بدون ما يضرب الراس الأرض.', en: 'Use a box that can’t move, and lower slowly without the head touching down hard.' },
+  ],
+  'wall-handstand-push-up': [
+    { ar: 'تمرين متقدم: لا تجربه قبل ما تثبت الوقوف على اليدين على الجدار 30 ثانية براحة.', en: 'Advanced: don’t try it before you can hold a wall handstand comfortably for 30 seconds.' },
+    { ar: 'حط وسادة تحت الراس، وانزل ببطء شديد؛ وقف فورًا إذا حسيت ضغط بالرقبة أو دوخة.', en: 'Put a cushion under your head and lower very slowly; stop at once if your neck strains or you feel dizzy.' },
+  ],
+  'crab-walk': [
+    { ar: 'الأصابع تأشر لجهة الرجلين، والورك مرفوع بدون ما ينزل.', en: 'Fingers point toward your feet, hips held up without sagging.' },
+    { ar: 'خطوات صغيرة وبطيئة؛ وقف إذا حسيت ضغط بالرسغ أو الكتف.', en: 'Take small, slow steps; stop if your wrists or shoulders feel strained.' },
+  ],
   // Batch four (home).
   'plank-hold': [
     { ar: 'المرفقين تحت الكتفين، والجسم خط واحد من الكعب للرأس؛ لا تخلي الورك ينزل أو يرتفع.', en: 'Elbows under the shoulders and one straight line from heels to head; don’t let the hips sag or pike.' },

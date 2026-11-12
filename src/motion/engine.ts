@@ -6,6 +6,7 @@ export type RigId = 'squat' | 'pushup' | 'split' | 'bridge' | 'calf' | 'curl' | 
   | 'plank' | 'crunch' | 'birddog' | 'deadbug' | 'goblet' | 'dbrow'
   | 'revlunge' | 'climber' | 'superman' | 'legext' | 'benchdip' | 'hipthrust'
   | 'kneepush' | 'closepush' | 'chairdip' | 'pike' | 'traise' | 'slbridge' | 'slcalf' | 'sideplank'
+  | 'widepush' | 'wallpush' | 'snowangel' | 'scappush' | 'fepike' | 'crabwalk' | 'hspu'
   | WarmupRigId
 /** Warm-up moves: animated like the exercises, but not catalogue entries. */
 export type WarmupRigId = 'wmarch' | 'wjacks' | 'warmcircles' | 'wscap' | 'wpullapart' | 'wlegswing' | 'whipopener' | 'wcatcow'
@@ -75,6 +76,14 @@ export const RIGS: RigDefinition[] = [
   definition('slbridge','single-leg-glute-bridge','جسر برجل وحدة','Single-leg glute bridge',15,['رفع الحوض','Lift hips'],['نزول','Lower'],['']),
   definition('slcalf','0jp9Rlz','رفع السمانة برجل وحدة','Single-leg calf raise',18,['رفع الكعب','Raise heel'],['نزول','Lower'],['']),
   definition('sideplank','side-plank-hold','بلانك جانبي','Side plank',12,['ثبّت الورك','Brace'],['تنفّس','Breathe'],['']),
+  // Batch seven: the rest of the no-equipment gaps (chest, back, shoulders, arms).
+  definition('widepush','wide-push-up','ضغط واسع','Wide push-up',20,['نزول','Lower'],['دفع','Press'],['']),
+  definition('wallpush','wall-push-up','ضغط على الجدار','Wall push-up',15,['نزول للجدار','Lean in'],['دفع','Press'],['']),
+  definition('snowangel','reverse-snow-angel','ملاك الثلج المعكوس','Reverse snow angel',55,['للأمام','Sweep up'],['للخلف','Sweep back'],['']),
+  definition('scappush','scapular-push-up','ضغط لوحي الكتف','Scapular push-up',15,['نزول بين الكتفين','Sink'],['دفع','Push'],['']),
+  definition('fepike','feet-elevated-pike-push-up','ضغط بايك بقدمين مرتفعتين','Feet-elevated pike push-up',15,['نزول بالراس','Lower the head'],['دفع','Press'],['']),
+  definition('crabwalk','crab-walk','مشي السرطان','Crab walk',20,['خطوة يمين','Step'],['خطوة يسار','Step'],['']),
+  definition('hspu','wall-handstand-push-up','ضغط الوقوف على اليدين على الجدار','Wall handstand push-up',15,['نزول بالراس','Lower'],['دفع','Press'],['']),
 ]
 /**
  * Warm-up rigs, keyed by `warmup:<move>` so they never collide with catalogue ids. The
@@ -143,6 +152,13 @@ export const RIG_GUIDES: Record<RigId, RigGuide> = {
   slbridge: { track: 'hip', work: [['hipR','kneeR'], ['hipL','hipR']], exhaleOnAction: true, altYaw: 55 },
   slcalf: { track: 'heelR', work: [['kneeR','ankleR']], exhaleOnAction: true, altYaw: 60 },
   sideplank: { track: 'hip', work: [['hip','shoulder'], ['hipL','hipR']], exhaleOnAction: true, altYaw: 40 },
+  widepush: { track: 'shoulder', work: [...upperArms, ['shoulderL','shoulderR']], exhaleOnAction: false, altYaw: 60 },
+  wallpush: { track: 'shoulder', work: [...upperArms, ['shoulderL','shoulderR']], exhaleOnAction: false, altYaw: 60 },
+  snowangel: { track: 'wristR', work: [['shoulderL','shoulderR'], ...upperArms], exhaleOnAction: true, altYaw: 85 },
+  scappush: { track: 'shoulder', work: [['shoulderL','shoulderR']], exhaleOnAction: false, altYaw: 55 },
+  fepike: { track: 'head', work: [...upperArms, ['shoulderL','shoulderR']], exhaleOnAction: false, altYaw: 55 },
+  hspu: { track: 'head', work: [...upperArms, ['shoulderL','shoulderR']], exhaleOnAction: false, altYaw: 60 },
+  crabwalk: { track: 'wristR', work: [...upperArms, ['hip','shoulder']], exhaleOnAction: true, altYaw: 60 },
   legcurl: { track: 'ankleR', work: [['kneeR','ankleR'],['kneeL','ankleL'],['hipR','kneeR'],['hipL','kneeL']], exhaleOnAction: true, altYaw: 60 },
   wmarch: { track: 'kneeR', work: legs, exhaleOnAction: true, altYaw: 60 },
   wjacks: { track: 'wristR', work: [...legs, ...upperArms], exhaleOnAction: true, altYaw: 20 },
@@ -540,6 +556,56 @@ export function sampleRig(id:RigId,time:number):RigPose {
     for(const side of ['L','R'] as const){const ankle=sub(get('hip'+side),scale(up,199.6));leg(side,ankle,[0,0,-1],add(ankle,[0,-12,-30]),add(ankle,[0,-12,20]))}
     const elbow:Vec3=[150,10,0];arm('R',add(elbow,[0,0,-65]),[0,0,-1],elbow)
     arm('L',add(get('shoulderL'),scale(down,-133)),[1,0,0])
+  }else if(id==='widepush'){
+    // Hands well outside the shoulders; the elbows open out to the sides on the way down.
+    const axis=horizontal(deg(mix(20.1,4,p))),ankle:Vec3=[-160,20,0]
+    body(add(ankle,scale(axis,200)),axis)
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[-160,20,sign*26],[0,1,0],[-125,0,sign*26],[-185,40,sign*26]);arm(side,[140,0,sign*80],[0,.5,sign]);equipment([[127,0,sign*80],[156,0,sign*80]],false,4)}
+  }else if(id==='wallpush'){
+    // Standing, hands on the wall at shoulder height; the straight body leans in from the ankles.
+    const axis=vertical(deg(mix(20,32,p)))
+    body(add([-60,20,0],scale(axis,199.6)),axis)
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[-60,20,sign*26],[1,0,0]);arm(side,[159,250,sign*42.5],[0,-1,sign*.5])}
+    equipment([[167,0,-80],[167,420,-80],[167,420,80],[167,0,80]],false,3)
+  }else if(id==='snowangel'){
+    // Face down, forehead resting; straight arms sweep just above the floor from the hips to overhead.
+    body([0,22,0],[-1,0,0])
+    const a=deg(mix(5,170,p))
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1
+      const ankle:Vec3=[199.5,22,sign*26];leg(side,ankle,[0,-1,0],[229.5,8,sign*26],[194.5,40,sign*26])
+      arm(side,add(get('shoulder'+side),[130*Math.cos(a),10,sign*130*Math.sin(a)]),[0,1,0])
+    }
+  }else if(id==='scappush'){
+    // High plank with straight arms: only the shoulder blades move, letting the chest sink and pushing it back up.
+    const axis=horizontal(deg(mix(20.9,18,p))),ankle:Vec3=[-160,20,0]
+    body(add(ankle,scale(axis,200)),axis)
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[-160,20,sign*26],[0,1,0],[-125,0,sign*26],[-185,40,sign*26]);arm(side,[140,0,sign*42.5],[-1,0,0]);equipment([[127,0,sign*42.5],[156,0,sign*42.5]],false,4)}
+  }else if(id==='fepike'){
+    // The pike push-up with the feet on a box: the torso is closer to vertical, so the shoulders carry more.
+    const ankle:Vec3=[-110,80,0],legA=deg(mix(52.2,40,p)),torso=deg(mix(70,85,p))
+    body(add(ankle,[199.6*Math.cos(legA),199.6*Math.sin(legA),0]),[Math.cos(torso),-Math.sin(torso),0])
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1;leg(side,[-110,80,sign*26],[1,0,0]);arm(side,[96,0,sign*42.5],[.3,1,0])}
+    for(const z of [-50,50])equipment([[-160,0,z],[-160,60,z],[-55,60,z],[-55,0,z]],false,4)
+  }else if(id==='crabwalk'){
+    // Reverse tabletop on hands and feet, hips up; the right hand and left foot step, then the other pair.
+    const u=((time%RIG_DURATION)+RIG_DURATION)%RIG_DURATION
+    const bump=(a:number,b:number)=>u<a||u>b?0:Math.sin(Math.PI*(u-a)/(b-a))**2
+    const lift={R:bump(.3,2.7),L:bump(3.3,5.7)}
+    const a=deg(10)
+    body([0,100,0],[-Math.cos(a),Math.sin(a),0],[-.3,1,0])
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1,other=side==='L'?'R':'L'
+      const ankle:Vec3=[110+20*lift[other],20+30*lift[other],sign*26];leg(side,ankle,[0,1,0])
+      arm(side,[-125+15*lift[side],28*lift[side],sign*42.5],[-1,0,0])
+    }
+  }else if(id==='hspu'){
+    // Upside down with the heels against the wall; the whole body lowers straight down until the head nears the floor.
+    const axis=vertical(Math.PI-.06),up=scale(axis,-1),y=mix(132,62,p)
+    body([-118*axis[0],y+118*.9982,0],axis)
+    for(const side of ['L','R'] as const){const sign=side==='L'?-1:1
+      const ankle=add(get('hip'+side),scale(up,199.6));leg(side,ankle,[1,0,0],add(ankle,[30,25,0]),add(ankle,[-20,15,0]))
+      arm(side,[25,0,sign*50],[1,0,sign*.5])
+    }
+    equipment([[-34,0,-80],[-34,470,-80],[-34,470,80],[-34,0,80]],false,3)
   }else if(id.startsWith('w')){
     warmup(id as WarmupRigId,((time%RIG_DURATION)+RIG_DURATION)%RIG_DURATION)
   }

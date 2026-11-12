@@ -68,9 +68,9 @@
             "reps": 15
           },
           {
-            "exerciseId": "superman",
+            "exerciseId": "scapular-push-up",
             "sets": 3,
-            "reps": 8
+            "reps": 10
           },
           {
             "exerciseId": "dead-bug",
@@ -91,9 +91,9 @@
             "reps": 12
           },
           {
-            "exerciseId": "knee-push-up",
+            "exerciseId": "wall-push-up",
             "sets": 3,
-            "reps": 10
+            "reps": 12
           },
           {
             "exerciseId": "glute-bridge",
@@ -206,7 +206,7 @@
             "reps": 15
           },
           {
-            "exerciseId": "mountain-climber",
+            "exerciseId": "crab-walk",
             "sets": 3,
             "reps": 20
           },
@@ -219,8 +219,8 @@
       },
       {
         "name": {
-          "ar": "ظهر وذراعين",
-          "en": "Back and arms"
+          "ar": "علوي وبطن",
+          "en": "Upper body and core"
         },
         "items": [
           {
@@ -229,9 +229,14 @@
             "reps": 12
           },
           {
-            "exerciseId": "prone-t-raise",
+            "exerciseId": "reverse-snow-angel",
             "sets": 3,
-            "reps": 12
+            "reps": 10
+          },
+          {
+            "exerciseId": "wide-push-up",
+            "sets": 3,
+            "reps": 10
           },
           {
             "exerciseId": "chair-dip",
@@ -242,11 +247,6 @@
             "exerciseId": "plank-hold",
             "sets": 3,
             "sec": 45
-          },
-          {
-            "exerciseId": "TFqbd8t",
-            "sets": 3,
-            "reps": 20
           }
         ]
       }
